@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9eb67ce1ec919f40a200655b448888c, type: 3}
+  m_Name: DraftTree
+  m_EditorClassIdentifier: 
+  itemID: 0
+  itemName: The Drafting Tree
+  itemInventoryIcon: {fileID: 0}
+  overworldSprite: {fileID: 0}
+  itemDescription: Eh. Just a draft
+  maxGrowthIndex: 1
+  phasesGrowthIndex:
+  - -1
+  - 0
+  - 0.5
+  - 1
+  growingPhasesSprites:
+  - {fileID: 0}
+  - {fileID: -413423927, guid: 60b213913fbed5d4398dcb7a8a14fbe0, type: 3}
+  - {fileID: -687707710, guid: 60b213913fbed5d4398dcb7a8a14fbe0, type: 3}
+  - {fileID: 1016995913, guid: 60b213913fbed5d4398dcb7a8a14fbe0, type: 3}
+  deceasingSprites:
+  - {fileID: 0}
+  - {fileID: -1264364123, guid: 7526ce1c0d9cb8c43bdb9f3a42fd1253, type: 3}
+  - {fileID: 210853477, guid: 7526ce1c0d9cb8c43bdb9f3a42fd1253, type: 3}
+  - {fileID: -1657151068, guid: 7526ce1c0d9cb8c43bdb9f3a42fd1253, type: 3}
