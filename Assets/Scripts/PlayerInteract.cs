@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Burst.CompilerServices;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerInteract : MonoBehaviour
 {
@@ -16,33 +17,27 @@ public class PlayerInteract : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
-        {
-            facingDirection = Vector2.left;
-        }
-        else if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
-        {
-            facingDirection = Vector2.right;
-        }
-        else
-        {
-            //facingDirection = Vector2.down;
-        }
+        facingDirection = new Vector2(transform.localScale.x, 0);
 
         GetInteractionPoint();
         Debug.DrawLine(transform.position, interactionPoint);
+    }
 
-        if (interactionPoint != null)
+    public void OnInteract(InputAction.CallbackContext context)
+    {
+        if (context.started)
         {
-            for (int i = 0; i < interactionKeys.Length; i++)
+            if (interactionPoint != null)
             {
-                if (Input.GetKeyDown(interactionKeys[i]))
+                if (GetObjectInInteractionArea() != null)
                 {
-                    //Debug.Log(GetObjectInInteractionArea().name);
-                    GetObjectInInteractionArea().TryGetComponent(out Interactable interactable);
-                    if (interactable != null && interactable.enabled)
+                    Debug.Log(GetObjectInInteractionArea().name);
+                    if (GetObjectInInteractionArea().TryGetComponent(out Interactable interactable))
                     {
-                        interactable.IsInteracted();
+                        if (interactable != null && interactable.enabled)
+                        {
+                            interactable.IsInteracted();
+                        }
                     }
                 }
             }
@@ -58,11 +53,7 @@ public class PlayerInteract : MonoBehaviour
             GameObject closestObject = null;
             foreach (Collider2D hit2 in hit)
             {
-                if (hit2.gameObject.name == "border" || hit2.gameObject.name == "player")
-                {
-                    continue;
-                }
-                else if (!hit2.gameObject.TryGetComponent(out Interactable component)) { continue; }
+                if (!hit2.gameObject.TryGetComponent(out Interactable component)) { continue; }
                 else if (Vector2.Distance(transform.position, hit2.gameObject.transform.position) < closestDistance)
                 {
                     closestObject = hit2.gameObject;

@@ -467,7 +467,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 48288029}
+        m_TargetAssemblyTypeName: ItemInfo, Assembly-CSharp
+        m_MethodName: GetPickedUp
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &48288029
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -481,6 +493,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemsData: {fileID: 0}
+  picker: {fileID: 1080958308}
 --- !u!114 &65505938
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37651,6 +37664,22 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 0b9463b6-6b33-4be7-99a6-9453f1fca0d1
     m_ActionName: UI/TrackedDeviceOrientation
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1080958309}
+        m_TargetAssemblyTypeName: PlayerInteract, Assembly-CSharp
+        m_MethodName: OnInteract
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: d2ede01c-0e46-4115-b00a-dbbd1578b667
+    m_ActionName: Player/Interact[/Keyboard/f]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -41765,6 +41794,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 9096835936027043030, guid: 0a3352a14912c01449653334a3a48d66, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1080958309}
+    - targetCorrespondingSourceObject: {fileID: 9096835936027043030, guid: 0a3352a14912c01449653334a3a48d66, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1080958320}
   m_SourcePrefab: {fileID: 100100000, guid: 0a3352a14912c01449653334a3a48d66, type: 3}
 --- !u!1 &1080958308 stripped
 GameObject:
@@ -41818,6 +41850,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e18e19a3905d6248933a188b8964ceb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1080958320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1080958308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d93108a7dcc17664382d93ed79c3c794, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventorySize: 10
+  editorInventoryList: []
+  draftAsset: {fileID: 11400000, guid: 55b6329c569914a4ea49163c74fdeb69, type: 2}
 --- !u!114 &1110187896
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -43814,6 +43861,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1405092614}
   - component: {fileID: 1405092615}
+  - component: {fileID: 1405092616}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -43846,6 +43894,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 38aea3aa8faf99448aa249649bb4c3f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1405092616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1405092613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f10e6779a7e15a48941254625aaf6dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &1420421079
@@ -48534,6 +48594,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventorySize: 10
+  editorInventoryList: []
+  draftAsset: {fileID: 0}
 --- !u!114 &1885651637
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -50769,7 +50831,6 @@ SceneRoots:
   - {fileID: 426384518}
   - {fileID: 483666631}
   - {fileID: 774523243}
-  - {fileID: 663707175}
   - {fileID: 136536530}
   - {fileID: 376066937}
   - {fileID: 1875860433}
@@ -50777,4 +50838,5 @@ SceneRoots:
   - {fileID: 48288026}
   - {fileID: 1405092614}
   - {fileID: 1620724705}
+  - {fileID: 663707175}
   - {fileID: 1080958307}

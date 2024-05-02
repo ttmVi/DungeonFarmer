@@ -5,6 +5,7 @@ using UnityEngine;
 public class ItemInfo : MonoBehaviour
 {
     [SerializeField] private Items itemsData;
+    [SerializeField] private GameObject picker;
 
     public void SetItemData(Items item)
     {
@@ -17,11 +18,11 @@ public class ItemInfo : MonoBehaviour
         return itemsData;
     }
 
-    public void GetPickedUp(GameObject picker)
+    public void GetPickedUp()
     {
         if (picker.TryGetComponent(out PlayerInventory playerInventory))
         {
-            playerInventory.PickUpItems(itemsData, 1);
+            playerInventory.PickUpItems(gameObject.GetComponent<ItemInfo>().GetItemData(), 1);
             Destroy(gameObject);
         }
     }
