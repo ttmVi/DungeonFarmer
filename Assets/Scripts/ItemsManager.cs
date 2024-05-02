@@ -5,6 +5,7 @@ using UnityEngine;
 public class ItemsManager : MonoBehaviour
 {
     public static ItemsManager itemsManager;
+    [SerializeField] private GameObject player;
 
     private void Awake()
     {
@@ -18,9 +19,10 @@ public class ItemsManager : MonoBehaviour
 
     public void InstantiateItem(GameObject placeholder, Items itemData, Vector2 instantiatePosition, Quaternion rotation)
     {
-        Instantiate(placeholder, instantiatePosition, rotation);
-        placeholder.GetComponent<ItemInfo>().SetItemData(itemData);
-        placeholder.AddComponent<BoxCollider2D>();
-        placeholder.GetComponent<BoxCollider2D>().isTrigger = true;
+        GameObject item = Instantiate(placeholder, instantiatePosition, rotation);
+        item.GetComponent<ItemInfo>().SetItemData(itemData);
+        item.GetComponent<ItemInfo>().SetPicker(player);
+        item.AddComponent<BoxCollider2D>();
+        item.GetComponent<BoxCollider2D>().isTrigger = true;
     }
 }

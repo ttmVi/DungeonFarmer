@@ -13,6 +13,11 @@ public class ItemInfo : MonoBehaviour
         GetComponent<SpriteRenderer>().sprite = itemsData.GetItemOverworldSprite();
     }
 
+    public void SetPicker(GameObject picker)
+    {
+        this.picker = picker;
+    }
+
     public Items GetItemData()
     {
         return itemsData;
