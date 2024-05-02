@@ -19,7 +19,7 @@ public class Melee : MonoBehaviour
     //Bool that manages if the player should move after melee weapon colides
     private bool collided;
     //Determines if the melee strike is downwards to perform extra force to fight against gravity
-    private bool downwardStrike;
+    public bool downwardStrike;
 
     public GameObject player;
     //public GameObject character;
@@ -32,13 +32,14 @@ public class Melee : MonoBehaviour
         rb = GetComponentInParent<Rigidbody2D>();
         //Reference to the MeleeAttackManager script on the player
         meleeAttackManager = GetComponentInParent<PlayerAttack>();
-        Debug.Log("meleeAttackManager: " + meleeAttackManager.name);
+        //Debug.Log("meleeAttackManager: " + meleeAttackManager.name);
     }
 
     private void FixedUpdate()
     {
         //Uses the Rigidbody2D AddForce method to move the player in the correct direction
-        HandleMovement();
+        //HandleMovement();
+        StartCoroutine(DelayedHandleMovement());
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -103,6 +104,7 @@ public class Melee : MonoBehaviour
             if (downwardStrike)
             {
                 //Propels the player upwards by the amount of upwardsForce in the meleeAttackManager script
+                rb.velocity = Vector2.zero;
                 rb.AddForce(direction * meleeAttackManager.upwardsForce);
             }
             else
@@ -122,5 +124,26 @@ public class Melee : MonoBehaviour
         collided = false;
         //Turns off the downwardStrike bool
         downwardStrike = false;
+    }
+    private IEnumerator DelayedHandleMovement()
+    {
+        if (collided)
+        {
+            //If the attack was in a downward direction
+            if (downwardStrike)
+            {
+                //Propels the player upwards by the amount of upwardsForce in the meleeAttackManager script
+                //yield return new WaitForEndOfFrame();
+                yield return new WaitForSeconds(0.05f);
+
+                rb.velocity = Vector2.zero;
+                rb.AddForce(direction * meleeAttackManager.upwardsForce);
+            }
+            else
+            {
+                //Propels the player backwards by the amount of horizontalForce in the meleeAttackManager script
+                rb.AddForce(direction * meleeAttackManager.defaultForce);
+            }
+        }
     }
 }
