@@ -12,9 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bf04bd51a7ff474c914a5fdae63639a, type: 3}
   m_Name: AnotherDraftItem
   m_EditorClassIdentifier: 
-  itemID: 0
+  itemID: 2
   itemName: 
   itemInventoryIcon: {fileID: 0}
   overworldSprite: {fileID: 0}
   itemDescription: 
-  itemType: 0
+  itemType: 1
+  maxGrowthIndex: 0
+  phasesGrowthIndex: []
+  growingPhasesSprites: []
+  deceasingSprites: []
+  possibleDrops: []

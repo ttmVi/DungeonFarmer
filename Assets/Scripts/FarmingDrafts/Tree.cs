@@ -2,12 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Tree", menuName = "Item/Tree")]
-//[Icon("Assets/Tiny RPG Forest/")]
-public class Tree : Items
+public class Tree
 {
-    [Space]
     [Header("Tree Information")]
+    public string treeName;
     public float maxGrowthIndex;
     public float[] phasesGrowthIndex;
     public Sprite[] growingPhasesSprites;
@@ -16,15 +14,13 @@ public class Tree : Items
     [Header("Possible Drops")]
     public Items[] possibleDrops;
 
-    public Tree(int itemID, string itemName, Sprite itemIcon, int treeGrowthTime, Sprite[] growingPhases, Sprite[] deceasing) : base(itemID, itemName, itemIcon)
+    public Tree(string treeName, float maxGrowthIndex, float[] phasesGrowthIndex, Sprite[] growingPhasesSprites, Sprite[] deceasingSprites, Items[] possibleDrops)
     {
-        maxGrowthIndex = treeGrowthTime;
-        growingPhasesSprites = growingPhases;
-        deceasingSprites = deceasing;
-    }
-
-    public Items TreeToGeneralItems()
-    {
-        return new Items(itemID, itemName, itemInventoryIcon);
+        this.treeName = treeName;
+        this.maxGrowthIndex = maxGrowthIndex;
+        this.phasesGrowthIndex = phasesGrowthIndex;
+        this.growingPhasesSprites = growingPhasesSprites;
+        this.deceasingSprites = deceasingSprites;
+        this.possibleDrops = possibleDrops;
     }
 }

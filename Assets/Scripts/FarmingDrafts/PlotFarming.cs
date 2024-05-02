@@ -97,7 +97,7 @@ public class PlotFarming : MonoBehaviour
 
         // Getting tree information
         treeData = seed;
-        currentTree = seed.GetItemName();
+        currentTree = seed.treeName;
         currentTreePhase = 1;
         maxGrowthIndex = seed.maxGrowthIndex;
     }

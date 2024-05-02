@@ -2,26 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Item", menuName = "Item/General Item")]
+[CreateAssetMenu(fileName = "New Item", menuName = "Item")]
 public class Items : ScriptableObject
 {
     [Header("General Item Information")]
-    public int itemID;
-    public string itemName;
-    public Sprite itemInventoryIcon;
-    public Sprite overworldSprite;
+    private int itemID;
+    private string itemName;
+    private Sprite itemInventoryIcon;
+    private Sprite overworldSprite;
     [TextArea(3, 10)]
-    public string itemDescription;
-    public ItemType itemType;
+    private string itemDescription;
+    private ItemType itemType;
 
     // Fields for trees configuration
     [Space]
     [Header("Tree Information")]
-    public float maxGrowthIndex;
-    public float[] phasesGrowthIndex;
-    public Sprite[] growingPhasesSprites;
-    public Sprite[] deceasingSprites;
-    public Items[] possibleDrops;
+    [SerializeField, HideInInspector] public float maxGrowthIndex;
+    [SerializeField, HideInInspector] public float[] phasesGrowthIndex;
+    [SerializeField, HideInInspector] public Sprite[] growingPhasesSprites;
+    [SerializeField, HideInInspector] public Sprite[] deceasingSprites;
+    [SerializeField, HideInInspector] public Items[] possibleDrops;
 
     public enum ItemType
     {
@@ -60,5 +60,20 @@ public class Items : ScriptableObject
     public string GetItemDescription()
     {
         return itemDescription;
+    }
+
+    public ItemType GetItemType()
+    {
+        return itemType;
+    }
+
+    public Tree GetTreeData()
+    {
+        if (itemType == ItemType.Tree)
+        {
+            return new Tree(itemName, maxGrowthIndex, phasesGrowthIndex, growingPhasesSprites, deceasingSprites, possibleDrops);
+        }
+
+        return null;
     }
 }

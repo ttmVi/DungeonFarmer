@@ -9,29 +9,30 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a9eb67ce1ec919f40a200655b448888c, type: 3}
-  m_Name: DraftTree
+  m_Script: {fileID: 11500000, guid: 6bf04bd51a7ff474c914a5fdae63639a, type: 3}
+  m_Name: DraftSeed
   m_EditorClassIdentifier: 
   itemID: 0
   itemName: The Drafting Tree
   itemInventoryIcon: {fileID: 0}
   overworldSprite: {fileID: 0}
-  itemDescription: Eh. Just a draft
+  itemDescription: 
+  itemType: 1
   maxGrowthIndex: 1
   phasesGrowthIndex:
-  - -1
   - 0
-  - 0.5
-  - 1
+  - 0
+  - 0
+  - 0
   growingPhasesSprites:
   - {fileID: 0}
-  - {fileID: -413423927, guid: 60b213913fbed5d4398dcb7a8a14fbe0, type: 3}
-  - {fileID: -687707710, guid: 60b213913fbed5d4398dcb7a8a14fbe0, type: 3}
-  - {fileID: 1016995913, guid: 60b213913fbed5d4398dcb7a8a14fbe0, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   deceasingSprites:
   - {fileID: 0}
-  - {fileID: -1264364123, guid: 7526ce1c0d9cb8c43bdb9f3a42fd1253, type: 3}
-  - {fileID: 210853477, guid: 7526ce1c0d9cb8c43bdb9f3a42fd1253, type: 3}
-  - {fileID: -1657151068, guid: 7526ce1c0d9cb8c43bdb9f3a42fd1253, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   possibleDrops:
   - {fileID: 11400000, guid: 55b6329c569914a4ea49163c74fdeb69, type: 2}
