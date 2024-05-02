@@ -4,41 +4,47 @@ using UnityEngine;
 
 public class Inventory
 {
-    public Dictionary<int, (Item item, int quantity)> items = new Dictionary<int, (Item, int)>();
+    public Dictionary<int, (Items item, int quantity)> items = new Dictionary<int, (Items, int)>();
+    public int capacity;
 
-    public void AddItem(Item item, int quantity)
+    public Inventory(int capacity)
     {
-        if (items.ContainsKey(item.id)) 
+        this.capacity = capacity;
+    }
+
+    public void AddItem(Items item, int quantity)
+    {
+        if (items.ContainsKey(item.itemID)) 
         {
-            items[item.id] = (item, items[item.id].quantity + quantity);
+            items[item.itemID] = (item, items[item.itemID].quantity + quantity);
         }
         else
         {
-            items.Add(item.id, (item, quantity));
+            items.Add(item.itemID, (item, quantity));
         }
     }
 
-    public void RemoveItem(Item item, int quantity)
+    public void RemoveItem(Items item, int quantity)
     {
-        if (items.ContainsKey(item.id))
+        if (items.ContainsKey(item.itemID))
         {
-            int newQuantity = items[item.id].quantity - quantity;
+            int newQuantity = items[item.itemID].quantity - quantity;
             if (newQuantity <= 0)
             {   
-                items.Remove(item.id);
+                items.Remove(item.itemID);
             }
             else
             {
-                items[item.id] = (item, newQuantity);
+                items[item.itemID] = (item, newQuantity);
             }
         }
     }
 
-    public int GetItemQuantity(Item item)
+    public int GetItemQuantity(Items item)
     {
-        if (items.ContainsKey(item.id))
+        if (items.ContainsKey(item.itemID))
         {
-            return items[item.id].quantity;
+            return items[item.itemID].quantity;
         }
         return 0;
     }
@@ -48,9 +54,14 @@ public class Inventory
         return items.Count;
     }
 
-    public List<(Item, int)> ItemsToList()
+    public bool IsFull()
     {
-        List<(Item, int)> itemList = new List<(Item, int)>(items.Values);
+        return items.Count >= capacity;
+    }
+
+    public List<(Items, int)> ItemsToList()
+    {
+        List<(Items, int)> itemList = new List<(Items, int)>(items.Values);
         return itemList;
     }
 }

@@ -33,3 +33,5 @@ MonoBehaviour:
   - {fileID: -1264364123, guid: 7526ce1c0d9cb8c43bdb9f3a42fd1253, type: 3}
   - {fileID: 210853477, guid: 7526ce1c0d9cb8c43bdb9f3a42fd1253, type: 3}
   - {fileID: -1657151068, guid: 7526ce1c0d9cb8c43bdb9f3a42fd1253, type: 3}
+  possibleDrops:
+  - {fileID: 11400000, guid: 55b6329c569914a4ea49163c74fdeb69, type: 2}

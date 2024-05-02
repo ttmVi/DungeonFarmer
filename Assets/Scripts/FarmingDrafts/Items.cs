@@ -12,6 +12,22 @@ public class Items : ScriptableObject
     public Sprite overworldSprite;
     [TextArea(3, 10)]
     public string itemDescription;
+    public ItemType itemType;
+
+    // Fields for trees configuration
+    [Space]
+    [Header("Tree Information")]
+    public float maxGrowthIndex;
+    public float[] phasesGrowthIndex;
+    public Sprite[] growingPhasesSprites;
+    public Sprite[] deceasingSprites;
+    public Items[] possibleDrops;
+
+    public enum ItemType
+    {
+        General,
+        Tree
+    }
 
     public Items(int itemID, string itemName, Sprite itemIcon)
     {

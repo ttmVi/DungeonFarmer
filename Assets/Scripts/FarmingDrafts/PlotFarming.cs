@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
+[RequireComponent(typeof(Interactable))]
 public class PlotFarming : MonoBehaviour
 {
     [Header("Plot Sprites")]
@@ -10,29 +11,56 @@ public class PlotFarming : MonoBehaviour
     [SerializeField] private Sprite ploughedPlot;
     [SerializeField] private Sprite seededPlot;
 
+    [Header("Debris Possible Items")]
+    [SerializeField] private Items[] theItems;
+
     [Header("Tree Information")]
     [SerializeField] private Tree draftingTree;
     [SerializeField] private GameObject treePlot;
     private Tree treeData;
     [SerializeField] private string currentTree;
     [SerializeField] private float treeGrowthIndex;
+    [SerializeField] private float maximumStackedWater;
     [SerializeField] private float stackedWater;
+    [SerializeField] private float maximumStackedFertilizer;
     [SerializeField] private float stackedFertilizer;
     private int currentTreePhase;
     private float maxGrowthIndex;
 
-    private void Update()
+    [Header("Item Drop")]
+    [SerializeField] private GameObject itemPlaceholder;
+
+    private void ResetTreePlotData()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            EndDayCheck();
-        }
+        treePlot.GetComponent<SpriteRenderer>().sprite = null;
+        treeData = null;
+        currentTree = null;
+        treeGrowthIndex = -1;
+        currentTreePhase = 0;
+        maxGrowthIndex = 0;
+        stackedWater = 0;
+        stackedFertilizer = 0;
     }
 
+    private void Update()
+    {
+
+    }
+
+    // This method is called when the player interacts with the plot
     public void DoFarming()
     {
-        if (GetComponent<SpriteRenderer>().sprite == unploughedPlot) { PloughPlot(); }
+        // Ploughing the plot (or cleaning the debris)
+        if (GetComponent<SpriteRenderer>().sprite == unploughedPlot) 
+        {
+            CleanDebris();
+            PloughPlot(); 
+        }
+
+        // Planting the seed
         else if (GetComponent<SpriteRenderer>().sprite == ploughedPlot) { PlantSeed(draftingTree); }
+
+        // Watering and fertilizing the plant
         else if (GetComponent<SpriteRenderer>().sprite == seededPlot)
         {
             if (treeGrowthIndex < maxGrowthIndex && treeData != null)
@@ -47,14 +75,18 @@ public class PlotFarming : MonoBehaviour
         }
     }
 
+    private void CleanDebris()
+    {
+        foreach (Items item in theItems)
+        {
+            GameObject debris = Instantiate(itemPlaceholder, transform.position, Quaternion.identity);
+            debris.GetComponent<ItemInfo>().SetItemData(item);
+        }
+    }
+
     private void PloughPlot()
     {
         GetComponent<SpriteRenderer>().sprite = ploughedPlot;
-    }
-
-    private void PlantSeed()
-    {
-        GetComponent<SpriteRenderer>().sprite = seededPlot;
     }
 
     private void PlantSeed(Tree seed)
@@ -66,12 +98,17 @@ public class PlotFarming : MonoBehaviour
         // Getting tree information
         treeData = seed;
         currentTree = seed.GetItemName();
+        currentTreePhase = 1;
         maxGrowthIndex = seed.maxGrowthIndex;
     }
 
     private void WaterPlant(float wateringAmount)
     {
         stackedWater += wateringAmount;
+        if (stackedWater >= maximumStackedWater)
+        {
+            stackedWater = maximumStackedWater;
+        }
     }
 
     private void FertilizeSoil() { }
@@ -79,11 +116,21 @@ public class PlotFarming : MonoBehaviour
     private void FertilizePlant(float fertilizingAmount)
     {
         stackedFertilizer += fertilizingAmount;
+        if (stackedFertilizer >= maximumStackedFertilizer)
+        {
+            stackedFertilizer = maximumStackedFertilizer;
+        }
     }
 
     private void HarvestPlant()
     {
         // Drop plant's items
+        for (int i = 0; i < treeData.possibleDrops.Length; i++)
+        {
+            GameObject item = Instantiate(itemPlaceholder, transform.position, Quaternion.identity);
+            item.GetComponent<ItemInfo>().SetItemData(treeData.possibleDrops[i]);
+        }
+
         RemovePlant();
     }
 
@@ -104,7 +151,7 @@ public class PlotFarming : MonoBehaviour
             {
                 if (treeData.deceasingSprites.Contains(treePlot.GetComponent<SpriteRenderer>().sprite))
                 {
-                    treePlot.GetComponent<SpriteRenderer>().sprite = treeData.growingPhasesSprites[currentTreePhase];
+                    RevitalizePlant();
                     Debug.Log(currentTreePhase);
                 }
                 else
@@ -128,11 +175,18 @@ public class PlotFarming : MonoBehaviour
         stackedFertilizer = 0;
     }
 
+    private void RevitalizePlant()
+    {
+        treePlot.GetComponent<SpriteRenderer>().sprite = treeData.growingPhasesSprites[currentTreePhase];
+
+        stackedWater = 0;
+        stackedFertilizer = 0;
+    }
+
     private void RemovePlant()
     {
-        treeGrowthIndex = -1;
-        treeData = null;
-        treePlot.GetComponent<SpriteRenderer>().sprite = null;
+        ResetTreePlotData();
+        GetComponent<SpriteRenderer>().sprite = ploughedPlot;
     }
 
     private void CheckTreeGrowth()
@@ -146,15 +200,24 @@ public class PlotFarming : MonoBehaviour
                 {
                     treePlot.GetComponent<SpriteRenderer>().sprite = treeData.growingPhasesSprites[i - 1];
                     currentTreePhase = i - 1;
+                    Debug.Log(currentTreePhase);
+                    break;
                 }
                 else if (i == treeData.phasesGrowthIndex.Length - 1)
                 {
                     treePlot.GetComponent<SpriteRenderer>().sprite = treeData.growingPhasesSprites[i];
                     currentTreePhase = i;
+                    Debug.Log(currentTreePhase);
+                    break;
                 }
-                else { continue; }
+                else 
+                {
+                    Debug.Log("Plant's phase is not " + i);
+                    continue; 
+                }
             }
-            Debug.Log(currentTreePhase);
         }
     }
+
+    public Tree GetTreeData() { return treeData; }
 }
