@@ -14,8 +14,9 @@ public class PlotFarming : MonoBehaviour
     [Header("Debris Possible Items")]
     [SerializeField] private Items[] theItems;
 
+    [Space]
     [Header("Tree Information")]
-    [SerializeField] private Tree draftingTree;
+    [SerializeField] private Items draftingTree;
     [SerializeField] private GameObject treePlot;
     private Tree treeData;
     [SerializeField] private string currentTree;
@@ -58,7 +59,7 @@ public class PlotFarming : MonoBehaviour
         }
 
         // Planting the seed
-        else if (GetComponent<SpriteRenderer>().sprite == ploughedPlot) { PlantSeed(draftingTree); }
+        else if (GetComponent<SpriteRenderer>().sprite == ploughedPlot) { PlantSeed(draftingTree.GetTreeData()); }
 
         // Watering and fertilizing the plant
         else if (GetComponent<SpriteRenderer>().sprite == seededPlot)

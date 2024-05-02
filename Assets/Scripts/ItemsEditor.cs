@@ -15,7 +15,7 @@ public class ItemsEditor : Editor
         Items item = (Items)target;
 
         // Conditional display based on ItemType
-        if (item.itemType == Items.ItemType.Tree)
+        if (item.GetItemType() == Items.ItemType.Tree)
         {
             EditorGUILayout.Space();
             EditorGUILayout.LabelField("Tree Information", EditorStyles.boldLabel);

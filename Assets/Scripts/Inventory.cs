@@ -14,37 +14,37 @@ public class Inventory
 
     public void AddItem(Items item, int quantity)
     {
-        if (items.ContainsKey(item.itemID)) 
+        if (items.ContainsKey(item.GetItemID())) 
         {
-            items[item.itemID] = (item, items[item.itemID].quantity + quantity);
+            items[item.GetItemID()] = (item, items[item.GetItemID()].quantity + quantity);
         }
         else
         {
-            items.Add(item.itemID, (item, quantity));
+            items.Add(item.GetItemID(), (item, quantity));
         }
     }
 
     public void RemoveItem(Items item, int quantity)
     {
-        if (items.ContainsKey(item.itemID))
+        if (items.ContainsKey(item.GetItemID()))
         {
-            int newQuantity = items[item.itemID].quantity - quantity;
+            int newQuantity = items[item.GetItemID()].quantity - quantity;
             if (newQuantity <= 0)
             {   
-                items.Remove(item.itemID);
+                items.Remove(item.GetItemID());
             }
             else
             {
-                items[item.itemID] = (item, newQuantity);
+                items[item.GetItemID()] = (item, newQuantity);
             }
         }
     }
 
     public int GetItemQuantity(Items item)
     {
-        if (items.ContainsKey(item.itemID))
+        if (items.ContainsKey(item.GetItemID()))
         {
-            return items[item.itemID].quantity;
+            return items[item.GetItemID()].quantity;
         }
         return 0;
     }
