@@ -1,31 +1,148 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.U2D.Animation;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
-    private Rigidbody2D rb;
+    [Header("Components")]
+
+    private Rigidbody2D body;
+    GroundCheck ground;
+
+    [Header("Movement Stats")]
+    [SerializeField, Range(0f, 20f)][Tooltip("Maximum movement speed")] public float maxSpeed = 10f;
+    [SerializeField, Range(0f, 100f)][Tooltip("How fast to reach max speed")] public float maxAcceleration = 52f;
+    [SerializeField, Range(0f, 100f)][Tooltip("How fast to stop after letting go")] public float maxDecceleration = 52f;
+    [SerializeField, Range(0f, 100f)][Tooltip("How fast to stop when changing direction")] public float maxTurnSpeed = 80f;
+    [SerializeField, Range(0f, 100f)][Tooltip("How fast to reach max speed when in mid-air")] public float maxAirAcceleration;
+    [SerializeField, Range(0f, 100f)][Tooltip("How fast to stop in mid-air when no direction is used")] public float maxAirDeceleration;
+    [SerializeField, Range(0f, 100f)][Tooltip("How fast to stop when changing direction when in mid-air")] public float maxAirTurnSpeed = 80f;
+    [SerializeField][Tooltip("Friction to apply against movement on stick")] private float friction;
+
+    [Header("Options")]
+    [Tooltip("When false, the charcter will skip acceleration and deceleration and instantly move and stop")] public bool useAcceleration;
+
+    [Header("Calculations")]
+    public float directionX;
+    public float directionY;
+    private Vector2 desiredVelocity;
+    public Vector2 velocity;
+    private float maxSpeedChange;
+    private float acceleration;
+    private float deceleration;
+    private float turnSpeed;
+
+    [Header("Current State")]
+    public bool onGround;
+    public bool pressingKey;
+
     private void Awake()
     {
-        rb=GetComponent<Rigidbody2D>();
+        //Find the character's Rigidbody and ground detection script
+        body = GetComponent<Rigidbody2D>();
+        ground = GetComponent<GroundCheck>();
     }
-    void Update()
+
+    public void OnMovement(InputAction.CallbackContext context)
     {
+        directionY = context.ReadValue<Vector2>().y;
+        directionX = context.ReadValue<Vector2>().x;
+    }
+
+    private void Update()
+    {
+        //Used to stop movement when the character is playing her death animation
+        
+
+        //Used to flip the character's sprite when she changes direction
+        //Also tells us that we are currently pressing a direction button
+        if (directionX != 0)
+        {
+            transform.localScale = new Vector3(directionX > 0 ? 1 : -1, 1, 1);
+            pressingKey = true;
+        }
+        else
+        {
+            pressingKey = false;
+        }
+
+        //Calculate's the character's desired velocity - which is the direction you are facing, multiplied by the character's maximum speed
+        //Friction is not used in this game
+        desiredVelocity = new Vector2(directionX, 0f) * Mathf.Max(maxSpeed - friction, 0f);
 
     }
-    public void DodgeInteract(InputAction.CallbackContext context)
+
+    private void FixedUpdate()
     {
-        //Code for dodge and interact
+        //Fixed update runs in sync with Unity's physics engine
+
+        //Get Kit's current ground status from her ground script
+        onGround = ground.isGrounded();
+
+        //Get the Rigidbody's current velocity
+        velocity = body.velocity;
+
+        //Calculate movement, depending on whether "Instant Movement" has been checked
+        if (useAcceleration)
+        {
+            runWithAcceleration();
+        }
+        else
+        {
+            if (onGround)
+            {
+                runWithoutAcceleration();
+            }
+            else
+            {
+                runWithAcceleration();
+            }
+        }
     }
-    public void Move(InputAction.CallbackContext context)
+
+    private void runWithAcceleration()
     {
-        rb.velocity = context.ReadValue<Vector2>()*5;
+        //Set our acceleration, deceleration, and turn speed stats, based on whether we're on the ground on in the air
+
+        acceleration = onGround ? maxAcceleration : maxAirAcceleration;
+        deceleration = onGround ? maxDecceleration : maxAirDeceleration;
+        turnSpeed = onGround ? maxTurnSpeed : maxAirTurnSpeed;
+
+        if (pressingKey)
+        {
+            //If the sign (i.e. positive or negative) of our input direction doesn't match our movement, it means we're turning around and so should use the turn speed stat.
+            if (Mathf.Sign(directionX) != Mathf.Sign(velocity.x))
+            {
+                maxSpeedChange = turnSpeed * Time.deltaTime;
+            }
+            else
+            {
+                //If they match, it means we're simply running along and so should use the acceleration stat
+                maxSpeedChange = acceleration * Time.deltaTime;
+            }
+        }
+        else
+        {
+            //And if we're not pressing a direction at all, use the deceleration stat
+            maxSpeedChange = deceleration * Time.deltaTime;
+        }
+
+        //Move our velocity towards the desired velocity, at the rate of the number calculated above
+        velocity.x = Mathf.MoveTowards(velocity.x, desiredVelocity.x, maxSpeedChange);
+
+        //Update the Rigidbody with this new velocity
+        body.velocity = velocity;
+
     }
-    public void Attack(InputAction.CallbackContext context)
+    private void runWithoutAcceleration()
     {
-        //Code for Attack
+        //If we're not using acceleration and deceleration, just send our desired velocity (direction * max speed) to the Rigidbody
+        velocity.x = desiredVelocity.x;
+        body.velocity = velocity;
     }
+    
     public void UseItem(InputAction.CallbackContext context)
     {
         //Code for using an item
@@ -33,5 +150,13 @@ public class PlayerMovement : MonoBehaviour
     public void Inventory(InputAction.CallbackContext context)
     {
         //Code for opening inventory
+    }
+    public void Pause(InputAction.CallbackContext context)
+    {
+        //Code for pausing the game
+    }
+    public void Dash(InputAction.CallbackContext context)
+    {
+        //Code for dashing
     }
 }
