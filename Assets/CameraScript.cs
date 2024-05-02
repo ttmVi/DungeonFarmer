@@ -4,8 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class CameraScript : MonoBehaviour
-{
-    
+{ 
     [SerializeField] private Vector3 offset;
     [SerializeField] private float damping;
 
