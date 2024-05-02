@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.Burst.CompilerServices;
 using UnityEngine;
 
-public class Interact : MonoBehaviour
+public class PlayerInteract : MonoBehaviour
 {
     [SerializeField] private KeyCode[] interactionKeys;
 

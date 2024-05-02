@@ -6,13 +6,13 @@ using UnityEngine;
 public class Items : ScriptableObject
 {
     [Header("General Item Information")]
-    private int itemID;
-    private string itemName;
-    private Sprite itemInventoryIcon;
-    private Sprite overworldSprite;
+    [SerializeField] private int itemID;
+    [SerializeField] private string itemName;
+    [SerializeField] private Sprite itemInventoryIcon;
+    [SerializeField] private Sprite overworldSprite;
     [TextArea(3, 10)]
-    private string itemDescription;
-    private ItemType itemType;
+    [SerializeField] private string itemDescription;
+    [SerializeField] private ItemType itemType;
 
     // Fields for trees configuration
     [Space]

@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerInventory : MonoBehaviour
 {
     public Inventory playerInventory;
+    [Header("Inventory Settings")]
     [SerializeField] private int inventorySize = 10;
 
     private void Start()
