@@ -9,7 +9,7 @@ public class Melee : MonoBehaviour
     [SerializeField]
     private int damageAmount = 20;
     //Reference to Character script which contains the value if the player is facing left or right; if you don't have this or it's named something different, either omit it or change the class name to what your Character script is called
-    private GroundCheck character;
+    //private GroundCheck character;
     //Reference to the Rigidbody2D on the player
     private Rigidbody2D rb;
     //Reference to the MeleeAttackManager script on the player
@@ -22,14 +22,17 @@ public class Melee : MonoBehaviour
     private bool downwardStrike;
 
     public GameObject player;
+    //public GameObject character;
     private void Start()
     {
         //Reference to the Character script on the player; if you don't have this or it's named something different, either omit it or change the class name to what your Character script is called
-        character = GetComponent<GroundCheck>();
+        //character = GetComponent<GroundCheck>();
+        //Debug.Log("character: " + character.name);
         //Reference to the Rigidbody2D on the player
         rb = GetComponentInParent<Rigidbody2D>();
         //Reference to the MeleeAttackManager script on the player
         meleeAttackManager = GetComponentInParent<PlayerAttack>();
+        Debug.Log("meleeAttackManager: " + meleeAttackManager.name);
     }
 
     private void FixedUpdate()
@@ -51,7 +54,7 @@ public class Melee : MonoBehaviour
     private void HandleCollision(EnemyHealth objHealth)
     {
         //Checks to see if the GameObject allows for upward force and if the strike is downward as well as grounded
-        if (objHealth.giveUpwardForce && player.GetComponent<PlayerMovement>().directionY < 0 && !character.isGrounded())
+        if (objHealth.giveUpwardForce && player.GetComponent<PlayerMovement>().directionY < 0 && !player.GetComponent<GroundCheck>().isGrounded())
         {
             //Sets the direction variable to up
             direction = Vector2.up;
@@ -60,7 +63,7 @@ public class Melee : MonoBehaviour
             //Sets collided to true
             collided = true;
         }
-        if (player.GetComponent<PlayerMovement>().directionY > 0 && !character.isGrounded())
+        if (player.GetComponent<PlayerMovement>().directionY > 0 && !player.GetComponent<GroundCheck>().isGrounded())
         {
             //Sets the direction variable to up
             direction = Vector2.down;
@@ -68,7 +71,7 @@ public class Melee : MonoBehaviour
             collided = true;
         }
         //Checks to see if the melee attack is a standard melee attack
-        if ((player.GetComponent<PlayerMovement>().directionY <= 0 && character.isGrounded()) || player.GetComponent<PlayerMovement>().directionY == 0)
+        if ((player.GetComponent<PlayerMovement>().directionY <= 0 && player.GetComponent<GroundCheck>().isGrounded()) || player.GetComponent<PlayerMovement>().directionY == 0)
         {
             //Checks to see if the player is facing left; if you don't have a character script, the commented out line of code can also check for that
             if (transform.parent.localScale.x < 0) //(character.isFacingLeft)

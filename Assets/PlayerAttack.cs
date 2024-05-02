@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.TextCore.Text;
@@ -9,7 +10,7 @@ public class PlayerAttack : MonoBehaviour
     //How much the player should move either downwards or horizontally when melee attack collides with a GameObject that has EnemyHealth script on it
     public float defaultForce = 300;
     //How much the player should move upwards when melee attack collides with a GameObject that has EnemyHealth script on it
-    public float upwardsForce = 600;
+    public float upwardsForce = 300;
     //How long the player should move when melee attack collides with a GameObject that has EnemyHealth script on it
     public float movementTime = .1f;
     //Input detection to see if the button to perform a melee attack has been pressed
@@ -24,9 +25,13 @@ public class PlayerAttack : MonoBehaviour
     private int attackBuffer;
     private float attackBufferCounter;
     private bool canAttackAgain;
+    public Melee melee;
+
+    public float attackDelay = 1f;
+    public float attackDelayCounter;
 
     public GameObject player;
-
+    //public TextMeshProUGUI 
     //The Animator component on the player
     private Animator anim;
     //The Character script on the player; this script on my project manages the grounded state, so if you have a different script for that reference that script
@@ -35,11 +40,13 @@ public class PlayerAttack : MonoBehaviour
     private void Start()
     {
         //The Animator component on the player
-        anim = GetComponent<Animator>();
+        //anim = GetComponent<Animator>();
         //The Character script on the player; this script on my project manages the grounded state, so if you have a different script for that reference that script
         character = GetComponent<GroundCheck>();
+        //Debug.Log("character: "+character.name);
         //The animator on the meleePrefab
         meleeAnimator = GetComponentInChildren<Melee>().gameObject.GetComponent<Animator>();
+        //Debug.Log("meleeAnimator: " + meleeAnimator.name);
     }
 
     public void OnAttack(InputAction.CallbackContext context)
@@ -47,7 +54,10 @@ public class PlayerAttack : MonoBehaviour
         if(context.started)
         {
             desiredAttack = true;
-            pressingAttack = true;
+            //pressingAttack = true;
+            //CheckInput();
+            //meleeAnimator.SetTrigger("ForwardMeleeSwipe");
+            
         }
     }
 
@@ -98,6 +108,15 @@ public class PlayerAttack : MonoBehaviour
                 }
             }
         }
+        if (!currentlyAttacking)
+        {
+            attackTimeCounter += Time.deltaTime;
+        }
+        else
+        {
+            attackTimeCounter = 0;
+        }
+        attackDelayCounter += Time.deltaTime;
     }
     private void FixedUpdate()
     {
@@ -111,12 +130,14 @@ public class PlayerAttack : MonoBehaviour
     private void DoAttack()
     {
         //Create the attack, provided we have a attack available
-        if (canAttackAgain)
+        if (attackDelayCounter>attackDelay)
         {
             desiredAttack = false;
             attackBufferCounter = 0;
+            attackTimeCounter = 0;
             CheckInput();
             currentlyAttacking = true;
+            attackDelayCounter = 0;
         }
 
         if (attackBuffer == 0)
