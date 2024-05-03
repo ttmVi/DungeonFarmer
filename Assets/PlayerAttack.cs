@@ -25,17 +25,19 @@ public class PlayerAttack : MonoBehaviour
     private int attackBuffer;
     private float attackBufferCounter;
     private bool canAttackAgain;
-    public Melee melee;
+    
 
     public float attackDelay = 1f;
     public float attackDelayCounter;
 
-    public GameObject player;
+    //public GameObject player;
     //public TextMeshProUGUI 
     //The Animator component on the player
     private Animator anim;
     //The Character script on the player; this script on my project manages the grounded state, so if you have a different script for that reference that script
     private GroundCheck character;
+    private PlayerMovement movement;
+    private Melee melee;
     //Run this method instead of Initialization if you don't have any scripts inheriting from each other
     private void Start()
     {
@@ -46,6 +48,9 @@ public class PlayerAttack : MonoBehaviour
         //Debug.Log("character: "+character.name);
         //The animator on the meleePrefab
         meleeAnimator = GetComponentInChildren<Melee>().gameObject.GetComponent<Animator>();
+        movement = GetComponent<PlayerMovement>();
+        melee = GetComponentInChildren<Melee>();
+
         //Debug.Log("meleeAnimator: " + meleeAnimator.name);
     }
 
@@ -64,7 +69,7 @@ public class PlayerAttack : MonoBehaviour
     private void CheckInput()
     {
         //Checks to see if meleeAttack is true and pressing up
-        if (player.GetComponent<PlayerMovement>().directionY > 0)
+        if (movement.directionY > 0)
         {
             //Turns on the animation for the player to perform an upward melee attack
             //anim.SetTrigger("UpwardMelee");
@@ -72,7 +77,7 @@ public class PlayerAttack : MonoBehaviour
             meleeAnimator.SetTrigger("UpwardMeleeSwipe");
         }
         //Checks to see if meleeAttack is true and pressing down while also not grounded
-        if (player.GetComponent<PlayerMovement>().directionY < 0 && !character.isGrounded())
+        if (movement.directionY < 0 && !character.isGrounded())
         {
             //Turns on the animation for the player to perform a downward melee attack
             //anim.SetTrigger("DownwardMelee");
@@ -80,7 +85,7 @@ public class PlayerAttack : MonoBehaviour
             meleeAnimator.SetTrigger("DownwardMeleeSwipe");
         }
         //Checks to see if meleeAttack is true and not pressing any direction OR if melee attack is true and pressing down while grounded
-        if (( player.GetComponent<PlayerMovement>().directionY == 0) || (player.GetComponent<PlayerMovement>().directionY < 0 && character.isGrounded()))
+        if (( movement.directionY == 0) || (movement.directionY < 0 && character.isGrounded()))
         {
             //Turns on the animation for the player to perform a forward melee attack
             //anim.SetTrigger("ForwardMelee");

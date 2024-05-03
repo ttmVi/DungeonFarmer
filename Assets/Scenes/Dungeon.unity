@@ -2356,6 +2356,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72850ac73447e2e40b3109dd754006c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1875860441 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5713505710340751294, guid: 0a3352a14912c01449653334a3a48d66, type: 3}
+  m_PrefabInstance: {fileID: 8100510069874034225}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b760d280d7ff34b4fbe37eddb3717ead, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2135045360
 GameObject:
   m_ObjectHideFlags: 0
@@ -14090,7 +14101,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4273632956134017314, guid: 0a3352a14912c01449653334a3a48d66, type: 3}
       propertyPath: jumpCutOff
-      value: 5.69
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4273632956134017314, guid: 0a3352a14912c01449653334a3a48d66, type: 3}
       propertyPath: jumpHeight
@@ -14101,12 +14112,20 @@ PrefabInstance:
       value: 27
       objectReference: {fileID: 0}
     - target: {fileID: 4273632956134017314, guid: 0a3352a14912c01449653334a3a48d66, type: 3}
+      propertyPath: maxAirJumps
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4273632956134017314, guid: 0a3352a14912c01449653334a3a48d66, type: 3}
       propertyPath: gravMultiplier
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4273632956134017314, guid: 0a3352a14912c01449653334a3a48d66, type: 3}
       propertyPath: timeToJumpApex
       value: 0.407
+      objectReference: {fileID: 0}
+    - target: {fileID: 4273632956134017314, guid: 0a3352a14912c01449653334a3a48d66, type: 3}
+      propertyPath: variablejumpHeight
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4273632956134017314, guid: 0a3352a14912c01449653334a3a48d66, type: 3}
       propertyPath: upwardMovementMultiplier
@@ -14122,16 +14141,20 @@ PrefabInstance:
       objectReference: {fileID: 944656566}
     - target: {fileID: 6311124975406456605, guid: 0a3352a14912c01449653334a3a48d66, type: 3}
       propertyPath: attackDelay
-      value: 0.4
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6311124975406456605, guid: 0a3352a14912c01449653334a3a48d66, type: 3}
       propertyPath: defaultForce
-      value: 150
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6311124975406456605, guid: 0a3352a14912c01449653334a3a48d66, type: 3}
       propertyPath: upwardsForce
-      value: 600
+      value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 9025883499104928645, guid: 0a3352a14912c01449653334a3a48d66, type: 3}
+      propertyPath: groundCheck
+      value: 
+      objectReference: {fileID: 1875860441}
     - target: {fileID: 9096835936027043030, guid: 0a3352a14912c01449653334a3a48d66, type: 3}
       propertyPath: m_Name
       value: Player

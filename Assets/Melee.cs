@@ -20,7 +20,8 @@ public class Melee : MonoBehaviour
     private bool collided;
     //Determines if the melee strike is downwards to perform extra force to fight against gravity
     public bool downwardStrike;
-
+    public bool resetGravity = false; //Bool that manages if the player should reset gravity after a downward strike
+    public GroundCheck groundCheck;
     public GameObject player;
     //public GameObject character;
     private void Start()
@@ -38,7 +39,7 @@ public class Melee : MonoBehaviour
     private void FixedUpdate()
     {
         //Uses the Rigidbody2D AddForce method to move the player in the correct direction
-        //HandleMovement();
+        //HandleMovement(); //Weaker version, harder to stay in the air
         StartCoroutine(DelayedHandleMovement());
     }
 
@@ -61,6 +62,8 @@ public class Melee : MonoBehaviour
             direction = Vector2.up;
             //Sets downwardStrike to true
             downwardStrike = true;
+            resetGravity = true;
+            StartCoroutine(WaitToTurnOffResetGravity());
             //Sets collided to true
             collided = true;
         }
@@ -133,17 +136,30 @@ public class Melee : MonoBehaviour
             if (downwardStrike)
             {
                 //Propels the player upwards by the amount of upwardsForce in the meleeAttackManager script
-                //yield return new WaitForEndOfFrame();
-                yield return new WaitForSeconds(0.05f);
 
+                //yield return new WaitForSeconds(0.05f);
+                //yield return new WaitForEndOfFrame();
                 rb.velocity = Vector2.zero;
-                rb.AddForce(direction * meleeAttackManager.upwardsForce);
+                //yield return new WaitForEndOfFrame();
+                rb.AddForce(direction * meleeAttackManager.upwardsForce, ForceMode2D.Impulse);
+                yield return new WaitForEndOfFrame();
             }
             else
             {
                 //Propels the player backwards by the amount of horizontalForce in the meleeAttackManager script
-                rb.AddForce(direction * meleeAttackManager.defaultForce);
+                rb.AddForce(direction * meleeAttackManager.defaultForce, ForceMode2D.Impulse);
             }
         }
+    }
+    private IEnumerator WaitToTurnOffResetGravity()
+    {
+        while (!groundCheck.isGrounded())
+        {
+            yield return null;
+        }
+        if(groundCheck.isGrounded())
+        {
+            resetGravity = false;
+        }   
     }
 }
