@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class InventoryManager : MonoBehaviour
@@ -39,15 +40,18 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
-    public void OnInventoryPressed()
+    public void OnInventoryPressed(InputAction.CallbackContext context)
     {
-        if (isOpening)
+        if (context.started)
         {
-            CloseInventory();
-        }
-        else
-        {
-            OpenInventory();
+            if (isOpening)
+            {
+                CloseInventory();
+            }
+            else
+            {
+                OpenInventory();
+            }
         }
     }
 
@@ -63,43 +67,91 @@ public class InventoryManager : MonoBehaviour
         isOpening = false;
     }
 
-    private void BrowseInventory()
+    public void OnInventoryUINavigation(InputAction.CallbackContext context)
     {
+        if (isOpening && selectButton.activeSelf)
+        {
+            Debug.Log("Inputting");
+            switch (context.ReadValue<Vector2>().x)
+            {
+                case -1: PreviousItem(); break;
+                case 1: NextItem(); break;
+                default: break;
+            }
+            switch (context.ReadValue<Vector2>().y)
+            {
+                case -1: BelowItem(); break;
+                case 1: AboveItem(); break;
+                default: break;
+            }
+        }
+        else { Debug.Log("Inventory not opened / Inventory empty"); }
+    }
 
+    private bool IsEmptySlot(int rowIndex, int columnIndex, List<(Items, int)> currentInventory)
+    {
+        return startIndex + (rowIndex * numberOfColumns + columnIndex) >= currentInventory.Count;
+    }
+
+    private bool IsEmptySlot(int slotIndex, List<(Items, int)> currentInventory)
+    {
+        return startIndex + slotIndex >= currentInventory.Count;
     }
 
     private void NextItem()
     {
-        selectingIndex++;
-        selectButton.GetComponent<RectTransform>().anchoredPosition += new Vector2(distanceBetweenSlots, 0);
+        if (selectingIndex % numberOfColumns != numberOfColumns - 1)
+        {
+            if (!IsEmptySlot(selectingIndex + 1, playerInventory.playerInventoryList))
+            {
+                selectingIndex++;
+                selectButton.GetComponent<RectTransform>().anchoredPosition += new Vector2(distanceBetweenSlots, 0);
+            }
+        }
     }
 
     private void PreviousItem()
     {
-        selectingIndex--;
-        selectButton.GetComponent<RectTransform>().anchoredPosition -= new Vector2(distanceBetweenSlots, 0);
+        if (selectingIndex % numberOfColumns != 0)
+        {
+            if (!IsEmptySlot(selectingIndex - 1, playerInventory.playerInventoryList))
+            {
+                selectingIndex--;
+                selectButton.GetComponent<RectTransform>().anchoredPosition -= new Vector2(distanceBetweenSlots, 0);
+            }
+        }
+        else { }
     }
 
     private void AboveItem()
     {
-        if (selectingIndex / numberOfColumns < 1)
+        if (!IsEmptySlot(selectingIndex - numberOfColumns, playerInventory.playerInventoryList))
         {
-            ScrollUp();
+            if (selectingIndex / numberOfColumns < 1)
+            {
+                ScrollUp();
+            }
+            else
+            {
+                selectingIndex -= numberOfColumns;
+                selectButton.GetComponent<RectTransform>().anchoredPosition += new Vector2(0, distanceBetweenSlots);
+            }
         }
-        selectingIndex -= numberOfColumns;
-        selectButton.GetComponent<RectTransform>().anchoredPosition += new Vector2(0, distanceBetweenSlots);
     }
 
     private void BelowItem()
     {
-        if (selectingIndex / numberOfColumns >= numberOfRows - 1)
+        if (!IsEmptySlot(selectingIndex + numberOfColumns, playerInventory.playerInventoryList))
         {
-            ScrollDown();
-        }
-        else
-        {
-            selectingIndex += numberOfColumns;
-            selectButton.GetComponent<RectTransform>().anchoredPosition -= new Vector2(0, distanceBetweenSlots);
+            if (selectingIndex / numberOfColumns >= numberOfRows - 1)
+            {
+                ScrollDown();
+            }
+            else
+            {
+                selectingIndex += numberOfColumns;
+                selectButton.GetComponent<RectTransform>().anchoredPosition -= new Vector2(0, distanceBetweenSlots);
+            }
         }
     }
 
@@ -110,7 +162,11 @@ public class InventoryManager : MonoBehaviour
 
     private void ScrollUp()
     {
-        startIndex -= numberOfColumns;
+        if (startIndex > 0)
+        {
+            startIndex -= numberOfColumns;
+        }
+        else { startIndex = 0; }
     }
 
     public void DisplayInventory(List<(Items, int)> inventory)

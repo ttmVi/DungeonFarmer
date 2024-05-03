@@ -16,7 +16,9 @@ MonoBehaviour:
   itemName: The Drafting Tree
   itemInventoryIcon: {fileID: 1917127184, guid: 60b213913fbed5d4398dcb7a8a14fbe0, type: 3}
   overworldSprite: {fileID: 1917127184, guid: 60b213913fbed5d4398dcb7a8a14fbe0, type: 3}
-  itemDescription: 
+  itemDescription: 'muahaha
+
+    awabu'
   itemType: 1
   maxGrowthIndex: 1
   phasesGrowthIndex:
