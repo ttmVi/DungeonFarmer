@@ -61,7 +61,11 @@ public class PlotFarming : MonoBehaviour
         }
 
         // Planting the seed
-        else if (GetComponent<SpriteRenderer>().sprite == ploughedPlot) { PlantSeed(draftingTree.GetTreeData()); }
+        else if (GetComponent<SpriteRenderer>().sprite == ploughedPlot) 
+        {
+            FindObjectOfType<InventoryManager>().GetComponent<InventoryManager>().OpenSeedsInventory(gameObject);
+        }
+        //else if (GetComponent<SpriteRenderer>().sprite == ploughedPlot) { PlantSeed(draftingTree.GetTreeData()); }
 
         // Watering and fertilizing the plant
         else if (GetComponent<SpriteRenderer>().sprite == seededPlot)
@@ -91,7 +95,7 @@ public class PlotFarming : MonoBehaviour
         GetComponent<SpriteRenderer>().sprite = ploughedPlot;
     }
 
-    private void PlantSeed(Tree seed)
+    public void PlantSeed(Tree seed)
     {
         GetComponent<SpriteRenderer>().sprite = seededPlot;
         treePlot.GetComponent<SpriteRenderer>().sprite = seed.growingPhasesSprites[1];

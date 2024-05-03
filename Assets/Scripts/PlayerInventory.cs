@@ -11,6 +11,7 @@ public class PlayerInventory : MonoBehaviour
     [Header("Current Inventory")]
     [SerializeField] private List<Items> editorInventoryList;
     public List<(Items, int)> playerInventoryList;
+    public List<(Items, int)> seedsInventory;
 
     [Space]
     [Header("Testing Assets")]
@@ -19,13 +20,14 @@ public class PlayerInventory : MonoBehaviour
     private void Start()
     {
         playerInventory = new Inventory(inventorySize);
-        //PickUpItems(draftAsset, 1);
+        PickUpItems(draftAsset, 1);
     }
 
     private void Update()
     {
         DontDestroyOnLoad(gameObject);
         playerInventoryList = InventoryToList(playerInventory);
+        seedsInventory = GetItemsListOfType(Items.ItemType.Tree, playerInventory);
         editorInventoryList = SimplifiedList(playerInventoryList);
     }
 
@@ -61,5 +63,22 @@ public class PlayerInventory : MonoBehaviour
         }
 
         return list;
+    }
+
+    public List<(Items, int)> GetItemsListOfType(Items.ItemType type, Inventory inventory)
+    {
+        List<(Items, int)> allItemsList = inventory.ItemsToList();
+        List<(Items, int)> finalList = new List<(Items, int)>();
+
+        for (int i = 0; i < allItemsList.Count;i++)
+        {
+            if (allItemsList[i].Item1.GetItemType() == type)
+            {
+                finalList.Add(allItemsList[i]);
+            }
+            else { continue; }
+        }
+
+        return finalList;
     }
 }

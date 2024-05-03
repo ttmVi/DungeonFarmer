@@ -36902,7 +36902,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &426384515
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37349,6 +37349,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: bcc810bd-dc17-40fe-9e07-2bc99ec25270
     m_ActionName: UI/OpenInventory[/Keyboard/i]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1405092617}
+        m_TargetAssemblyTypeName: InventoryManager, Assembly-CSharp
+        m_MethodName: OnUsingItem
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 6945e808-9ff8-44a9-a8e3-4e35d5c3e00f
+    m_ActionName: UI/UseItem[/Keyboard/leftShift]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: UI
@@ -45288,8 +45304,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventorySize: 10
-  editorInventoryList: []
-  draftAsset: {fileID: 11400000, guid: 55b6329c569914a4ea49163c74fdeb69, type: 2}
+  editorInventoryList:
+  - {fileID: 0}
+  draftAsset: {fileID: 11400000, guid: 0a345ca6edd1ac848b7febf7aab01d67, type: 2}
 --- !u!1 &1090826934
 GameObject:
   m_ObjectHideFlags: 0
@@ -47852,8 +47869,11 @@ MonoBehaviour:
   numberOfColumns: 7
   distanceBetweenSlots: 175
   isOpening: 1
+  isPlantingTree: 0
+  plantingPlot: {fileID: 0}
   startIndex: 0
   selectingIndex: 0
+  currentInventoryIndex: 0
 --- !u!114 &1420421079
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -57125,6 +57145,7 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 519420032}
+  - {fileID: 1405092614}
   - {fileID: 426384518}
   - {fileID: 483666631}
   - {fileID: 774523243}
@@ -57132,7 +57153,6 @@ SceneRoots:
   - {fileID: 376066937}
   - {fileID: 1875860433}
   - {fileID: 981225787}
-  - {fileID: 1405092614}
   - {fileID: 1620724705}
   - {fileID: 663707175}
   - {fileID: 1080958307}

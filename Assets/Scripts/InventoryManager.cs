@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
+[DisallowMultipleComponent]
 public class InventoryManager : MonoBehaviour
 {
     [Header("Inventory Canvas Elements Assigning")]
@@ -21,10 +22,15 @@ public class InventoryManager : MonoBehaviour
 
     [Header("Inventory States")]
     [SerializeField] public bool isOpening;
+    [Space]
+    [SerializeField] private bool isPlantingTree;
+    [SerializeField] private GameObject plantingPlot;
+    [SerializeField] private List<(Items, int)> displayingInventory;
 
     [Header("Current Inventory Indexes")]
     [SerializeField] private int startIndex;
     [SerializeField] private int selectingIndex;
+    [SerializeField] private int currentInventoryIndex;
 
     private void Start()
     {
@@ -36,7 +42,8 @@ public class InventoryManager : MonoBehaviour
     {
         if (isOpening)
         {
-            DisplayInventory(playerInventory.playerInventoryList);
+            DisplayInventory(displayingInventory);
+            currentInventoryIndex = startIndex + selectingIndex;
         }
     }
 
@@ -50,13 +57,21 @@ public class InventoryManager : MonoBehaviour
             }
             else
             {
-                OpenInventory();
+                OpenInventory(playerInventory.playerInventoryList);
             }
         }
     }
 
-    private void OpenInventory()
+    public void OpenSeedsInventory(GameObject plantingPlot)
     {
+        OpenInventory(playerInventory.seedsInventory);
+        isPlantingTree = true;
+        this.plantingPlot = plantingPlot;
+    }
+
+    private void OpenInventory(List<(Items, int)> inventory)
+    {
+        displayingInventory = inventory;
         inventoryCanvas.SetActive(true);
         isOpening = true;
     }
@@ -71,7 +86,6 @@ public class InventoryManager : MonoBehaviour
     {
         if (isOpening && selectButton.activeSelf)
         {
-            Debug.Log("Inputting");
             switch (context.ReadValue<Vector2>().x)
             {
                 case -1: PreviousItem(); break;
@@ -84,6 +98,7 @@ public class InventoryManager : MonoBehaviour
                 case 1: AboveItem(); break;
                 default: break;
             }
+
         }
         else { Debug.Log("Inventory not opened / Inventory empty"); }
     }
@@ -98,11 +113,25 @@ public class InventoryManager : MonoBehaviour
         return startIndex + slotIndex >= currentInventory.Count;
     }
 
+    public void OnUsingItem(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            if (isPlantingTree)
+            {
+                Items plantingSeed = displayingInventory[currentInventoryIndex].Item1;
+                plantingPlot.GetComponent<PlotFarming>().PlantSeed(plantingSeed.GetTreeData());
+                playerInventory.gameObject.GetComponent<PlayerInventory>().RemoveItems(plantingSeed, 1);
+                CloseInventory();
+            }
+        }
+    }
+
     private void NextItem()
     {
         if (selectingIndex % numberOfColumns != numberOfColumns - 1)
         {
-            if (!IsEmptySlot(selectingIndex + 1, playerInventory.playerInventoryList))
+            if (!IsEmptySlot(selectingIndex + 1, displayingInventory))
             {
                 selectingIndex++;
                 selectButton.GetComponent<RectTransform>().anchoredPosition += new Vector2(distanceBetweenSlots, 0);
@@ -114,7 +143,7 @@ public class InventoryManager : MonoBehaviour
     {
         if (selectingIndex % numberOfColumns != 0)
         {
-            if (!IsEmptySlot(selectingIndex - 1, playerInventory.playerInventoryList))
+            if (!IsEmptySlot(selectingIndex - 1, displayingInventory))
             {
                 selectingIndex--;
                 selectButton.GetComponent<RectTransform>().anchoredPosition -= new Vector2(distanceBetweenSlots, 0);
@@ -125,7 +154,7 @@ public class InventoryManager : MonoBehaviour
 
     private void AboveItem()
     {
-        if (!IsEmptySlot(selectingIndex - numberOfColumns, playerInventory.playerInventoryList))
+        if (!IsEmptySlot(selectingIndex - numberOfColumns, displayingInventory))
         {
             if (selectingIndex / numberOfColumns < 1)
             {
@@ -141,7 +170,7 @@ public class InventoryManager : MonoBehaviour
 
     private void BelowItem()
     {
-        if (!IsEmptySlot(selectingIndex + numberOfColumns, playerInventory.playerInventoryList))
+        if (!IsEmptySlot(selectingIndex + numberOfColumns, displayingInventory))
         {
             if (selectingIndex / numberOfColumns >= numberOfRows - 1)
             {
