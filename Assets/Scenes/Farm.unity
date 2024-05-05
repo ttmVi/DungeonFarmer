@@ -48534,6 +48534,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventorySize: 10
+  editorInventoryList: []
+  draftAsset: {fileID: 0}
 --- !u!114 &1885651637
 MonoBehaviour:
   m_ObjectHideFlags: 0
