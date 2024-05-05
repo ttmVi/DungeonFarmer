@@ -15,17 +15,39 @@ public class ItemsEditor : Editor
         Items item = (Items)target;
 
         // Conditional display based on ItemType
-        if (item.GetItemType() == Items.ItemType.Tree)
+        if (item.GetItemType() == Items.ItemType.Seed)
         {
             EditorGUILayout.Space();
             EditorGUILayout.LabelField("Tree Information", EditorStyles.boldLabel);
 
-            // Add fields specific to the tree type
             item.maxGrowthIndex = EditorGUILayout.FloatField("Max Growth Index", item.maxGrowthIndex);
             EditorGUILayout.PropertyField(serializedObject.FindProperty("phasesGrowthIndex"), true);
             EditorGUILayout.PropertyField(serializedObject.FindProperty("growingPhasesSprites"), true);
             EditorGUILayout.PropertyField(serializedObject.FindProperty("deceasingSprites"), true);
             EditorGUILayout.PropertyField(serializedObject.FindProperty("possibleDrops"), true);
+        }
+        else if (item.GetItemType() == Items.ItemType.Crop)
+        {
+
+        }
+        else if (item.GetItemType() == Items.ItemType.Fertilizer)
+        {
+            EditorGUILayout.Space();
+            EditorGUILayout.LabelField("Fertilizer Information", EditorStyles.boldLabel);
+
+            EditorGUILayout.PropertyField(serializedObject.FindProperty("fertilizableSeed"), true);
+        }
+        else if (item.GetItemType() == Items.ItemType.MonsterPart)
+        {
+
+        }
+        else if (item.GetItemType() == Items.ItemType.Potion)
+        {
+            EditorGUILayout.Space();
+            EditorGUILayout.LabelField("Tree Information", EditorStyles.boldLabel);
+
+            EditorGUILayout.PropertyField(serializedObject.FindProperty("potionEffect"), true);
+            EditorGUILayout.PropertyField(serializedObject.FindProperty("craftingRecipe"), true);
         }
 
         serializedObject.ApplyModifiedProperties();

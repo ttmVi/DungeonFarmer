@@ -27,7 +27,7 @@ public class PlayerInventory : MonoBehaviour
     {
         DontDestroyOnLoad(gameObject);
         playerInventoryList = InventoryToList(playerInventory);
-        seedsInventory = GetItemsListOfType(Items.ItemType.Tree, playerInventory);
+        seedsInventory = GetItemsListOfType(Items.ItemType.Seed, playerInventory);
         editorInventoryList = SimplifiedList(playerInventoryList);
     }
 

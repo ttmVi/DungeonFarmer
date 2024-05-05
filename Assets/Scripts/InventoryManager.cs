@@ -120,7 +120,7 @@ public class InventoryManager : MonoBehaviour
             if (isPlantingTree)
             {
                 Items plantingSeed = displayingInventory[currentInventoryIndex].Item1;
-                plantingPlot.GetComponent<PlotFarming>().PlantSeed(plantingSeed.GetTreeData());
+                plantingPlot.GetComponent<PlotFarming>().PlantSeed(plantingSeed.GetSeedData());
                 playerInventory.gameObject.GetComponent<PlayerInventory>().RemoveItems(plantingSeed, 1);
                 CloseInventory();
             }

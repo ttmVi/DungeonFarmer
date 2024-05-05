@@ -14,19 +14,41 @@ public class Items : ScriptableObject
     [SerializeField] private string itemDescription;
     [SerializeField] private ItemType itemType;
 
-    // Fields for trees configuration
+    // Fields for seeds configuration
     [Space]
-    [Header("Tree Information")]
+    [Header("Seed Information")]
     [SerializeField, HideInInspector] public float maxGrowthIndex;
     [SerializeField, HideInInspector] public float[] phasesGrowthIndex;
     [SerializeField, HideInInspector] public Sprite[] growingPhasesSprites;
     [SerializeField, HideInInspector] public Sprite[] deceasingSprites;
     [SerializeField, HideInInspector] public Items[] possibleDrops;
 
+    //Fields for crops configuration
+    [Space]
+    [Header("Crop Information")]
+    [SerializeField, HideInInspector] private string note;
+
+    //Fields for fertilizers configuration
+    [Space]
+    [Header("Fertilizer Information")]
+    [SerializeField, HideInInspector] public Items fertilizableSeed;
+
+    //Fields for monster parts configuration
+
+    //Fields for potions configuration
+    [Space]
+    [Header("Potion Information")]
+    [SerializeField, HideInInspector] private string potionEffect;
+    [SerializeField, HideInInspector] public Items[] craftingRecipe;
+
     public enum ItemType
     {
         General,
-        Tree
+        Seed,
+        Crop,
+        Fertilizer,
+        MonsterPart,
+        Potion,
     }
 
     public Items(int itemID, string itemName, Sprite itemIcon)
@@ -67,13 +89,22 @@ public class Items : ScriptableObject
         return itemType;
     }
 
-    public Tree GetTreeData()
+    public Tree GetSeedData()
     {
-        if (itemType == ItemType.Tree)
+        if (itemType == ItemType.Seed)
         {
             return new Tree(itemName, maxGrowthIndex, phasesGrowthIndex, growingPhasesSprites, deceasingSprites, possibleDrops);
         }
 
+        return null;
+    }
+
+    public Potion GetPotionData()
+    {
+        if (itemType == ItemType.Potion)
+        {
+            return new Potion(potionEffect, craftingRecipe);
+        }
         return null;
     }
 }
