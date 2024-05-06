@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BoarFang
   m_EditorClassIdentifier: 
   itemID: 0
-  itemName: 
+  itemName: Boar Fang
   itemInventoryIcon: {fileID: 0}
   overworldSprite: {fileID: 0}
   itemDescription: 

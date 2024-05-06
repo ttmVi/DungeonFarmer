@@ -10,23 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6bf04bd51a7ff474c914a5fdae63639a, type: 3}
-  m_Name: TomatoFertilizer
+  m_Name: SpiderEyes
   m_EditorClassIdentifier: 
   itemID: 0
-  itemName: Tomato Fertilizer
+  itemName: Spider Eyes
   itemInventoryIcon: {fileID: 0}
   overworldSprite: {fileID: 0}
   itemDescription: 
-  itemType: 3
+  itemType: 4
   maxGrowthIndex: 0
   phasesGrowthIndex: []
   growingPhasesSprites: []
   deceasingSprites: []
   possibleDrops: []
   note: 
-  fertilizableSeed: {fileID: 11400000, guid: f47b2d7a5e995d84eb737cab531342bb, type: 2}
-  fertilizerCraftingRecipe:
-  - {fileID: 11400000, guid: f661864a73c5b0f4c9985bf42082fc9e, type: 2}
-  - {fileID: 11400000, guid: ba225fe612f59ce468b2a3221ac69d64, type: 2}
+  fertilizableSeed: {fileID: 0}
+  fertilizerCraftingRecipe: []
   potionEffect: 
   potionCraftingRecipe: []

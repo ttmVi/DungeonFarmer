@@ -25,6 +25,8 @@ MonoBehaviour:
   possibleDrops: []
   note: 
   fertilizableSeed: {fileID: 11400000, guid: 817b12d110ab6f647808043791db4d36, type: 2}
-  fertilizerCraftingRecipe: []
+  fertilizerCraftingRecipe:
+  - {fileID: 11400000, guid: ac977b05c1b5c1c44a2790ee57d448ea, type: 2}
+  - {fileID: 11400000, guid: 29e289f7c0f0dfd45b0ae3420f903fd6, type: 2}
   potionEffect: 
   potionCraftingRecipe: []

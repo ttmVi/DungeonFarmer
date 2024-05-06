@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BoarLeather
   m_EditorClassIdentifier: 
   itemID: 0
-  itemName: 
+  itemName: Boar Leather
   itemInventoryIcon: {fileID: 0}
   overworldSprite: {fileID: 0}
   itemDescription: 
