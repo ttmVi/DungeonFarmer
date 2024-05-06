@@ -40,12 +40,15 @@ public class PlayerJump : MonoBehaviour
     private bool pressingJump;
     public bool onGround;
     private bool currentlyJumping;
+    private Melee melee;
 
     void Awake()
     {
         //Find the character's Rigidbody and ground detection
         body = GetComponent<Rigidbody2D>();
         ground = GetComponent<GroundCheck>();
+        melee = GetComponentInChildren<Melee>();
+        //Debug.Log(melee.name);
         defaultGravityScale = 1f;
     }
 
@@ -116,9 +119,9 @@ public class PlayerJump : MonoBehaviour
 
     private void FixedUpdate()
     {
+        //calculateGravity();
         //Get velocity from Kit's Rigidbody 
         velocity = body.velocity;
-
         //Keep trying to do a jump, for as long as desiredJump is true
         if (desiredJump)
         {
@@ -129,17 +132,18 @@ public class PlayerJump : MonoBehaviour
             //This makes sure you can't do the coyote time double jump bug
             return;
         }
+        calculateGravity(); //caused super jumps to occur
 
-        calculateGravity();
     }
 
     private void calculateGravity()
     {
         //We change the character's gravity based on her Y direction
         //If Kit is going up...
+        
         if (body.velocity.y > 0.01f)
         {
-            if (onGround)
+            if (onGround || melee.resetGravity)
             {
                 //Don't change it if Kit is stood on something (such as a moving platform)
                 gravMultiplier = defaultGravityScale;
@@ -147,7 +151,7 @@ public class PlayerJump : MonoBehaviour
             else
             {
                 //If we're using variable jump height...)
-                if (variablejumpHeight)
+                if (variablejumpHeight && !melee.resetGravity)
                 {
                     //Apply upward multiplier if player is rising and holding jump
                     if (pressingJump && currentlyJumping)
@@ -171,7 +175,7 @@ public class PlayerJump : MonoBehaviour
         else if (body.velocity.y < -0.01f)
         {
 
-            if (onGround)
+            if (onGround || melee.resetGravity)
             //Don't change it if Kit is stood on something (such as a moving platform)
             {
                 gravMultiplier = defaultGravityScale;
@@ -201,7 +205,6 @@ public class PlayerJump : MonoBehaviour
 
     private void DoAJump()
     {
-
         //Create the jump, provided we are on the ground, in coyote time, or have a double jump available
         if (onGround || (coyoteTimeCounter > 0.03f && coyoteTimeCounter < coyoteTime) || canJumpAgain)
         {
@@ -235,6 +238,14 @@ public class PlayerJump : MonoBehaviour
         {
             //If we don't have a jump buffer, then turn off desiredJump immediately after hitting jumping
             desiredJump = false;
+        }
+    }
+    private void Bounce()
+    {
+        if (melee.resetGravity)
+        {
+            gravMultiplier = defaultGravityScale;
+
         }
     }
 }
