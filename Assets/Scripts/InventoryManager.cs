@@ -40,7 +40,7 @@ public class InventoryManager : MonoBehaviour
 
     private void Update()
     {
-        if (isOpening)
+        if (isOpening && displayingInventory != null)
         {
             DisplayInventory(displayingInventory);
             currentInventoryIndex = startIndex + selectingIndex;
@@ -76,7 +76,7 @@ public class InventoryManager : MonoBehaviour
         isOpening = true;
     }
 
-    private void CloseInventory()
+    public void CloseInventory()
     {
         inventoryCanvas.SetActive(false);
         isOpening = false;
@@ -117,7 +117,7 @@ public class InventoryManager : MonoBehaviour
     {
         if (context.started)
         {
-            if (isPlantingTree)
+            if (isPlantingTree && isOpening)
             {
                 Items plantingSeed = displayingInventory[currentInventoryIndex].Item1;
                 plantingPlot.GetComponent<PlotFarming>().PlantSeed(plantingSeed.GetSeedData());

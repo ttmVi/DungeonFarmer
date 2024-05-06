@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bf04bd51a7ff474c914a5fdae63639a, type: 3}
   m_Name: MosquitoWings
   m_EditorClassIdentifier: 
-  itemID: 0
+  itemID: 16
   itemName: Mosquito Wings
   itemInventoryIcon: {fileID: 0}
   overworldSprite: {fileID: 0}
@@ -28,3 +28,5 @@ MonoBehaviour:
   fertilizerCraftingRecipe: []
   potionEffect: 
   potionCraftingRecipe: []
+  canBeCrafted: 0
+  craftingRecipe: []

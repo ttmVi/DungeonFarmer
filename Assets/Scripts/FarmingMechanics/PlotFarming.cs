@@ -45,11 +45,6 @@ public class PlotFarming : MonoBehaviour
         stackedFertilizer = 0;
     }
 
-    private void Update()
-    {
-
-    }
-
     // This method is called when the player interacts with the plot
     public void DoFarming()
     {
@@ -57,7 +52,7 @@ public class PlotFarming : MonoBehaviour
         if (GetComponent<SpriteRenderer>().sprite == unploughedPlot) 
         {
             CleanDebris();
-            PloughPlot(); 
+            PloughPlot();
         }
 
         // Planting the seed
@@ -86,7 +81,8 @@ public class PlotFarming : MonoBehaviour
     {
         foreach (Items item in theItems)
         {
-            itemsManager.InstantiateItem(itemPlaceholder, item, transform.position, Quaternion.identity);
+            //itemsManager.InstantiateItem(itemPlaceholder, item, transform.position, Quaternion.identity);
+            itemsManager.InstantiateItemInRange(itemPlaceholder, item, transform.position, 0.1f, 1f, Quaternion.identity);
         }
     }
 
@@ -117,8 +113,6 @@ public class PlotFarming : MonoBehaviour
         }
     }
 
-    private void FertilizeSoil() { }
-
     private void FertilizePlant(float fertilizingAmount)
     {
         stackedFertilizer += fertilizingAmount;
@@ -133,7 +127,8 @@ public class PlotFarming : MonoBehaviour
         // Drop plant's items
         for (int i = 0; i < treeData.possibleDrops.Length; i++)
         {
-            itemsManager.InstantiateItem(itemPlaceholder, treeData.possibleDrops[i], transform.position, Quaternion.identity);
+            //itemsManager.InstantiateItem(itemPlaceholder, treeData.possibleDrops[i], transform.position, Quaternion.identity);
+            itemsManager.InstantiateItemInRange(itemPlaceholder, treeData.possibleDrops[i], transform.position, 0.1f, 1.5f, Quaternion.identity);
         }
 
         RemovePlant();

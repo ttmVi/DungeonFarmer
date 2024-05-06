@@ -15,12 +15,15 @@ public class PlayerInventory : MonoBehaviour
 
     [Space]
     [Header("Testing Assets")]
-    [SerializeField] private Items draftAsset;
+    [SerializeField] private Items[] draftAssets;
 
     private void Start()
     {
         playerInventory = new Inventory(inventorySize);
-        PickUpItems(draftAsset, 1);
+        foreach (var item in draftAssets)
+        {
+            PickUpItems(item, 1);
+        }
     }
 
     private void Update()
@@ -47,6 +50,20 @@ public class PlayerInventory : MonoBehaviour
     public void RemoveItems(Items item, int quantity)
     {
         playerInventory.RemoveItem(item, quantity);
+    }
+
+    public int GetItemQuantity(Items item)
+    {
+        return playerInventory.GetItemQuantity(item);
+    }
+
+    public bool CheckForItem(Items item)
+    {
+        if (playerInventory.GetItemQuantity(item) > 0)
+        {
+            return true;
+        }
+        return false;
     }
 
     public List<(Items, int)> InventoryToList(Inventory inventory)
