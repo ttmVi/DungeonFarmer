@@ -198,6 +198,48 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Forest_Foliage_Tiles_3
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 228df043e1523584d889ac4159531c23
+      internalID: 1917127184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Forest_Foliage_Tiles_4
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 49
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66de8c5306872f34286d4ecd9e518f19
+      internalID: 1282586893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -212,6 +254,8 @@ TextureImporter:
       Forest_Foliage_Tiles_0: -413423927
       Forest_Foliage_Tiles_1: -687707710
       Forest_Foliage_Tiles_2: 1016995913
+      Forest_Foliage_Tiles_3: 1917127184
+      Forest_Foliage_Tiles_4: 1282586893
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

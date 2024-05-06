@@ -22,7 +22,7 @@ public class Interactable : MonoBehaviour
         }
     }
 
-    public void PickUp(Item item, int quantity)
+    public void PickUp(Items item, int quantity)
     {
         /*if (playerInstance.CheckForEmptySlots(item))
         {

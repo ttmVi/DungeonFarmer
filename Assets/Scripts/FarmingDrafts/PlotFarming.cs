@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using static ItemsManager;
+using static UnityEditor.Progress;
 
 [RequireComponent(typeof(Interactable))]
 public class PlotFarming : MonoBehaviour
@@ -59,7 +61,11 @@ public class PlotFarming : MonoBehaviour
         }
 
         // Planting the seed
-        else if (GetComponent<SpriteRenderer>().sprite == ploughedPlot) { PlantSeed(draftingTree.GetTreeData()); }
+        else if (GetComponent<SpriteRenderer>().sprite == ploughedPlot) 
+        {
+            FindObjectOfType<InventoryManager>().GetComponent<InventoryManager>().OpenSeedsInventory(gameObject);
+        }
+        //else if (GetComponent<SpriteRenderer>().sprite == ploughedPlot) { PlantSeed(draftingTree.GetTreeData()); }
 
         // Watering and fertilizing the plant
         else if (GetComponent<SpriteRenderer>().sprite == seededPlot)
@@ -80,8 +86,7 @@ public class PlotFarming : MonoBehaviour
     {
         foreach (Items item in theItems)
         {
-            GameObject debris = Instantiate(itemPlaceholder, transform.position, Quaternion.identity);
-            debris.GetComponent<ItemInfo>().SetItemData(item);
+            itemsManager.InstantiateItem(itemPlaceholder, item, transform.position, Quaternion.identity);
         }
     }
 
@@ -90,7 +95,7 @@ public class PlotFarming : MonoBehaviour
         GetComponent<SpriteRenderer>().sprite = ploughedPlot;
     }
 
-    private void PlantSeed(Tree seed)
+    public void PlantSeed(Tree seed)
     {
         GetComponent<SpriteRenderer>().sprite = seededPlot;
         treePlot.GetComponent<SpriteRenderer>().sprite = seed.growingPhasesSprites[1];
@@ -128,8 +133,7 @@ public class PlotFarming : MonoBehaviour
         // Drop plant's items
         for (int i = 0; i < treeData.possibleDrops.Length; i++)
         {
-            GameObject item = Instantiate(itemPlaceholder, transform.position, Quaternion.identity);
-            item.GetComponent<ItemInfo>().SetItemData(treeData.possibleDrops[i]);
+            itemsManager.InstantiateItem(itemPlaceholder, treeData.possibleDrops[i], transform.position, Quaternion.identity);
         }
 
         RemovePlant();
@@ -144,7 +148,6 @@ public class PlotFarming : MonoBehaviour
                 if (treeData.growingPhasesSprites.Contains(treePlot.GetComponent<SpriteRenderer>().sprite))
                 {
                     treePlot.GetComponent<SpriteRenderer>().sprite = treeData.deceasingSprites[currentTreePhase];
-                    Debug.Log(currentTreePhase);
                 }
                 else { RemovePlant(); }
             }
@@ -153,7 +156,6 @@ public class PlotFarming : MonoBehaviour
                 if (treeData.deceasingSprites.Contains(treePlot.GetComponent<SpriteRenderer>().sprite))
                 {
                     RevitalizePlant();
-                    Debug.Log(currentTreePhase);
                 }
                 else
                 {
@@ -201,19 +203,16 @@ public class PlotFarming : MonoBehaviour
                 {
                     treePlot.GetComponent<SpriteRenderer>().sprite = treeData.growingPhasesSprites[i - 1];
                     currentTreePhase = i - 1;
-                    Debug.Log(currentTreePhase);
                     break;
                 }
                 else if (i == treeData.phasesGrowthIndex.Length - 1)
                 {
                     treePlot.GetComponent<SpriteRenderer>().sprite = treeData.growingPhasesSprites[i];
                     currentTreePhase = i;
-                    Debug.Log(currentTreePhase);
                     break;
                 }
                 else 
                 {
-                    Debug.Log("Plant's phase is not " + i);
                     continue; 
                 }
             }
