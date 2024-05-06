@@ -32,6 +32,7 @@ public class Items : ScriptableObject
     [Space]
     [Header("Fertilizer Information")]
     [SerializeField, HideInInspector] public Items fertilizableSeed;
+    [SerializeField, HideInInspector] public Items[] fertilizerCraftingRecipe;
 
     //Fields for monster parts configuration
 
@@ -39,7 +40,7 @@ public class Items : ScriptableObject
     [Space]
     [Header("Potion Information")]
     [SerializeField, HideInInspector] private string potionEffect;
-    [SerializeField, HideInInspector] public Items[] craftingRecipe;
+    [SerializeField, HideInInspector] public Items[] potionCraftingRecipe;
 
     public enum ItemType
     {
@@ -103,7 +104,7 @@ public class Items : ScriptableObject
     {
         if (itemType == ItemType.Potion)
         {
-            return new Potion(potionEffect, craftingRecipe);
+            return new Potion(potionEffect, potionCraftingRecipe);
         }
         return null;
     }

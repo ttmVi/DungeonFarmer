@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bf04bd51a7ff474c914a5fdae63639a, type: 3}
+  m_Name: TomatoFertilizer
+  m_EditorClassIdentifier: 
+  itemID: 0
+  itemName: Tomato Fertilizer
+  itemInventoryIcon: {fileID: 0}
+  overworldSprite: {fileID: 0}
+  itemDescription: 
+  itemType: 3
+  maxGrowthIndex: 0
+  phasesGrowthIndex: []
+  growingPhasesSprites: []
+  deceasingSprites: []
+  possibleDrops: []
+  note: 
+  fertilizableSeed: {fileID: 11400000, guid: f47b2d7a5e995d84eb737cab531342bb, type: 2}
+  fertilizerCraftingRecipe: []
+  potionEffect: 
+  potionCraftingRecipe: []

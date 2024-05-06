@@ -36,6 +36,7 @@ public class ItemsEditor : Editor
             EditorGUILayout.LabelField("Fertilizer Information", EditorStyles.boldLabel);
 
             EditorGUILayout.PropertyField(serializedObject.FindProperty("fertilizableSeed"), true);
+            EditorGUILayout.PropertyField(serializedObject.FindProperty("fertilizerCraftingRecipe"), true);
         }
         else if (item.GetItemType() == Items.ItemType.MonsterPart)
         {
@@ -44,10 +45,10 @@ public class ItemsEditor : Editor
         else if (item.GetItemType() == Items.ItemType.Potion)
         {
             EditorGUILayout.Space();
-            EditorGUILayout.LabelField("Tree Information", EditorStyles.boldLabel);
+            EditorGUILayout.LabelField("Potion Information", EditorStyles.boldLabel);
 
             EditorGUILayout.PropertyField(serializedObject.FindProperty("potionEffect"), true);
-            EditorGUILayout.PropertyField(serializedObject.FindProperty("craftingRecipe"), true);
+            EditorGUILayout.PropertyField(serializedObject.FindProperty("potionCraftingRecipe"), true);
         }
 
         serializedObject.ApplyModifiedProperties();
