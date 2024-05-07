@@ -24,6 +24,7 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] public bool isOpening;
     [Space]
     [SerializeField] private bool isPlantingTree;
+    [SerializeField] private bool isFertilizingTree;
     [SerializeField] private GameObject plantingPlot;
     [SerializeField] private List<(Items, int)> displayingInventory;
 
@@ -69,6 +70,13 @@ public class InventoryManager : MonoBehaviour
         this.plantingPlot = plantingPlot;
     }
 
+    public void OpenFertilizersInventory(GameObject plantingPlot)
+    {
+        OpenInventory(playerInventory.fertilizersInventory);
+        isFertilizingTree = true;
+        this.plantingPlot = plantingPlot;
+    }
+
     private void OpenInventory(List<(Items, int)> inventory)
     {
         displayingInventory = inventory;
@@ -80,6 +88,8 @@ public class InventoryManager : MonoBehaviour
     {
         inventoryCanvas.SetActive(false);
         isOpening = false;
+        isPlantingTree = false;
+        isFertilizingTree = false;
     }
 
     public void OnInventoryUINavigation(InputAction.CallbackContext context)
@@ -122,6 +132,13 @@ public class InventoryManager : MonoBehaviour
                 Items plantingSeed = displayingInventory[currentInventoryIndex].Item1;
                 plantingPlot.GetComponent<PlotFarming>().PlantSeed(plantingSeed.GetSeedData());
                 playerInventory.gameObject.GetComponent<PlayerInventory>().RemoveItems(plantingSeed, 1);
+                CloseInventory();
+            }
+            else if (isFertilizingTree && isOpening)
+            {
+                Items fertilizer = displayingInventory[currentInventoryIndex].Item1;
+                plantingPlot.GetComponent<PlotFarming>().FertilizePlant(fertilizer, 1.5f);
+                playerInventory.gameObject.GetComponent<PlayerInventory>().RemoveItems(fertilizer, 1);
                 CloseInventory();
             }
         }

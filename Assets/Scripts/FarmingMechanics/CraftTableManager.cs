@@ -10,6 +10,7 @@ public class CraftTableManager : MonoBehaviour
     [Header("Crafting Canvas Elements Assigning")]
     [SerializeField] private GameObject craftingCanvas;
     [SerializeField] private GameObject recipesList;
+    [SerializeField] private GameObject recipeTabs;
     [SerializeField] private GameObject selectButton;
     [SerializeField] private PlayerInventory playerInventory;
     [SerializeField] private float distanceBetweenRows;
@@ -93,6 +94,26 @@ public class CraftTableManager : MonoBehaviour
                 break;
                 default: break;
             }
+        }
+    }
+
+    public void OnNextUITab(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            currentDisplayingRecipes = potions;
+            recipeTabs.transform.GetChild(0).GetComponent<TextMeshProUGUI>().color = new Color(0f, 0f, 0f, 0.35f);
+            recipeTabs.transform.GetChild(1).GetComponent<TextMeshProUGUI>().color = new Color(0f, 0f, 0f, 1f);
+        }
+    }
+
+    public void OnPreviousUITab(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            currentDisplayingRecipes = fertilizers;
+            recipeTabs.transform.GetChild(1).GetComponent<TextMeshProUGUI>().color = new Color(0f, 0f, 0f, 0.35f);
+            recipeTabs.transform.GetChild(0).GetComponent<TextMeshProUGUI>().color = new Color(0f, 0f, 0f, 1f);
         }
     }
 

@@ -12,6 +12,7 @@ public class PlayerInventory : MonoBehaviour
     [SerializeField] private List<Items> editorInventoryList;
     public List<(Items, int)> playerInventoryList;
     public List<(Items, int)> seedsInventory;
+    public List<(Items, int)> fertilizersInventory;
 
     [Space]
     [Header("Testing Assets")]
@@ -31,6 +32,7 @@ public class PlayerInventory : MonoBehaviour
         DontDestroyOnLoad(gameObject);
         playerInventoryList = InventoryToList(playerInventory);
         seedsInventory = GetItemsListOfType(Items.ItemType.Seed, playerInventory);
+        fertilizersInventory = GetItemsListOfType(Items.ItemType.Fertilizer, playerInventory);
         editorInventoryList = SimplifiedList(playerInventoryList);
     }
 

@@ -67,8 +67,10 @@ public class PlotFarming : MonoBehaviour
         {
             if (treeGrowthIndex < maxGrowthIndex && treeData != null)
             {
-                WaterPlant(0.2f);
-                FertilizePlant(0.1f);
+                //WaterPlant(0.2f);
+
+                FindObjectOfType<InventoryManager>().GetComponent<InventoryManager>().OpenFertilizersInventory(gameObject);
+                //FertilizePlant(0.1f);
             }
             else if (treeGrowthIndex >= maxGrowthIndex && treeData != null)
             {
@@ -113,12 +115,20 @@ public class PlotFarming : MonoBehaviour
         }
     }
 
-    private void FertilizePlant(float fertilizingAmount)
+    public void FertilizePlant(Items fertilizer, float fertilizingAmount)
     {
-        stackedFertilizer += fertilizingAmount;
-        if (stackedFertilizer >= maximumStackedFertilizer)
+        if (fertilizer.fertilizableSeed.GetSeedData() != treeData)
         {
-            stackedFertilizer = maximumStackedFertilizer;
+            Debug.Log("Wrong type of fertilizer");
+            return;
+        }
+        else
+        {
+            stackedFertilizer += fertilizingAmount;
+            if (stackedFertilizer >= maximumStackedFertilizer)
+            {
+                stackedFertilizer = maximumStackedFertilizer;
+            }
         }
     }
 
