@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class FarmManager : MonoBehaviour
 {
+    [SerializeField] private PlayerInventory playerInventory;
+    [SerializeField] private Items fullWaterBottle;
+    [SerializeField] private Items emptyWaterBottle;
+
     public void EndFarmDay()
     {
         // This method will be called when the player ends the day
@@ -22,4 +26,18 @@ public class FarmManager : MonoBehaviour
         }
     }
 
+    public void FetchWater()
+    {
+        playerInventory.FetchWater(emptyWaterBottle, fullWaterBottle);
+    }
+
+    public void EmptyWater()
+    {
+        playerInventory.EmptyWaterBottle(fullWaterBottle, emptyWaterBottle);
+    }
+
+    public bool WaterBottleFilled()
+    {
+        return playerInventory.CheckForItem(fullWaterBottle);
+    }
 }

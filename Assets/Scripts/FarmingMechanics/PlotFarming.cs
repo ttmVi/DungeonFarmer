@@ -45,11 +45,6 @@ public class PlotFarming : MonoBehaviour
         stackedFertilizer = 0;
     }
 
-    private void Update()
-    {
-
-    }
-
     // This method is called when the player interacts with the plot
     public void DoFarming()
     {
@@ -57,7 +52,7 @@ public class PlotFarming : MonoBehaviour
         if (GetComponent<SpriteRenderer>().sprite == unploughedPlot) 
         {
             CleanDebris();
-            PloughPlot(); 
+            PloughPlot();
         }
 
         // Planting the seed
@@ -72,8 +67,17 @@ public class PlotFarming : MonoBehaviour
         {
             if (treeGrowthIndex < maxGrowthIndex && treeData != null)
             {
-                WaterPlant(0.2f);
-                FertilizePlant(0.1f);
+                if (FindObjectOfType<FarmManager>().GetComponent<FarmManager>().WaterBottleFilled())
+                {
+                    WaterPlant(0.5f);
+                }
+                else
+                {
+                    FindObjectOfType<InventoryManager>().GetComponent<InventoryManager>().OpenFertilizersInventory(gameObject);
+                }
+
+                //WaterPlant(0.2f);
+                //FertilizePlant(0.1f);
             }
             else if (treeGrowthIndex >= maxGrowthIndex && treeData != null)
             {
@@ -86,7 +90,8 @@ public class PlotFarming : MonoBehaviour
     {
         foreach (Items item in theItems)
         {
-            itemsManager.InstantiateItem(itemPlaceholder, item, transform.position, Quaternion.identity);
+            //itemsManager.InstantiateItem(itemPlaceholder, item, transform.position, Quaternion.identity);
+            itemsManager.InstantiateItemInLine(itemPlaceholder, item, transform.position, 0.1f, 1f, Quaternion.identity);
         }
     }
 
@@ -110,21 +115,42 @@ public class PlotFarming : MonoBehaviour
 
     private void WaterPlant(float wateringAmount)
     {
-        stackedWater += wateringAmount;
-        if (stackedWater >= maximumStackedWater)
+        FarmManager manager = FindObjectOfType<FarmManager>().GetComponent<FarmManager>();
+        
+        if (!manager.WaterBottleFilled())
         {
-            stackedWater = maximumStackedWater;
+            Debug.Log("No water in the bottle");
+            return;
+        }
+        else
+        {
+            manager.EmptyWater();
+
+            stackedWater += wateringAmount;
+            if (stackedWater >= maximumStackedWater)
+            {
+                stackedWater = maximumStackedWater;
+            }
         }
     }
 
-    private void FertilizeSoil() { }
-
-    private void FertilizePlant(float fertilizingAmount)
+    public void FertilizePlant(Items fertilizer, float fertilizingAmount)
     {
-        stackedFertilizer += fertilizingAmount;
-        if (stackedFertilizer >= maximumStackedFertilizer)
+        if (fertilizer.fertilizableSeed.GetItemName() != currentTree)
         {
-            stackedFertilizer = maximumStackedFertilizer;
+            Debug.Log("Wrong type of fertilizer");
+            FindObjectOfType<InventoryManager>().GetComponent<InventoryManager>().OpenFertilizersInventory(gameObject);
+            return;
+        }
+        else
+        {
+            stackedFertilizer += fertilizingAmount;
+            if (stackedFertilizer >= maximumStackedFertilizer)
+            {
+                stackedFertilizer = maximumStackedFertilizer;
+            }
+
+            FindObjectOfType<PlayerInventory>().GetComponent<PlayerInventory>().RemoveItems(fertilizer, 1);
         }
     }
 
@@ -133,7 +159,8 @@ public class PlotFarming : MonoBehaviour
         // Drop plant's items
         for (int i = 0; i < treeData.possibleDrops.Length; i++)
         {
-            itemsManager.InstantiateItem(itemPlaceholder, treeData.possibleDrops[i], transform.position, Quaternion.identity);
+            //itemsManager.InstantiateItem(itemPlaceholder, treeData.possibleDrops[i], transform.position, Quaternion.identity);
+            itemsManager.InstantiateItemInLine(itemPlaceholder, treeData.possibleDrops[i], transform.position, 0.1f, 1.5f, Quaternion.identity);
         }
 
         RemovePlant();

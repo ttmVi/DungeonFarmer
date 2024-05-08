@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bf04bd51a7ff474c914a5fdae63639a, type: 3}
   m_Name: PumpkinFertilizer
   m_EditorClassIdentifier: 
-  itemID: 0
+  itemID: 10
   itemName: Pumpkin Fertilizer
   itemInventoryIcon: {fileID: 0}
   overworldSprite: {fileID: 0}
@@ -30,3 +30,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c8855697c6ac11941a67e88b4ab7d148, type: 2}
   potionEffect: 
   potionCraftingRecipe: []
+  canBeCrafted: 1
+  craftingRecipe:
+  - {fileID: 11400000, guid: 8653f503de997af42a22775508cdac43, type: 2}
+  - {fileID: 11400000, guid: c8855697c6ac11941a67e88b4ab7d148, type: 2}

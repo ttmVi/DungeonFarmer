@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bf04bd51a7ff474c914a5fdae63639a, type: 3}
   m_Name: TomatoSeeds
   m_EditorClassIdentifier: 
-  itemID: 0
+  itemID: 6
   itemName: Tomato Seed
-  itemInventoryIcon: {fileID: 0}
-  overworldSprite: {fileID: 0}
+  itemInventoryIcon: {fileID: 556836258, guid: 00718107ee314fc4ca68a4ae5e59ede6, type: 3}
+  overworldSprite: {fileID: 1916916551, guid: 00718107ee314fc4ca68a4ae5e59ede6, type: 3}
   itemDescription: 
   itemType: 1
   maxGrowthIndex: 4
@@ -26,12 +26,27 @@ MonoBehaviour:
   - 2
   - 3
   - 4
-  growingPhasesSprites: []
-  deceasingSprites: []
+  growingPhasesSprites:
+  - {fileID: 1446902574, guid: c13b7367fd7e98e4ba86f2f8c6130236, type: 3}
+  - {fileID: 1446902574, guid: c13b7367fd7e98e4ba86f2f8c6130236, type: 3}
+  - {fileID: 1004116443, guid: c13b7367fd7e98e4ba86f2f8c6130236, type: 3}
+  - {fileID: -1567107184, guid: c13b7367fd7e98e4ba86f2f8c6130236, type: 3}
+  - {fileID: -1647458325, guid: c13b7367fd7e98e4ba86f2f8c6130236, type: 3}
+  - {fileID: 96750958, guid: c13b7367fd7e98e4ba86f2f8c6130236, type: 3}
+  deceasingSprites:
+  - {fileID: 1891582204, guid: 896cb750c95d27244ac6bb898546c7c8, type: 3}
+  - {fileID: 1891582204, guid: 896cb750c95d27244ac6bb898546c7c8, type: 3}
+  - {fileID: 1891582204, guid: 896cb750c95d27244ac6bb898546c7c8, type: 3}
+  - {fileID: 1891582204, guid: 896cb750c95d27244ac6bb898546c7c8, type: 3}
+  - {fileID: 1891582204, guid: 896cb750c95d27244ac6bb898546c7c8, type: 3}
+  - {fileID: 1891582204, guid: 896cb750c95d27244ac6bb898546c7c8, type: 3}
   possibleDrops:
   - {fileID: 11400000, guid: f661864a73c5b0f4c9985bf42082fc9e, type: 2}
+  - {fileID: 11400000}
   note: 
   fertilizableSeed: {fileID: 0}
   fertilizerCraftingRecipe: []
   potionEffect: 
   potionCraftingRecipe: []
+  canBeCrafted: 0
+  craftingRecipe: []

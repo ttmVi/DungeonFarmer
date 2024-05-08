@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bf04bd51a7ff474c914a5fdae63639a, type: 3}
   m_Name: PumpkinCrop
   m_EditorClassIdentifier: 
-  itemID: 0
+  itemID: 3
   itemName: Pumpkin Crop
-  itemInventoryIcon: {fileID: 0}
-  overworldSprite: {fileID: 0}
+  itemInventoryIcon: {fileID: 837517196756356485, guid: 131e485692e27e84c86170dad18cda85, type: 3}
+  overworldSprite: {fileID: 837517196756356485, guid: 131e485692e27e84c86170dad18cda85, type: 3}
   itemDescription: 
   itemType: 0
   maxGrowthIndex: 0
@@ -28,3 +28,5 @@ MonoBehaviour:
   fertilizerCraftingRecipe: []
   potionEffect: 
   potionCraftingRecipe: []
+  canBeCrafted: 0
+  craftingRecipe: []

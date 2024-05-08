@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bf04bd51a7ff474c914a5fdae63639a, type: 3}
   m_Name: WatermelonFertilizer
   m_EditorClassIdentifier: 
-  itemID: 0
+  itemID: 12
   itemName: Watermelon Fertilizer
   itemInventoryIcon: {fileID: 0}
   overworldSprite: {fileID: 0}
@@ -30,3 +30,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 29e289f7c0f0dfd45b0ae3420f903fd6, type: 2}
   potionEffect: 
   potionCraftingRecipe: []
+  canBeCrafted: 1
+  craftingRecipe:
+  - {fileID: 11400000, guid: ac977b05c1b5c1c44a2790ee57d448ea, type: 2}
+  - {fileID: 11400000, guid: 29e289f7c0f0dfd45b0ae3420f903fd6, type: 2}

@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bf04bd51a7ff474c914a5fdae63639a, type: 3}
   m_Name: EggplantCrop
   m_EditorClassIdentifier: 
-  itemID: 0
+  itemID: 1
   itemName: Eggplant Crop
-  itemInventoryIcon: {fileID: 0}
-  overworldSprite: {fileID: 0}
+  itemInventoryIcon: {fileID: -5728686177044832811, guid: b1f24b3bc2e2f1d4b858657ad5c115a0, type: 3}
+  overworldSprite: {fileID: -5728686177044832811, guid: b1f24b3bc2e2f1d4b858657ad5c115a0, type: 3}
   itemDescription: 
   itemType: 2
   maxGrowthIndex: 0
@@ -28,3 +28,5 @@ MonoBehaviour:
   fertilizerCraftingRecipe: []
   potionEffect: 
   potionCraftingRecipe: []
+  canBeCrafted: 0
+  craftingRecipe: []

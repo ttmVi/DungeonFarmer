@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bf04bd51a7ff474c914a5fdae63639a, type: 3}
   m_Name: PumpkinSeeds
   m_EditorClassIdentifier: 
-  itemID: 0
+  itemID: 4
   itemName: Pumpkin Seed
-  itemInventoryIcon: {fileID: 0}
-  overworldSprite: {fileID: 0}
+  itemInventoryIcon: {fileID: 586976301, guid: 00718107ee314fc4ca68a4ae5e59ede6, type: 3}
+  overworldSprite: {fileID: -1510048129, guid: 00718107ee314fc4ca68a4ae5e59ede6, type: 3}
   itemDescription: 
   itemType: 1
   maxGrowthIndex: 3
@@ -25,12 +25,25 @@ MonoBehaviour:
   - 1
   - 2
   - 3
-  growingPhasesSprites: []
-  deceasingSprites: []
+  growingPhasesSprites:
+  - {fileID: -1230587591, guid: ee7f3114da984c1418798d0f337194ec, type: 3}
+  - {fileID: -1230587591, guid: ee7f3114da984c1418798d0f337194ec, type: 3}
+  - {fileID: -1542548069, guid: ee7f3114da984c1418798d0f337194ec, type: 3}
+  - {fileID: -77600990, guid: ee7f3114da984c1418798d0f337194ec, type: 3}
+  - {fileID: 421207960, guid: ee7f3114da984c1418798d0f337194ec, type: 3}
+  deceasingSprites:
+  - {fileID: 1891582204, guid: 896cb750c95d27244ac6bb898546c7c8, type: 3}
+  - {fileID: 1891582204, guid: 896cb750c95d27244ac6bb898546c7c8, type: 3}
+  - {fileID: 1891582204, guid: 896cb750c95d27244ac6bb898546c7c8, type: 3}
+  - {fileID: 1891582204, guid: 896cb750c95d27244ac6bb898546c7c8, type: 3}
+  - {fileID: 1891582204, guid: 896cb750c95d27244ac6bb898546c7c8, type: 3}
   possibleDrops:
   - {fileID: 11400000, guid: c8855697c6ac11941a67e88b4ab7d148, type: 2}
+  - {fileID: 11400000}
   note: 
   fertilizableSeed: {fileID: 0}
   fertilizerCraftingRecipe: []
   potionEffect: 
   potionCraftingRecipe: []
+  canBeCrafted: 0
+  craftingRecipe: []

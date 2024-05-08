@@ -12,13 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bf04bd51a7ff474c914a5fdae63639a, type: 3}
   m_Name: EggplantSeeds
   m_EditorClassIdentifier: 
-  itemID: 0
+  itemID: 2
   itemName: Eggplant Seed
-  itemInventoryIcon: {fileID: 0}
-  overworldSprite: {fileID: 0}
-  itemDescription: 'This is the seeds of eggplants. Thank you!
-
-'
+  itemInventoryIcon: {fileID: 285807645, guid: 00718107ee314fc4ca68a4ae5e59ede6, type: 3}
+  overworldSprite: {fileID: 1010804581, guid: 00718107ee314fc4ca68a4ae5e59ede6, type: 3}
+  itemDescription: eggplant muahahahahahehehehehehehehe
   itemType: 1
   maxGrowthIndex: 5
   phasesGrowthIndex:
@@ -29,12 +27,30 @@ MonoBehaviour:
   - 3
   - 4
   - 5
-  growingPhasesSprites: []
-  deceasingSprites: []
+  growingPhasesSprites:
+  - {fileID: -1330618580, guid: 53857920b0dcd534d97af268541a60bb, type: 3}
+  - {fileID: -1330618580, guid: 53857920b0dcd534d97af268541a60bb, type: 3}
+  - {fileID: 404743897, guid: 53857920b0dcd534d97af268541a60bb, type: 3}
+  - {fileID: -433606482, guid: 53857920b0dcd534d97af268541a60bb, type: 3}
+  - {fileID: -1123205385, guid: 53857920b0dcd534d97af268541a60bb, type: 3}
+  - {fileID: -722601422, guid: 53857920b0dcd534d97af268541a60bb, type: 3}
+  - {fileID: -861159, guid: 53857920b0dcd534d97af268541a60bb, type: 3}
+  deceasingSprites:
+  - {fileID: 1891582204, guid: 896cb750c95d27244ac6bb898546c7c8, type: 3}
+  - {fileID: 1891582204, guid: 896cb750c95d27244ac6bb898546c7c8, type: 3}
+  - {fileID: 1891582204, guid: 896cb750c95d27244ac6bb898546c7c8, type: 3}
+  - {fileID: 1891582204, guid: 896cb750c95d27244ac6bb898546c7c8, type: 3}
+  - {fileID: 1891582204, guid: 896cb750c95d27244ac6bb898546c7c8, type: 3}
+  - {fileID: 1891582204, guid: 896cb750c95d27244ac6bb898546c7c8, type: 3}
+  - {fileID: 1891582204, guid: 896cb750c95d27244ac6bb898546c7c8, type: 3}
   possibleDrops:
   - {fileID: 11400000, guid: 8c9b402cb5354e243bb3b75fb70fed54, type: 2}
+  - {fileID: 11400000, guid: 8c9b402cb5354e243bb3b75fb70fed54, type: 2}
+  - {fileID: 11400000}
   note: 
   fertilizableSeed: {fileID: 0}
   fertilizerCraftingRecipe: []
   potionEffect: 
   potionCraftingRecipe: []
+  canBeCrafted: 0
+  craftingRecipe: []

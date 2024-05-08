@@ -36,7 +36,7 @@ public class ItemsEditor : Editor
             EditorGUILayout.LabelField("Fertilizer Information", EditorStyles.boldLabel);
 
             EditorGUILayout.PropertyField(serializedObject.FindProperty("fertilizableSeed"), true);
-            EditorGUILayout.PropertyField(serializedObject.FindProperty("fertilizerCraftingRecipe"), true);
+            //EditorGUILayout.PropertyField(serializedObject.FindProperty("fertilizerCraftingRecipe"), true);
         }
         else if (item.GetItemType() == Items.ItemType.MonsterPart)
         {
@@ -48,7 +48,15 @@ public class ItemsEditor : Editor
             EditorGUILayout.LabelField("Potion Information", EditorStyles.boldLabel);
 
             EditorGUILayout.PropertyField(serializedObject.FindProperty("potionEffect"), true);
-            EditorGUILayout.PropertyField(serializedObject.FindProperty("potionCraftingRecipe"), true);
+            //EditorGUILayout.PropertyField(serializedObject.FindProperty("potionCraftingRecipe"), true);
+        }
+
+        if (item.CanBeCrafted())
+        {
+            EditorGUILayout.Space();
+            EditorGUILayout.LabelField("Recipe", EditorStyles.boldLabel);
+
+            EditorGUILayout.PropertyField(serializedObject.FindProperty("craftingRecipe"), true);
         }
 
         serializedObject.ApplyModifiedProperties();

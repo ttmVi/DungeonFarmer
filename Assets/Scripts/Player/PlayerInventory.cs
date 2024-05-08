@@ -12,15 +12,19 @@ public class PlayerInventory : MonoBehaviour
     [SerializeField] private List<Items> editorInventoryList;
     public List<(Items, int)> playerInventoryList;
     public List<(Items, int)> seedsInventory;
+    public List<(Items, int)> fertilizersInventory;
 
     [Space]
     [Header("Testing Assets")]
-    [SerializeField] private Items draftAsset;
+    [SerializeField] private Items[] draftAssets;
 
     private void Start()
     {
         playerInventory = new Inventory(inventorySize);
-        PickUpItems(draftAsset, 1);
+        foreach (var item in draftAssets)
+        {
+            PickUpItems(item, 1);
+        }
     }
 
     private void Update()
@@ -28,6 +32,7 @@ public class PlayerInventory : MonoBehaviour
         DontDestroyOnLoad(gameObject);
         playerInventoryList = InventoryToList(playerInventory);
         seedsInventory = GetItemsListOfType(Items.ItemType.Seed, playerInventory);
+        fertilizersInventory = GetItemsListOfType(Items.ItemType.Fertilizer, playerInventory);
         editorInventoryList = SimplifiedList(playerInventoryList);
     }
 
@@ -47,6 +52,20 @@ public class PlayerInventory : MonoBehaviour
     public void RemoveItems(Items item, int quantity)
     {
         playerInventory.RemoveItem(item, quantity);
+    }
+
+    public int GetItemQuantity(Items item)
+    {
+        return playerInventory.GetItemQuantity(item);
+    }
+
+    public bool CheckForItem(Items item)
+    {
+        if (playerInventory.GetItemQuantity(item) > 0)
+        {
+            return true;
+        }
+        return false;
     }
 
     public List<(Items, int)> InventoryToList(Inventory inventory)
@@ -80,5 +99,25 @@ public class PlayerInventory : MonoBehaviour
         }
 
         return finalList;
+    }
+
+    public void FetchWater(Items emptyFetchingBottle, Items filledFetchingBottle)
+    {
+        if (CheckForItem(emptyFetchingBottle))
+        {
+            playerInventory.AddItem(filledFetchingBottle, 1);
+            playerInventory.RemoveItem(emptyFetchingBottle, 1);
+        }
+        else { Debug.Log("Bottle already filled"); }
+    }
+
+    public void EmptyWaterBottle(Items filledFetchingBottle, Items emptyFetchingBottle)
+    {
+        if (CheckForItem(filledFetchingBottle))
+        {
+            playerInventory.AddItem(emptyFetchingBottle, 1); 
+            playerInventory.RemoveItem(filledFetchingBottle, 1);
+        }
+        else { Debug.Log("Bottle already empty"); }
     }
 }

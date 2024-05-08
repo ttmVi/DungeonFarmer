@@ -24,6 +24,7 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] public bool isOpening;
     [Space]
     [SerializeField] private bool isPlantingTree;
+    [SerializeField] private bool isFertilizingTree;
     [SerializeField] private GameObject plantingPlot;
     [SerializeField] private List<(Items, int)> displayingInventory;
 
@@ -40,7 +41,7 @@ public class InventoryManager : MonoBehaviour
 
     private void Update()
     {
-        if (isOpening)
+        if (isOpening && displayingInventory != null)
         {
             DisplayInventory(displayingInventory);
             currentInventoryIndex = startIndex + selectingIndex;
@@ -69,6 +70,13 @@ public class InventoryManager : MonoBehaviour
         this.plantingPlot = plantingPlot;
     }
 
+    public void OpenFertilizersInventory(GameObject plantingPlot)
+    {
+        OpenInventory(playerInventory.fertilizersInventory);
+        isFertilizingTree = true;
+        this.plantingPlot = plantingPlot;
+    }
+
     private void OpenInventory(List<(Items, int)> inventory)
     {
         displayingInventory = inventory;
@@ -76,10 +84,13 @@ public class InventoryManager : MonoBehaviour
         isOpening = true;
     }
 
-    private void CloseInventory()
+    public void CloseInventory()
     {
         inventoryCanvas.SetActive(false);
         isOpening = false;
+        isPlantingTree = false;
+        isFertilizingTree = false;
+        plantingPlot = null;
     }
 
     public void OnInventoryUINavigation(InputAction.CallbackContext context)
@@ -117,11 +128,18 @@ public class InventoryManager : MonoBehaviour
     {
         if (context.started)
         {
-            if (isPlantingTree)
+            if (isPlantingTree && isOpening)
             {
                 Items plantingSeed = displayingInventory[currentInventoryIndex].Item1;
                 plantingPlot.GetComponent<PlotFarming>().PlantSeed(plantingSeed.GetSeedData());
                 playerInventory.gameObject.GetComponent<PlayerInventory>().RemoveItems(plantingSeed, 1);
+                CloseInventory();
+            }
+            else if (isFertilizingTree && isOpening)
+            {
+                Items fertilizer = displayingInventory[currentInventoryIndex].Item1;
+                plantingPlot.GetComponent<PlotFarming>().FertilizePlant(fertilizer, 1.5f);
+                //playerInventory.gameObject.GetComponent<PlayerInventory>().RemoveItems(fertilizer, 1);
                 CloseInventory();
             }
         }
@@ -141,6 +159,8 @@ public class InventoryManager : MonoBehaviour
 
     private void PreviousItem()
     {
+        if (selectingIndex == 0) { return; }
+
         if (selectingIndex % numberOfColumns != 0)
         {
             if (!IsEmptySlot(selectingIndex - 1, displayingInventory))
@@ -152,8 +172,26 @@ public class InventoryManager : MonoBehaviour
         else { }
     }
 
+    private void ForcePreviousItem()
+    {
+        if (selectingIndex == 0) { return; }
+
+        if (selectingIndex % numberOfColumns != 0)
+        {
+            selectingIndex--;
+            selectButton.GetComponent<RectTransform>().anchoredPosition -= new Vector2(distanceBetweenSlots, 0);
+        }
+        else
+        {
+            selectingIndex--;
+            selectButton.GetComponent<RectTransform>().anchoredPosition += new Vector2(distanceBetweenSlots * (numberOfColumns - 1), -distanceBetweenSlots);
+        }
+    }
+
     private void AboveItem()
     {
+        if (selectingIndex == 0) { return; }
+
         if (!IsEmptySlot(selectingIndex - numberOfColumns, displayingInventory))
         {
             if (selectingIndex / numberOfColumns < 1)
@@ -205,17 +243,24 @@ public class InventoryManager : MonoBehaviour
             itemsList.SetActive(true);
             selectButton.SetActive(true);
 
+            restart:
             for (int i = 0; i < numberOfRows; i++)
             {
                 for (int j = 0; j < numberOfColumns; j++)
                 {
-                    int slotIndex = i * numberOfRows + j;
+                    int slotIndex = i * numberOfColumns + j;
                     int realIndex = startIndex + slotIndex;
                     GameObject slot = itemsList.transform.GetChild(i).GetChild(j).gameObject;
 
                     if (realIndex >= inventory.Count)
                     {
                         DisplayItemSlot(slot, false);
+                        if (selectingIndex == slotIndex)
+                        {
+                            Debug.Log("Selecting empty slot");
+                            ForcePreviousItem();
+                            goto restart;
+                        }
                     }
                     else
                     {

@@ -39,8 +39,13 @@ public class Items : ScriptableObject
     //Fields for potions configuration
     [Space]
     [Header("Potion Information")]
-    [SerializeField, HideInInspector] private string potionEffect;
+    [SerializeField, HideInInspector] public string potionEffect;
     [SerializeField, HideInInspector] public Items[] potionCraftingRecipe;
+
+    [Space]
+    [SerializeField] public bool canBeCrafted;
+
+    [SerializeField, HideInInspector] public Items[] craftingRecipe;
 
     public enum ItemType
     {
@@ -90,13 +95,32 @@ public class Items : ScriptableObject
         return itemType;
     }
 
+    public bool CanBeCrafted() { return canBeCrafted; }
+
+    public Items[] GetCraftingRecipe()
+    {
+        if (canBeCrafted)
+        {
+            return craftingRecipe;
+        }
+        return null;
+    }
+
     public Tree GetSeedData()
     {
         if (itemType == ItemType.Seed)
         {
             return new Tree(itemName, maxGrowthIndex, phasesGrowthIndex, growingPhasesSprites, deceasingSprites, possibleDrops);
         }
+        return null;
+    }
 
+    public Fertilizer GetFertilizerData()
+    {
+        if (itemType == ItemType.Fertilizer)
+        {
+            return new Fertilizer(fertilizableSeed, fertilizerCraftingRecipe);
+        }
         return null;
     }
 

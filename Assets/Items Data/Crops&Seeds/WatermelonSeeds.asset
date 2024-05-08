@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bf04bd51a7ff474c914a5fdae63639a, type: 3}
   m_Name: WatermelonSeeds
   m_EditorClassIdentifier: 
-  itemID: 0
+  itemID: 8
   itemName: Watermelon Seed
-  itemInventoryIcon: {fileID: 0}
-  overworldSprite: {fileID: 0}
+  itemInventoryIcon: {fileID: 960785258, guid: 00718107ee314fc4ca68a4ae5e59ede6, type: 3}
+  overworldSprite: {fileID: 1309345898, guid: 00718107ee314fc4ca68a4ae5e59ede6, type: 3}
   itemDescription: This is the seeds of watermelon. Thank you!
   itemType: 1
   maxGrowthIndex: 7
@@ -30,16 +30,33 @@ MonoBehaviour:
   - 6
   - 7
   growingPhasesSprites:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  deceasingSprites: []
+  - {fileID: 1480014060, guid: 8bde2a8a9f2c69d4dba45bf111ca6add, type: 3}
+  - {fileID: 1480014060, guid: 8bde2a8a9f2c69d4dba45bf111ca6add, type: 3}
+  - {fileID: -1280357496, guid: 8bde2a8a9f2c69d4dba45bf111ca6add, type: 3}
+  - {fileID: -1329129078, guid: 8bde2a8a9f2c69d4dba45bf111ca6add, type: 3}
+  - {fileID: -2045767335, guid: 8bde2a8a9f2c69d4dba45bf111ca6add, type: 3}
+  - {fileID: -869164969, guid: 8bde2a8a9f2c69d4dba45bf111ca6add, type: 3}
+  - {fileID: 1694900514, guid: 8bde2a8a9f2c69d4dba45bf111ca6add, type: 3}
+  - {fileID: -1192392097, guid: 8bde2a8a9f2c69d4dba45bf111ca6add, type: 3}
+  - {fileID: -643097685, guid: 8bde2a8a9f2c69d4dba45bf111ca6add, type: 3}
+  deceasingSprites:
+  - {fileID: 1891582204, guid: 896cb750c95d27244ac6bb898546c7c8, type: 3}
+  - {fileID: 1891582204, guid: 896cb750c95d27244ac6bb898546c7c8, type: 3}
+  - {fileID: 1891582204, guid: 896cb750c95d27244ac6bb898546c7c8, type: 3}
+  - {fileID: 1891582204, guid: 896cb750c95d27244ac6bb898546c7c8, type: 3}
+  - {fileID: 1891582204, guid: 896cb750c95d27244ac6bb898546c7c8, type: 3}
+  - {fileID: 1891582204, guid: 896cb750c95d27244ac6bb898546c7c8, type: 3}
+  - {fileID: 1891582204, guid: 896cb750c95d27244ac6bb898546c7c8, type: 3}
+  - {fileID: 1891582204, guid: 896cb750c95d27244ac6bb898546c7c8, type: 3}
+  - {fileID: 1891582204, guid: 896cb750c95d27244ac6bb898546c7c8, type: 3}
   possibleDrops:
   - {fileID: 11400000, guid: 29e289f7c0f0dfd45b0ae3420f903fd6, type: 2}
+  - {fileID: 11400000, guid: 29e289f7c0f0dfd45b0ae3420f903fd6, type: 2}
+  - {fileID: 11400000}
   note: 
   fertilizableSeed: {fileID: 0}
   fertilizerCraftingRecipe: []
   potionEffect: 
   potionCraftingRecipe: []
+  canBeCrafted: 0
+  craftingRecipe: []

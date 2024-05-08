@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bf04bd51a7ff474c914a5fdae63639a, type: 3}
   m_Name: RagePotion
   m_EditorClassIdentifier: 
-  itemID: 0
+  itemID: 22
   itemName: Strength Potion
   itemInventoryIcon: {fileID: 0}
   overworldSprite: {fileID: 0}
@@ -28,5 +28,9 @@ MonoBehaviour:
   fertilizerCraftingRecipe: []
   potionEffect: 
   potionCraftingRecipe:
+  - {fileID: 11400000, guid: 8c9b402cb5354e243bb3b75fb70fed54, type: 2}
+  - {fileID: 11400000, guid: e7c1dd226ca7a4f468433916893ae061, type: 2}
+  canBeCrafted: 1
+  craftingRecipe:
   - {fileID: 11400000, guid: 8c9b402cb5354e243bb3b75fb70fed54, type: 2}
   - {fileID: 11400000, guid: e7c1dd226ca7a4f468433916893ae061, type: 2}

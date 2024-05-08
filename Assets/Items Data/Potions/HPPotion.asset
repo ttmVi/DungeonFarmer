@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bf04bd51a7ff474c914a5fdae63639a, type: 3}
   m_Name: HPPotion
   m_EditorClassIdentifier: 
-  itemID: 0
+  itemID: 21
   itemName: HP Potion
   itemInventoryIcon: {fileID: 0}
   overworldSprite: {fileID: 0}
@@ -28,5 +28,9 @@ MonoBehaviour:
   fertilizerCraftingRecipe: []
   potionEffect: 
   potionCraftingRecipe:
+  - {fileID: 11400000, guid: a48814476f457ff4ab9621d191291ecc, type: 2}
+  - {fileID: 11400000, guid: c8855697c6ac11941a67e88b4ab7d148, type: 2}
+  canBeCrafted: 1
+  craftingRecipe:
   - {fileID: 11400000, guid: a48814476f457ff4ab9621d191291ecc, type: 2}
   - {fileID: 11400000, guid: c8855697c6ac11941a67e88b4ab7d148, type: 2}
