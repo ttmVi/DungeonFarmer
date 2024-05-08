@@ -22,11 +22,12 @@ public class InventoryManager : MonoBehaviour
 
     [Header("Inventory States")]
     [SerializeField] public bool isOpening;
+    [SerializeField] private List<(Items, int)> displayingInventory;
     [Space]
     [SerializeField] private bool isPlantingTree;
     [SerializeField] private bool isFertilizingTree;
     [SerializeField] private GameObject plantingPlot;
-    [SerializeField] private List<(Items, int)> displayingInventory;
+    [SerializeField] private Inventory savedPlayerInventory;
 
     [Header("Current Inventory Indexes")]
     [SerializeField] private int startIndex;
@@ -46,6 +47,16 @@ public class InventoryManager : MonoBehaviour
             DisplayInventory(displayingInventory);
             currentInventoryIndex = startIndex + selectingIndex;
         }
+    }
+
+    public void SavePlayerInventory()
+    {
+        savedPlayerInventory = playerInventory.playerInventory;
+    }
+
+    public void LoadPlayerInventory()
+    {
+        playerInventory.LoadInventory(savedPlayerInventory);
     }
 
     public void OnInventoryPressed(InputAction.CallbackContext context)

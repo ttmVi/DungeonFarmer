@@ -29,11 +29,16 @@ public class PlayerInventory : MonoBehaviour
 
     private void Update()
     {
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
         playerInventoryList = InventoryToList(playerInventory);
         seedsInventory = GetItemsListOfType(Items.ItemType.Seed, playerInventory);
         fertilizersInventory = GetItemsListOfType(Items.ItemType.Fertilizer, playerInventory);
         editorInventoryList = SimplifiedList(playerInventoryList);
+    }
+
+    public void LoadInventory(Inventory inventory)
+    {
+        playerInventory = inventory;
     }
 
     public void PickUpItems(Items item, int quantity)

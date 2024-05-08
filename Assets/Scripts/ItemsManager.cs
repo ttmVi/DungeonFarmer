@@ -12,11 +12,6 @@ public class ItemsManager : MonoBehaviour
         itemsManager = this;
     }
 
-    private void Update()
-    {
-        DontDestroyOnLoad(gameObject);
-    }
-
     public void InstantiateItem(GameObject placeholder, Items itemData, Vector2 instantiatePosition, Quaternion rotation)
     {
         GameObject item = Instantiate(placeholder, instantiatePosition, rotation);
