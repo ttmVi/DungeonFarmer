@@ -6,8 +6,8 @@ public class Boar : MonoBehaviour
 {
     public Transform playerLocation;
     private Rigidbody rb;
-    public Transform location1;
-    public Transform location2;
+    public Transform[] points;
+    public int pointIndex;
     public bool moving1;
     public bool moving2;
     private bool chasing;
@@ -42,32 +42,23 @@ public class Boar : MonoBehaviour
         if(transform.position != playerLocation.transform.position)
         {
             //transform.position = Vector2.MoveTowards(transform.position, location1.transform.position, 5f * Time.deltaTime);
-            transform.position = Vector2.Lerp(transform.position, playerLocation.transform.position, 1f*Time.deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, playerLocation.transform.position, 1f*Time.deltaTime);
         }
     }
     void Patrol()
     {
-        if(transform.position.x != location1.transform.position.x)
+        if (pointIndex < points.Length)
         {
-            moving1 = true;
-        }
-        else if (transform.position.x != location1.transform.position.x)
-        {
-            moving2 = true;
-        }
+            transform.position = Vector2.MoveTowards(transform.position, points[pointIndex].transform.position, 5f * Time.deltaTime);
+            if (transform.position == points[pointIndex].transform.position)
+            {
+                pointIndex += 1;
+            }
+            if (pointIndex == points.Length)
+            {
+                pointIndex = 0;
+            }
 
-
-
-
-        if (moving1)
-        {
-            transform.position = Vector2.MoveTowards(transform.position, location1.transform.position, 1f*Time.deltaTime);
-            moving2 = false;
-        }
-        else if(moving2)
-        {
-            transform.position = Vector2.MoveTowards(transform.position, location2.transform.position, 1f * Time.deltaTime);
-            moving1 = false;
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
