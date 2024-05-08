@@ -159,6 +159,8 @@ public class InventoryManager : MonoBehaviour
 
     private void PreviousItem()
     {
+        if (selectingIndex == 0) { return; }
+
         if (selectingIndex % numberOfColumns != 0)
         {
             if (!IsEmptySlot(selectingIndex - 1, displayingInventory))
@@ -170,8 +172,26 @@ public class InventoryManager : MonoBehaviour
         else { }
     }
 
+    private void ForcePreviousItem()
+    {
+        if (selectingIndex == 0) { return; }
+
+        if (selectingIndex % numberOfColumns != 0)
+        {
+            selectingIndex--;
+            selectButton.GetComponent<RectTransform>().anchoredPosition -= new Vector2(distanceBetweenSlots, 0);
+        }
+        else
+        {
+            selectingIndex--;
+            selectButton.GetComponent<RectTransform>().anchoredPosition += new Vector2(distanceBetweenSlots * (numberOfColumns - 1), -distanceBetweenSlots);
+        }
+    }
+
     private void AboveItem()
     {
+        if (selectingIndex == 0) { return; }
+
         if (!IsEmptySlot(selectingIndex - numberOfColumns, displayingInventory))
         {
             if (selectingIndex / numberOfColumns < 1)
@@ -223,6 +243,7 @@ public class InventoryManager : MonoBehaviour
             itemsList.SetActive(true);
             selectButton.SetActive(true);
 
+            restart:
             for (int i = 0; i < numberOfRows; i++)
             {
                 for (int j = 0; j < numberOfColumns; j++)
@@ -234,6 +255,12 @@ public class InventoryManager : MonoBehaviour
                     if (realIndex >= inventory.Count)
                     {
                         DisplayItemSlot(slot, false);
+                        if (selectingIndex == slotIndex)
+                        {
+                            Debug.Log("Selecting empty slot");
+                            ForcePreviousItem();
+                            goto restart;
+                        }
                     }
                     else
                     {

@@ -36,13 +36,13 @@ MonoBehaviour:
   - {fileID: -722601422, guid: 53857920b0dcd534d97af268541a60bb, type: 3}
   - {fileID: -861159, guid: 53857920b0dcd534d97af268541a60bb, type: 3}
   deceasingSprites:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1891582204, guid: 896cb750c95d27244ac6bb898546c7c8, type: 3}
+  - {fileID: 1891582204, guid: 896cb750c95d27244ac6bb898546c7c8, type: 3}
+  - {fileID: 1891582204, guid: 896cb750c95d27244ac6bb898546c7c8, type: 3}
+  - {fileID: 1891582204, guid: 896cb750c95d27244ac6bb898546c7c8, type: 3}
+  - {fileID: 1891582204, guid: 896cb750c95d27244ac6bb898546c7c8, type: 3}
+  - {fileID: 1891582204, guid: 896cb750c95d27244ac6bb898546c7c8, type: 3}
+  - {fileID: 1891582204, guid: 896cb750c95d27244ac6bb898546c7c8, type: 3}
   possibleDrops:
   - {fileID: 11400000, guid: 8c9b402cb5354e243bb3b75fb70fed54, type: 2}
   note: 

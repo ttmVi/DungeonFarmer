@@ -27,6 +27,7 @@ MonoBehaviour:
   - 3
   - 4
   - 5
+  - 6
   - 7
   growingPhasesSprites:
   - {fileID: 1480014060, guid: 8bde2a8a9f2c69d4dba45bf111ca6add, type: 3}
@@ -37,15 +38,17 @@ MonoBehaviour:
   - {fileID: -869164969, guid: 8bde2a8a9f2c69d4dba45bf111ca6add, type: 3}
   - {fileID: 1694900514, guid: 8bde2a8a9f2c69d4dba45bf111ca6add, type: 3}
   - {fileID: -1192392097, guid: 8bde2a8a9f2c69d4dba45bf111ca6add, type: 3}
+  - {fileID: -643097685, guid: 8bde2a8a9f2c69d4dba45bf111ca6add, type: 3}
   deceasingSprites:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1891582204, guid: 896cb750c95d27244ac6bb898546c7c8, type: 3}
+  - {fileID: 1891582204, guid: 896cb750c95d27244ac6bb898546c7c8, type: 3}
+  - {fileID: 1891582204, guid: 896cb750c95d27244ac6bb898546c7c8, type: 3}
+  - {fileID: 1891582204, guid: 896cb750c95d27244ac6bb898546c7c8, type: 3}
+  - {fileID: 1891582204, guid: 896cb750c95d27244ac6bb898546c7c8, type: 3}
+  - {fileID: 1891582204, guid: 896cb750c95d27244ac6bb898546c7c8, type: 3}
+  - {fileID: 1891582204, guid: 896cb750c95d27244ac6bb898546c7c8, type: 3}
+  - {fileID: 1891582204, guid: 896cb750c95d27244ac6bb898546c7c8, type: 3}
+  - {fileID: 1891582204, guid: 896cb750c95d27244ac6bb898546c7c8, type: 3}
   possibleDrops:
   - {fileID: 11400000, guid: 29e289f7c0f0dfd45b0ae3420f903fd6, type: 2}
   - {fileID: 11400000, guid: 29e289f7c0f0dfd45b0ae3420f903fd6, type: 2}
