@@ -11,15 +11,6 @@ public class GameManager : MonoBehaviour
     [Space]
     [SerializeField] private GameObject farmingPlots;
 
-    private void Start()
-    {
-        DontDestroyOnLoad(gameObject);
-        foreach (GameObject go in dontDestroyOnLoadObjects)
-        {
-            DontDestroyOnLoad(go);
-        }
-    }
-
     public void OnQuitLevel(InputAction.CallbackContext context)
     {
         if (context.started)

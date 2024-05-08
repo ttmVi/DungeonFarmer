@@ -29,7 +29,6 @@ public class PlayerInventory : MonoBehaviour
 
     private void Update()
     {
-        //DontDestroyOnLoad(gameObject);
         playerInventoryList = InventoryToList(playerInventory);
         seedsInventory = GetItemsListOfType(Items.ItemType.Seed, playerInventory);
         fertilizersInventory = GetItemsListOfType(Items.ItemType.Fertilizer, playerInventory);
