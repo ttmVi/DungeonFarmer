@@ -14,7 +14,6 @@ public class Ladder : MonoBehaviour
     private float speed = 5f;
     private void Awake()
     {
-        
         playerMovement = GetComponent<PlayerMovement>();
         body = GetComponent<Rigidbody2D>();
         ground = GetComponent<GroundCheck>();
@@ -34,10 +33,6 @@ public class Ladder : MonoBehaviour
             previousGravity = body.gravityScale;
             body.gravityScale = 0f;
             body.velocity = new Vector2(body.velocity.x, playerMovement.directionY*speed);
-        }
-        else
-        {
-            
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
