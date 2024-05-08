@@ -78,17 +78,6 @@ public class PlayerMovement : MonoBehaviour
         desiredVelocity = new Vector2(directionX, 0f) * Mathf.Max(maxSpeed - friction, 0f);
         desiredVelocityY = new Vector2(0f, directionY) * Mathf.Max(maxSpeed - friction, 0f);
 
-        if (ladder.ladderCollision)
-        {
-            
-            //body.velocity = new Vector2(velocity.x, desiredVelocityY.y);
-        }
-        else
-        {
-            body.gravityScale = previousGravityScale;
-
-        }
-
     }
 
     private void FixedUpdate()
@@ -100,23 +89,6 @@ public class PlayerMovement : MonoBehaviour
 
         //Get the Rigidbody's current velocity
         velocity = body.velocity;
-
-        if (ladder.climbingLadder)
-        {
-            previousGravityScale = body.gravityScale;
-            body.gravityScale = 0f;
-            velocity.y = Mathf.MoveTowards(velocity.y, desiredVelocityY.y, maxSpeedChange);
-            //Move our velocity towards the desired velocity, at the rate of the number calculated above
-            velocity.x = Mathf.MoveTowards(velocity.x, desiredVelocity.x, maxSpeedChange);
-
-            //Update the Rigidbody with this new velocity
-            
-            return;
-        }
-        else
-        {
-
-        }
         //Calculate movement, depending on whether "Instant Movement" has been checked
         if (useAcceleration)
         {

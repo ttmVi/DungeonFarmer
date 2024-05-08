@@ -143,13 +143,7 @@ public class PlayerJump : MonoBehaviour
     {
         //We change the character's gravity based on her Y direction
         //If Kit is going up...
-        if (ladder.climbingLadder)
-        {
-            //previousGravity = body.gravityScale;
-            body.gravityScale = 0;
-            
-            return;
-        }
+        
         if (body.velocity.y > 0.01f)
         {
             if (onGround || melee.resetGravity)
