@@ -28,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
     public float directionX;
     public float directionY;
     private Vector2 desiredVelocity;
+    private Vector2 desiredVelocityY;
     public Vector2 velocity;
     private float maxSpeedChange;
     private float acceleration;
@@ -37,12 +38,15 @@ public class PlayerMovement : MonoBehaviour
     [Header("Current State")]
     public bool onGround;
     public bool pressingKey;
+    private Ladder ladder;
+    private float previousGravityScale;
 
     private void Awake()
     {
         //Find the character's Rigidbody and ground detection script
         body = GetComponent<Rigidbody2D>();
         ground = GetComponent<GroundCheck>();
+        ladder = GetComponent<Ladder>();
     }
 
     public void OnMovement(InputAction.CallbackContext context)
@@ -67,10 +71,12 @@ public class PlayerMovement : MonoBehaviour
         {
             pressingKey = false;
         }
+        
 
         //Calculate's the character's desired velocity - which is the direction you are facing, multiplied by the character's maximum speed
         //Friction is not used in this game
         desiredVelocity = new Vector2(directionX, 0f) * Mathf.Max(maxSpeed - friction, 0f);
+        desiredVelocityY = new Vector2(0f, directionY) * Mathf.Max(maxSpeed - friction, 0f);
 
     }
 
@@ -83,7 +89,6 @@ public class PlayerMovement : MonoBehaviour
 
         //Get the Rigidbody's current velocity
         velocity = body.velocity;
-
         //Calculate movement, depending on whether "Instant Movement" has been checked
         if (useAcceleration)
         {
@@ -136,6 +141,7 @@ public class PlayerMovement : MonoBehaviour
         body.velocity = velocity;
 
     }
+
     private void runWithoutAcceleration()
     {
         //If we're not using acceleration and deceleration, just send our desired velocity (direction * max speed) to the Rigidbody

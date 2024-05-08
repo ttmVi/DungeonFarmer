@@ -9,6 +9,7 @@ public class PlayerJump : MonoBehaviour
     [Header("Components")]
     [HideInInspector] public Rigidbody2D body;
     private GroundCheck ground;
+    private LadderCheck ladderCheck;
     [HideInInspector] public Vector2 velocity;
     //private characterJuice juice;
 
@@ -39,8 +40,10 @@ public class PlayerJump : MonoBehaviour
     private float coyoteTimeCounter = 0;
     private bool pressingJump;
     public bool onGround;
+    public bool onLadder;
     private bool currentlyJumping;
     private Melee melee;
+    private Ladder ladder;
 
     void Awake()
     {
@@ -48,6 +51,8 @@ public class PlayerJump : MonoBehaviour
         body = GetComponent<Rigidbody2D>();
         ground = GetComponent<GroundCheck>();
         melee = GetComponentInChildren<Melee>();
+        ladder = GetComponent<Ladder>();
+        ladderCheck = GetComponent<LadderCheck>();
         //Debug.Log(melee.name);
         defaultGravityScale = 1f;
     }
@@ -78,7 +83,7 @@ public class PlayerJump : MonoBehaviour
 
         //Check if we're on ground, using Kit's Ground script
         onGround = ground.isGrounded();
-
+        onLadder = ladderCheck.IsOnLadder();
         //Jump buffer allows us to queue up a jump, which will play when we next hit the ground
         if (jumpBuffer > 0)
         {
@@ -123,7 +128,7 @@ public class PlayerJump : MonoBehaviour
         //Get velocity from Kit's Rigidbody 
         velocity = body.velocity;
         //Keep trying to do a jump, for as long as desiredJump is true
-        if (desiredJump)
+        if (desiredJump && !ladder.ladderCollision)
         {
             DoAJump();
             body.velocity = velocity;
@@ -132,7 +137,7 @@ public class PlayerJump : MonoBehaviour
             //This makes sure you can't do the coyote time double jump bug
             return;
         }
-        calculateGravity(); //caused super jumps to occur
+        calculateGravity(); 
 
     }
 
@@ -140,63 +145,71 @@ public class PlayerJump : MonoBehaviour
     {
         //We change the character's gravity based on her Y direction
         //If Kit is going up...
-        
-        if (body.velocity.y > 0.01f)
+        if (ladderCheck.IsOnLadder())
         {
-            if (onGround || melee.resetGravity)
+            gravMultiplier = 0f;
+            return;
+        }
+        else
+        {
+            if (body.velocity.y > 0.01f)
             {
-                //Don't change it if Kit is stood on something (such as a moving platform)
-                gravMultiplier = defaultGravityScale;
-            }
-            else
-            {
-                //If we're using variable jump height...)
-                if (variablejumpHeight && !melee.resetGravity)
+                if (onGround || melee.resetGravity)
                 {
-                    //Apply upward multiplier if player is rising and holding jump
-                    if (pressingJump && currentlyJumping)
-                    {
-                        gravMultiplier = upwardMovementMultiplier;
-                    }
-                    //But apply a special downward multiplier if the player lets go of jump
-                    else
-                    {
-                        gravMultiplier = jumpCutOff;
-                    }
+                    //Don't change it if Kit is stood on something (such as a moving platform)
+                    gravMultiplier = defaultGravityScale;
                 }
                 else
                 {
-                    gravMultiplier = upwardMovementMultiplier;
+                    //If we're using variable jump height...)
+                    if (variablejumpHeight && !melee.resetGravity)
+                    {
+                        //Apply upward multiplier if player is rising and holding jump
+                        if (pressingJump && currentlyJumping)
+                        {
+                            gravMultiplier = upwardMovementMultiplier;
+                        }
+                        //But apply a special downward multiplier if the player lets go of jump
+                        else
+                        {
+                            gravMultiplier = jumpCutOff;
+                        }
+                    }
+                    else
+                    {
+                        gravMultiplier = upwardMovementMultiplier;
+                    }
                 }
             }
-        }
 
-        //Else if going down...
-        else if (body.velocity.y < -0.01f)
-        {
-
-            if (onGround || melee.resetGravity)
-            //Don't change it if Kit is stood on something (such as a moving platform)
+            //Else if going down...
+            else if (body.velocity.y < -0.01f)
             {
-                gravMultiplier = defaultGravityScale;
+
+                if (onGround || melee.resetGravity)
+                //Don't change it if Kit is stood on something (such as a moving platform)
+                {
+                    gravMultiplier = defaultGravityScale;
+                }
+                else
+                {
+                    //Otherwise, apply the downward gravity multiplier as Kit comes back to Earth
+                    gravMultiplier = downwardMovementMultiplier;
+                }
+
             }
+            //Else not moving vertically at all
             else
             {
-                //Otherwise, apply the downward gravity multiplier as Kit comes back to Earth
-                gravMultiplier = downwardMovementMultiplier;
-            }
+                if (onGround)
+                {
+                    currentlyJumping = false;
+                }
 
-        }
-        //Else not moving vertically at all
-        else
-        {
-            if (onGround)
-            {
-                currentlyJumping = false;
+                gravMultiplier = defaultGravityScale;
             }
-
-            gravMultiplier = defaultGravityScale;
         }
+        
 
         //Set the character's Rigidbody's velocity
         //But clamp the Y variable within the bounds of the speed limit, for the terminal velocity assist option
