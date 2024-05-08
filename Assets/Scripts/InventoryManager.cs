@@ -90,6 +90,7 @@ public class InventoryManager : MonoBehaviour
         isOpening = false;
         isPlantingTree = false;
         isFertilizingTree = false;
+        plantingPlot = null;
     }
 
     public void OnInventoryUINavigation(InputAction.CallbackContext context)
@@ -138,7 +139,7 @@ public class InventoryManager : MonoBehaviour
             {
                 Items fertilizer = displayingInventory[currentInventoryIndex].Item1;
                 plantingPlot.GetComponent<PlotFarming>().FertilizePlant(fertilizer, 1.5f);
-                playerInventory.gameObject.GetComponent<PlayerInventory>().RemoveItems(fertilizer, 1);
+                //playerInventory.gameObject.GetComponent<PlayerInventory>().RemoveItems(fertilizer, 1);
                 CloseInventory();
             }
         }
@@ -226,7 +227,7 @@ public class InventoryManager : MonoBehaviour
             {
                 for (int j = 0; j < numberOfColumns; j++)
                 {
-                    int slotIndex = i * numberOfRows + j;
+                    int slotIndex = i * numberOfColumns + j;
                     int realIndex = startIndex + slotIndex;
                     GameObject slot = itemsList.transform.GetChild(i).GetChild(j).gameObject;
 

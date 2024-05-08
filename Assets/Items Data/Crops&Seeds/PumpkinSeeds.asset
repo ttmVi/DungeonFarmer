@@ -25,8 +25,18 @@ MonoBehaviour:
   - 1
   - 2
   - 3
-  growingPhasesSprites: []
-  deceasingSprites: []
+  growingPhasesSprites:
+  - {fileID: -1230587591, guid: ee7f3114da984c1418798d0f337194ec, type: 3}
+  - {fileID: -1230587591, guid: ee7f3114da984c1418798d0f337194ec, type: 3}
+  - {fileID: -1542548069, guid: ee7f3114da984c1418798d0f337194ec, type: 3}
+  - {fileID: -77600990, guid: ee7f3114da984c1418798d0f337194ec, type: 3}
+  - {fileID: 421207960, guid: ee7f3114da984c1418798d0f337194ec, type: 3}
+  deceasingSprites:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   possibleDrops:
   - {fileID: 11400000, guid: c8855697c6ac11941a67e88b4ab7d148, type: 2}
   note: 

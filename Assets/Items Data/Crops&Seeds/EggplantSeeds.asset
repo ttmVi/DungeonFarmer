@@ -16,9 +16,7 @@ MonoBehaviour:
   itemName: Eggplant Seed
   itemInventoryIcon: {fileID: 0}
   overworldSprite: {fileID: 0}
-  itemDescription: 'This is the seeds of eggplants. Thank you!
-
-'
+  itemDescription: eggplant muahahahahahehehehehehehehe
   itemType: 1
   maxGrowthIndex: 5
   phasesGrowthIndex:
@@ -29,8 +27,22 @@ MonoBehaviour:
   - 3
   - 4
   - 5
-  growingPhasesSprites: []
-  deceasingSprites: []
+  growingPhasesSprites:
+  - {fileID: -1330618580, guid: 53857920b0dcd534d97af268541a60bb, type: 3}
+  - {fileID: -1330618580, guid: 53857920b0dcd534d97af268541a60bb, type: 3}
+  - {fileID: 404743897, guid: 53857920b0dcd534d97af268541a60bb, type: 3}
+  - {fileID: -433606482, guid: 53857920b0dcd534d97af268541a60bb, type: 3}
+  - {fileID: -1123205385, guid: 53857920b0dcd534d97af268541a60bb, type: 3}
+  - {fileID: -722601422, guid: 53857920b0dcd534d97af268541a60bb, type: 3}
+  - {fileID: -861159, guid: 53857920b0dcd534d97af268541a60bb, type: 3}
+  deceasingSprites:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   possibleDrops:
   - {fileID: 11400000, guid: 8c9b402cb5354e243bb3b75fb70fed54, type: 2}
   note: 

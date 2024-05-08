@@ -11,6 +11,11 @@ public class ItemInfo : MonoBehaviour
     {
         itemsData = item;
         GetComponent<SpriteRenderer>().sprite = itemsData.GetItemOverworldSprite();
+
+        if (itemsData.GetItemOverworldSprite() == null)
+        {
+            GetComponent<SpriteRenderer>().sprite = null;
+        }
     }
 
     public void SetPicker(GameObject picker)

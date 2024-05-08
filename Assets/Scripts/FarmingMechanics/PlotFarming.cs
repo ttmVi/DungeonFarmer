@@ -67,9 +67,16 @@ public class PlotFarming : MonoBehaviour
         {
             if (treeGrowthIndex < maxGrowthIndex && treeData != null)
             {
-                //WaterPlant(0.2f);
+                if (FindObjectOfType<FarmManager>().GetComponent<FarmManager>().WaterBottleFilled())
+                {
+                    WaterPlant(0.5f);
+                }
+                else
+                {
+                    FindObjectOfType<InventoryManager>().GetComponent<InventoryManager>().OpenFertilizersInventory(gameObject);
+                }
 
-                FindObjectOfType<InventoryManager>().GetComponent<InventoryManager>().OpenFertilizersInventory(gameObject);
+                //WaterPlant(0.2f);
                 //FertilizePlant(0.1f);
             }
             else if (treeGrowthIndex >= maxGrowthIndex && treeData != null)
@@ -108,18 +115,31 @@ public class PlotFarming : MonoBehaviour
 
     private void WaterPlant(float wateringAmount)
     {
-        stackedWater += wateringAmount;
-        if (stackedWater >= maximumStackedWater)
+        FarmManager manager = FindObjectOfType<FarmManager>().GetComponent<FarmManager>();
+        
+        if (!manager.WaterBottleFilled())
         {
-            stackedWater = maximumStackedWater;
+            Debug.Log("No water in the bottle");
+            return;
+        }
+        else
+        {
+            manager.EmptyWater();
+
+            stackedWater += wateringAmount;
+            if (stackedWater >= maximumStackedWater)
+            {
+                stackedWater = maximumStackedWater;
+            }
         }
     }
 
     public void FertilizePlant(Items fertilizer, float fertilizingAmount)
     {
-        if (fertilizer.fertilizableSeed.GetSeedData() != treeData)
+        if (fertilizer.fertilizableSeed.GetItemName() != currentTree)
         {
             Debug.Log("Wrong type of fertilizer");
+            FindObjectOfType<InventoryManager>().GetComponent<InventoryManager>().OpenFertilizersInventory(gameObject);
             return;
         }
         else
@@ -129,6 +149,8 @@ public class PlotFarming : MonoBehaviour
             {
                 stackedFertilizer = maximumStackedFertilizer;
             }
+
+            FindObjectOfType<PlayerInventory>().GetComponent<PlayerInventory>().RemoveItems(fertilizer, 1);
         }
     }
 

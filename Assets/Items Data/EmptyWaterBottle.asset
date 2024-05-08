@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6bf04bd51a7ff474c914a5fdae63639a, type: 3}
-  m_Name: Bomb
+  m_Name: EmptyWaterBottle
   m_EditorClassIdentifier: 
-  itemID: 24
-  itemName: Bomb
+  itemID: 25
+  itemName: Water Bottle
   itemInventoryIcon: {fileID: 0}
   overworldSprite: {fileID: 0}
-  itemDescription: 
-  itemType: 5
+  itemDescription: There's no water in here...
+  itemType: 0
   maxGrowthIndex: 0
   phasesGrowthIndex: []
   growingPhasesSprites: []
@@ -27,10 +27,6 @@ MonoBehaviour:
   fertilizableSeed: {fileID: 0}
   fertilizerCraftingRecipe: []
   potionEffect: 
-  potionCraftingRecipe:
-  - {fileID: 11400000, guid: f661864a73c5b0f4c9985bf42082fc9e, type: 2}
-  - {fileID: 11400000, guid: ba27b47e49945994897c070dee1c3d2f, type: 2}
-  canBeCrafted: 1
-  craftingRecipe:
-  - {fileID: 11400000, guid: f661864a73c5b0f4c9985bf42082fc9e, type: 2}
-  - {fileID: 11400000, guid: ba27b47e49945994897c070dee1c3d2f, type: 2}
+  potionCraftingRecipe: []
+  canBeCrafted: 0
+  craftingRecipe: []

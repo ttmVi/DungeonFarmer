@@ -100,4 +100,24 @@ public class PlayerInventory : MonoBehaviour
 
         return finalList;
     }
+
+    public void FetchWater(Items emptyFetchingBottle, Items filledFetchingBottle)
+    {
+        if (CheckForItem(emptyFetchingBottle))
+        {
+            playerInventory.AddItem(filledFetchingBottle, 1);
+            playerInventory.RemoveItem(emptyFetchingBottle, 1);
+        }
+        else { Debug.Log("Bottle already filled"); }
+    }
+
+    public void EmptyWaterBottle(Items filledFetchingBottle, Items emptyFetchingBottle)
+    {
+        if (CheckForItem(filledFetchingBottle))
+        {
+            playerInventory.AddItem(emptyFetchingBottle, 1); 
+            playerInventory.RemoveItem(filledFetchingBottle, 1);
+        }
+        else { Debug.Log("Bottle already empty"); }
+    }
 }
