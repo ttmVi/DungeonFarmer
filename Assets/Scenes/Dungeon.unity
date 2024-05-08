@@ -23933,7 +23933,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4273632956134017314, guid: 0a3352a14912c01449653334a3a48d66, type: 3}
       propertyPath: speedLimit
-      value: 20
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4273632956134017314, guid: 0a3352a14912c01449653334a3a48d66, type: 3}
       propertyPath: maxAirJumps
