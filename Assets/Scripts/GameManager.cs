@@ -36,7 +36,6 @@ public class GameManager : MonoBehaviour
         farmingPlots.SetActive(false);
     }
 
-
     private void ToFarm()
     {
         SceneManager.LoadScene(0);

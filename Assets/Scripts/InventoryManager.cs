@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 [DisallowMultipleComponent]
@@ -61,7 +62,7 @@ public class InventoryManager : MonoBehaviour
 
     public void OnInventoryPressed(InputAction.CallbackContext context)
     {
-        if (context.started)
+        if (context.started && SceneManager.GetActiveScene().buildIndex == 0)
         {
             if (isOpening)
             {
