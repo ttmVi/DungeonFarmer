@@ -178,6 +178,10 @@ GameObject:
   - component: {fileID: 6311124975406456605}
   - component: {fileID: 4495536973993444925}
   - component: {fileID: 1964580687505850839}
+  - component: {fileID: 2639220174945419428}
+  - component: {fileID: 4711208724564517510}
+  - component: {fileID: 2144407535953275894}
+  - component: {fileID: 1701481630474704736}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -429,6 +433,71 @@ MonoBehaviour:
   climbingLadder: 0
   ladderCollision: 0
 --- !u!114 &1964580687505850839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9096835936027043030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0203e93ccbbe36b478491e82f563d547, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ladderLength: 0.52
+  colliderOffset: {x: 0, y: 0, z: 0}
+  ladderLayer:
+    serializedVersion: 2
+    m_Bits: 128
+--- !u!114 &2639220174945419428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9096835936027043030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed44b1e18d803274a96e0f29019e452b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventorySize: 30
+  editorInventoryList: []
+  draftAssets:
+  - {fileID: 11400000, guid: 30bd317bd4e120e4ea721232e9fd4c5b, type: 2}
+  - {fileID: 11400000, guid: 29e289f7c0f0dfd45b0ae3420f903fd6, type: 2}
+  - {fileID: 11400000, guid: ac977b05c1b5c1c44a2790ee57d448ea, type: 2}
+  - {fileID: 11400000, guid: ba225fe612f59ce468b2a3221ac69d64, type: 2}
+  - {fileID: 11400000, guid: 817b12d110ab6f647808043791db4d36, type: 2}
+--- !u!114 &4711208724564517510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9096835936027043030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cdfe5f40c72f814c87364006e1b5a19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactionKeys: 
+  facingDirection: {x: 0, y: 0}
+--- !u!114 &2144407535953275894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9096835936027043030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 401d4132a2663874c85cf1f8f2f5c0b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  climbingLadder: 0
+  ladderCollision: 0
+--- !u!114 &1701481630474704736
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

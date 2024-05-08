@@ -1,0 +1,142 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5165260750117755339
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8912622840001728204}
+  - component: {fileID: 5278460750675448820}
+  - component: {fileID: 1192253032077784931}
+  - component: {fileID: 1481438490654590115}
+  - component: {fileID: 2096038915219756903}
+  - component: {fileID: 3202212957626661193}
+  m_Layer: 0
+  m_Name: Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8912622840001728204
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5165260750117755339}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5278460750675448820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5165260750117755339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca6ba4e12f73cfe4390dc5febca34d82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dontDestroyOnLoadObjects:
+  - {fileID: 0}
+  farmingPlots: {fileID: 0}
+--- !u!114 &1192253032077784931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5165260750117755339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38aea3aa8faf99448aa249649bb4c3f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerInventory: {fileID: 0}
+  fullWaterBottle: {fileID: 11400000, guid: ce94fc1ebe79bb8409cedb12b446ce69, type: 2}
+  emptyWaterBottle: {fileID: 11400000, guid: 30bd317bd4e120e4ea721232e9fd4c5b, type: 2}
+--- !u!114 &1481438490654590115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5165260750117755339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f10e6779a7e15a48941254625aaf6dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+--- !u!114 &2096038915219756903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5165260750117755339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6502c0757cdc0a4ca2e16b444a2b6d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventoryCanvas: {fileID: 0}
+  itemsList: {fileID: 0}
+  selectButton: {fileID: 0}
+  itemDescription: {fileID: 0}
+  playerInventory: {fileID: 0}
+  numberOfRows: 4
+  numberOfColumns: 7
+  distanceBetweenSlots: 175
+  isOpening: 0
+  isPlantingTree: 0
+  isFertilizingTree: 0
+  plantingPlot: {fileID: 0}
+  startIndex: 0
+  selectingIndex: 0
+  currentInventoryIndex: 0
+--- !u!114 &3202212957626661193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5165260750117755339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10384e03609e4eb48b92636f966a0c5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  craftingCanvas: {fileID: 0}
+  recipesList: {fileID: 0}
+  recipeTabs: {fileID: 0}
+  selectButton: {fileID: 0}
+  playerInventory: {fileID: 0}
+  distanceBetweenRows: 423
+  distanceBetweenColumns: 826.56
+  fertilizers:
+  - {fileID: 11400000, guid: 6a233266b6c0a7d4098432d01cc36a4f, type: 2}
+  - {fileID: 11400000, guid: 5b8eca88b4cbd814fa37227a2ee3aeb1, type: 2}
+  - {fileID: 11400000, guid: cf02fcd026a7bd844b88df837f56ed32, type: 2}
+  - {fileID: 11400000, guid: 03fa450610d37bf4ca8cad34ad6f4fa3, type: 2}
+  potions:
+  - {fileID: 11400000, guid: d1987abba4b7fb9488b6798a0fa0843a, type: 2}
+  - {fileID: 11400000, guid: 9dbcf59cd6c3ed24086d88f894a5f63a, type: 2}
+  - {fileID: 11400000, guid: f06edde28d5c4604f9e0cbd2012d5af3, type: 2}
+  - {fileID: 11400000, guid: c6c35ed7f1a7b0248a93535170094ad5, type: 2}
+  isRightmost: 0
+  isLeftmost: 1
+  isUpmost: 1
+  isDownmost: 0
+  isCrafting: 0
