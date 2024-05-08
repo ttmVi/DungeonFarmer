@@ -91,7 +91,7 @@ public class PlotFarming : MonoBehaviour
         foreach (Items item in theItems)
         {
             //itemsManager.InstantiateItem(itemPlaceholder, item, transform.position, Quaternion.identity);
-            itemsManager.InstantiateItemInRange(itemPlaceholder, item, transform.position, 0.1f, 1f, Quaternion.identity);
+            itemsManager.InstantiateItemInLine(itemPlaceholder, item, transform.position, 0.1f, 1f, Quaternion.identity);
         }
     }
 
@@ -160,7 +160,7 @@ public class PlotFarming : MonoBehaviour
         for (int i = 0; i < treeData.possibleDrops.Length; i++)
         {
             //itemsManager.InstantiateItem(itemPlaceholder, treeData.possibleDrops[i], transform.position, Quaternion.identity);
-            itemsManager.InstantiateItemInRange(itemPlaceholder, treeData.possibleDrops[i], transform.position, 0.1f, 1.5f, Quaternion.identity);
+            itemsManager.InstantiateItemInLine(itemPlaceholder, treeData.possibleDrops[i], transform.position, 0.1f, 1.5f, Quaternion.identity);
         }
 
         RemovePlant();

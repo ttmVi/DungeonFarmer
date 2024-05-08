@@ -37,6 +37,34 @@ public class ItemsManager : MonoBehaviour
         item.GetComponent<BoxCollider2D>().isTrigger = true;
     }
 
+    public void InstantiateItemInLine(GameObject placeholder, Items itemData, Vector2 instantiateCenter, float minInstantiateRadius, float maxInstantiateRadius, Quaternion rotation)
+    {
+        Vector2 randomPosition = GetRandomPositionWithinRange(instantiateCenter, minInstantiateRadius, maxInstantiateRadius);
+        randomPosition = new Vector2(randomPosition.x, instantiateCenter.y);
+
+        GameObject item = Instantiate(placeholder, randomPosition, rotation);
+        item.GetComponent<ItemInfo>().SetItemData(itemData);
+        item.GetComponent<ItemInfo>().SetPicker(player);
+        item.AddComponent<BoxCollider2D>();
+        item.GetComponent<BoxCollider2D>().isTrigger = true;
+    }
+
+    public void InstantiateItemInSemiRange(GameObject placeholder, Items itemData, Vector2 instantiateCenter, float minInstantiateRadius, float maxInstantiateRadius, Quaternion rotation)
+    {
+        restart:
+        Vector2 randomPosition = GetRandomPositionWithinRange(instantiateCenter, minInstantiateRadius, maxInstantiateRadius);
+        if (randomPosition.y < instantiateCenter.y)
+        {
+            goto restart;
+        }
+
+        GameObject item = Instantiate(placeholder, randomPosition, rotation);
+        item.GetComponent<ItemInfo>().SetItemData(itemData);
+        item.GetComponent<ItemInfo>().SetPicker(player);
+        item.AddComponent<BoxCollider2D>();
+        item.GetComponent<BoxCollider2D>().isTrigger = true;
+    }
+
     private Vector2 GetRandomPositionWithinRange(Vector2 center, float minRadius, float maxRadius)
     {
         float randomAngle = Random.value * 360f;

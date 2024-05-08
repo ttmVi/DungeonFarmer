@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemID: 2
   itemName: Eggplant Seed
-  itemInventoryIcon: {fileID: 0}
-  overworldSprite: {fileID: 0}
+  itemInventoryIcon: {fileID: 285807645, guid: 00718107ee314fc4ca68a4ae5e59ede6, type: 3}
+  overworldSprite: {fileID: 1010804581, guid: 00718107ee314fc4ca68a4ae5e59ede6, type: 3}
   itemDescription: eggplant muahahahahahehehehehehehehe
   itemType: 1
   maxGrowthIndex: 5
@@ -45,6 +45,8 @@ MonoBehaviour:
   - {fileID: 1891582204, guid: 896cb750c95d27244ac6bb898546c7c8, type: 3}
   possibleDrops:
   - {fileID: 11400000, guid: 8c9b402cb5354e243bb3b75fb70fed54, type: 2}
+  - {fileID: 11400000, guid: 8c9b402cb5354e243bb3b75fb70fed54, type: 2}
+  - {fileID: 11400000}
   note: 
   fertilizableSeed: {fileID: 0}
   fertilizerCraftingRecipe: []
