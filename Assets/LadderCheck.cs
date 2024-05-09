@@ -26,6 +26,12 @@ public class LadderCheck : MonoBehaviour
         Gizmos.DrawLine(transform.position - colliderOffset, transform.position - colliderOffset + Vector3.down * ladderLength);
     }
 
+    public bool IsInLadder()
+    {
+        Collider2D ladder = Physics2D.OverlapBox(transform.position + colliderOffset, GetComponent<BoxCollider2D>().size - new Vector2(0f, 0.1f), 0f, ladderLayer);
+        return ladder != null;
+    }
+
     //Send ground detection to other scripts
     public bool IsOnLadder()
     {
