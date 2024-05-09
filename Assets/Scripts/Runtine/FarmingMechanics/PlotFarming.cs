@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using static ItemsManager;
-using static UnityEditor.Progress;
 
 [RequireComponent(typeof(Interactable))]
 public class PlotFarming : MonoBehaviour

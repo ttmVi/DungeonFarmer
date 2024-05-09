@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
 
     [Space]
     [SerializeField] private GameObject farmingPlots;
+    [SerializeField] private GameObject player;
 
     private void Start()
     {
@@ -34,6 +35,7 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(1);
         GetComponent<InventoryManager>().SavePlayerInventory();
         farmingPlots.SetActive(false);
+        player.transform.position = new Vector3(-56f, 17f, 0f);
     }
 
 
@@ -42,5 +44,6 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(0);
         GetComponent<InventoryManager>().LoadPlayerInventory();
         farmingPlots.SetActive(true);
+        player.transform.position = new Vector3(11.5f, -5.5f, 0f);
     }
 }
