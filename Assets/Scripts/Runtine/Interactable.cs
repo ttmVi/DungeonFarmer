@@ -5,13 +5,26 @@ using UnityEngine.Events;
 
 public class Interactable : MonoBehaviour
 {
-    //private PlayerInventory playerInstance;
+    private PlayerInteract player;
     [SerializeField] private UnityEvent interactEvent;
+
+    private Color originalColor = new Color(200f / 255f, 200f / 255f, 200f / 255f, 1f);
 
     // Start is called before the first frame update
     void Start()
     {
-        //playerInstance = GameObject.Find("player").GetComponent<PlayerInventory>();
+        restart:
+        player = FindObjectOfType<PlayerInteract>();
+        if (!player.gameObject.activeSelf) { goto restart; }
+    }
+
+    private void Update()
+    {
+        if (player.GetInteractingObject() == gameObject)
+        {
+            EnableInteractionSprite();
+        }
+        else { DisableInteractionSprite(); }
     }
 
     public void IsInteracted()
@@ -22,17 +35,15 @@ public class Interactable : MonoBehaviour
         }
     }
 
-    public void PickUp(Items item, int quantity)
+    private void EnableInteractionSprite()
     {
-        /*if (playerInstance.CheckForEmptySlots(item))
-        {
-            playerInstance.PickUpItems(item, quantity);
-            Destroy(gameObject);
-        }
-        else
-        {
-            playerInstance.gameObject.GetComponent<DialoguesTrigger>().TriggerDialogues(0);
-            Debug.Log("No empty slots");
-        }*/
+        TryGetComponent(out SpriteRenderer sprite);
+        sprite.color = Color.white;
+    }
+
+    private void DisableInteractionSprite()
+    {
+        TryGetComponent(out SpriteRenderer sprite);
+        sprite.color = originalColor;
     }
 }
