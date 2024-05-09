@@ -5308,6 +5308,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: f6308ea4-a5e3-4b06-b748-1e69927f38f9
     m_ActionName: UI/PreviousTab[/Keyboard/q]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 4d878dbc-9881-4690-bbe6-4c6638731a9c
+    m_ActionName: Player/QuitLevel[/Keyboard/escape]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: UI
