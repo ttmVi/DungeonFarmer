@@ -256,7 +256,7 @@
                 {
                     "name": "",
                     "id": "d0d9151c-25fa-4af0-871d-c59d9ac99dcb",
-                    "path": "<Keyboard>/i",
+                    "path": "<Keyboard>/w",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
@@ -278,7 +278,7 @@
                 {
                     "name": "",
                     "id": "f217c363-b489-466d-9e6e-de23555ff03e",
-                    "path": "<Keyboard>/x",
+                    "path": "<Keyboard>/c",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
@@ -289,7 +289,7 @@
                 {
                     "name": "",
                     "id": "758adac5-6ba7-4653-a303-a3d2b2ccc392",
-                    "path": "<Keyboard>/c",
+                    "path": "<Keyboard>/x",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -333,7 +333,7 @@
                 {
                     "name": "",
                     "id": "e977d589-7bf4-4d20-8733-fcc442c936fd",
-                    "path": "<Keyboard>/f",
+                    "path": "<Keyboard>/c",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -929,7 +929,7 @@
                 {
                     "name": "",
                     "id": "9bbb64a0-5188-4e11-bed5-695692210073",
-                    "path": "<Keyboard>/i",
+                    "path": "<Keyboard>/w",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
@@ -951,7 +951,7 @@
                 {
                     "name": "",
                     "id": "fcb7a12c-608b-4241-9c09-6290e7dec795",
-                    "path": "<Keyboard>/leftShift",
+                    "path": "<Keyboard>/c",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
