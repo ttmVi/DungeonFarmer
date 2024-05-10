@@ -34,7 +34,7 @@ public class PlotFarming : MonoBehaviour
 
     private void ResetTreePlotData()
     {
-        treePlot.GetComponent<SpriteRenderer>().sprite = null;
+        //treePlot.GetComponent<SpriteRenderer>().sprite = null;
         treeData = null;
         currentTree = null;
         treeGrowthIndex = -1;
@@ -62,7 +62,7 @@ public class PlotFarming : MonoBehaviour
         //else if (GetComponent<SpriteRenderer>().sprite == ploughedPlot) { PlantSeed(draftingTree.GetTreeData()); }
 
         // Watering and fertilizing the plant
-        else if (GetComponent<SpriteRenderer>().sprite == seededPlot)
+        else if (GetComponent<SpriteRenderer>().sprite != ploughedPlot && GetComponent<SpriteRenderer>().sprite != unploughedPlot)
         {
             if (treeGrowthIndex < maxGrowthIndex && treeData != null)
             {
@@ -101,8 +101,8 @@ public class PlotFarming : MonoBehaviour
 
     public void PlantSeed(Tree seed)
     {
-        GetComponent<SpriteRenderer>().sprite = seededPlot;
-        treePlot.GetComponent<SpriteRenderer>().sprite = seed.growingPhasesSprites[1];
+        GetComponent<SpriteRenderer>().sprite = seed.growingPhasesSprites[1];
+        //treePlot.GetComponent<SpriteRenderer>().sprite = seed.growingPhasesSprites[1];
         treeGrowthIndex = 0;
 
         // Getting tree information
@@ -171,15 +171,15 @@ public class PlotFarming : MonoBehaviour
         {
             if (stackedFertilizer <= 0 && stackedWater <= 0)
             {
-                if (treeData.growingPhasesSprites.Contains(treePlot.GetComponent<SpriteRenderer>().sprite))
+                if (treeData.growingPhasesSprites.Contains(GetComponent<SpriteRenderer>().sprite))
                 {
-                    treePlot.GetComponent<SpriteRenderer>().sprite = treeData.deceasingSprites[currentTreePhase];
+                    GetComponent<SpriteRenderer>().sprite = treeData.deceasingSprites[currentTreePhase];
                 }
                 else { RemovePlant(); }
             }
             else
             {
-                if (treeData.deceasingSprites.Contains(treePlot.GetComponent<SpriteRenderer>().sprite))
+                if (treeData.deceasingSprites.Contains(GetComponent<SpriteRenderer>().sprite))
                 {
                     RevitalizePlant();
                 }
@@ -206,7 +206,7 @@ public class PlotFarming : MonoBehaviour
 
     private void RevitalizePlant()
     {
-        treePlot.GetComponent<SpriteRenderer>().sprite = treeData.growingPhasesSprites[currentTreePhase];
+        GetComponent<SpriteRenderer>().sprite = treeData.growingPhasesSprites[currentTreePhase];
 
         stackedWater = 0;
         stackedFertilizer = 0;
@@ -227,13 +227,13 @@ public class PlotFarming : MonoBehaviour
             {
                 if (treeGrowthIndex < treeData.phasesGrowthIndex[i])
                 {
-                    treePlot.GetComponent<SpriteRenderer>().sprite = treeData.growingPhasesSprites[i - 1];
+                    GetComponent<SpriteRenderer>().sprite = treeData.growingPhasesSprites[i - 1];
                     currentTreePhase = i - 1;
                     break;
                 }
                 else if (i == treeData.phasesGrowthIndex.Length - 1)
                 {
-                    treePlot.GetComponent<SpriteRenderer>().sprite = treeData.growingPhasesSprites[i];
+                    GetComponent<SpriteRenderer>().sprite = treeData.growingPhasesSprites[i];
                     currentTreePhase = i;
                     break;
                 }
