@@ -140,14 +140,14 @@ public class InventoryManager : MonoBehaviour
     {
         if (context.started)
         {
-            if (isPlantingTree && isOpening)
+            if (isPlantingTree && isOpening && displayingInventory.Count > 0)
             {
                 Items plantingSeed = displayingInventory[currentInventoryIndex].Item1;
                 plantingPlot.GetComponent<PlotFarming>().PlantSeed(plantingSeed.GetSeedData());
                 playerInventory.gameObject.GetComponent<PlayerInventory>().RemoveItems(plantingSeed, 1);
                 CloseInventory();
             }
-            else if (isFertilizingTree && isOpening)
+            else if (isFertilizingTree && isOpening && displayingInventory.Count > 0)
             {
                 Items fertilizer = displayingInventory[currentInventoryIndex].Item1;
                 plantingPlot.GetComponent<PlotFarming>().FertilizePlant(fertilizer, 1.5f);

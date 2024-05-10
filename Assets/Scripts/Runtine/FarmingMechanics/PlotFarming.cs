@@ -4,12 +4,11 @@ using System.Linq;
 using UnityEngine;
 using static ItemsManager;
 
-[RequireComponent(typeof(Interactable))]
 public class PlotFarming : MonoBehaviour
 {
     [Header("Plot Sprites")]
     [SerializeField] private Sprite unploughedPlot;
-    [SerializeField] private Sprite ploughedPlot;
+    [SerializeField] public Sprite ploughedPlot;
     [SerializeField] private Sprite seededPlot;
 
     [Header("Debris Possible Items")]
@@ -32,9 +31,11 @@ public class PlotFarming : MonoBehaviour
     [Header("Item Drop")]
     [SerializeField] private GameObject itemPlaceholder;
 
+    private bool isChangingSoilColor = false;
+
     private void ResetTreePlotData()
     {
-        //treePlot.GetComponent<SpriteRenderer>().sprite = null;
+        treePlot.GetComponent<SpriteRenderer>().sprite = null;
         treeData = null;
         currentTree = null;
         treeGrowthIndex = -1;
@@ -74,9 +75,6 @@ public class PlotFarming : MonoBehaviour
                 {
                     FindObjectOfType<InventoryManager>().GetComponent<InventoryManager>().OpenFertilizersInventory(gameObject);
                 }
-
-                //WaterPlant(0.2f);
-                //FertilizePlant(0.1f);
             }
             else if (treeGrowthIndex >= maxGrowthIndex && treeData != null)
             {
@@ -102,7 +100,7 @@ public class PlotFarming : MonoBehaviour
     public void PlantSeed(Tree seed)
     {
         GetComponent<SpriteRenderer>().sprite = seed.growingPhasesSprites[1];
-        //treePlot.GetComponent<SpriteRenderer>().sprite = seed.growingPhasesSprites[1];
+        treePlot.GetComponent<SpriteRenderer>().sprite = seededPlot;
         treeGrowthIndex = 0;
 
         // Getting tree information
@@ -124,6 +122,7 @@ public class PlotFarming : MonoBehaviour
         else
         {
             manager.EmptyWater();
+            StartCoroutine(WetSoil());
 
             stackedWater += wateringAmount;
             if (stackedWater >= maximumStackedWater)
@@ -131,6 +130,31 @@ public class PlotFarming : MonoBehaviour
                 stackedWater = maximumStackedWater;
             }
         }
+    }
+
+    private IEnumerator WetSoil()
+    {
+        SpriteRenderer sprite = treePlot.GetComponent<SpriteRenderer>();
+        Color wetColor = new Color (161f/255, 126f/255, 94f/255f, 1f);
+        //if (isChangingSoilColor) { yield break; }
+
+        while (sprite.color.r > wetColor.r && sprite.color.g > wetColor.g && sprite.color.b > wetColor.b)
+        {
+            isChangingSoilColor = true;
+            sprite.color = Color.Lerp(sprite.color, wetColor, Time.deltaTime);
+            yield return null;
+        }
+        
+        sprite.color = wetColor;
+        isChangingSoilColor = false;
+        yield return null;
+    }
+
+    private void DrySoil() 
+    {
+        StopAllCoroutines();
+        treePlot.GetComponent<SpriteRenderer>().color = Color.white;
+        Debug.Log("Soil dried");
     }
 
     public void FertilizePlant(Items fertilizer, float fertilizingAmount)
@@ -190,6 +214,8 @@ public class PlotFarming : MonoBehaviour
                 }
             }
         }
+
+        DrySoil();
     }
 
     private void GrowPlant()

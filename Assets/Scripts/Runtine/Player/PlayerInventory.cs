@@ -112,7 +112,7 @@ public class PlayerInventory : MonoBehaviour
             playerInventory.AddItem(filledFetchingBottle, 1);
             playerInventory.RemoveItem(emptyFetchingBottle, 1);
         }
-        else { Debug.Log("Bottle already filled"); }
+        else { }
     }
 
     public void EmptyWaterBottle(Items filledFetchingBottle, Items emptyFetchingBottle)

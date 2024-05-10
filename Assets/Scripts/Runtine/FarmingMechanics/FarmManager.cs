@@ -5,8 +5,11 @@ using UnityEngine;
 public class FarmManager : MonoBehaviour
 {
     [SerializeField] private PlayerInventory playerInventory;
+
     [SerializeField] private Items fullWaterBottle;
     [SerializeField] private Items emptyWaterBottle;
+    [SerializeField] private int waterBottleCapacity = 5;
+    [SerializeField] private int currentWaterAmount;
 
     public void EndFarmDay()
     {
@@ -29,11 +32,20 @@ public class FarmManager : MonoBehaviour
     public void FetchWater()
     {
         playerInventory.FetchWater(emptyWaterBottle, fullWaterBottle);
+        currentWaterAmount = waterBottleCapacity;
     }
 
     public void EmptyWater()
     {
-        playerInventory.EmptyWaterBottle(fullWaterBottle, emptyWaterBottle);
+        if (currentWaterAmount > 0)
+        {
+            currentWaterAmount--;
+        }
+
+        if (currentWaterAmount <= 0) 
+        { 
+            playerInventory.EmptyWaterBottle(fullWaterBottle, emptyWaterBottle); 
+        }
     }
 
     public bool WaterBottleFilled()

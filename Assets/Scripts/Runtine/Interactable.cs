@@ -5,12 +5,11 @@ using UnityEngine.Events;
 
 public class Interactable : MonoBehaviour
 {
-    private PlayerInteract player;
+    protected PlayerInteract player;
     [SerializeField] private UnityEvent interactEvent;
 
-    private Color originalColor = new Color(200f / 255f, 200f / 255f, 200f / 255f, 1f);
+    protected Color originalColor = new Color(200f / 255f, 200f / 255f, 200f / 255f, 1f);
 
-    // Start is called before the first frame update
     void Start()
     {
         restart:
@@ -35,15 +34,47 @@ public class Interactable : MonoBehaviour
         }
     }
 
-    private void EnableInteractionSprite()
+    protected virtual void EnableInteractionSprite()
     {
+        TryGetComponent(out PlotFarming plotFarming);
         TryGetComponent(out SpriteRenderer sprite);
-        sprite.color = Color.white;
+
+        if (plotFarming == null)
+        {
+            sprite.color = Color.white;
+        }
+        else
+        {
+            if (plotFarming.GetComponent<SpriteRenderer>().sprite == plotFarming.ploughedPlot)
+            {
+                sprite.color = originalColor;
+            }
+            else
+            {
+                sprite.color = Color.white;
+            }
+        }
     }
 
-    private void DisableInteractionSprite()
+    protected virtual void DisableInteractionSprite()
     {
+        TryGetComponent(out PlotFarming plotFarming);
         TryGetComponent(out SpriteRenderer sprite);
-        sprite.color = originalColor;
+
+        if (plotFarming == null)
+        {
+            sprite.color = originalColor;
+        }
+        else
+        {
+            if (plotFarming.GetComponent<SpriteRenderer>().sprite == plotFarming.ploughedPlot)
+            {
+                sprite.color = Color.white;
+            }
+            else
+            {
+                sprite.color = originalColor;
+            }
+        }
     }
 }

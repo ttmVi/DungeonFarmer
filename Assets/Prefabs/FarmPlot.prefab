@@ -173,8 +173,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unploughedPlot: {fileID: -963226331, guid: 6d54fd10faecf8f4cbdd35a929bc9ef0, type: 3}
-  ploughedPlot: {fileID: 0}
-  seededPlot: {fileID: 2075056893, guid: 896cb750c95d27244ac6bb898546c7c8, type: 3}
+  ploughedPlot: {fileID: -67471814, guid: 6ed9a17f093a40d419131894b50812c2, type: 3}
+  seededPlot: {fileID: -67471814, guid: 6ed9a17f093a40d419131894b50812c2, type: 3}
   theItems:
   - {fileID: 11400000, guid: f47b2d7a5e995d84eb737cab531342bb, type: 2}
   - {fileID: 11400000, guid: 6133035ed7cc8f047b3e36121f67b8c7, type: 2}
@@ -260,7 +260,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
