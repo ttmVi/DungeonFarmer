@@ -19661,6 +19661,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1080958308}
     - target: {fileID: 2096038915219756903, guid: 422537ab3b01f6a4582da69146240ae4, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1080958308}
+    - target: {fileID: 2096038915219756903, guid: 422537ab3b01f6a4582da69146240ae4, type: 3}
       propertyPath: itemsList
       value: 
       objectReference: {fileID: 2940457}

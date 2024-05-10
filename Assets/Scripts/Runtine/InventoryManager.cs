@@ -14,6 +14,7 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] private GameObject itemsList;
     [SerializeField] private GameObject selectButton;
     [SerializeField] private TextMeshProUGUI itemDescription;
+    [SerializeField] private GameObject player;
     [SerializeField] private PlayerInventory playerInventory;
 
     [Header("Inventory UI Settings")]
@@ -91,18 +92,39 @@ public class InventoryManager : MonoBehaviour
 
     private void OpenInventory(List<(Items, int)> inventory)
     {
-        displayingInventory = inventory;
-        inventoryCanvas.SetActive(true);
-        isOpening = true;
+        if (!isOpening)
+        {
+            displayingInventory = inventory;
+            inventoryCanvas.SetActive(true);
+            isOpening = true;
+
+            player.GetComponent<PlayerInteract>().enabled = false;
+            player.GetComponent<PlayerMovement>().enabled = false;
+            player.GetComponent<PlayerJump>().enabled = false;
+            player.GetComponent<PlayerAttack>().enabled = false;
+            player.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        }
     }
 
-    public void CloseInventory()
+    public IEnumerator ClosingInventory()
     {
+        yield return new WaitForFixedUpdate();
+
+        player.GetComponent<PlayerInteract>().enabled = true;
+        player.GetComponent<PlayerMovement>().enabled = true;
+        player.GetComponent<PlayerJump>().enabled = true;
+        player.GetComponent<PlayerAttack>().enabled = true;
+        
         inventoryCanvas.SetActive(false);
         isOpening = false;
         isPlantingTree = false;
         isFertilizingTree = false;
         plantingPlot = null;
+    }
+
+    public void CloseInventory()
+    {
+        StartCoroutine(ClosingInventory());
     }
 
     public void OnInventoryUINavigation(InputAction.CallbackContext context)

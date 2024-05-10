@@ -15,6 +15,7 @@ public class CraftTableManager : MonoBehaviour
     [SerializeField] private PlayerInventory playerInventory;
     [SerializeField] private float distanceBetweenRows;
     [SerializeField] private float distanceBetweenColumns;
+    [SerializeField] private GameObject player;
 
     [Header("Items To Craft")]
     [SerializeField] private Items[] fertilizers;
@@ -42,6 +43,12 @@ public class CraftTableManager : MonoBehaviour
     {
         craftingCanvas.SetActive(true);
         isCrafting = true;
+
+        player.GetComponent<PlayerInteract>().enabled = false;
+        player.GetComponent<PlayerMovement>().enabled = false;
+        player.GetComponent<PlayerJump>().enabled = false;
+        player.GetComponent<PlayerAttack>().enabled = false;
+        player.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
     }
 
     public void CloseCraftingUI(InputAction.CallbackContext context)
@@ -50,6 +57,11 @@ public class CraftTableManager : MonoBehaviour
         {
             craftingCanvas.SetActive(false);
             isCrafting = false;
+
+            player.GetComponent<PlayerInteract>().enabled = true;
+            player.GetComponent<PlayerMovement>().enabled = true;
+            player.GetComponent<PlayerJump>().enabled = true;
+            player.GetComponent<PlayerAttack>().enabled = true;
         }
     }
 
@@ -59,6 +71,11 @@ public class CraftTableManager : MonoBehaviour
         {
             craftingCanvas.SetActive(false);
             isCrafting = false;
+
+            player.GetComponent<PlayerInteract>().enabled = true;
+            player.GetComponent<PlayerMovement>().enabled = true;
+            player.GetComponent<PlayerJump>().enabled = true;
+            player.GetComponent<PlayerAttack>().enabled = true;
         }
     }
 
