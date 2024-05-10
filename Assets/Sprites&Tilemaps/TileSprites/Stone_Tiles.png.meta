@@ -1373,8 +1373,8 @@ TextureImporter:
       name: Stone_Tiles_60
       rect:
         serializedVersion: 2
-        x: 16
-        y: 48
+        x: 176
+        y: 64
         width: 16
         height: 16
       alignment: 0
@@ -1394,8 +1394,8 @@ TextureImporter:
       name: Stone_Tiles_61
       rect:
         serializedVersion: 2
-        x: 80
-        y: 48
+        x: 192
+        y: 64
         width: 16
         height: 16
       alignment: 0
@@ -1416,7 +1416,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 16
-        y: 32
+        y: 48
         width: 16
         height: 16
       alignment: 0
@@ -1436,8 +1436,8 @@ TextureImporter:
       name: Stone_Tiles_63
       rect:
         serializedVersion: 2
-        x: 32
-        y: 32
+        x: 80
+        y: 48
         width: 16
         height: 16
       alignment: 0
@@ -1457,8 +1457,8 @@ TextureImporter:
       name: Stone_Tiles_64
       rect:
         serializedVersion: 2
-        x: 64
-        y: 32
+        x: 176
+        y: 48
         width: 16
         height: 16
       alignment: 0
@@ -1478,8 +1478,8 @@ TextureImporter:
       name: Stone_Tiles_65
       rect:
         serializedVersion: 2
-        x: 80
-        y: 32
+        x: 192
+        y: 48
         width: 16
         height: 16
       alignment: 0
@@ -1499,7 +1499,7 @@ TextureImporter:
       name: Stone_Tiles_66
       rect:
         serializedVersion: 2
-        x: 128
+        x: 16
         y: 32
         width: 16
         height: 16
@@ -1520,8 +1520,8 @@ TextureImporter:
       name: Stone_Tiles_67
       rect:
         serializedVersion: 2
-        x: 16
-        y: 16
+        x: 32
+        y: 32
         width: 16
         height: 16
       alignment: 0
@@ -1541,8 +1541,8 @@ TextureImporter:
       name: Stone_Tiles_68
       rect:
         serializedVersion: 2
-        x: 80
-        y: 16
+        x: 64
+        y: 32
         width: 16
         height: 16
       alignment: 0
@@ -1562,8 +1562,8 @@ TextureImporter:
       name: Stone_Tiles_69
       rect:
         serializedVersion: 2
-        x: 112
-        y: 16
+        x: 80
+        y: 32
         width: 16
         height: 16
       alignment: 0
@@ -1584,7 +1584,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 128
-        y: 16
+        y: 32
         width: 16
         height: 16
       alignment: 0
@@ -1604,8 +1604,8 @@ TextureImporter:
       name: Stone_Tiles_71
       rect:
         serializedVersion: 2
-        x: 144
-        y: 16
+        x: 176
+        y: 32
         width: 16
         height: 16
       alignment: 0
@@ -1617,6 +1617,132 @@ TextureImporter:
       bones: []
       spriteID: e9f97e706b436d245805fb02b5b85528
       internalID: -464676310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stone_Tiles_72
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d997a6b04bcc664bbda2e3231a20de1
+      internalID: 1863287229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stone_Tiles_73
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d94255a6a5cf71459ac5ef6ed17d98e
+      internalID: -980734276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stone_Tiles_74
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88ad2c516792c2f42a5fb6721ab7430b
+      internalID: 304142069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stone_Tiles_75
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a510da1811d7e984ab645af1a8ce1be1
+      internalID: 304151027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stone_Tiles_76
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44bea97fd6b3a454bb3b420508efa964
+      internalID: -498124826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stone_Tiles_77
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e01058491809074db3357754f63c006
+      internalID: -1823009588
       vertices: []
       indices: 
       edges: []
@@ -1702,6 +1828,12 @@ TextureImporter:
       Stone_Tiles_7: 1124771080
       Stone_Tiles_70: 121119513
       Stone_Tiles_71: -464676310
+      Stone_Tiles_72: 1863287229
+      Stone_Tiles_73: -980734276
+      Stone_Tiles_74: 304142069
+      Stone_Tiles_75: 304151027
+      Stone_Tiles_76: -498124826
+      Stone_Tiles_77: -1823009588
       Stone_Tiles_8: -774413788
       Stone_Tiles_9: 889361176
   mipmapLimitGroupName: 
