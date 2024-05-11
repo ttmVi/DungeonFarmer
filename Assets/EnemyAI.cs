@@ -48,24 +48,7 @@ public class EnemyAI : MonoBehaviour
         {
             PathFollow();
         }
-
-        
     }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Wall"))
-        {
-            followEnabled = false;
-            StartCoroutine(Stun());
-        }
-    }
-    IEnumerator Stun()
-    {
-        yield return new WaitForSeconds(2f);
-        followEnabled = true;
-    }
-
     private void UpdatePath()
     {
         if (followEnabled && TargetInDistance() && seeker.IsDone())
@@ -141,7 +124,7 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
-    private bool TargetInDistance()
+    public bool TargetInDistance()
     {
         return Vector2.Distance(transform.position, target.transform.position) < activateDistance;
     }

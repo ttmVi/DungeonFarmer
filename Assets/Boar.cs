@@ -4,45 +4,27 @@ using UnityEngine;
 
 public class Boar : MonoBehaviour
 {
-    public Transform playerLocation;
-    private Rigidbody rb;
     public Transform[] points;
     public int pointIndex;
     public bool moving1;
     public bool moving2;
-    private bool chasing;
-    private bool patrol;
+    private EnemyAI enemyAI;
+    private WallCheck wallCheck;
     private void Awake()
     {
-        rb = GetComponent<Rigidbody>();
-        patrol = true;
+        enemyAI = GetComponent<EnemyAI>();
+        wallCheck = GetComponent<WallCheck>();
     }
     private void Update()
     {
-        if (patrol)
+        if (!enemyAI.TargetInDistance())
         {
             Patrol();
         }
-        else if(chasing)
+
+        if (wallCheck.isWall())
         {
-            Chasing();
-        }
-    }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Player"))
-        {
-            chasing = true;
-            patrol = false;
-        }
-        
-    }
-    void Chasing()
-    {
-        if(transform.position != playerLocation.transform.position)
-        {
-            //transform.position = Vector2.MoveTowards(transform.position, location1.transform.position, 5f * Time.deltaTime);
-            transform.position = Vector2.MoveTowards(transform.position, playerLocation.transform.position, 1f*Time.deltaTime);
+            StartCoroutine(Stun());
         }
     }
     void Patrol()
@@ -61,12 +43,20 @@ public class Boar : MonoBehaviour
 
         }
     }
-    private void OnTriggerExit2D(Collider2D collision)
+
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player"))
         {
-            patrol = true;
-            chasing = false;
+            StartCoroutine(Stun());
         }
+    }
+
+    IEnumerator Stun()
+    {
+        //play stun animation
+        enemyAI.followEnabled = false;
+        yield return new WaitForSeconds(2f);
+        enemyAI.followEnabled = true;
     }
 }
