@@ -10,6 +10,7 @@ using UnityEngine.UI;
 public class InventoryManager : MonoBehaviour
 {
     [Header("Inventory Canvas Elements Assigning")]
+    [SerializeField] private GameObject generalItemsUI;
     [SerializeField] private GameObject inventoryCanvas;
     [SerializeField] private GameObject itemsList;
     [SerializeField] private GameObject selectButton;
@@ -24,6 +25,7 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] private int distanceBetweenSlots;
 
     [Header("Inventory States")]
+    private bool UIOpened;
     [SerializeField] public bool isOpening;
     [SerializeField] private List<(Items, int)> displayingInventory;
     [Space]
@@ -50,6 +52,20 @@ public class InventoryManager : MonoBehaviour
             DisplayInventory(displayingInventory);
             currentInventoryIndex = startIndex + selectingIndex;
         }
+
+        UIOpened = CheckGeneralItemsUIOpeningState();
+    }
+
+    private bool CheckGeneralItemsUIOpeningState()
+    {
+        for (int i = 0; i < generalItemsUI.transform.childCount; i++)
+        {
+            if (generalItemsUI.transform.GetChild(i).gameObject.activeSelf)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
     public void SavePlayerInventory()
@@ -64,7 +80,7 @@ public class InventoryManager : MonoBehaviour
 
     public void OnInventoryPressed(InputAction.CallbackContext context)
     {
-        if (context.started && SceneManager.GetActiveScene().buildIndex == 0)
+        if (context.started)
         {
             if (isOpening)
             {
@@ -93,7 +109,7 @@ public class InventoryManager : MonoBehaviour
 
     private void OpenInventory(List<(Items, int)> inventory)
     {
-        if (!isOpening)
+        if (!isOpening && !UIOpened)
         {
             displayingInventory = inventory;
             inventoryCanvas.SetActive(true);

@@ -6,6 +6,8 @@ using UnityEngine.Events;
 public class Interactable : MonoBehaviour
 {
     protected PlayerInteract player;
+    [SerializeField][Tooltip("Interacting priority should only be positive integer")] private int interactingPriority = 0;
+    [Space]
     [SerializeField] private UnityEvent interactEvent;
 
     protected Color originalColor = new Color(200f / 255f, 200f / 255f, 200f / 255f, 1f);
@@ -32,7 +34,14 @@ public class Interactable : MonoBehaviour
         {
             interactEvent.Invoke();
         }
+        
+        if (TryGetComponent(out PlotFarming farmPlot))
+        {
+            farmPlot.DoFarming();
+        }
     }
+
+    public int GetInteractingPriority() { return interactingPriority; }
 
     protected virtual void EnableInteractionSprite()
     {

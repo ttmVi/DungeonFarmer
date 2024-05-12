@@ -113,9 +113,9 @@ TextureImporter:
       name: Campsite_14
       rect:
         serializedVersion: 2
-        x: 16
+        x: 15
         y: 176
-        width: 48
+        width: 50
         height: 32
       alignment: 9
       pivot: {x: 0.5, y: 0.3125}
@@ -134,9 +134,9 @@ TextureImporter:
       name: Campsite_18
       rect:
         serializedVersion: 2
-        x: 80
+        x: 79
         y: 176
-        width: 48
+        width: 50
         height: 32
       alignment: 9
       pivot: {x: 0.5, y: 0.3125}
@@ -155,9 +155,9 @@ TextureImporter:
       name: Campsite_22
       rect:
         serializedVersion: 2
-        x: 144
+        x: 143
         y: 176
-        width: 48
+        width: 50
         height: 32
       alignment: 9
       pivot: {x: 0.5, y: 0.3125}
@@ -176,9 +176,9 @@ TextureImporter:
       name: Campsite_26
       rect:
         serializedVersion: 2
-        x: 208
+        x: 207
         y: 176
-        width: 48
+        width: 50
         height: 32
       alignment: 9
       pivot: {x: 0.5, y: 0.3125}
@@ -201,8 +201,8 @@ TextureImporter:
         y: 144
         width: 16
         height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5625}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -222,8 +222,8 @@ TextureImporter:
         y: 144
         width: 16
         height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5625}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -243,8 +243,8 @@ TextureImporter:
         y: 144
         width: 16
         height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5625}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -264,8 +264,8 @@ TextureImporter:
         y: 144
         width: 16
         height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5625}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
