@@ -12,15 +12,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject farmingPlots;
     [SerializeField] private GameObject player;
 
-    private void Start()
-    {
-        DontDestroyOnLoad(gameObject);
-        foreach (GameObject go in dontDestroyOnLoadObjects)
-        {
-            DontDestroyOnLoad(go);
-        }
-    }
-
     public void OnQuitLevel(InputAction.CallbackContext context)
     {
         if (context.started)
@@ -37,7 +28,6 @@ public class GameManager : MonoBehaviour
         farmingPlots.SetActive(false);
         player.transform.position = new Vector3(-56f, 17f, 0f);
     }
-
 
     private void ToFarm()
     {

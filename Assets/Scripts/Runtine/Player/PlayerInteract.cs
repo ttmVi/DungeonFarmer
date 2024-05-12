@@ -44,7 +44,7 @@ public class PlayerInteract : MonoBehaviour
         }
     }
 
-    public GameObject GetObjectInInteractionArea()
+    private GameObject GetObjectInInteractionArea()
     {
         Collider2D[] hit = Physics2D.OverlapBoxAll(interactionPoint, new Vector2(0.5f, 0.5f), 0f);
         if (hit != null)
@@ -62,6 +62,11 @@ public class PlayerInteract : MonoBehaviour
             return closestObject;
         }
         return null;
+    }
+
+    public GameObject GetInteractingObject()
+    {
+        return GetObjectInInteractionArea();
     }
 
     public void GetInteractionPoint()

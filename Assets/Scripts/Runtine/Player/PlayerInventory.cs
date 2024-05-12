@@ -29,7 +29,6 @@ public class PlayerInventory : MonoBehaviour
 
     private void Update()
     {
-        //DontDestroyOnLoad(gameObject);
         playerInventoryList = InventoryToList(playerInventory);
         seedsInventory = GetItemsListOfType(Items.ItemType.Seed, playerInventory);
         fertilizersInventory = GetItemsListOfType(Items.ItemType.Fertilizer, playerInventory);
@@ -113,7 +112,7 @@ public class PlayerInventory : MonoBehaviour
             playerInventory.AddItem(filledFetchingBottle, 1);
             playerInventory.RemoveItem(emptyFetchingBottle, 1);
         }
-        else { Debug.Log("Bottle already filled"); }
+        else { }
     }
 
     public void EmptyWaterBottle(Items filledFetchingBottle, Items emptyFetchingBottle)

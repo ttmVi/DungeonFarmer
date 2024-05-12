@@ -76,8 +76,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 1420868345, guid: 7526ce1c0d9cb8c43bdb9f3a42fd1253, type: 3}
+  m_SortingOrder: 1
+  m_Sprite: {fileID: -963226331, guid: 6d54fd10faecf8f4cbdd35a929bc9ef0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -123,8 +123,8 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    pivot: {x: 0.5, y: 0.5882353}
+    oldSize: {x: 1, y: 1.0625}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -172,10 +172,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c863fde9bbd7224bb1b24c04838bf64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unploughedPlot: {fileID: 1420868345, guid: 7526ce1c0d9cb8c43bdb9f3a42fd1253, type: 3}
-  ploughedPlot: {fileID: -1390478200, guid: 7526ce1c0d9cb8c43bdb9f3a42fd1253, type: 3}
-  seededPlot: {fileID: 2075056893, guid: 896cb750c95d27244ac6bb898546c7c8, type: 3}
-  theItems: []
+  unploughedPlot: {fileID: -963226331, guid: 6d54fd10faecf8f4cbdd35a929bc9ef0, type: 3}
+  ploughedPlot: {fileID: -67471814, guid: 6ed9a17f093a40d419131894b50812c2, type: 3}
+  seededPlot: {fileID: -67471814, guid: 6ed9a17f093a40d419131894b50812c2, type: 3}
+  theItems:
+  - {fileID: 11400000, guid: f47b2d7a5e995d84eb737cab531342bb, type: 2}
+  - {fileID: 11400000, guid: 6133035ed7cc8f047b3e36121f67b8c7, type: 2}
+  - {fileID: 11400000, guid: a4f4506119794214694640cb73036d0d, type: 2}
   draftingTree: {fileID: 11400000, guid: 0a345ca6edd1ac848b7febf7aab01d67, type: 2}
   treePlot: {fileID: 7577964235148893354}
   currentTree: 
@@ -257,7 +260,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

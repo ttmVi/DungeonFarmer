@@ -16,7 +16,7 @@ MonoBehaviour:
   itemName: Pangolin Scale
   itemInventoryIcon: {fileID: 0}
   overworldSprite: {fileID: 0}
-  itemDescription: 
+  itemDescription: Can I use this to scoop ice cream?
   itemType: 4
   maxGrowthIndex: 0
   phasesGrowthIndex: []

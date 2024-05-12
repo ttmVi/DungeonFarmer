@@ -16,7 +16,8 @@ MonoBehaviour:
   itemName: Boar Fang
   itemInventoryIcon: {fileID: 0}
   overworldSprite: {fileID: 0}
-  itemDescription: 
+  itemDescription: A non-poisonous fang from a non-venomous monster (but it sure
+    gonna give you a good massage)
   itemType: 4
   maxGrowthIndex: 0
   phasesGrowthIndex: []

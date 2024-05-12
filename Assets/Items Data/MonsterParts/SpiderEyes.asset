@@ -16,7 +16,7 @@ MonoBehaviour:
   itemName: Spider Eyes
   itemInventoryIcon: {fileID: 0}
   overworldSprite: {fileID: 0}
-  itemDescription: 
+  itemDescription: Eeghk.
   itemType: 4
   maxGrowthIndex: 0
   phasesGrowthIndex: []

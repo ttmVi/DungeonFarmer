@@ -5,13 +5,25 @@ using UnityEngine.Events;
 
 public class Interactable : MonoBehaviour
 {
-    //private PlayerInventory playerInstance;
+    protected PlayerInteract player;
     [SerializeField] private UnityEvent interactEvent;
 
-    // Start is called before the first frame update
+    protected Color originalColor = new Color(200f / 255f, 200f / 255f, 200f / 255f, 1f);
+
     void Start()
     {
-        //playerInstance = GameObject.Find("player").GetComponent<PlayerInventory>();
+        restart:
+        player = FindObjectOfType<PlayerInteract>();
+        if (!player.gameObject.activeSelf) { goto restart; }
+    }
+
+    private void Update()
+    {
+        if (player.GetInteractingObject() == gameObject)
+        {
+            EnableInteractionSprite();
+        }
+        else { DisableInteractionSprite(); }
     }
 
     public void IsInteracted()
@@ -22,17 +34,47 @@ public class Interactable : MonoBehaviour
         }
     }
 
-    public void PickUp(Items item, int quantity)
+    protected virtual void EnableInteractionSprite()
     {
-        /*if (playerInstance.CheckForEmptySlots(item))
+        TryGetComponent(out PlotFarming plotFarming);
+        TryGetComponent(out SpriteRenderer sprite);
+
+        if (plotFarming == null)
         {
-            playerInstance.PickUpItems(item, quantity);
-            Destroy(gameObject);
+            sprite.color = Color.white;
         }
         else
         {
-            playerInstance.gameObject.GetComponent<DialoguesTrigger>().TriggerDialogues(0);
-            Debug.Log("No empty slots");
-        }*/
+            if (plotFarming.GetComponent<SpriteRenderer>().sprite == plotFarming.ploughedPlot)
+            {
+                sprite.color = originalColor;
+            }
+            else
+            {
+                sprite.color = Color.white;
+            }
+        }
+    }
+
+    protected virtual void DisableInteractionSprite()
+    {
+        TryGetComponent(out PlotFarming plotFarming);
+        TryGetComponent(out SpriteRenderer sprite);
+
+        if (plotFarming == null)
+        {
+            sprite.color = originalColor;
+        }
+        else
+        {
+            if (plotFarming.GetComponent<SpriteRenderer>().sprite == plotFarming.ploughedPlot)
+            {
+                sprite.color = Color.white;
+            }
+            else
+            {
+                sprite.color = originalColor;
+            }
+        }
     }
 }

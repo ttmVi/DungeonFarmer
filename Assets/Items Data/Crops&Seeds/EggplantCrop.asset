@@ -16,7 +16,7 @@ MonoBehaviour:
   itemName: Eggplant Crop
   itemInventoryIcon: {fileID: -5728686177044832811, guid: b1f24b3bc2e2f1d4b858657ad5c115a0, type: 3}
   overworldSprite: {fileID: -5728686177044832811, guid: b1f24b3bc2e2f1d4b858657ad5c115a0, type: 3}
-  itemDescription: 
+  itemDescription: Why do these look so sus?
   itemType: 2
   maxGrowthIndex: 0
   phasesGrowthIndex: []

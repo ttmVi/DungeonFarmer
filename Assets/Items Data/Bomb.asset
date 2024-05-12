@@ -16,7 +16,7 @@ MonoBehaviour:
   itemName: Bomb
   itemInventoryIcon: {fileID: 0}
   overworldSprite: {fileID: 0}
-  itemDescription: 
+  itemDescription: Throw this at your enemies and watch them BURN!!!
   itemType: 5
   maxGrowthIndex: 0
   phasesGrowthIndex: []

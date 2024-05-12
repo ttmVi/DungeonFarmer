@@ -16,7 +16,7 @@ MonoBehaviour:
   itemName: Spider Legs
   itemInventoryIcon: {fileID: 0}
   overworldSprite: {fileID: 0}
-  itemDescription: 
+  itemDescription: Eeghk again.
   itemType: 4
   maxGrowthIndex: 0
   phasesGrowthIndex: []
