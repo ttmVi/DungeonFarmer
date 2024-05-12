@@ -16,7 +16,7 @@ MonoBehaviour:
   itemName: Boar Leather
   itemInventoryIcon: {fileID: 0}
   overworldSprite: {fileID: 0}
-  itemDescription: 
+  itemDescription: Is this furry? I don't know. But I know it's gud leather.
   itemType: 4
   maxGrowthIndex: 0
   phasesGrowthIndex: []

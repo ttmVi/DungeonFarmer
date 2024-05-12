@@ -16,7 +16,7 @@ MonoBehaviour:
   itemName: Pumpkin Crop
   itemInventoryIcon: {fileID: 837517196756356485, guid: 131e485692e27e84c86170dad18cda85, type: 3}
   overworldSprite: {fileID: 837517196756356485, guid: 131e485692e27e84c86170dad18cda85, type: 3}
-  itemDescription: 
+  itemDescription: Gud for your eyes.
   itemType: 0
   maxGrowthIndex: 0
   phasesGrowthIndex: []

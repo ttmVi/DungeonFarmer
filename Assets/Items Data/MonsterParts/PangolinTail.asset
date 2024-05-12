@@ -16,7 +16,7 @@ MonoBehaviour:
   itemName: Pangolin Tail
   itemInventoryIcon: {fileID: 0}
   overworldSprite: {fileID: 0}
-  itemDescription: 
+  itemDescription: ThOrNy.
   itemType: 4
   maxGrowthIndex: 0
   phasesGrowthIndex: []

@@ -16,7 +16,7 @@ MonoBehaviour:
   itemName: Eggplant Fertilizer
   itemInventoryIcon: {fileID: 0}
   overworldSprite: {fileID: 0}
-  itemDescription: 
+  itemDescription: Grow your eggs bigggg.
   itemType: 3
   maxGrowthIndex: 0
   phasesGrowthIndex: []

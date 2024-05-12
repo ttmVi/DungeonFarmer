@@ -16,7 +16,7 @@ MonoBehaviour:
   itemName: Tomato Fertilizer
   itemInventoryIcon: {fileID: 0}
   overworldSprite: {fileID: 0}
-  itemDescription: 
+  itemDescription: Fertilizer for little (tomato) balls.
   itemType: 3
   maxGrowthIndex: 0
   phasesGrowthIndex: []

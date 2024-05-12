@@ -16,7 +16,7 @@ MonoBehaviour:
   itemName: Strength Potion
   itemInventoryIcon: {fileID: 0}
   overworldSprite: {fileID: 0}
-  itemDescription: 
+  itemDescription: Use this and beat the heck off your anything.
   itemType: 5
   maxGrowthIndex: 0
   phasesGrowthIndex: []

@@ -16,7 +16,7 @@ MonoBehaviour:
   itemName: Pumpkin Fertilizer
   itemInventoryIcon: {fileID: 0}
   overworldSprite: {fileID: 0}
-  itemDescription: 
+  itemDescription: Wat are you expecting me to say here?
   itemType: 3
   maxGrowthIndex: 0
   phasesGrowthIndex: []

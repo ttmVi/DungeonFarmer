@@ -16,7 +16,7 @@ MonoBehaviour:
   itemName: Mosquito Wings
   itemInventoryIcon: {fileID: 0}
   overworldSprite: {fileID: 0}
-  itemDescription: 
+  itemDescription: Y'know, sometimes I just plucked them out for fun.
   itemType: 4
   maxGrowthIndex: 0
   phasesGrowthIndex: []

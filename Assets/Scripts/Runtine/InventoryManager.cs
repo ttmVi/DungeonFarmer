@@ -13,6 +13,7 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] private GameObject inventoryCanvas;
     [SerializeField] private GameObject itemsList;
     [SerializeField] private GameObject selectButton;
+    [SerializeField] private TextMeshProUGUI itemName;
     [SerializeField] private TextMeshProUGUI itemDescription;
     [SerializeField] private GameObject player;
     [SerializeField] private PlayerInventory playerInventory;
@@ -316,6 +317,7 @@ public class InventoryManager : MonoBehaviour
         { 
             itemsList.SetActive(false); 
             selectButton.SetActive(false);
+            itemName.text = "";
             itemDescription.text = "";
         }
     }
@@ -325,6 +327,7 @@ public class InventoryManager : MonoBehaviour
         if (isSelecting)
         {
             slot.GetComponent<RectTransform>().localScale = new Vector3(1.2f, 1.2f, 1.2f);
+            itemName.text = itemData.GetItemName();
             itemDescription.text = itemData.GetItemDescription();
         }
         else
