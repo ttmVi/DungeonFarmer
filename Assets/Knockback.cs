@@ -9,6 +9,8 @@ public class Knockback : MonoBehaviour
     public float constForce = 5f;
     public float inputForce = 7.5f;
 
+    private Rigidbody2D rb;
+    private Coroutine knockbackCoroutine;
     public bool isBeingKnockedBack { get; private set; }
 
     IEnumerator KnockbackAction(Vector2 hitDirection, Vector2 constantForceDirection, float inputDirection)
@@ -42,6 +44,14 @@ public class Knockback : MonoBehaviour
             yield return new WaitForFixedUpdate();
         }
         isBeingKnockedBack = false;
+    }
+    public void callKnockBack(Vector2 hitDirection, Vector2 constantForceDirection, float inputDirection)
+    {
+        if(knockbackCoroutine != null)
+        {
+            StopCoroutine(knockbackCoroutine);
+        }
+        knockbackCoroutine = StartCoroutine(KnockbackAction(hitDirection, constantForceDirection, inputDirection));
     }
     // Start is called before the first frame update
     void Start()

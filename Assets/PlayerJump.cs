@@ -43,6 +43,7 @@ public class PlayerJump : MonoBehaviour
     private bool currentlyJumping;
     private Melee melee;
     private Ladder ladder;
+    private Knockback knockback;
 
     void Awake()
     {
@@ -52,15 +53,18 @@ public class PlayerJump : MonoBehaviour
         melee = GetComponentInChildren<Melee>();
         ladder = GetComponent<Ladder>();
         ladderCheck = GetComponent<LadderCheck>();
+        knockback = GetComponent<Knockback>();
         //Debug.Log(melee.name);
         defaultGravityScale = 1f;
     }
 
     public void OnJump(InputAction.CallbackContext context)
     {
-        //This function is called when one of the jump buttons (like space or the A button) is pressed.
+        if(!knockback.isBeingKnockedBack)
+        {
+            //This function is called when one of the jump buttons (like space or the A button) is pressed.
 
-        
+
             //When we press the jump button, tell the script that we desire a jump.
             //Also, use the started and canceled contexts to know if we're currently holding the button
             if (context.started)
@@ -73,7 +77,7 @@ public class PlayerJump : MonoBehaviour
             {
                 pressingJump = false;
             }
-        
+        }
     }
 
     void Update()

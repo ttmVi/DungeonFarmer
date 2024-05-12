@@ -39,6 +39,7 @@ public class PlayerMovement : MonoBehaviour
     public bool pressingKey;
     private Ladder ladder;
     private float previousGravityScale;
+    private Knockback knockback;
 
     private void Awake()
     {
@@ -46,6 +47,7 @@ public class PlayerMovement : MonoBehaviour
         body = GetComponent<Rigidbody2D>();
         ground = GetComponent<GroundCheck>();
         ladder = GetComponent<Ladder>();
+        knockback = GetComponent<Knockback>();
     }
 
     public void OnMovement(InputAction.CallbackContext context)
@@ -56,27 +58,27 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        //Used to stop movement when the character is playing her death animation
-        
-
-        //Used to flip the character's sprite when she changes direction
-        //Also tells us that we are currently pressing a direction button
-        if (directionX != 0)
+        if(!knockback.isBeingKnockedBack)
         {
-            transform.localScale = new Vector3(directionX > 0 ? 1 : -1, 1, 1);
-            pressingKey = true;
-        }
-        else
-        {
-            pressingKey = false;
-        }
-        
+            //Used to stop movement when the character is playing her death animation
+            //Used to flip the character's sprite when she changes direction
+            //Also tells us that we are currently pressing a direction button
+            if (directionX != 0)
+            {
+                transform.localScale = new Vector3(directionX > 0 ? 1 : -1, 1, 1);
+                pressingKey = true;
+            }
+            else
+            {
+                pressingKey = false;
+            }
 
-        //Calculate's the character's desired velocity - which is the direction you are facing, multiplied by the character's maximum speed
-        //Friction is not used in this game
-        desiredVelocity = new Vector2(directionX, 0f) * Mathf.Max(maxSpeed - friction, 0f);
-        desiredVelocityY = new Vector2(0f, directionY) * Mathf.Max(maxSpeed - friction, 0f);
 
+            //Calculate's the character's desired velocity - which is the direction you are facing, multiplied by the character's maximum speed
+            //Friction is not used in this game
+            desiredVelocity = new Vector2(directionX, 0f) * Mathf.Max(maxSpeed - friction, 0f);
+            desiredVelocityY = new Vector2(0f, directionY) * Mathf.Max(maxSpeed - friction, 0f);
+        }
     }
 
     private void FixedUpdate()
