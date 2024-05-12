@@ -131,22 +131,22 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Well_well_well_12
+      name: Well_well_well_0
       rect:
         serializedVersion: 2
         x: 80
         y: 16
-        width: 20
-        height: 39
-      alignment: 9
-      pivot: {x: 0.4, y: 0.61538464}
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ebd1dfdf0a598f84883bedfa80bc4846
-      internalID: -246595578
+      spriteID: bb51c4677a636754eb9f2ccecede0aac
+      internalID: 2116640455
       vertices: []
       indices: 
       edges: []
