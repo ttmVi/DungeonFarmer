@@ -166,12 +166,12 @@ GameObject:
   - component: {fileID: 121654345}
   - component: {fileID: 121654344}
   - component: {fileID: 121654343}
-  - component: {fileID: 121654342}
   - component: {fileID: 121654341}
   - component: {fileID: 121654340}
   - component: {fileID: 121654339}
   - component: {fileID: 121654347}
   - component: {fileID: 121654348}
+  - component: {fileID: 121654349}
   m_Layer: 0
   m_Name: Boar (1)
   m_TagString: Untagged
@@ -200,7 +200,7 @@ MonoBehaviour:
   jumpNodeHeightRequirement: 0.8
   jumpModifier: 0.3
   jumpCheckOffset: 0
-  followEnabled: 0
+  followEnabled: 1
   jumpEnabled: 0
   isJumping: 0
   isInAir: 0
@@ -269,22 +269,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &121654342
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 121654338}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96423f2ec5997f942afd1bc1cb725008, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  knockbackTime: 0.2
-  hitDirectionForce: 10
-  constForce: 5
-  inputForce: 7.5
 --- !u!50 &121654343
 Rigidbody2D:
   serializedVersion: 4
@@ -431,6 +415,19 @@ MonoBehaviour:
   wallLayer:
     serializedVersion: 2
     m_Bits: 256
+--- !u!114 &121654349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 121654338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd0832f24d62e7443b7176173d7f1a82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
 --- !u!1 &261669262
 GameObject:
   m_ObjectHideFlags: 0
@@ -4000,7 +3997,6 @@ GameObject:
   - component: {fileID: 1604284422}
   - component: {fileID: 1604284421}
   - component: {fileID: 1604284420}
-  - component: {fileID: 1604284423}
   - component: {fileID: 1604284424}
   m_Layer: 0
   m_Name: Swinging_Trap_Tiles_0
@@ -4094,22 +4090,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1604284423
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1604284419}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96423f2ec5997f942afd1bc1cb725008, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  knockbackTime: 0.2
-  hitDirectionForce: 10
-  constForce: 5
-  inputForce: 7.5
 --- !u!58 &1604284424
 CircleCollider2D:
   m_ObjectHideFlags: 0

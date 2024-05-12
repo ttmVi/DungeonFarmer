@@ -32,31 +32,32 @@ public class Knockback : MonoBehaviour
             knockbackForce = hitForce + constantForce;
             if(inputDirection != 0f)
             {
-                combinedForce = knockbackForce + new Vector2(inputDirection, 0f);
+                combinedForce = knockbackForce + new Vector2(inputDirection*inputForce, 0f);
             }
             else
             {
                 combinedForce = knockbackForce;
             }
             //apply knockback force to the rigidbody
-            //rb.velocity = Vector3.zero;
+            rb.velocity = Vector3.zero;
             //rb.AddForce(combinedForce, ForceMode2D.Impulse);
+            rb.velocity = combinedForce;
             yield return new WaitForFixedUpdate();
         }
         isBeingKnockedBack = false;
     }
     public void callKnockBack(Vector2 hitDirection, Vector2 constantForceDirection, float inputDirection)
     {
-        if(knockbackCoroutine != null)
+        /*if(knockbackCoroutine != null)
         {
             StopCoroutine(knockbackCoroutine);
-        }
+        }*/
         knockbackCoroutine = StartCoroutine(KnockbackAction(hitDirection, constantForceDirection, inputDirection));
     }
     // Start is called before the first frame update
     void Start()
     {
-        
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame

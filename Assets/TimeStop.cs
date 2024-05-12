@@ -44,7 +44,6 @@ public class TimeStop : MonoBehaviour
     }
     IEnumerator StartTimeAgain(float delay)
     {
-        
         RestoreTime = true;
         yield return new WaitForSecondsRealtime(delay);
     }

@@ -11,6 +11,7 @@ public class PlayerHealth : MonoBehaviour
 
     private void Start()
     {
+        playerMovement = GetComponent<PlayerMovement>();
         knockback = GetComponent<Knockback>();
         currentHealth = maxHealth;
     }
