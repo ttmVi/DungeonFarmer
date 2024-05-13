@@ -2151,6 +2151,10 @@ PrefabInstance:
       propertyPath: unploughedPlot
       value: 
       objectReference: {fileID: 199082319, guid: 72e3bb46b7754a640a490cdb0935216e, type: 3}
+    - target: {fileID: 24288437988455095, guid: 34305e2658938fe489a6f328fc2f1544, type: 3}
+      propertyPath: theItems.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 6133035ed7cc8f047b3e36121f67b8c7, type: 2}
     - target: {fileID: 1383234910486286196, guid: 34305e2658938fe489a6f328fc2f1544, type: 3}
       propertyPath: m_Name
       value: FarmPlot (7)
@@ -3213,6 +3217,14 @@ PrefabInstance:
       propertyPath: unploughedPlot
       value: 
       objectReference: {fileID: -1923590105, guid: 72e3bb46b7754a640a490cdb0935216e, type: 3}
+    - target: {fileID: 24288437988455095, guid: 34305e2658938fe489a6f328fc2f1544, type: 3}
+      propertyPath: theItems.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 6133035ed7cc8f047b3e36121f67b8c7, type: 2}
+    - target: {fileID: 24288437988455095, guid: 34305e2658938fe489a6f328fc2f1544, type: 3}
+      propertyPath: theItems.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 6133035ed7cc8f047b3e36121f67b8c7, type: 2}
     - target: {fileID: 1383234910486286196, guid: 34305e2658938fe489a6f328fc2f1544, type: 3}
       propertyPath: m_Name
       value: FarmPlot (2)
@@ -5391,6 +5403,10 @@ PrefabInstance:
       propertyPath: unploughedPlot
       value: 
       objectReference: {fileID: 199082319, guid: 72e3bb46b7754a640a490cdb0935216e, type: 3}
+    - target: {fileID: 24288437988455095, guid: 34305e2658938fe489a6f328fc2f1544, type: 3}
+      propertyPath: theItems.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: f47b2d7a5e995d84eb737cab531342bb, type: 2}
     - target: {fileID: 1383234910486286196, guid: 34305e2658938fe489a6f328fc2f1544, type: 3}
       propertyPath: m_Name
       value: FarmPlot (1)
@@ -5477,6 +5493,14 @@ PrefabInstance:
       propertyPath: unploughedPlot
       value: 
       objectReference: {fileID: 878365114, guid: 72e3bb46b7754a640a490cdb0935216e, type: 3}
+    - target: {fileID: 24288437988455095, guid: 34305e2658938fe489a6f328fc2f1544, type: 3}
+      propertyPath: theItems.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 24288437988455095, guid: 34305e2658938fe489a6f328fc2f1544, type: 3}
+      propertyPath: theItems.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 03fa450610d37bf4ca8cad34ad6f4fa3, type: 2}
     - target: {fileID: 1383234910486286196, guid: 34305e2658938fe489a6f328fc2f1544, type: 3}
       propertyPath: m_Name
       value: FarmPlot (6)
@@ -5744,6 +5768,10 @@ PrefabInstance:
       propertyPath: unploughedPlot
       value: 
       objectReference: {fileID: 199082319, guid: 72e3bb46b7754a640a490cdb0935216e, type: 3}
+    - target: {fileID: 24288437988455095, guid: 34305e2658938fe489a6f328fc2f1544, type: 3}
+      propertyPath: theItems.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: f47b2d7a5e995d84eb737cab531342bb, type: 2}
     - target: {fileID: 1383234910486286196, guid: 34305e2658938fe489a6f328fc2f1544, type: 3}
       propertyPath: m_Name
       value: FarmPlot (8)
@@ -6028,6 +6056,18 @@ PrefabInstance:
       propertyPath: unploughedPlot
       value: 
       objectReference: {fileID: -1672754594, guid: 72e3bb46b7754a640a490cdb0935216e, type: 3}
+    - target: {fileID: 24288437988455095, guid: 34305e2658938fe489a6f328fc2f1544, type: 3}
+      propertyPath: theItems.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 24288437988455095, guid: 34305e2658938fe489a6f328fc2f1544, type: 3}
+      propertyPath: theItems.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: cf02fcd026a7bd844b88df837f56ed32, type: 2}
+    - target: {fileID: 24288437988455095, guid: 34305e2658938fe489a6f328fc2f1544, type: 3}
+      propertyPath: theItems.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 6a233266b6c0a7d4098432d01cc36a4f, type: 2}
     - target: {fileID: 1383234910486286196, guid: 34305e2658938fe489a6f328fc2f1544, type: 3}
       propertyPath: m_Name
       value: FarmPlot (3)
@@ -6207,6 +6247,18 @@ PrefabInstance:
       propertyPath: unploughedPlot
       value: 
       objectReference: {fileID: 199082319, guid: 72e3bb46b7754a640a490cdb0935216e, type: 3}
+    - target: {fileID: 24288437988455095, guid: 34305e2658938fe489a6f328fc2f1544, type: 3}
+      propertyPath: theItems.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 817b12d110ab6f647808043791db4d36, type: 2}
+    - target: {fileID: 24288437988455095, guid: 34305e2658938fe489a6f328fc2f1544, type: 3}
+      propertyPath: theItems.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 817b12d110ab6f647808043791db4d36, type: 2}
+    - target: {fileID: 24288437988455095, guid: 34305e2658938fe489a6f328fc2f1544, type: 3}
+      propertyPath: theItems.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 817b12d110ab6f647808043791db4d36, type: 2}
     - target: {fileID: 1383234910486286196, guid: 34305e2658938fe489a6f328fc2f1544, type: 3}
       propertyPath: m_Name
       value: FarmPlot (4)
@@ -79209,6 +79261,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1907615144}
     m_Modifications:
+    - target: {fileID: 24288437988455095, guid: 34305e2658938fe489a6f328fc2f1544, type: 3}
+      propertyPath: theItems.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 8c9b402cb5354e243bb3b75fb70fed54, type: 2}
     - target: {fileID: 1383234910486286196, guid: 34305e2658938fe489a6f328fc2f1544, type: 3}
       propertyPath: m_Name
       value: FarmPlot
@@ -79413,6 +79469,14 @@ PrefabInstance:
       propertyPath: unploughedPlot
       value: 
       objectReference: {fileID: 878365114, guid: 72e3bb46b7754a640a490cdb0935216e, type: 3}
+    - target: {fileID: 24288437988455095, guid: 34305e2658938fe489a6f328fc2f1544, type: 3}
+      propertyPath: theItems.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 24288437988455095, guid: 34305e2658938fe489a6f328fc2f1544, type: 3}
+      propertyPath: theItems.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 5b8eca88b4cbd814fa37227a2ee3aeb1, type: 2}
     - target: {fileID: 1383234910486286196, guid: 34305e2658938fe489a6f328fc2f1544, type: 3}
       propertyPath: m_Name
       value: FarmPlot (9)
