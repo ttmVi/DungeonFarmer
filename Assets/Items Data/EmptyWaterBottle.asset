@@ -16,13 +16,14 @@ MonoBehaviour:
   itemName: Water Bottle
   itemInventoryIcon: {fileID: 0}
   overworldSprite: {fileID: 0}
-  itemDescription: There's no water in here...
+  itemDescription: An empty watercan awaits replenishment.
   itemType: 0
   maxGrowthIndex: 0
   phasesGrowthIndex: []
   growingPhasesSprites: []
   deceasingSprites: []
   possibleDrops: []
+  treeAnimator: {fileID: 0}
   note: 
   fertilizableSeed: {fileID: 0}
   fertilizerCraftingRecipe: []

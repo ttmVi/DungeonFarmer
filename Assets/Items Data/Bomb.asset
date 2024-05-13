@@ -16,13 +16,15 @@ MonoBehaviour:
   itemName: Bomb
   itemInventoryIcon: {fileID: 0}
   overworldSprite: {fileID: 0}
-  itemDescription: Throw this at your enemies and watch them BURN!!!
+  itemDescription: Formed from the acidic juice of ripe tomatoes, this explosive
+    concoction bursts on impact, releasing a corrosive fiery acid to damage foes.
   itemType: 5
   maxGrowthIndex: 0
   phasesGrowthIndex: []
   growingPhasesSprites: []
   deceasingSprites: []
   possibleDrops: []
+  treeAnimator: {fileID: 0}
   note: 
   fertilizableSeed: {fileID: 0}
   fertilizerCraftingRecipe: []
