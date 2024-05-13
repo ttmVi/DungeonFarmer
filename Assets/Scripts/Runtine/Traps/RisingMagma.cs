@@ -12,12 +12,6 @@ public class RisingMagma : MonoBehaviour
 
     private bool isRising;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {
@@ -36,9 +30,9 @@ public class RisingMagma : MonoBehaviour
     private IEnumerator Riseee()
     {
         isRising = true;
-        yield return new WaitForSeconds(GetAnimationTime());
-        animatedTiles.transform.position += new Vector3(0f, tileWidth, 0f);
+        yield return new WaitForSeconds(GetAnimationTime() - Time.deltaTime * Time.deltaTime);
         isRising = false;
+        animatedTiles.transform.position += new Vector3(0f, tileWidth, 0f);
     }
 
     private float GetAnimationTime()
