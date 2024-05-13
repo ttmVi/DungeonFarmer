@@ -16,13 +16,16 @@ MonoBehaviour:
   itemName: Spider Legs
   itemInventoryIcon: {fileID: 0}
   overworldSprite: {fileID: 0}
-  itemDescription: Eeghk again.
+  itemDescription: Gleaming with a haunting bioluminescence, these spider eyes remain
+    eerily aware. When ground into a fine powder, they are crucial in concocting
+    materials that enhance growth of eggplant.
   itemType: 4
   maxGrowthIndex: 0
   phasesGrowthIndex: []
   growingPhasesSprites: []
   deceasingSprites: []
   possibleDrops: []
+  treeAnimator: {fileID: 0}
   note: 
   fertilizableSeed: {fileID: 0}
   fertilizerCraftingRecipe: []

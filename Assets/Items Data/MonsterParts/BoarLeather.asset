@@ -16,13 +16,16 @@ MonoBehaviour:
   itemName: Boar Leather
   itemInventoryIcon: {fileID: 0}
   overworldSprite: {fileID: 0}
-  itemDescription: Is this furry? I don't know. But I know it's gud leather.
+  itemDescription: Tough and supple, this leather is imbued with the wild essence
+    of the forest boars. It's used primarily to reinforce containers and apparatus
+    used in potion making, ensuring durability of stamina.
   itemType: 4
   maxGrowthIndex: 0
   phasesGrowthIndex: []
   growingPhasesSprites: []
   deceasingSprites: []
   possibleDrops: []
+  treeAnimator: {fileID: 0}
   note: 
   fertilizableSeed: {fileID: 0}
   fertilizerCraftingRecipe: []
