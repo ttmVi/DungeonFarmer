@@ -10,6 +10,7 @@ public class PlotFarming : MonoBehaviour
     [SerializeField] private Sprite unploughedPlot;
     [SerializeField] public Sprite ploughedPlot;
     [SerializeField] private Sprite seededPlot;
+    private Animator animator;
 
     [Header("Debris Possible Items")]
     [SerializeField] private Items[] theItems;
@@ -32,6 +33,11 @@ public class PlotFarming : MonoBehaviour
     [SerializeField] private GameObject itemPlaceholder;
 
     private bool isChangingSoilColor = false;
+
+    private void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
 
     private void ResetTreePlotData()
     {
@@ -108,6 +114,9 @@ public class PlotFarming : MonoBehaviour
         currentTree = seed.treeName;
         currentTreePhase = 1;
         maxGrowthIndex = seed.maxGrowthIndex;
+
+        animator.enabled = true;
+        animator.runtimeAnimatorController = treeData.treeAnimator;
     }
 
     private void WaterPlant(float wateringAmount)
@@ -199,12 +208,15 @@ public class PlotFarming : MonoBehaviour
                     GetComponent<SpriteRenderer>().sprite = treeData.deceasingSprites[currentTreePhase];
                 }
                 else { RemovePlant(); }
+
+                animator.enabled = false;
             }
             else
             {
                 if (treeData.deceasingSprites.Contains(GetComponent<SpriteRenderer>().sprite))
                 {
                     RevitalizePlant();
+                    animator.enabled = true;
                 }
                 else
                 {
@@ -239,12 +251,17 @@ public class PlotFarming : MonoBehaviour
 
     private void RemovePlant()
     {
+        animator.runtimeAnimatorController = null;
+        animator.enabled = false;
+
         ResetTreePlotData();
         GetComponent<SpriteRenderer>().sprite = ploughedPlot;
     }
 
     private void CheckTreeGrowth()
     {
+        int lastTreePhase = currentTreePhase;
+
         // Changing tree sprite based on growth index
         if (treeData != null)
         {
@@ -267,6 +284,8 @@ public class PlotFarming : MonoBehaviour
                     continue; 
                 }
             }
+
+            if (currentTreePhase > lastTreePhase) { animator.SetTrigger("NextPhase"); }
         }
     }
 

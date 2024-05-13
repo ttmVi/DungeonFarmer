@@ -89,6 +89,7 @@ public class GameManager : MonoBehaviour
         player.GetComponent<PlayerMovement>().enabled = false;
         player.GetComponent<PlayerJump>().enabled = false;
         player.GetComponent<PlayerAttack>().enabled = false;
+        player.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
     }
 
     private void EnablePlayer()

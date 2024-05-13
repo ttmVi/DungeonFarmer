@@ -41,6 +41,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c8855697c6ac11941a67e88b4ab7d148, type: 2}
   - {fileID: 11400000}
   - {fileID: 11400000}
+  treeAnimator: {fileID: 9100000, guid: 80f19c045250bae4ebf500f3c8dda0fc, type: 2}
   note: 
   fertilizableSeed: {fileID: 0}
   fertilizerCraftingRecipe: []
