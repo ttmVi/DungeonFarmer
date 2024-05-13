@@ -16,13 +16,17 @@ MonoBehaviour:
   itemName: Pumpkin Fertilizer
   itemInventoryIcon: {fileID: 2051125318, guid: 14cd4237cb50d36418a51816c11259ed, type: 3}
   overworldSprite: {fileID: 1933237495, guid: 14cd4237cb50d36418a51816c11259ed, type: 3}
-  itemDescription: Wat are you expecting me to say here?
+  itemDescription: The hearty flesh of pumpkins decomposes into a rich compost that
+    enhances soil structure, allowing it to retain nutrients and water more effectively.
+    This compost is especially good for boosting the growth of root vegetables and
+    other large gourds.
   itemType: 3
   maxGrowthIndex: 0
   phasesGrowthIndex: []
   growingPhasesSprites: []
   deceasingSprites: []
   possibleDrops: []
+  treeAnimator: {fileID: 0}
   note: 
   fertilizableSeed: {fileID: 11400000, guid: 6133035ed7cc8f047b3e36121f67b8c7, type: 2}
   fertilizerCraftingRecipe:

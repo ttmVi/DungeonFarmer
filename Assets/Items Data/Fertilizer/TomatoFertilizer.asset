@@ -16,13 +16,17 @@ MonoBehaviour:
   itemName: Tomato Fertilizer
   itemInventoryIcon: {fileID: -1978480805, guid: 14cd4237cb50d36418a51816c11259ed, type: 3}
   overworldSprite: {fileID: 661197267, guid: 14cd4237cb50d36418a51816c11259ed, type: 3}
-  itemDescription: Fertilizer for little (tomato) balls.
+  itemDescription: Tomato remnants are high in calcium and other essential minerals
+    that help neutralize overly acidic soils, promoting a balanced environment for
+    a variety of plants. Their nutrients are particularly beneficial in enhancing
+    the color and taste of leafy greens.
   itemType: 3
   maxGrowthIndex: 0
   phasesGrowthIndex: []
   growingPhasesSprites: []
   deceasingSprites: []
   possibleDrops: []
+  treeAnimator: {fileID: 0}
   note: 
   fertilizableSeed: {fileID: 11400000, guid: f47b2d7a5e995d84eb737cab531342bb, type: 2}
   fertilizerCraftingRecipe:

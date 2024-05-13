@@ -16,13 +16,17 @@ MonoBehaviour:
   itemName: Stamina Potion
   itemInventoryIcon: {fileID: 0}
   overworldSprite: {fileID: 0}
-  itemDescription: Screw HP Potion with this bottle of stamina.
+  itemDescription: Crafted from the energetic essence of watermelon, this potion
+    is as refreshing as a cool breeze on a hot day. It replenishes the drinker's
+    stamina with every gulp, infusing them with the fruit's natural hydrating properties
+    and endurance for prolonged physical exertion
   itemType: 5
   maxGrowthIndex: 0
   phasesGrowthIndex: []
   growingPhasesSprites: []
   deceasingSprites: []
   possibleDrops: []
+  treeAnimator: {fileID: 0}
   note: 
   fertilizableSeed: {fileID: 0}
   fertilizerCraftingRecipe: []

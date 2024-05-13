@@ -16,14 +16,17 @@ MonoBehaviour:
   itemName: HP Potion
   itemInventoryIcon: {fileID: 0}
   overworldSprite: {fileID: 0}
-  itemDescription: Feeling weak? Don't worry, this potion's gonna make your health
-    bar reach peak faster than you could ever do
+  itemDescription: This robust potion is brewed from the essence of enchanted pumpkins,
+    known for their vigorous life force. Drinking it heals wounds and restores vitality
+    by weaving the pumpkin's resilient nature into the drinker's very flesh, mending
+    cuts and bruises swiftly.
   itemType: 5
   maxGrowthIndex: 0
   phasesGrowthIndex: []
   growingPhasesSprites: []
   deceasingSprites: []
   possibleDrops: []
+  treeAnimator: {fileID: 0}
   note: 
   fertilizableSeed: {fileID: 0}
   fertilizerCraftingRecipe: []
