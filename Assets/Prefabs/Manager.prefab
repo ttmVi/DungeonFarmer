@@ -55,6 +55,8 @@ MonoBehaviour:
   blackImage: {fileID: 0}
   black: {r: 0, g: 0, b: 0, a: 1}
   clear: {r: 0, g: 0, b: 0, a: 0}
+  farmStartPos: {x: 4.5, y: -4.5}
+  dungeonStartPos: {x: -22.5, y: 9.5}
 --- !u!114 &1192253032077784931
 MonoBehaviour:
   m_ObjectHideFlags: 0

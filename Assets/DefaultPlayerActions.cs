@@ -37,6 +37,24 @@ public partial class @DefaultPlayerActions: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
+                    ""name"": ""ClimbLadder"",
+                    ""type"": ""Value"",
+                    ""id"": ""5f99f181-0235-4a28-80d8-556081552dff"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""ExitLadder"",
+                    ""type"": ""Value"",
+                    ""id"": ""fabdd234-d126-490d-a7fd-1317d7bb67ad"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
                     ""name"": ""Jump"",
                     ""type"": ""Button"",
                     ""id"": ""7c87fab6-4958-4327-9798-568957bf7faa"",
@@ -382,6 +400,83 @@ public partial class @DefaultPlayerActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""QuitLevel"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""WASD"",
+                    ""id"": ""eab9fa58-db38-4a2b-9c86-c6bd988c58bd"",
+                    ""path"": ""Dpad"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ClimbLadder"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""f7d5f108-504a-46d8-b033-6a835abeeb34"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""ClimbLadder"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""b2842eed-e31a-4088-806c-e8888481bd7b"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""ClimbLadder"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""WASD"",
+                    ""id"": ""1b68a724-38c0-42f3-a0cd-d4c17f37b0a2"",
+                    ""path"": ""Dpad"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ExitLadder"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""99248986-b62f-45da-8619-d3735a7ca234"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""ExitLadder"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""db1bcbed-d3d9-4b37-921d-36c792159062"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""ExitLadder"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b997d5b1-8093-4e4e-a8f5-0ea106a407e3"",
+                    ""path"": ""<Keyboard>/z"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""ExitLadder"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1072,6 +1167,8 @@ public partial class @DefaultPlayerActions: IInputActionCollection2, IDisposable
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
+        m_Player_ClimbLadder = m_Player.FindAction("ClimbLadder", throwIfNotFound: true);
+        m_Player_ExitLadder = m_Player.FindAction("ExitLadder", throwIfNotFound: true);
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
         m_Player_Attack = m_Player.FindAction("Attack", throwIfNotFound: true);
         m_Player_UseItem = m_Player.FindAction("UseItem", throwIfNotFound: true);
@@ -1158,6 +1255,8 @@ public partial class @DefaultPlayerActions: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Player;
     private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
     private readonly InputAction m_Player_Move;
+    private readonly InputAction m_Player_ClimbLadder;
+    private readonly InputAction m_Player_ExitLadder;
     private readonly InputAction m_Player_Jump;
     private readonly InputAction m_Player_Attack;
     private readonly InputAction m_Player_UseItem;
@@ -1171,6 +1270,8 @@ public partial class @DefaultPlayerActions: IInputActionCollection2, IDisposable
         private @DefaultPlayerActions m_Wrapper;
         public PlayerActions(@DefaultPlayerActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Player_Move;
+        public InputAction @ClimbLadder => m_Wrapper.m_Player_ClimbLadder;
+        public InputAction @ExitLadder => m_Wrapper.m_Player_ExitLadder;
         public InputAction @Jump => m_Wrapper.m_Player_Jump;
         public InputAction @Attack => m_Wrapper.m_Player_Attack;
         public InputAction @UseItem => m_Wrapper.m_Player_UseItem;
@@ -1191,6 +1292,12 @@ public partial class @DefaultPlayerActions: IInputActionCollection2, IDisposable
             @Move.started += instance.OnMove;
             @Move.performed += instance.OnMove;
             @Move.canceled += instance.OnMove;
+            @ClimbLadder.started += instance.OnClimbLadder;
+            @ClimbLadder.performed += instance.OnClimbLadder;
+            @ClimbLadder.canceled += instance.OnClimbLadder;
+            @ExitLadder.started += instance.OnExitLadder;
+            @ExitLadder.performed += instance.OnExitLadder;
+            @ExitLadder.canceled += instance.OnExitLadder;
             @Jump.started += instance.OnJump;
             @Jump.performed += instance.OnJump;
             @Jump.canceled += instance.OnJump;
@@ -1222,6 +1329,12 @@ public partial class @DefaultPlayerActions: IInputActionCollection2, IDisposable
             @Move.started -= instance.OnMove;
             @Move.performed -= instance.OnMove;
             @Move.canceled -= instance.OnMove;
+            @ClimbLadder.started -= instance.OnClimbLadder;
+            @ClimbLadder.performed -= instance.OnClimbLadder;
+            @ClimbLadder.canceled -= instance.OnClimbLadder;
+            @ExitLadder.started -= instance.OnExitLadder;
+            @ExitLadder.performed -= instance.OnExitLadder;
+            @ExitLadder.canceled -= instance.OnExitLadder;
             @Jump.started -= instance.OnJump;
             @Jump.performed -= instance.OnJump;
             @Jump.canceled -= instance.OnJump;
@@ -1461,6 +1574,8 @@ public partial class @DefaultPlayerActions: IInputActionCollection2, IDisposable
     public interface IPlayerActions
     {
         void OnMove(InputAction.CallbackContext context);
+        void OnClimbLadder(InputAction.CallbackContext context);
+        void OnExitLadder(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
         void OnAttack(InputAction.CallbackContext context);
         void OnUseItem(InputAction.CallbackContext context);
