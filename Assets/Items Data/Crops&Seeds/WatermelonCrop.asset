@@ -16,13 +16,16 @@ MonoBehaviour:
   itemName: Watermelon Slice
   itemInventoryIcon: {fileID: 1053357552, guid: e398c810baf4f624fa9373c914e0ab7d, type: 3}
   overworldSprite: {fileID: 847955141, guid: e398c810baf4f624fa9373c914e0ab7d, type: 3}
-  itemDescription: I'm too lazi to think of anything now.
+  itemDescription: Juicy and refreshing, these vibrant slices are rich in mystical
+    hydrating properties. When used in potions, they greatly enhance fluid balance
+    and can cool down the body during heated battles.
   itemType: 2
   maxGrowthIndex: 0
   phasesGrowthIndex: []
   growingPhasesSprites: []
   deceasingSprites: []
   possibleDrops: []
+  treeAnimator: {fileID: 0}
   note: 
   fertilizableSeed: {fileID: 0}
   fertilizerCraftingRecipe: []
