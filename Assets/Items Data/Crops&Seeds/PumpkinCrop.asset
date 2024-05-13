@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemID: 3
   itemName: Pumpkin Crop
-  itemInventoryIcon: {fileID: 837517196756356485, guid: 131e485692e27e84c86170dad18cda85, type: 3}
-  overworldSprite: {fileID: 837517196756356485, guid: 131e485692e27e84c86170dad18cda85, type: 3}
+  itemInventoryIcon: {fileID: 304286017, guid: e398c810baf4f624fa9373c914e0ab7d, type: 3}
+  overworldSprite: {fileID: -2018628273, guid: e398c810baf4f624fa9373c914e0ab7d, type: 3}
   itemDescription: Gud for your eyes.
   itemType: 0
   maxGrowthIndex: 0

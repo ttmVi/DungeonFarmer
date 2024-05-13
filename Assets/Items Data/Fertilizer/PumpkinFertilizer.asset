@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemID: 10
   itemName: Pumpkin Fertilizer
-  itemInventoryIcon: {fileID: 0}
-  overworldSprite: {fileID: 0}
+  itemInventoryIcon: {fileID: 2051125318, guid: 14cd4237cb50d36418a51816c11259ed, type: 3}
+  overworldSprite: {fileID: 1933237495, guid: 14cd4237cb50d36418a51816c11259ed, type: 3}
   itemDescription: Wat are you expecting me to say here?
   itemType: 3
   maxGrowthIndex: 0

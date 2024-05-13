@@ -138,7 +138,7 @@ public class PlotFarming : MonoBehaviour
         Color wetColor = new Color (161f/255, 126f/255, 94f/255f, 1f);
         //if (isChangingSoilColor) { yield break; }
 
-        while (sprite.color.r > wetColor.r && sprite.color.g > wetColor.g && sprite.color.b > wetColor.b && isChangingSoilColor)
+        while (sprite.color.r > wetColor.r && sprite.color.g > wetColor.g && sprite.color.b > wetColor.b)
         {
             sprite.color = Color.Lerp(sprite.color, wetColor, Time.deltaTime);
             yield return null;

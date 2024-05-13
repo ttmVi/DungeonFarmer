@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemID: 9
   itemName: Eggplant Fertilizer
-  itemInventoryIcon: {fileID: 0}
-  overworldSprite: {fileID: 0}
+  itemInventoryIcon: {fileID: -591770818, guid: 14cd4237cb50d36418a51816c11259ed, type: 3}
+  overworldSprite: {fileID: -807918654, guid: 14cd4237cb50d36418a51816c11259ed, type: 3}
   itemDescription: Grow your eggs bigggg.
   itemType: 3
   maxGrowthIndex: 0

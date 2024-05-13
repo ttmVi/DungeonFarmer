@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemID: 11
   itemName: Tomato Fertilizer
-  itemInventoryIcon: {fileID: 0}
-  overworldSprite: {fileID: 0}
+  itemInventoryIcon: {fileID: -1978480805, guid: 14cd4237cb50d36418a51816c11259ed, type: 3}
+  overworldSprite: {fileID: 661197267, guid: 14cd4237cb50d36418a51816c11259ed, type: 3}
   itemDescription: Fertilizer for little (tomato) balls.
   itemType: 3
   maxGrowthIndex: 0
