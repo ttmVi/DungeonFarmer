@@ -17,8 +17,7 @@ MonoBehaviour:
   itemInventoryIcon: {fileID: -591770818, guid: 14cd4237cb50d36418a51816c11259ed, type: 3}
   overworldSprite: {fileID: -807918654, guid: 14cd4237cb50d36418a51816c11259ed, type: 3}
   itemDescription: Eggplant scraps enrich the soil with organic matter that improves
-    its porosity and aeration, facilitating robust root development. Their high potassium
-    content is crucial for the flowering and fruiting stages of plant growth.
+    its porosity and aeration, facilitating robust root development.
   itemType: 3
   maxGrowthIndex: 0
   phasesGrowthIndex: []

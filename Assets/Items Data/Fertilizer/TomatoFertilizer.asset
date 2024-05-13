@@ -18,8 +18,7 @@ MonoBehaviour:
   overworldSprite: {fileID: 661197267, guid: 14cd4237cb50d36418a51816c11259ed, type: 3}
   itemDescription: Tomato remnants are high in calcium and other essential minerals
     that help neutralize overly acidic soils, promoting a balanced environment for
-    a variety of plants. Their nutrients are particularly beneficial in enhancing
-    the color and taste of leafy greens.
+    a variety of plants.
   itemType: 3
   maxGrowthIndex: 0
   phasesGrowthIndex: []

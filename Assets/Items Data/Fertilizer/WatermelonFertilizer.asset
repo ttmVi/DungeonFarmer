@@ -17,9 +17,7 @@ MonoBehaviour:
   itemInventoryIcon: {fileID: 1360685049, guid: 14cd4237cb50d36418a51816c11259ed, type: 3}
   overworldSprite: {fileID: 1959741907, guid: 14cd4237cb50d36418a51816c11259ed, type: 3}
   itemDescription: These succulent slices release water slowly into the surrounding
-    soil, maintaining moisture levels even in the driest conditions. Rich in vitamins
-    and minerals, they help to increase the sweetness and size of fruits in adjacent
-    plants.
+    soil, maintaining moisture levels even in the driest conditions.
   itemType: 3
   maxGrowthIndex: 0
   phasesGrowthIndex: []

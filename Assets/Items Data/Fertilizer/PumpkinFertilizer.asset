@@ -18,8 +18,6 @@ MonoBehaviour:
   overworldSprite: {fileID: 1933237495, guid: 14cd4237cb50d36418a51816c11259ed, type: 3}
   itemDescription: The hearty flesh of pumpkins decomposes into a rich compost that
     enhances soil structure, allowing it to retain nutrients and water more effectively.
-    This compost is especially good for boosting the growth of root vegetables and
-    other large gourds.
   itemType: 3
   maxGrowthIndex: 0
   phasesGrowthIndex: []
