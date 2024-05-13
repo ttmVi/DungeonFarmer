@@ -15,8 +15,16 @@ public class FarmManager : MonoBehaviour
     {
         // This method will be called when the player ends the day
         // It will update the growth of all the trees in the farm
+        StartCoroutine(GoToSleep());
+    }
 
-        // Get all the plots in the farm
+    private IEnumerator GoToSleep()
+    {
+        GameManager manager = GetComponent<GameManager>();
+        
+        StartCoroutine(manager.BlackOut());
+        yield return new WaitUntil(() => manager.ScreenIsBlack());
+
         PlotFarming[] plots = FindObjectsOfType<PlotFarming>();
         foreach (PlotFarming plot in plots)
         {
@@ -27,6 +35,10 @@ public class FarmManager : MonoBehaviour
                 plot.EndDayCheck();
             }
         }
+        yield return new WaitForSeconds(1f);
+
+        StartCoroutine(manager.WhiteIn());
+        yield return null;
     }
 
     public void FetchWater()
