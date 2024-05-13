@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13b75c95f34a00d4e8c04f76b73312e6, type: 3}
+  m_Name: Rising_Magma_2
+  m_EditorClassIdentifier: 
+  m_AnimatedSprites:
+  - {fileID: 116516907, guid: eb439da19b163034fa361f98927dee1f, type: 3}
+  - {fileID: -1682757177, guid: eb439da19b163034fa361f98927dee1f, type: 3}
+  - {fileID: -2130136064, guid: eb439da19b163034fa361f98927dee1f, type: 3}
+  - {fileID: 2001430085, guid: eb439da19b163034fa361f98927dee1f, type: 3}
+  - {fileID: 503873828, guid: eb439da19b163034fa361f98927dee1f, type: 3}
+  - {fileID: -76746641, guid: eb439da19b163034fa361f98927dee1f, type: 3}
+  - {fileID: 1590996534, guid: eb439da19b163034fa361f98927dee1f, type: 3}
+  - {fileID: -966519467, guid: eb439da19b163034fa361f98927dee1f, type: 3}
+  - {fileID: 1760735274, guid: eb439da19b163034fa361f98927dee1f, type: 3}
+  - {fileID: 866004613, guid: eb439da19b163034fa361f98927dee1f, type: 3}
+  - {fileID: 969513953, guid: eb439da19b163034fa361f98927dee1f, type: 3}
+  - {fileID: 510110791, guid: eb439da19b163034fa361f98927dee1f, type: 3}
+  - {fileID: -931986921, guid: eb439da19b163034fa361f98927dee1f, type: 3}
+  - {fileID: -553504484, guid: eb439da19b163034fa361f98927dee1f, type: 3}
+  - {fileID: 547597843, guid: eb439da19b163034fa361f98927dee1f, type: 3}
+  - {fileID: -1571932723, guid: eb439da19b163034fa361f98927dee1f, type: 3}
+  m_MinSpeed: 7
+  m_MaxSpeed: 7
+  m_AnimationStartTime: 0
+  m_AnimationStartFrame: 0
+  m_TileColliderType: 0
+  m_TileAnimationFlags: 0
