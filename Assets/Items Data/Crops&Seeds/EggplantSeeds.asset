@@ -16,7 +16,8 @@ MonoBehaviour:
   itemName: Eggplant Seed
   itemInventoryIcon: {fileID: 285807645, guid: 00718107ee314fc4ca68a4ae5e59ede6, type: 3}
   overworldSprite: {fileID: 1010804581, guid: 00718107ee314fc4ca68a4ae5e59ede6, type: 3}
-  itemDescription: eggplant muahahahahahehehehehehehehe
+  itemDescription: Planted under the waning moon, these seeds yield crops that absorb
+    dark energies
   itemType: 1
   maxGrowthIndex: 5
   phasesGrowthIndex:

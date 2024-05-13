@@ -16,8 +16,8 @@ MonoBehaviour:
   itemName: Pumpkin Crop
   itemInventoryIcon: {fileID: 304286017, guid: e398c810baf4f624fa9373c914e0ab7d, type: 3}
   overworldSprite: {fileID: -2018628273, guid: e398c810baf4f624fa9373c914e0ab7d, type: 3}
-  itemDescription: Robust and dense, these large gourds are filled with nutrients
-    that enrich the soil significantly when used as fertilizer.
+  itemDescription: Rich and hearty, these pumpkins are essential for potions that
+    increase bulk and health restoration.
   itemType: 0
   maxGrowthIndex: 0
   phasesGrowthIndex: []
