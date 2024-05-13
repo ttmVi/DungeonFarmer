@@ -19,30 +19,41 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Image blackImage;
     [SerializeField] private Color black;
     [SerializeField] private Color clear;
+
+    [SerializeField] private Vector2 farmStartPos;
+    [SerializeField] private Vector2 dungeonStartPos;
         
     public void OnQuitLevel(InputAction.CallbackContext context)
     {
-        if (context.started)
-        {
-            if (SceneManager.GetActiveScene().buildIndex == 0) { ToDungeon(); }
-            else if (SceneManager.GetActiveScene().buildIndex == 1) { ToFarm(); }
-        }
+
     }
 
-    private void ToDungeon()
+    private IEnumerator ShiftToDungeon()
     {
-        SceneManager.LoadScene(1);
-        GetComponent<InventoryManager>().SavePlayerInventory();
-        farmingPlots.SetActive(false);
-        player.transform.position = new Vector3(-56f, 17f, 0f);
+        DisablePlayer();
+        StartCoroutine(BlackOut());
+        yield return new WaitUntil(() => ScreenIsBlack());
+
+        player.transform.position = dungeonStartPos;
+        yield return new WaitForSeconds(0.5f);
+
+        StartCoroutine(WhiteIn());
+        yield return new WaitUntil(() => ScreenIsClear());
+        EnablePlayer();
     }
 
-    private void ToFarm()
+    private IEnumerator ShiftToFarm()
     {
-        SceneManager.LoadScene(0);
-        GetComponent<InventoryManager>().LoadPlayerInventory();
-        farmingPlots.SetActive(true);
-        player.transform.position = new Vector3(11.5f, -5.5f, 0f);
+        DisablePlayer();
+        StartCoroutine(BlackOut());
+        yield return new WaitUntil(() => ScreenIsBlack());
+
+        player.transform.position = farmStartPos;
+        yield return new WaitForSeconds(0.5f);
+
+        StartCoroutine(WhiteIn());
+        yield return new WaitUntil(() => ScreenIsClear());
+        EnablePlayer();
     }
 
     public IEnumerator WhiteIn()
