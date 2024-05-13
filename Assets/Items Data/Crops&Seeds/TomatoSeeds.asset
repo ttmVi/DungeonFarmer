@@ -16,7 +16,8 @@ MonoBehaviour:
   itemName: Tomato Seed
   itemInventoryIcon: {fileID: 556836258, guid: 00718107ee314fc4ca68a4ae5e59ede6, type: 3}
   overworldSprite: {fileID: 1916916551, guid: 00718107ee314fc4ca68a4ae5e59ede6, type: 3}
-  itemDescription: 
+  itemDescription: These seeds produce fast-growing plants known for big IMPACT when
+    crafted.
   itemType: 1
   maxGrowthIndex: 4
   phasesGrowthIndex:

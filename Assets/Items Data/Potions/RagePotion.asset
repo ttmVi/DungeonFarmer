@@ -16,10 +16,8 @@ MonoBehaviour:
   itemName: Strength Potion
   itemInventoryIcon: {fileID: 0}
   overworldSprite: {fileID: 0}
-  itemDescription: Distilled from the dark flesh of mystical eggplants, this potent
-    potion grants the drinker a surge of brute strength. The deep, earthy energies
-    of the eggplant imbue the consumer with increased physical power, making them
-    formidable in combat for a limited time.
+  itemDescription: Distilled from mystical eggplants, this potion grants temporary
+    brute strength by channeling the vegetable's deep, earthy energies.
   itemType: 5
   maxGrowthIndex: 0
   phasesGrowthIndex: []
