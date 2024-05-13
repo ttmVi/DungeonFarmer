@@ -37,6 +37,7 @@ public class Interactable : MonoBehaviour
         
         if (TryGetComponent(out PlotFarming farmPlot))
         {
+            //Debug.Log(farmPlot.gameObject.name);
             farmPlot.DoFarming();
         }
     }

@@ -33,6 +33,7 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] private bool isFertilizingTree;
     [SerializeField] private GameObject plantingPlot;
     [SerializeField] private Inventory savedPlayerInventory;
+    private bool lastButtonReleased;
 
     [Header("Current Inventory Indexes")]
     [SerializeField] private int startIndex;
@@ -82,6 +83,8 @@ public class InventoryManager : MonoBehaviour
     {
         if (context.started)
         {
+            lastButtonReleased = false;
+
             if (isOpening)
             {
                 CloseInventory();
@@ -91,6 +94,8 @@ public class InventoryManager : MonoBehaviour
                 OpenInventory(playerInventory.playerInventoryList);
             }
         }
+        
+        if (context.canceled) { lastButtonReleased = true; }
     }
 
     public void OpenSeedsInventory(GameObject plantingPlot)
@@ -111,6 +116,8 @@ public class InventoryManager : MonoBehaviour
     {
         if (!isOpening && !UIOpened)
         {
+            lastButtonReleased = false;
+
             displayingInventory = inventory;
             inventoryCanvas.SetActive(true);
             isOpening = true;
@@ -177,7 +184,33 @@ public class InventoryManager : MonoBehaviour
 
     public void OnUsingItem(InputAction.CallbackContext context)
     {
-        if (context.started)
+        //StartCoroutine(UseItem(context));
+
+        if (context.started && lastButtonReleased)
+        {
+            lastButtonReleased = false;
+            if (isPlantingTree && isOpening && displayingInventory.Count > 0)
+            {
+                Items plantingSeed = displayingInventory[currentInventoryIndex].Item1;
+                plantingPlot.GetComponent<PlotFarming>().PlantSeed(plantingSeed.GetSeedData());
+                playerInventory.gameObject.GetComponent<PlayerInventory>().RemoveItems(plantingSeed, 1);
+                CloseInventory();
+            }
+            else if (isFertilizingTree && isOpening && displayingInventory.Count > 0)
+            {
+                Items fertilizer = displayingInventory[currentInventoryIndex].Item1;
+                plantingPlot.GetComponent<PlotFarming>().FertilizePlant(fertilizer, 1.5f);
+                //playerInventory.gameObject.GetComponent<PlayerInventory>().RemoveItems(fertilizer, 1);
+                CloseInventory();
+            }
+        }
+        else { lastButtonReleased = true; }
+    }
+
+    private IEnumerator UseItem(InputAction.CallbackContext context)
+    {
+        yield return new WaitForFixedUpdate();
+        if (context.started && !context.canceled)
         {
             if (isPlantingTree && isOpening && displayingInventory.Count > 0)
             {
