@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ladder
   - Patrol
+  - Wall
   layers:
   - Default
   - TransparentFX
@@ -15,8 +16,8 @@ TagManager:
   - UI
   - Player
   - Ladder
-  - 
-  - 
+  - Wall
+  - Enemy
   - 
   - 
   - 

@@ -38,6 +38,7 @@ public class PlayerAttack : MonoBehaviour
     private GroundCheck character;
     private PlayerMovement movement;
     private Melee melee;
+    private Knockback knockback;
     //Run this method instead of Initialization if you don't have any scripts inheriting from each other
     private void Start()
     {
@@ -50,6 +51,7 @@ public class PlayerAttack : MonoBehaviour
         meleeAnimator = GetComponentInChildren<Melee>().gameObject.GetComponent<Animator>();
         movement = GetComponent<PlayerMovement>();
         melee = GetComponentInChildren<Melee>();
+        knockback = GetComponent<Knockback>();
 
         //Debug.Log("meleeAnimator: " + meleeAnimator.name);
     }
@@ -125,11 +127,14 @@ public class PlayerAttack : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        //Keep trying to do a attack, for as long as desiredAttack is true
-        if (desiredAttack)
+        if (!knockback.isBeingKnockedBack)
         {
-            DoAttack();
-            return;
+            //Keep trying to do a attack, for as long as desiredAttack is true
+            if (desiredAttack)
+            {
+                DoAttack();
+                return;
+            }
         }
     }
     private void DoAttack()

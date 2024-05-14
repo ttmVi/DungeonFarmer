@@ -18,7 +18,7 @@ public class EnemyHealth : MonoBehaviour
     //Bool that manages if the enemy can receive more damage
     private bool hit;
     //The current amount after receiving damage the enemy has
-    private int currentHealth;
+    public int currentHealth;
 
     private void Start()
     {
@@ -41,7 +41,7 @@ public class EnemyHealth : MonoBehaviour
                 //Caps currentHealth to 0 for cleaner code
                 currentHealth = 0;
                 //Removes GameObject from the scene; this should probably play a dying animation in a method that would handle all the other death logic, but for the test it just disables it from the scene
-                gameObject.SetActive(false);
+                //gameObject.SetActive(false);
             }
             else
             {
