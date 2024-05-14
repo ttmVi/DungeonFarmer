@@ -1,15 +1,13 @@
-using Pathfinding;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Spider : MonoBehaviour
+public class BabySpider : MonoBehaviour
 {
     private EnemyHealth health;
     private EnemyAI enemyAI;
     private Vector2 startPosition;
     private Rigidbody2D rb;
-    public GameObject babySpiderPrefab;
     [Header("Random Movement")]
     public float waitTime;
     public float startWaitTime;
@@ -19,13 +17,12 @@ public class Spider : MonoBehaviour
     public float patrolSpeed = 5f;
     private bool isOnCoolDown = false;
     private GroundCheck groundCheck;
-    public float checkInterval = 0.05f;  // Time interval between ground checks
-    public float maxFallDistance = 10f;  // Maximum distance to fall before giving 
-
     void Start()
     {
-        startPosition = transform.position;
         groundCheck = GetComponent<GroundCheck>();
+        
+        startPosition = transform.position;
+        
         health = GetComponent<EnemyHealth>();
         enemyAI = GetComponent<EnemyAI>();
         rb = GetComponent<Rigidbody2D>();
@@ -34,6 +31,7 @@ public class Spider : MonoBehaviour
         maxX = transform.position.x + localMaxX;
         moveSpot = new GameObject("SpiderMoveSpot").transform;
         moveSpot.position = new Vector2(Random.Range(minX, maxX), transform.position.y);
+        this.enemyAI.target = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     // Update is called once per frame
@@ -43,43 +41,20 @@ public class Spider : MonoBehaviour
         {
             RandomMovement();
         }
-        else if(enemyAI.TargetInDistance())
+        else if (enemyAI.TargetInDistance())
         {
             Jump();
         }
 
-        if(health.currentHealth <= 0)
+        if (health.currentHealth <= 0)
         {
             Death();
         }
 
     }
-    IEnumerator InstantiateAndPlaceOnGround(GameObject prefab, Vector3 position)
-    {
-        GameObject newObject = Instantiate(prefab, position, Quaternion.identity);
-        // Try to ground the object
-        yield return StartCoroutine(GroundObject(newObject));
-    }
-
-    IEnumerator GroundObject(GameObject obj)
-    {
-        GroundCheck groundCheck = obj.GetComponent<GroundCheck>();
-        if (groundCheck != null)
-        {
-            float fallDistance = 0f;
-            while (!groundCheck.isGrounded() && fallDistance < maxFallDistance)
-            {
-                obj.transform.position += Vector3.down * 0.1f;
-                fallDistance += 0.1f;
-                yield return new WaitForSeconds(checkInterval);
-            }
-        }
-    }
     void Death()
     {
         //play death animation
-        //Instantiate baby spiders
-        StartCoroutine(InstantiateAndPlaceOnGround(babySpiderPrefab, transform.position));
         Destroy(gameObject);
     }
     void RandomMovement()

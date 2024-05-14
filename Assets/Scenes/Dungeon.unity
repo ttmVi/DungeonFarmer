@@ -192,9 +192,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1875860433}
-  activateDistance: 10
+  activateDistance: 7
   pathUpdateSeconds: 0.5
-  speed: 5
+  speed: 7
   jumpForce: 5
   nextWaypointDistance: 3
   jumpNodeHeightRequirement: 0.8
@@ -354,7 +354,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 1489116252, guid: 801dcc44f70847940b9bd7a41c515217, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -392,12 +392,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d60f83f5e229a1458fce9d612276755, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startPosition: {x: 0, y: 0}
   points:
   - {fileID: 1781096167}
   - {fileID: 1969417050}
+  distanceFromStart: 0
   pointIndex: 0
-  moving1: 0
-  moving2: 0
+  patrolSpeed: 5
 --- !u!114 &121654348
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1670,7 +1671,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.6, y: 3.49, z: -10}
+  m_LocalPosition: {x: -4.33, y: 1.71, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2389,7 +2390,7 @@ Transform:
   m_GameObject: {fileID: 774523241}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.6, y: 3.49, z: -10}
+  m_LocalPosition: {x: -4.33, y: 1.71, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2514,7 +2515,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1022971861
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2793,6 +2794,8 @@ GameObject:
   - component: {fileID: 1172998992}
   - component: {fileID: 1172998991}
   - component: {fileID: 1172998990}
+  - component: {fileID: 1172998998}
+  - component: {fileID: 1172998999}
   m_Layer: 9
   m_Name: Spider
   m_TagString: Untagged
@@ -2829,10 +2832,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1875860433}
-  activateDistance: 10
+  activateDistance: 5
   pathUpdateSeconds: 0.5
-  speed: 3
-  jumpForce: 5
+  speed: 5
+  jumpForce: 12
   nextWaypointDistance: 3
   jumpNodeHeightRequirement: 0.8
   jumpModifier: 0.3
@@ -2921,7 +2924,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 2
   m_Material: {fileID: 6200000, guid: 8178d9939074d8d4db17ae1aad9eb72e, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
@@ -3017,6 +3020,43 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1172998998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1172998989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 727b028048f1b7a4fbfed1c2fca342f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  babySpiderPrefab: {fileID: 2545298975622088354, guid: 9b4cec4f91891144ca07116e0d736138, type: 3}
+  waitTime: 0
+  startWaitTime: 0.2
+  localMinX: 2
+  localMaxX: 2
+  patrolSpeed: 5
+  checkInterval: 0.05
+  maxFallDistance: 10
+--- !u!114 &1172998999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1172998989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b760d280d7ff34b4fbe37eddb3717ead, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  groundLength: 0.52
+  colliderOffset: {x: 0.48, y: 0, z: 0}
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!1 &1426126090
 GameObject:
   m_ObjectHideFlags: 0
@@ -26643,11 +26683,11 @@ PrefabInstance:
       objectReference: {fileID: 3543800490810017104, guid: 0a2698ffecef58e47b27229f4bc2e27b, type: 3}
     - target: {fileID: 1476474058532684133, guid: 0a3352a14912c01449653334a3a48d66, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.6
+      value: -4.33
       objectReference: {fileID: 0}
     - target: {fileID: 1476474058532684133, guid: 0a3352a14912c01449653334a3a48d66, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.3
+      value: 0.52
       objectReference: {fileID: 0}
     - target: {fileID: 1476474058532684133, guid: 0a3352a14912c01449653334a3a48d66, type: 3}
       propertyPath: m_LocalPosition.z
@@ -26819,6 +26859,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 9096835936027043030, guid: 0a3352a14912c01449653334a3a48d66, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8100510069874034227}
+    - targetCorrespondingSourceObject: {fileID: 9096835936027043030, guid: 0a3352a14912c01449653334a3a48d66, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8100510069874034239}
   m_SourcePrefab: {fileID: 100100000, guid: 0a3352a14912c01449653334a3a48d66, type: 3}
 --- !u!1 &8100510069874034226 stripped
 GameObject:
@@ -26855,6 +26898,22 @@ MonoBehaviour:
   hitDirectionForce: 10
   constForce: 5
   inputForce: 7.5
+--- !u!114 &8100510069874034239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8100510069874034226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 780eaf99fdc590849a1b52dae9c38f79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 512
+  invincibilityTime: 0.5
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

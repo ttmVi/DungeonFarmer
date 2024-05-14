@@ -100,8 +100,6 @@ public class Mosquito : MonoBehaviour
     }
     void BlowUp()
     {
-        Debug.Log("Mosquito Blew Up!");
-        //Play explosion animation
         Instantiate(explosion, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
