@@ -184,6 +184,8 @@ GameObject:
   - component: {fileID: 1701481630474704736}
   - component: {fileID: 1243512052606780169}
   - component: {fileID: 6892607674871810654}
+  - component: {fileID: 2741685896783630757}
+  - component: {fileID: 4015316803191144813}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -528,6 +530,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0b3cd8084e67d54286e260c4423540a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ImpactEffect: {fileID: 3543800490810017104, guid: 0a2698ffecef58e47b27229f4bc2e27b, type: 3}
 --- !u!95 &6892607674871810654
 Animator:
   serializedVersion: 5
@@ -549,3 +552,33 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2741685896783630757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9096835936027043030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96423f2ec5997f942afd1bc1cb725008, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  knockbackTime: 0.2
+  hitDirectionForce: 10
+  constForce: 5
+  inputForce: 7.5
+--- !u!114 &4015316803191144813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9096835936027043030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7aca7a8db5b97a45a014487775bde64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 10
+  currentHealth: 0
