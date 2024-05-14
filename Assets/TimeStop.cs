@@ -1,15 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class TimeStop : MonoBehaviour
 {
     private float speed;
     private bool RestoreTime;
+    public GameObject ImpactEffect;
+
+    private Animator anim;
     // Start is called before the first frame update
     void Start()
     {
         RestoreTime = false;
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -24,7 +29,7 @@ public class TimeStop : MonoBehaviour
             else
             {
                 Time.timeScale = 1;
-                RestoreTime = false;
+                RestoreTime = false;    
             }
         }
     }
@@ -40,6 +45,9 @@ public class TimeStop : MonoBehaviour
         {
             RestoreTime = true;
         }
+
+        Instantiate(ImpactEffect, transform.position, quaternion.identity);
+        //anim.SetBool("Hurt", true); //play hurt animation
         Time.timeScale = changeTime;
     }
     IEnumerator StartTimeAgain(float delay)

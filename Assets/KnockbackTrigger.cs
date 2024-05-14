@@ -26,4 +26,21 @@ public class KnockbackTrigger : MonoBehaviour
             
         }
     }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            if (transform.localScale.x > 0)
+            {
+                collision.gameObject.GetComponent<TimeStop>().StopTime(changeTime, restoreSpeed, delay);
+                collision.gameObject.GetComponent<PlayerHealth>().TakeDamage(damage, -transform.right);
+            }
+            else
+            {
+                collision.gameObject.GetComponent<TimeStop>().StopTime(changeTime, restoreSpeed, delay);
+                collision.gameObject.GetComponent<PlayerHealth>().TakeDamage(damage, transform.right);
+            }
+
+        }
+    }
 }

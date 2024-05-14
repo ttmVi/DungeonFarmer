@@ -23,38 +23,45 @@ public class Mosquito : MonoBehaviour
     public bool directionLookEnabled = true;
     public bool coroutineRunning = false;
 
-    [Header("Circular Movement")]
-    public float rotationRadius = 2f;
-    public float angularSpeed = 2f;
-    float posX, posY, angle = 0f;
-
     [Header("Random Movement")]
     public float waitTime;
     public float startWaitTime;
-    public float minX, minY, maxX, maxY;
-    public Transform moveSpot;
+    [SerializeField, Range(0f, 2f)][Tooltip("Sets range of random movement based on local position")] public float localMinX, localMinY, localMaxX, localMaxY;
+    private float minX, minY, maxX, maxY;
+    private Transform moveSpot;
     public float flitterSpeed = 1f;
 
-    [SerializeField] Vector3 startOffset;
-
+    [Header("Mosquito")]
+    public int successfulAttacks = 0;
+    public int attacksToFull = 3;
+    public bool isFull;
+    public GameObject explosion;
+    private EnemyHealth health;
     private Path path;
     private int currentWaypoint = 0;
     Seeker seeker;
     Rigidbody2D rb;
-
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.CompareTag("Player"))
+        {
+            successfulAttacks++;
+        }
+    }
     public void Start()
     {
         waitTime = startWaitTime;
-        minX = transform.position.x - 2f;
-        maxX = transform.position.x + 2f;
-        minY = transform.position.y - 2f;
-        maxY = transform.position.y + 2f;
+        minX = transform.position.x - localMinX;
+        maxX = transform.position.x + localMaxX;
+        minY = transform.position.y - localMinY;
+        maxY = transform.position.y + localMaxY;
         moveSpot = new GameObject("MoveSpot").transform;
         //moveSpot = transform;
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
         moveSpot.position = new Vector2(Random.Range(minX, maxX), Random.Range(minY, maxY));
         startPosition = rb.position;
+        health = GetComponent<EnemyHealth>();
         InvokeRepeating("UpdatePath", 0f, pathUpdateSeconds);
     }
 
@@ -76,21 +83,29 @@ public class Mosquito : MonoBehaviour
     {
         if (!coroutineRunning && !TargetInDistance())
         {
-            //Flitter();
             RandomMovement();
         }
-    }
-    void Flitter()
-    {
-        posX = startPosition.x + Mathf.Cos(angle) * rotationRadius;
-        posY = startPosition.y + Mathf.Sin(angle) * rotationRadius;
-        transform.position = new Vector2(posX, posY);
-        angle = angle + Time.deltaTime * angularSpeed;
-        if (angle >= 360f)
+
+        if(successfulAttacks >= attacksToFull)
         {
-            angle = 0f;
+            isFull = true;
         }
+
+        if(health.currentHealth <= 0 && isFull)
+        {
+            //Blow up mosquito
+            BlowUp();
+        }
+
     }
+    void BlowUp()
+    {
+        Debug.Log("Mosquito Blew Up!");
+        //Play explosion animation
+        Instantiate(explosion, transform.position, Quaternion.identity);
+        Destroy(gameObject);
+    }
+    
     void RandomMovement()
     {
         transform.position = Vector2.MoveTowards(transform.position, moveSpot.position, flitterSpeed * Time.deltaTime);
@@ -116,6 +131,12 @@ public class Mosquito : MonoBehaviour
     {
         coroutineRunning = true;
         followEnabled = false;
+        startPosition = rb.position;
+        minX = rb.position.x - localMinX;
+        maxX = rb.position.x + localMaxX;
+        minY = rb.position.y - localMinY;
+        maxY = rb.position.y + localMaxY;
+        moveSpot.position = new Vector2(Random.Range(minX, maxX), Random.Range(minY, maxY));
         yield return new WaitForSeconds(1f);
         //calculate direction to dash
         //Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
@@ -134,9 +155,10 @@ public class Mosquito : MonoBehaviour
         {
             Vector2 direction = ((Vector2)startPosition - rb.position).normalized;
             Vector2 force = direction * speed;
-            rb.velocity = new Vector2(rb.velocity.x, force.y);
+            rb.velocity = new Vector2(force.x, force.y);
             rb.MovePosition(rb.position + force * Time.fixedDeltaTime);
-            if (rb.position.y+0.1f> startPosition.y)
+            //rb.position = Vector2.MoveTowards(rb.position, moveSpot.position, flitterSpeed * Time.deltaTime);
+            if (rb.position.y>= startPosition.y)
             {
                 break;
             }
@@ -170,7 +192,7 @@ public class Mosquito : MonoBehaviour
         }
 
         // See if colliding with anything
-        startOffset = transform.position - new Vector3(0f, GetComponent<Collider2D>().bounds.extents.y, transform.position.z);
+        //startOffset = transform.position - new Vector3(0f, GetComponent<Collider2D>().bounds.extents.y, transform.position.z);
 
         // Direction Calculation
         Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;

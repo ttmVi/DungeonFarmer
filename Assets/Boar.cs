@@ -10,8 +10,10 @@ public class Boar : MonoBehaviour
     public bool moving2;
     private EnemyAI enemyAI;
     private WallCheck wallCheck;
+    private EnemyHealth health;
     private void Awake()
     {
+        health = GetComponent<EnemyHealth>();
         enemyAI = GetComponent<EnemyAI>();
         wallCheck = GetComponent<WallCheck>();
     }
@@ -25,6 +27,12 @@ public class Boar : MonoBehaviour
         if (wallCheck.isWall())
         {
             StartCoroutine(Stun());
+        }
+
+        if(health.currentHealth <= 0)
+        {
+            //play death animation
+            Destroy(gameObject);
         }
     }
     void Patrol()
