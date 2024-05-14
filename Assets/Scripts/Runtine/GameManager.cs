@@ -7,10 +7,6 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private GameObject[] dontDestroyOnLoadObjects;
-
-    [Space]
-    [SerializeField] private GameObject farmingPlots;
     [SerializeField] private GameObject player;
 
     [Space]
@@ -20,45 +16,110 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Color black;
     [SerializeField] private Color clear;
 
+    [Space]
+    [Header("Scene Changing Variables")]
+    [SerializeField] private Vector2 firstEverStartingPos;
+    [Space]
+    [SerializeField] private GameObject farm;
+    [SerializeField] private GameObject dungeon;
+    [SerializeField] public bool inFarm = true;
+    [SerializeField] public bool inDungeon = false;
     [SerializeField] private Vector2 farmStartPos;
     [SerializeField] private Vector2 dungeonStartPos;
-        
+    [Space]
+    [SerializeField] private GameObject farmDoor;
+    [SerializeField] private GameObject dungeonDoor;
+    [SerializeField] private AnimationClip doorOpen;
+    [SerializeField] private AnimationClip doorClose;
+    [SerializeField] private Sprite openedDoor;
+    [SerializeField] private Sprite closedDoor;
+
+    private void Start()
+    {
+        player.transform.position = firstEverStartingPos;
+        farm.SetActive(true);
+        inFarm = true;
+
+        dungeon.SetActive(false);
+        inDungeon = false;
+    }
+
     public void OnQuitLevel(InputAction.CallbackContext context)
     {
 
     }
 
-    private IEnumerator ShiftToDungeon()
+    private IEnumerator ShiftToDungeon(GameObject openingDoor)
     {
         DisablePlayer();
+        openingDoor.GetComponent<Animator>().SetTrigger("doorOpen");
+        yield return new WaitForSeconds(doorOpen.length);
+
+        openingDoor.GetComponent<SpriteRenderer>().sprite = openedDoor;
         StartCoroutine(BlackOut());
         yield return new WaitUntil(() => ScreenIsBlack());
 
+        farm.SetActive(false);
+        inFarm = false;
+
+        dungeon.SetActive(true);
+        inDungeon = true;
         player.transform.position = dungeonStartPos;
-        yield return new WaitForSeconds(0.5f);
+        dungeonDoor.GetComponent<SpriteRenderer>().sprite = openedDoor;
+        yield return new WaitForSeconds(2f);
 
         StartCoroutine(WhiteIn());
         yield return new WaitUntil(() => ScreenIsClear());
+
+        dungeonDoor.GetComponent<Animator>().SetTrigger("doorClose");
+        yield return new WaitForSeconds(doorClose.length);
+
+        dungeonDoor.GetComponent<SpriteRenderer>().sprite = closedDoor;
         EnablePlayer();
     }
 
-    private IEnumerator ShiftToFarm()
+    public void ToDungeon(GameObject openingDoor) 
+    {
+        StartCoroutine(ShiftToDungeon(openingDoor)); 
+    }
+
+    private IEnumerator ShiftToFarm(GameObject openingDoor)
     {
         DisablePlayer();
+        openingDoor.GetComponent<Animator>().SetTrigger("doorOpen");
+        yield return new WaitForSeconds(doorOpen.length);
+
+        openingDoor.GetComponent<SpriteRenderer>().sprite = openedDoor;
         StartCoroutine(BlackOut());
         yield return new WaitUntil(() => ScreenIsBlack());
 
+        dungeon.SetActive(false);
+        inDungeon = false;
+
+        farm.SetActive(true);
+        inFarm = true;
         player.transform.position = farmStartPos;
-        yield return new WaitForSeconds(0.5f);
+        farmDoor.GetComponent<SpriteRenderer>().sprite = openedDoor;
+        yield return new WaitForSeconds(2f);
 
         StartCoroutine(WhiteIn());
         yield return new WaitUntil(() => ScreenIsClear());
+
+        farmDoor.GetComponent<Animator>().SetTrigger("doorClose");
+        yield return new WaitForSeconds(doorClose.length);
+
+        farmDoor.GetComponent<SpriteRenderer>().sprite = closedDoor;
         EnablePlayer();
+    }
+
+    public void ToFarm(GameObject openingDoor) 
+    {
+        StartCoroutine(ShiftToFarm(openingDoor)); 
     }
 
     public IEnumerator WhiteIn()
     {
-        float time = 1f;
+        float time = 0.5f;
         float elapsedTime = 0f;
 
         while (elapsedTime < time)
@@ -75,7 +136,7 @@ public class GameManager : MonoBehaviour
 
     public IEnumerator BlackOut()
     {
-        float time = 1f;
+        float time = 0.5f;
         float elapsedTime = 0f;
         DisablePlayer();
 

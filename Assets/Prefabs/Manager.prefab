@@ -48,15 +48,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca6ba4e12f73cfe4390dc5febca34d82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dontDestroyOnLoadObjects: []
-  farmingPlots: {fileID: 0}
   player: {fileID: 0}
   SceneChangingCanvas: {fileID: 0}
   blackImage: {fileID: 0}
   black: {r: 0, g: 0, b: 0, a: 1}
   clear: {r: 0, g: 0, b: 0, a: 0}
-  farmStartPos: {x: 4.5, y: -4.5}
-  dungeonStartPos: {x: -22.5, y: 9.5}
+  firstEverStartingPos: {x: 4.5, y: -4.5}
+  farm: {fileID: 0}
+  dungeon: {fileID: 0}
+  inFarm: 1
+  inDungeon: 0
+  farmStartPos: {x: 14, y: -4.5}
+  dungeonStartPos: {x: -27, y: 9.5}
+  farmDoor: {fileID: 0}
+  dungeonDoor: {fileID: 0}
+  doorOpen: {fileID: 7400000, guid: 5e8d6286dd02d154f80eadb40d236d05, type: 2}
+  doorClose: {fileID: 7400000, guid: 4e605fadb026dd34fa28ba406b0dd34b, type: 2}
+  openedDoor: {fileID: 860150475, guid: 0b147ec480de9354d9e2c10900d71a45, type: 3}
+  closedDoor: {fileID: -1768820635, guid: 0b147ec480de9354d9e2c10900d71a45, type: 3}
 --- !u!114 &1192253032077784931
 MonoBehaviour:
   m_ObjectHideFlags: 0
