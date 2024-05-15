@@ -55,7 +55,7 @@ public class Mosquito : MonoBehaviour
         maxX = transform.position.x + localMaxX;
         minY = transform.position.y - localMinY;
         maxY = transform.position.y + localMaxY;
-        moveSpot = new GameObject("MoveSpot").transform;
+        moveSpot = new GameObject("MosquitoMoveSpot").transform;
         //moveSpot = transform;
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
@@ -100,8 +100,6 @@ public class Mosquito : MonoBehaviour
     }
     void BlowUp()
     {
-        Debug.Log("Mosquito Blew Up!");
-        //Play explosion animation
         Instantiate(explosion, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }

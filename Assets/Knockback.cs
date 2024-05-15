@@ -12,7 +12,7 @@ public class Knockback : MonoBehaviour
     private Rigidbody2D rb;
     private Coroutine knockbackCoroutine;
     public bool isBeingKnockedBack { get; private set; }
-
+    public AnimationCurve knockbackForceCurve;
     IEnumerator KnockbackAction(Vector2 hitDirection, Vector2 constantForceDirection, float inputDirection)
     {
         isBeingKnockedBack = true;
@@ -21,14 +21,16 @@ public class Knockback : MonoBehaviour
         Vector2 constantForce;
         Vector2 knockbackForce;
         Vector2 combinedForce;
+        float time = 0f;
 
-        hitForce = hitDirection * hitDirectionForce;
+        //hitForce = hitDirection * hitDirectionForce;
         constantForce = constantForceDirection * constForce;
 
         float elapsedTime = 0;
         while(elapsedTime< knockbackTime)
         {
-            elapsedTime += Time.deltaTime;
+            elapsedTime += Time.fixedDeltaTime; time+= Time.fixedDeltaTime;
+            hitForce = hitDirection * hitDirectionForce * knockbackForceCurve.Evaluate(time);
             knockbackForce = hitForce + constantForce;
             if(inputDirection != 0f)
             {

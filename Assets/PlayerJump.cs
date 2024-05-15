@@ -8,7 +8,7 @@ public class PlayerJump : MonoBehaviour
     [Header("Components")]
     [HideInInspector] public Rigidbody2D body;
     private GroundCheck ground;
-    private LadderCheck ladderCheck;
+    //private LadderCheck ladderCheck;
     [HideInInspector] public Vector2 velocity;
     //private characterJuice juice;
 
@@ -42,7 +42,7 @@ public class PlayerJump : MonoBehaviour
     public bool onLadder;
     private bool currentlyJumping;
     private Melee melee;
-    private Ladder ladder;
+    //private Ladder ladder;
     private Knockback knockback;
 
     void Awake()
@@ -51,10 +51,7 @@ public class PlayerJump : MonoBehaviour
         body = GetComponent<Rigidbody2D>();
         ground = GetComponent<GroundCheck>();
         melee = GetComponentInChildren<Melee>();
-        ladder = GetComponent<Ladder>();
-        ladderCheck = GetComponent<LadderCheck>();
         knockback = GetComponent<Knockback>();
-        //Debug.Log(melee.name);
         defaultGravityScale = 1f;
     }
 
@@ -63,8 +60,6 @@ public class PlayerJump : MonoBehaviour
         if(!knockback.isBeingKnockedBack)
         {
             //This function is called when one of the jump buttons (like space or the A button) is pressed.
-
-
             //When we press the jump button, tell the script that we desire a jump.
             //Also, use the started and canceled contexts to know if we're currently holding the button
             if (context.started)
@@ -131,7 +126,7 @@ public class PlayerJump : MonoBehaviour
         //Get velocity from Kit's Rigidbody 
         velocity = body.velocity;
         //Keep trying to do a jump, for as long as desiredJump is true
-        if (desiredJump && !ladder.ladderCollision)
+        if (desiredJump)
         {
             DoAJump();
             body.velocity = velocity;
@@ -148,13 +143,7 @@ public class PlayerJump : MonoBehaviour
     {
         //We change the character's gravity based on her Y direction
         //If Kit is going up...
-        if (false)
-        {
-            //gravMultiplier = 0f;
-            return;
-        }
-        else
-        {
+        
             if (body.velocity.y > 0.01f)
             {
                 if (onGround || melee.resetGravity)
@@ -211,7 +200,7 @@ public class PlayerJump : MonoBehaviour
 
                 gravMultiplier = defaultGravityScale;
             }
-        }
+        
         
 
         //Set the character's Rigidbody's velocity
