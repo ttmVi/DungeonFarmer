@@ -162,4 +162,11 @@ public class Melee : MonoBehaviour
             resetGravity = false;
         }   
     }
+
+    public int GetDamagePower() { return damageAmount; }
+
+    public void ChangeDamagePower(int newDamage)
+    {
+        damageAmount = newDamage;
+    }
 }

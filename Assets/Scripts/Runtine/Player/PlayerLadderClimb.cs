@@ -9,8 +9,8 @@ public class PlayerLadderClimb : MonoBehaviour
     private BoxCollider2D coll;
     [SerializeField] private float climbingSpeed;
     [SerializeField] private LayerMask ladderLayer;
-    [SerializeField] private bool isInLadder;
-    private Vector2 climbingDirection;
+    [SerializeField] public bool isInLadder;
+    public Vector2 climbingDirection;
 
     private void Start()
     {

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class ItemsManager : MonoBehaviour
 {
@@ -70,5 +71,14 @@ public class ItemsManager : MonoBehaviour
         randomPosition.y = center.y + randomRadius * Mathf.Sin(randomAngle * Mathf.Deg2Rad);
 
         return randomPosition;
+    }
+
+    public void UsePotion(InputAction.CallbackContext context, Items potion)
+    {
+        if (context.started && potion.GetPotionData().GetPotionEffectEvent() != null)
+        {
+            potion.GetPotionData().GetPotionEffectEvent().Invoke();
+            GetComponent<InventoryManager>().UseUpPotion(potion);
+        }
     }
 }
