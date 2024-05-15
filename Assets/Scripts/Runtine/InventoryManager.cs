@@ -3,16 +3,20 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 [DisallowMultipleComponent]
 public class InventoryManager : MonoBehaviour
 {
     [Header("Inventory Canvas Elements Assigning")]
+    [SerializeField] private GameObject generalItemsUI;
     [SerializeField] private GameObject inventoryCanvas;
     [SerializeField] private GameObject itemsList;
     [SerializeField] private GameObject selectButton;
+    [SerializeField] private TextMeshProUGUI itemName;
     [SerializeField] private TextMeshProUGUI itemDescription;
+    [SerializeField] private GameObject player;
     [SerializeField] private PlayerInventory playerInventory;
 
     [Header("Inventory UI Settings")]
@@ -21,6 +25,7 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] private int distanceBetweenSlots;
 
     [Header("Inventory States")]
+    private bool UIOpened;
     [SerializeField] public bool isOpening;
     [SerializeField] private List<(Items, int)> displayingInventory;
     [Space]
@@ -28,6 +33,7 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] private bool isFertilizingTree;
     [SerializeField] private GameObject plantingPlot;
     [SerializeField] private Inventory savedPlayerInventory;
+    private bool lastButtonReleased;
 
     [Header("Current Inventory Indexes")]
     [SerializeField] private int startIndex;
@@ -47,6 +53,20 @@ public class InventoryManager : MonoBehaviour
             DisplayInventory(displayingInventory);
             currentInventoryIndex = startIndex + selectingIndex;
         }
+
+        UIOpened = CheckGeneralItemsUIOpeningState();
+    }
+
+    private bool CheckGeneralItemsUIOpeningState()
+    {
+        for (int i = 0; i < generalItemsUI.transform.childCount; i++)
+        {
+            if (generalItemsUI.transform.GetChild(i).gameObject.activeSelf)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
     public void SavePlayerInventory()
@@ -63,6 +83,8 @@ public class InventoryManager : MonoBehaviour
     {
         if (context.started)
         {
+            lastButtonReleased = false;
+
             if (isOpening)
             {
                 CloseInventory();
@@ -72,6 +94,8 @@ public class InventoryManager : MonoBehaviour
                 OpenInventory(playerInventory.playerInventoryList);
             }
         }
+        
+        if (context.canceled) { lastButtonReleased = true; }
     }
 
     public void OpenSeedsInventory(GameObject plantingPlot)
@@ -90,18 +114,41 @@ public class InventoryManager : MonoBehaviour
 
     private void OpenInventory(List<(Items, int)> inventory)
     {
-        displayingInventory = inventory;
-        inventoryCanvas.SetActive(true);
-        isOpening = true;
+        if (!isOpening && !UIOpened)
+        {
+            lastButtonReleased = false;
+
+            displayingInventory = inventory;
+            inventoryCanvas.SetActive(true);
+            isOpening = true;
+
+            player.GetComponent<PlayerInteract>().enabled = false;
+            player.GetComponent<PlayerMovement>().enabled = false;
+            player.GetComponent<PlayerJump>().enabled = false;
+            player.GetComponent<PlayerAttack>().enabled = false;
+            player.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        }
     }
 
-    public void CloseInventory()
+    public IEnumerator ClosingInventory()
     {
+        yield return new WaitForFixedUpdate();
+
+        player.GetComponent<PlayerInteract>().enabled = true;
+        player.GetComponent<PlayerMovement>().enabled = true;
+        player.GetComponent<PlayerJump>().enabled = true;
+        player.GetComponent<PlayerAttack>().enabled = true;
+        
         inventoryCanvas.SetActive(false);
         isOpening = false;
         isPlantingTree = false;
         isFertilizingTree = false;
         plantingPlot = null;
+    }
+
+    public void CloseInventory()
+    {
+        StartCoroutine(ClosingInventory());
     }
 
     public void OnInventoryUINavigation(InputAction.CallbackContext context)
@@ -137,16 +184,42 @@ public class InventoryManager : MonoBehaviour
 
     public void OnUsingItem(InputAction.CallbackContext context)
     {
-        if (context.started)
+        //StartCoroutine(UseItem(context));
+
+        if (context.started && lastButtonReleased)
         {
-            if (isPlantingTree && isOpening)
+            lastButtonReleased = false;
+            if (isPlantingTree && isOpening && displayingInventory.Count > 0)
             {
                 Items plantingSeed = displayingInventory[currentInventoryIndex].Item1;
                 plantingPlot.GetComponent<PlotFarming>().PlantSeed(plantingSeed.GetSeedData());
                 playerInventory.gameObject.GetComponent<PlayerInventory>().RemoveItems(plantingSeed, 1);
                 CloseInventory();
             }
-            else if (isFertilizingTree && isOpening)
+            else if (isFertilizingTree && isOpening && displayingInventory.Count > 0)
+            {
+                Items fertilizer = displayingInventory[currentInventoryIndex].Item1;
+                plantingPlot.GetComponent<PlotFarming>().FertilizePlant(fertilizer, 1.5f);
+                //playerInventory.gameObject.GetComponent<PlayerInventory>().RemoveItems(fertilizer, 1);
+                CloseInventory();
+            }
+        }
+        else { lastButtonReleased = true; }
+    }
+
+    private IEnumerator UseItem(InputAction.CallbackContext context)
+    {
+        yield return new WaitForFixedUpdate();
+        if (context.started && !context.canceled)
+        {
+            if (isPlantingTree && isOpening && displayingInventory.Count > 0)
+            {
+                Items plantingSeed = displayingInventory[currentInventoryIndex].Item1;
+                plantingPlot.GetComponent<PlotFarming>().PlantSeed(plantingSeed.GetSeedData());
+                playerInventory.gameObject.GetComponent<PlayerInventory>().RemoveItems(plantingSeed, 1);
+                CloseInventory();
+            }
+            else if (isFertilizingTree && isOpening && displayingInventory.Count > 0)
             {
                 Items fertilizer = displayingInventory[currentInventoryIndex].Item1;
                 plantingPlot.GetComponent<PlotFarming>().FertilizePlant(fertilizer, 1.5f);
@@ -293,6 +366,7 @@ public class InventoryManager : MonoBehaviour
         { 
             itemsList.SetActive(false); 
             selectButton.SetActive(false);
+            itemName.text = "";
             itemDescription.text = "";
         }
     }
@@ -302,6 +376,7 @@ public class InventoryManager : MonoBehaviour
         if (isSelecting)
         {
             slot.GetComponent<RectTransform>().localScale = new Vector3(1.2f, 1.2f, 1.2f);
+            itemName.text = itemData.GetItemName();
             itemDescription.text = itemData.GetItemDescription();
         }
         else

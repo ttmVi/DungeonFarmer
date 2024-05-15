@@ -16,13 +16,16 @@ MonoBehaviour:
   itemName: Boar Fang
   itemInventoryIcon: {fileID: 0}
   overworldSprite: {fileID: 0}
-  itemDescription: 
+  itemDescription: Sharp and robust, these fangs contain traces of the boar's natural
+    ferocity. Ground into a powder, they are essential for concocting fertilizer
+    that increase the growth time of watermelons.
   itemType: 4
   maxGrowthIndex: 0
   phasesGrowthIndex: []
   growingPhasesSprites: []
   deceasingSprites: []
   possibleDrops: []
+  treeAnimator: {fileID: 0}
   note: 
   fertilizableSeed: {fileID: 0}
   fertilizerCraftingRecipe: []

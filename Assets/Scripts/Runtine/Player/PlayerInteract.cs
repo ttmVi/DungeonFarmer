@@ -44,7 +44,7 @@ public class PlayerInteract : MonoBehaviour
         }
     }
 
-    public GameObject GetObjectInInteractionArea()
+    private GameObject GetObjectInInteractionArea()
     {
         Collider2D[] hit = Physics2D.OverlapBoxAll(interactionPoint, new Vector2(0.5f, 0.5f), 0f);
         if (hit != null)
@@ -53,15 +53,38 @@ public class PlayerInteract : MonoBehaviour
             GameObject closestObject = null;
             foreach (Collider2D hit2 in hit)
             {
-                if (!hit2.gameObject.TryGetComponent(out Interactable component)) { continue; }
-                else if (Vector2.Distance(transform.position, hit2.gameObject.transform.position) < closestDistance)
+                int currentPriority = 0;
+
+                if (hit2.gameObject.TryGetComponent(out Interactable component))
                 {
-                    closestObject = hit2.gameObject;
+                    if (component.GetInteractingPriority() < currentPriority) { continue; }
+                    else if (component.GetInteractingPriority() == currentPriority)
+                    {
+                        if (Vector2.Distance(transform.position, hit2.gameObject.transform.position) < closestDistance)
+                        {
+                            closestDistance = Vector2.Distance(transform.position, hit2.gameObject.transform.position);
+                            closestObject = hit2.gameObject;
+                        }
+                        else { continue; }
+                    }
+                    else if (component.GetInteractingPriority() > currentPriority)
+                    {
+                        currentPriority = component.GetInteractingPriority();
+                        closestDistance = Vector2.Distance(transform.position, hit2.gameObject.transform.position);
+                        closestObject = hit2.gameObject;
+                    }
+                    else { continue; }
                 }
+                else { continue; }
             }
             return closestObject;
         }
         return null;
+    }
+
+    public GameObject GetInteractingObject()
+    {
+        return GetObjectInInteractionArea();
     }
 
     public void GetInteractionPoint()

@@ -16,7 +16,8 @@ MonoBehaviour:
   itemName: Watermelon Seed
   itemInventoryIcon: {fileID: 960785258, guid: 00718107ee314fc4ca68a4ae5e59ede6, type: 3}
   overworldSprite: {fileID: 1309345898, guid: 00718107ee314fc4ca68a4ae5e59ede6, type: 3}
-  itemDescription: This is the seeds of watermelon. Thank you!
+  itemDescription: When planted, these seeds grow into robust vines known for their
+    mystical, night-cooling properties.
   itemType: 1
   maxGrowthIndex: 7
   phasesGrowthIndex:
@@ -51,8 +52,9 @@ MonoBehaviour:
   - {fileID: 1891582204, guid: 896cb750c95d27244ac6bb898546c7c8, type: 3}
   possibleDrops:
   - {fileID: 11400000, guid: 29e289f7c0f0dfd45b0ae3420f903fd6, type: 2}
-  - {fileID: 11400000, guid: 29e289f7c0f0dfd45b0ae3420f903fd6, type: 2}
   - {fileID: 11400000}
+  - {fileID: 11400000}
+  treeAnimator: {fileID: 9100000, guid: 3bdcab4357230ee46b648c0237db08be, type: 2}
   note: 
   fertilizableSeed: {fileID: 0}
   fertilizerCraftingRecipe: []

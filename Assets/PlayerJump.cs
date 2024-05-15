@@ -86,7 +86,7 @@ public class PlayerJump : MonoBehaviour
 
         //Check if we're on ground, using Kit's Ground script
         onGround = ground.isGrounded();
-        onLadder = ladderCheck.IsOnLadder();
+        onLadder = GetComponent<PlayerLadderClimb>().LadderCheck();
         //Jump buffer allows us to queue up a jump, which will play when we next hit the ground
         if (jumpBuffer > 0)
         {
@@ -148,9 +148,9 @@ public class PlayerJump : MonoBehaviour
     {
         //We change the character's gravity based on her Y direction
         //If Kit is going up...
-        if (ladderCheck.IsOnLadder())
+        if (false)
         {
-            gravMultiplier = 0f;
+            //gravMultiplier = 0f;
             return;
         }
         else
@@ -222,7 +222,7 @@ public class PlayerJump : MonoBehaviour
     private void DoAJump()
     {
         //Create the jump, provided we are on the ground, in coyote time, or have a double jump available
-        if (onGround || (coyoteTimeCounter > 0.03f && coyoteTimeCounter < coyoteTime) || canJumpAgain)
+        if (onLadder || onGround || (coyoteTimeCounter > 0.03f && coyoteTimeCounter < coyoteTime) || canJumpAgain)
         {
             desiredJump = false;
             jumpBufferCounter = 0;

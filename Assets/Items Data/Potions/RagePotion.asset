@@ -16,13 +16,15 @@ MonoBehaviour:
   itemName: Strength Potion
   itemInventoryIcon: {fileID: 0}
   overworldSprite: {fileID: 0}
-  itemDescription: 
+  itemDescription: Distilled from mystical eggplants, this potion grants temporary
+    brute strength by channeling the vegetable's deep, earthy energies.
   itemType: 5
   maxGrowthIndex: 0
   phasesGrowthIndex: []
   growingPhasesSprites: []
   deceasingSprites: []
   possibleDrops: []
+  treeAnimator: {fileID: 0}
   note: 
   fertilizableSeed: {fileID: 0}
   fertilizerCraftingRecipe: []

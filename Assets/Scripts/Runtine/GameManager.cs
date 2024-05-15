@@ -3,47 +3,172 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private GameObject[] dontDestroyOnLoadObjects;
+    [SerializeField] private GameObject player;
 
     [Space]
-    [SerializeField] private GameObject farmingPlots;
-    [SerializeField] private GameObject player;
+    [Header("Scene Changing Manager")]
+    [SerializeField] private GameObject SceneChangingCanvas;
+    [SerializeField] private Image blackImage;
+    [SerializeField] private Color black;
+    [SerializeField] private Color clear;
+
+    [Space]
+    [Header("Scene Changing Variables")]
+    [SerializeField] private Vector2 firstEverStartingPos;
+    [Space]
+    [SerializeField] private GameObject farm;
+    [SerializeField] private GameObject dungeon;
+    [SerializeField] public bool inFarm = true;
+    [SerializeField] public bool inDungeon = false;
+    [SerializeField] private Vector2 farmStartPos;
+    [SerializeField] private Vector2 dungeonStartPos;
+    [Space]
+    [SerializeField] private GameObject farmDoor;
+    [SerializeField] private GameObject dungeonDoor;
+    [SerializeField] private AnimationClip doorOpen;
+    [SerializeField] private AnimationClip doorClose;
+    [SerializeField] private Sprite openedDoor;
+    [SerializeField] private Sprite closedDoor;
 
     private void Start()
     {
-        DontDestroyOnLoad(gameObject);
-        foreach (GameObject go in dontDestroyOnLoadObjects)
-        {
-            DontDestroyOnLoad(go);
-        }
+        player.transform.position = firstEverStartingPos;
+        farm.SetActive(true);
+        inFarm = true;
+
+        dungeon.SetActive(false);
+        inDungeon = false;
     }
 
     public void OnQuitLevel(InputAction.CallbackContext context)
     {
-        if (context.started)
+
+    }
+
+    private IEnumerator ShiftToDungeon(GameObject openingDoor)
+    {
+        DisablePlayer();
+        openingDoor.GetComponent<Animator>().SetTrigger("doorOpen");
+        yield return new WaitForSeconds(doorOpen.length);
+
+        openingDoor.GetComponent<SpriteRenderer>().sprite = openedDoor;
+        StartCoroutine(BlackOut());
+        yield return new WaitUntil(() => ScreenIsBlack());
+
+        farm.SetActive(false);
+        inFarm = false;
+
+        dungeon.SetActive(true);
+        inDungeon = true;
+        player.transform.position = dungeonStartPos;
+        dungeonDoor.GetComponent<SpriteRenderer>().sprite = openedDoor;
+        yield return new WaitForSeconds(2f);
+
+        StartCoroutine(WhiteIn());
+        yield return new WaitUntil(() => ScreenIsClear());
+
+        dungeonDoor.GetComponent<Animator>().SetTrigger("doorClose");
+        yield return new WaitForSeconds(doorClose.length);
+
+        dungeonDoor.GetComponent<SpriteRenderer>().sprite = closedDoor;
+        EnablePlayer();
+    }
+
+    public void ToDungeon(GameObject openingDoor) 
+    {
+        StartCoroutine(ShiftToDungeon(openingDoor)); 
+    }
+
+    private IEnumerator ShiftToFarm(GameObject openingDoor)
+    {
+        DisablePlayer();
+        openingDoor.GetComponent<Animator>().SetTrigger("doorOpen");
+        yield return new WaitForSeconds(doorOpen.length);
+
+        openingDoor.GetComponent<SpriteRenderer>().sprite = openedDoor;
+        StartCoroutine(BlackOut());
+        yield return new WaitUntil(() => ScreenIsBlack());
+
+        dungeon.SetActive(false);
+        inDungeon = false;
+
+        farm.SetActive(true);
+        inFarm = true;
+        player.transform.position = farmStartPos;
+        farmDoor.GetComponent<SpriteRenderer>().sprite = openedDoor;
+        yield return new WaitForSeconds(2f);
+
+        StartCoroutine(WhiteIn());
+        yield return new WaitUntil(() => ScreenIsClear());
+
+        farmDoor.GetComponent<Animator>().SetTrigger("doorClose");
+        yield return new WaitForSeconds(doorClose.length);
+
+        farmDoor.GetComponent<SpriteRenderer>().sprite = closedDoor;
+        EnablePlayer();
+    }
+
+    public void ToFarm(GameObject openingDoor) 
+    {
+        StartCoroutine(ShiftToFarm(openingDoor)); 
+    }
+
+    public IEnumerator WhiteIn()
+    {
+        float time = 0.5f;
+        float elapsedTime = 0f;
+
+        while (elapsedTime < time)
         {
-            if (SceneManager.GetActiveScene().buildIndex == 0) { ToDungeon(); }
-            else if (SceneManager.GetActiveScene().buildIndex == 1) { ToFarm(); }
+            blackImage.color = Color.Lerp(black, clear, elapsedTime / time);
+            elapsedTime += Time.deltaTime;
+            yield return null;
         }
+
+        blackImage.color = clear;
+        EnablePlayer();
+        yield return null;
     }
 
-    private void ToDungeon()
+    public IEnumerator BlackOut()
     {
-        SceneManager.LoadScene(1);
-        GetComponent<InventoryManager>().SavePlayerInventory();
-        farmingPlots.SetActive(false);
-        player.transform.position = new Vector3(-56f, 17f, 0f);
+        float time = 0.5f;
+        float elapsedTime = 0f;
+        DisablePlayer();
+
+        while (elapsedTime < time)
+        {
+            blackImage.color = Color.Lerp(clear, black, elapsedTime / time);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        blackImage.color = black;
+        yield return null;
     }
 
+    public bool ScreenIsBlack() { return blackImage.color == black; }
 
-    private void ToFarm()
+    public bool ScreenIsClear() { return blackImage.color == clear; }
+
+    private void DisablePlayer()
     {
-        SceneManager.LoadScene(0);
-        GetComponent<InventoryManager>().LoadPlayerInventory();
-        farmingPlots.SetActive(true);
-        player.transform.position = new Vector3(11.5f, -5.5f, 0f);
+        player.GetComponent<PlayerInteract>().enabled = false;
+        player.GetComponent<PlayerMovement>().enabled = false;
+        player.GetComponent<PlayerJump>().enabled = false;
+        player.GetComponent<PlayerAttack>().enabled = false;
+        player.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+    }
+
+    private void EnablePlayer()
+    {
+        player.GetComponent<PlayerInteract>().enabled = true;
+        player.GetComponent<PlayerMovement>().enabled = true;
+        player.GetComponent<PlayerJump>().enabled = true;
+        player.GetComponent<PlayerAttack>().enabled = true;
     }
 }

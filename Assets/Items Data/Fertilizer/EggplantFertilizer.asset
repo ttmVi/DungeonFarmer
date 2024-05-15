@@ -14,15 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemID: 9
   itemName: Eggplant Fertilizer
-  itemInventoryIcon: {fileID: 0}
-  overworldSprite: {fileID: 0}
-  itemDescription: 
+  itemInventoryIcon: {fileID: -591770818, guid: 14cd4237cb50d36418a51816c11259ed, type: 3}
+  overworldSprite: {fileID: -807918654, guid: 14cd4237cb50d36418a51816c11259ed, type: 3}
+  itemDescription: Eggplant scraps enrich the soil with organic matter that improves
+    its porosity and aeration, facilitating robust root development.
   itemType: 3
   maxGrowthIndex: 0
   phasesGrowthIndex: []
   growingPhasesSprites: []
   deceasingSprites: []
   possibleDrops: []
+  treeAnimator: {fileID: 0}
   note: 
   fertilizableSeed: {fileID: 11400000, guid: a4f4506119794214694640cb73036d0d, type: 2}
   fertilizerCraftingRecipe:

@@ -25,6 +25,7 @@ public class ItemsEditor : Editor
             EditorGUILayout.PropertyField(serializedObject.FindProperty("growingPhasesSprites"), true);
             EditorGUILayout.PropertyField(serializedObject.FindProperty("deceasingSprites"), true);
             EditorGUILayout.PropertyField(serializedObject.FindProperty("possibleDrops"), true);
+            EditorGUILayout.PropertyField(serializedObject.FindProperty("treeAnimator"), true);
         }
         else if (item.GetItemType() == Items.ItemType.Crop)
         {

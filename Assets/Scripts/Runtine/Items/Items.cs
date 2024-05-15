@@ -22,6 +22,7 @@ public class Items : ScriptableObject
     [SerializeField, HideInInspector] public Sprite[] growingPhasesSprites;
     [SerializeField, HideInInspector] public Sprite[] deceasingSprites;
     [SerializeField, HideInInspector] public Items[] possibleDrops;
+    [SerializeField, HideInInspector] public RuntimeAnimatorController treeAnimator;
 
     //Fields for crops configuration
     [Space]
@@ -110,7 +111,7 @@ public class Items : ScriptableObject
     {
         if (itemType == ItemType.Seed)
         {
-            return new Tree(itemName, maxGrowthIndex, phasesGrowthIndex, growingPhasesSprites, deceasingSprites, possibleDrops);
+            return new Tree(itemName, maxGrowthIndex, phasesGrowthIndex, growingPhasesSprites, deceasingSprites, possibleDrops, treeAnimator);
         }
         return null;
     }

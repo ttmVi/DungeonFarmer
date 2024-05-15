@@ -16,13 +16,15 @@ MonoBehaviour:
   itemName: HP Potion
   itemInventoryIcon: {fileID: 0}
   overworldSprite: {fileID: 0}
-  itemDescription: 
+  itemDescription: 'This robust potion is brewed from the essence of enchanted pumpkins,
+    known for their vigorous life force. '
   itemType: 5
   maxGrowthIndex: 0
   phasesGrowthIndex: []
   growingPhasesSprites: []
   deceasingSprites: []
   possibleDrops: []
+  treeAnimator: {fileID: 0}
   note: 
   fertilizableSeed: {fileID: 0}
   fertilizerCraftingRecipe: []

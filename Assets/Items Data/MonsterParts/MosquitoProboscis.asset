@@ -16,13 +16,15 @@ MonoBehaviour:
   itemName: Mosquito Proboscis
   itemInventoryIcon: {fileID: 0}
   overworldSprite: {fileID: 0}
-  itemDescription: 
+  itemDescription: With its compound eyes and needle-like proboscis, this head is
+    crucial in the distillation of potions that enhance sturdyness and physical strength.
   itemType: 4
   maxGrowthIndex: 0
   phasesGrowthIndex: []
   growingPhasesSprites: []
   deceasingSprites: []
   possibleDrops: []
+  treeAnimator: {fileID: 0}
   note: 
   fertilizableSeed: {fileID: 0}
   fertilizerCraftingRecipe: []

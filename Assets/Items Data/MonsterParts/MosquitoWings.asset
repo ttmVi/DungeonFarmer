@@ -16,13 +16,16 @@ MonoBehaviour:
   itemName: Mosquito Wings
   itemInventoryIcon: {fileID: 0}
   overworldSprite: {fileID: 0}
-  itemDescription: 
+  itemDescription: Delicate and gossamer-thin, these wings shimmer with an iridescent
+    hue like tomatoes. Powdered finely, they are perfect for potions that require
+    lightness and a quick dispersal upon application.
   itemType: 4
   maxGrowthIndex: 0
   phasesGrowthIndex: []
   growingPhasesSprites: []
   deceasingSprites: []
   possibleDrops: []
+  treeAnimator: {fileID: 0}
   note: 
   fertilizableSeed: {fileID: 0}
   fertilizerCraftingRecipe: []

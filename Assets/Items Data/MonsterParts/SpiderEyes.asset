@@ -16,13 +16,16 @@ MonoBehaviour:
   itemName: Spider Eyes
   itemInventoryIcon: {fileID: 0}
   overworldSprite: {fileID: 0}
-  itemDescription: 
+  itemDescription: Hairy and articulate, these spider legs contain rare enzymes that
+    when dissolved, accelerate the decomposition process, making them invaluable
+    for potent healthy potion.
   itemType: 4
   maxGrowthIndex: 0
   phasesGrowthIndex: []
   growingPhasesSprites: []
   deceasingSprites: []
   possibleDrops: []
+  treeAnimator: {fileID: 0}
   note: 
   fertilizableSeed: {fileID: 0}
   fertilizerCraftingRecipe: []

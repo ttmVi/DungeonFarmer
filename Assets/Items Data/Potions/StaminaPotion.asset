@@ -16,13 +16,15 @@ MonoBehaviour:
   itemName: Stamina Potion
   itemInventoryIcon: {fileID: 0}
   overworldSprite: {fileID: 0}
-  itemDescription: 
+  itemDescription: This refreshing potion, made from watermelon, revitalizes stamina
+    with its hydrating and enduring properties.
   itemType: 5
   maxGrowthIndex: 0
   phasesGrowthIndex: []
   growingPhasesSprites: []
   deceasingSprites: []
   possibleDrops: []
+  treeAnimator: {fileID: 0}
   note: 
   fertilizableSeed: {fileID: 0}
   fertilizerCraftingRecipe: []

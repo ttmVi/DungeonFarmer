@@ -48,9 +48,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca6ba4e12f73cfe4390dc5febca34d82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dontDestroyOnLoadObjects: []
-  farmingPlots: {fileID: 0}
   player: {fileID: 0}
+  SceneChangingCanvas: {fileID: 0}
+  blackImage: {fileID: 0}
+  black: {r: 0, g: 0, b: 0, a: 1}
+  clear: {r: 0, g: 0, b: 0, a: 0}
+  firstEverStartingPos: {x: 4.5, y: -4.5}
+  farm: {fileID: 0}
+  dungeon: {fileID: 0}
+  inFarm: 1
+  inDungeon: 0
+  farmStartPos: {x: 14, y: -4.5}
+  dungeonStartPos: {x: -27, y: 9.5}
+  farmDoor: {fileID: 0}
+  dungeonDoor: {fileID: 0}
+  doorOpen: {fileID: 7400000, guid: 5e8d6286dd02d154f80eadb40d236d05, type: 2}
+  doorClose: {fileID: 7400000, guid: 4e605fadb026dd34fa28ba406b0dd34b, type: 2}
+  openedDoor: {fileID: 860150475, guid: 0b147ec480de9354d9e2c10900d71a45, type: 3}
+  closedDoor: {fileID: -1768820635, guid: 0b147ec480de9354d9e2c10900d71a45, type: 3}
 --- !u!114 &1192253032077784931
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -66,6 +81,8 @@ MonoBehaviour:
   playerInventory: {fileID: 0}
   fullWaterBottle: {fileID: 11400000, guid: ce94fc1ebe79bb8409cedb12b446ce69, type: 2}
   emptyWaterBottle: {fileID: 11400000, guid: 30bd317bd4e120e4ea721232e9fd4c5b, type: 2}
+  waterBottleCapacity: 5
+  currentWaterAmount: 0
 --- !u!114 &1481438490654590115
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -91,10 +108,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6502c0757cdc0a4ca2e16b444a2b6d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  generalItemsUI: {fileID: 0}
   inventoryCanvas: {fileID: 0}
   itemsList: {fileID: 0}
   selectButton: {fileID: 0}
+  itemName: {fileID: 0}
   itemDescription: {fileID: 0}
+  player: {fileID: 0}
   playerInventory: {fileID: 0}
   numberOfRows: 4
   numberOfColumns: 7
@@ -125,6 +145,7 @@ MonoBehaviour:
   playerInventory: {fileID: 0}
   distanceBetweenRows: 423
   distanceBetweenColumns: 826.56
+  player: {fileID: 0}
   fertilizers:
   - {fileID: 11400000, guid: 6a233266b6c0a7d4098432d01cc36a4f, type: 2}
   - {fileID: 11400000, guid: 5b8eca88b4cbd814fa37227a2ee3aeb1, type: 2}

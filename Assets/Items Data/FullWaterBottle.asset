@@ -16,13 +16,14 @@ MonoBehaviour:
   itemName: Water Bottle
   itemInventoryIcon: {fileID: 0}
   overworldSprite: {fileID: 0}
-  itemDescription: Drip... drip... drip...
+  itemDescription: A full watercan is ready to nourish your dungeon garden.
   itemType: 0
   maxGrowthIndex: 0
   phasesGrowthIndex: []
   growingPhasesSprites: []
   deceasingSprites: []
   possibleDrops: []
+  treeAnimator: {fileID: 0}
   note: 
   fertilizableSeed: {fileID: 0}
   fertilizerCraftingRecipe: []
