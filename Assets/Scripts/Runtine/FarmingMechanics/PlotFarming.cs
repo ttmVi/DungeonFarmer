@@ -59,12 +59,14 @@ public class PlotFarming : MonoBehaviour
         {
             CleanDebris();
             PloughPlot();
+            GameObject.Find("Player").GetComponent<PlayerAnimationController>().TriggerInteractingAnimation();
         }
 
         // Planting the seed
         else if (GetComponent<SpriteRenderer>().sprite == ploughedPlot) 
         {
             FindObjectOfType<InventoryManager>().GetComponent<InventoryManager>().OpenSeedsInventory(gameObject);
+            GameObject.Find("Player").GetComponent<PlayerAnimationController>().TriggerInteractingAnimation();
         }
         //else if (GetComponent<SpriteRenderer>().sprite == ploughedPlot) { PlantSeed(draftingTree.GetTreeData()); }
 
@@ -76,15 +78,18 @@ public class PlotFarming : MonoBehaviour
                 if (FindObjectOfType<FarmManager>().GetComponent<FarmManager>().WaterBottleFilled())
                 {
                     WaterPlant(0.5f);
+                    GameObject.Find("Player").GetComponent<PlayerAnimationController>().TriggerWaterAnimation();
                 }
                 else
                 {
                     FindObjectOfType<InventoryManager>().GetComponent<InventoryManager>().OpenFertilizersInventory(gameObject);
+                    GameObject.Find("Player").GetComponent<PlayerAnimationController>().TriggerInteractingAnimation();
                 }
             }
             else if (treeGrowthIndex >= maxGrowthIndex && treeData != null)
             {
                 HarvestPlant();
+                GameObject.Find("Player").GetComponent<PlayerAnimationController>().TriggerInteractingAnimation();
             }
         }
     }

@@ -213,6 +213,8 @@ public class PlayerJump : MonoBehaviour
         //Create the jump, provided we are on the ground, in coyote time, or have a double jump available
         if (onLadder || onGround || (coyoteTimeCounter > 0.03f && coyoteTimeCounter < coyoteTime) || canJumpAgain)
         {
+            GetComponent<PlayerAnimationController>().TriggerJumpingAnimation();
+
             desiredJump = false;
             jumpBufferCounter = 0;
             coyoteTimeCounter = 0;

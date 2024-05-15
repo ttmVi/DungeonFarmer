@@ -7,6 +7,8 @@ public class PlayerAnimationController : MonoBehaviour
     private Animator animator;
     private GameManager gameManager;
 
+    [SerializeField] private float lookAheadDistance = 0.5f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +25,8 @@ public class PlayerAnimationController : MonoBehaviour
         SetMovingState(GetComponent<PlayerMovement>().directionX != 0);
         SetGroundingState(GetComponent<GroundCheck>().isGrounded());
         SetClimbingState(GetComponent<PlayerLadderClimb>().isInLadder);
+
+        if (NearlyLanding()) { TriggerLandingAnimation(); }
     }
 
     public void TriggerWaterAnimation() { animator.SetTrigger("waterTree"); }
@@ -36,4 +40,13 @@ public class PlayerAnimationController : MonoBehaviour
     public void SetGroundingState(bool state) { animator.SetBool("onGround", state); }
 
     public void SetMovingState(bool state) { animator.SetBool("isMoving", state); }
+
+    private bool NearlyLanding()
+    {
+        bool nearGround = false;
+        BoxCollider2D coll = GetComponent<BoxCollider2D>();
+        Collider2D ground = Physics2D.OverlapBox((Vector2)transform.position + coll.offset + new Vector2(0f, lookAheadDistance), new Vector2(coll.size.x, 0.1f), 0f, LayerMask.GetMask("Ground"));
+        nearGround = Physics2D.Raycast((Vector2)transform.position + coll.offset, Vector2.down, coll.size.y / 2 + lookAheadDistance, LayerMask.GetMask("Ground"));
+        return ground != null;
+    }
 }

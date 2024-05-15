@@ -40,6 +40,7 @@ public class GameManager : MonoBehaviour
         farm.SetActive(true);
         inFarm = true;
         player.GetComponent<PlayerAttack>().enabled = false;
+        player.transform.GetChild(0).GetComponent<Melee>().enabled = false;
 
         dungeon.SetActive(false);
         inDungeon = false;
@@ -94,6 +95,7 @@ public class GameManager : MonoBehaviour
     private IEnumerator ShiftToFarm(GameObject openingDoor)
     {
         DisablePlayer();
+
         if (openingDoor != null)
         {
             openingDoor.GetComponent<Animator>().SetTrigger("doorOpen");
@@ -129,6 +131,7 @@ public class GameManager : MonoBehaviour
         farmDoor.GetComponent<SpriteRenderer>().sprite = closedDoor;
         EnablePlayer();
         player.GetComponent<PlayerAttack>().enabled = false;
+        player.transform.GetChild(0).GetComponent<Melee>().enabled = false;
     }
 
     public void ToFarm(GameObject openingDoor) 
@@ -180,6 +183,7 @@ public class GameManager : MonoBehaviour
         player.GetComponent<PlayerMovement>().enabled = false;
         player.GetComponent<PlayerJump>().enabled = false;
         player.GetComponent<PlayerAttack>().enabled = false;
+        player.transform.GetChild(0).GetComponent<Melee>().enabled = false;
         player.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
     }
 
@@ -189,6 +193,7 @@ public class GameManager : MonoBehaviour
         player.GetComponent<PlayerMovement>().enabled = true;
         player.GetComponent<PlayerJump>().enabled = true;
         player.GetComponent<PlayerAttack>().enabled = true;
+        player.transform.GetChild(0).GetComponent<Melee>().enabled = true;
         player.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
     }
 }
