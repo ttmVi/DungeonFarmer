@@ -5,13 +5,11 @@ using UnityEngine;
 public class Fertilizer
 {
     private Items fertilizableSeed;
-    private Items[] fertilizerCraftingRecipe;
 
-    public Fertilizer(Items fertilizableSeed, Items[] recipe)
+    public Fertilizer(Items fertilizableSeed)
     {
         this.fertilizableSeed = fertilizableSeed;
-        fertilizerCraftingRecipe = recipe;
     }
 
-    public Items[] GetCraftingRecipe() { return fertilizerCraftingRecipe; }
+    public Items GetFertilizableSeed() { return fertilizableSeed; }
 }

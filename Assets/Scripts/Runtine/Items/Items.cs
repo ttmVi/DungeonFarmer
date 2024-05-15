@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 [CreateAssetMenu(fileName = "New Item", menuName = "Item")]
 public class Items : ScriptableObject
@@ -16,7 +17,6 @@ public class Items : ScriptableObject
 
     // Fields for seeds configuration
     [Space]
-    [Header("Seed Information")]
     [SerializeField, HideInInspector] public float maxGrowthIndex;
     [SerializeField, HideInInspector] public float[] phasesGrowthIndex;
     [SerializeField, HideInInspector] public Sprite[] growingPhasesSprites;
@@ -26,26 +26,23 @@ public class Items : ScriptableObject
 
     //Fields for crops configuration
     [Space]
-    [Header("Crop Information")]
     [SerializeField, HideInInspector] private string note;
 
     //Fields for fertilizers configuration
     [Space]
-    [Header("Fertilizer Information")]
     [SerializeField, HideInInspector] public Items fertilizableSeed;
-    [SerializeField, HideInInspector] public Items[] fertilizerCraftingRecipe;
 
     //Fields for monster parts configuration
 
     //Fields for potions configuration
     [Space]
-    [Header("Potion Information")]
     [SerializeField, HideInInspector] public string potionEffect;
-    [SerializeField, HideInInspector] public Items[] potionCraftingRecipe;
+    [SerializeField, HideInInspector] public float potionEffectDuration;
+    [SerializeField, HideInInspector] public float potionEffectValue;
+    [SerializeField, HideInInspector] public UnityEvent potionEffectEvent;
 
     [Space]
     [SerializeField] public bool canBeCrafted;
-
     [SerializeField, HideInInspector] public Items[] craftingRecipe;
 
     public enum ItemType
@@ -120,7 +117,7 @@ public class Items : ScriptableObject
     {
         if (itemType == ItemType.Fertilizer)
         {
-            return new Fertilizer(fertilizableSeed, fertilizerCraftingRecipe);
+            return new Fertilizer(fertilizableSeed);
         }
         return null;
     }
@@ -129,7 +126,7 @@ public class Items : ScriptableObject
     {
         if (itemType == ItemType.Potion)
         {
-            return new Potion(potionEffect, potionCraftingRecipe);
+            return new Potion(potionEffect);
         }
         return null;
     }

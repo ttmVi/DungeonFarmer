@@ -520,12 +520,6 @@ MonoBehaviour:
   hitDirectionForce: 10
   constForce: 5
   inputForce: 7.5
-  knockbackForceCurve:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!114 &4015316803191144813
 MonoBehaviour:
   m_ObjectHideFlags: 0

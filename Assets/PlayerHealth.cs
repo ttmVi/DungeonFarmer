@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerHealth : MonoBehaviour
 {
     public int maxHealth = 10;
-    public int currentHealth;
+    public float currentHealth;
     private Knockback knockback;
     private PlayerMovement playerMovement;
 
@@ -16,7 +16,7 @@ public class PlayerHealth : MonoBehaviour
         currentHealth = maxHealth;
     }
 
-    public void TakeDamage(int damage, Vector2 hitDirection)
+    public void TakeDamage(float damage, Vector2 hitDirection)
     {
         currentHealth -= damage;
         //spawn damage particles
@@ -29,5 +29,18 @@ public class PlayerHealth : MonoBehaviour
             //Die();
         }
         knockback.callKnockBack(hitDirection, Vector2.up, playerMovement.directionX);
+    }
+
+    public void TakeDamage(float damage)
+    {
+        currentHealth -= damage;
+        //spawn damage particles
+        //Instantiate(damageParticles, transform.position, Quaternion.identity);
+        //knockback
+
+        if (currentHealth <= 0)
+        {
+            //Die();
+        }
     }
 }
