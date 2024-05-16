@@ -5,6 +5,7 @@ using UnityEngine;
 public class GeyserGas : MonoBehaviour
 {
     private SpriteRenderer sprite;
+    [SerializeField] private float damage = 2f;
     [SerializeField] private bool isDamagingPlayer = true;
 
     // Start is called before the first frame update
@@ -20,8 +21,7 @@ public class GeyserGas : MonoBehaviour
         {
             isDamagingPlayer = true;
 
-            //GetPlayer().GetComponent<PlayerHealth>().TakeDamage(1);
-            //Needed another TakeDamage method that doesn't do knockback
+            GetPlayer().GetComponent<PlayerHealth>().TakeDamage(Time.deltaTime * damage);
         }
         else { isDamagingPlayer = false; }
     }

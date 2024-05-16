@@ -27,11 +27,24 @@ MonoBehaviour:
   treeAnimator: {fileID: 0}
   note: 
   fertilizableSeed: {fileID: 0}
-  fertilizerCraftingRecipe: []
-  potionEffect: 
-  potionCraftingRecipe:
-  - {fileID: 11400000, guid: 8c9b402cb5354e243bb3b75fb70fed54, type: 2}
-  - {fileID: 11400000, guid: e7c1dd226ca7a4f468433916893ae061, type: 2}
+  potionEffect: Increase player's damage by x% in a fixed amount of time
+  potionEffectDuration: 10
+  potionEffectValue: 1.25
+  potionEffectEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6251682547704121202, guid: 422537ab3b01f6a4582da69146240ae4, type: 3}
+        m_TargetAssemblyTypeName: PotionsManager, Assembly-CSharp
+        m_MethodName: ActivateRagePotion
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000}
+          m_ObjectArgumentAssemblyTypeName: Items, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   canBeCrafted: 1
   craftingRecipe:
   - {fileID: 11400000, guid: 8c9b402cb5354e243bb3b75fb70fed54, type: 2}

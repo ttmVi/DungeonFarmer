@@ -114,7 +114,7 @@ public class InventoryManager : MonoBehaviour
 
     private void OpenInventory(List<(Items, int)> inventory)
     {
-        if (!isOpening && !UIOpened)
+        if (!isOpening && !UIOpened && GetComponent<GameManager>().inFarm)
         {
             lastButtonReleased = false;
 
@@ -137,7 +137,6 @@ public class InventoryManager : MonoBehaviour
         player.GetComponent<PlayerInteract>().enabled = true;
         player.GetComponent<PlayerMovement>().enabled = true;
         player.GetComponent<PlayerJump>().enabled = true;
-        player.GetComponent<PlayerAttack>().enabled = true;
         
         inventoryCanvas.SetActive(false);
         isOpening = false;
@@ -184,8 +183,6 @@ public class InventoryManager : MonoBehaviour
 
     public void OnUsingItem(InputAction.CallbackContext context)
     {
-        //StartCoroutine(UseItem(context));
-
         if (context.started && lastButtonReleased)
         {
             lastButtonReleased = false;
@@ -207,26 +204,9 @@ public class InventoryManager : MonoBehaviour
         else { lastButtonReleased = true; }
     }
 
-    private IEnumerator UseItem(InputAction.CallbackContext context)
+    public void UseUpPotion(Items potion)
     {
-        yield return new WaitForFixedUpdate();
-        if (context.started && !context.canceled)
-        {
-            if (isPlantingTree && isOpening && displayingInventory.Count > 0)
-            {
-                Items plantingSeed = displayingInventory[currentInventoryIndex].Item1;
-                plantingPlot.GetComponent<PlotFarming>().PlantSeed(plantingSeed.GetSeedData());
-                playerInventory.gameObject.GetComponent<PlayerInventory>().RemoveItems(plantingSeed, 1);
-                CloseInventory();
-            }
-            else if (isFertilizingTree && isOpening && displayingInventory.Count > 0)
-            {
-                Items fertilizer = displayingInventory[currentInventoryIndex].Item1;
-                plantingPlot.GetComponent<PlotFarming>().FertilizePlant(fertilizer, 1.5f);
-                //playerInventory.gameObject.GetComponent<PlayerInventory>().RemoveItems(fertilizer, 1);
-                CloseInventory();
-            }
-        }
+        playerInventory.gameObject.GetComponent<PlayerInventory>().RemoveItems(potion, 1);
     }
 
     private void NextItem()

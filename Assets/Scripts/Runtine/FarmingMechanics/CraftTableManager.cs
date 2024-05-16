@@ -182,11 +182,11 @@ public class CraftTableManager : MonoBehaviour
     {
         if (item.GetItemType() == Items.ItemType.Fertilizer)
         {
-            return item.GetFertilizerData().GetCraftingRecipe();
+            return item.GetCraftingRecipe();
         }
         else if (item.GetItemType() == Items.ItemType.Potion)
         {
-            return item.GetPotionData().GetCraftingRecipe();
+            return item.GetCraftingRecipe();
         }
         return null;
     }

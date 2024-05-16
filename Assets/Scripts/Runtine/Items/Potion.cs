@@ -1,25 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Potion
 {
     private string potionEffect;
-    private Items[] craftingRecipe;
+    private float potionEffectDuration;
+    private float potionEffectValue;
+    private UnityEvent potionEffectEvent;
 
-    public Potion(string potionEffect, Items[] craftingRecipe)
+    public Potion(string potionEffect)
     {
         this.potionEffect = potionEffect;
-        this.craftingRecipe = craftingRecipe;
     }
 
-    public string GetPotionEffect()
-    {
-        return potionEffect;
-    }
+    public string GetPotionEffect() { return potionEffect; }
 
-    public Items[] GetCraftingRecipe()
-    {
-        return craftingRecipe;
-    }
+    public float GetPotionEffectDuration() { return potionEffectDuration; }
+
+    public float GetPotionEffectValue() { return potionEffectValue; }
+
+    public UnityEvent GetPotionEffectEvent() {  return potionEffectEvent; }
 }

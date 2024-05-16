@@ -39,6 +39,8 @@ public class GameManager : MonoBehaviour
         player.transform.position = firstEverStartingPos;
         farm.SetActive(true);
         inFarm = true;
+        player.GetComponent<PlayerAttack>().enabled = false;
+        player.transform.GetChild(0).GetComponent<Melee>().enabled = false;
 
         dungeon.SetActive(false);
         inDungeon = false;
@@ -52,10 +54,17 @@ public class GameManager : MonoBehaviour
     private IEnumerator ShiftToDungeon(GameObject openingDoor)
     {
         DisablePlayer();
-        openingDoor.GetComponent<Animator>().SetTrigger("doorOpen");
-        yield return new WaitForSeconds(doorOpen.length);
+        if (openingDoor != null)
+        {
+            openingDoor.GetComponent<Animator>().SetTrigger("doorOpen");
+            yield return new WaitForSeconds(doorOpen.length);
+        }
+        else { yield return new WaitForEndOfFrame(); }
 
-        openingDoor.GetComponent<SpriteRenderer>().sprite = openedDoor;
+        if (openingDoor != null)
+        {
+            openingDoor.GetComponent<SpriteRenderer>().sprite = openedDoor;
+        }
         StartCoroutine(BlackOut());
         yield return new WaitUntil(() => ScreenIsBlack());
 
@@ -86,10 +95,17 @@ public class GameManager : MonoBehaviour
     private IEnumerator ShiftToFarm(GameObject openingDoor)
     {
         DisablePlayer();
-        openingDoor.GetComponent<Animator>().SetTrigger("doorOpen");
-        yield return new WaitForSeconds(doorOpen.length);
 
-        openingDoor.GetComponent<SpriteRenderer>().sprite = openedDoor;
+        if (openingDoor != null)
+        {
+            openingDoor.GetComponent<Animator>().SetTrigger("doorOpen");
+            yield return new WaitForSeconds(doorOpen.length);
+        }
+
+        if (openingDoor != null)
+        {
+            openingDoor.GetComponent<SpriteRenderer>().sprite = openedDoor;
+        }
         StartCoroutine(BlackOut());
         yield return new WaitUntil(() => ScreenIsBlack());
 
@@ -100,6 +116,10 @@ public class GameManager : MonoBehaviour
         inFarm = true;
         player.transform.position = farmStartPos;
         farmDoor.GetComponent<SpriteRenderer>().sprite = openedDoor;
+        if (player.GetComponent<PlayerHealth>().IsDying())
+        {
+            player.GetComponent<PlayerHealth>().StopDying();
+        }
         yield return new WaitForSeconds(2f);
 
         StartCoroutine(WhiteIn());
@@ -110,6 +130,8 @@ public class GameManager : MonoBehaviour
 
         farmDoor.GetComponent<SpriteRenderer>().sprite = closedDoor;
         EnablePlayer();
+        player.GetComponent<PlayerAttack>().enabled = false;
+        player.transform.GetChild(0).GetComponent<Melee>().enabled = false;
     }
 
     public void ToFarm(GameObject openingDoor) 
@@ -161,6 +183,7 @@ public class GameManager : MonoBehaviour
         player.GetComponent<PlayerMovement>().enabled = false;
         player.GetComponent<PlayerJump>().enabled = false;
         player.GetComponent<PlayerAttack>().enabled = false;
+        player.transform.GetChild(0).GetComponent<Melee>().enabled = false;
         player.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
     }
 
@@ -170,5 +193,7 @@ public class GameManager : MonoBehaviour
         player.GetComponent<PlayerMovement>().enabled = true;
         player.GetComponent<PlayerJump>().enabled = true;
         player.GetComponent<PlayerAttack>().enabled = true;
+        player.transform.GetChild(0).GetComponent<Melee>().enabled = true;
+        player.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
     }
 }

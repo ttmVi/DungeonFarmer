@@ -40,6 +40,10 @@ public class Interactable : MonoBehaviour
             //Debug.Log(farmPlot.gameObject.name);
             farmPlot.DoFarming();
         }
+        else
+        {
+            GameObject.Find("Player").GetComponent<PlayerAnimationController>().TriggerInteractingAnimation();
+        }
     }
 
     public int GetInteractingPriority() { return interactingPriority; }
