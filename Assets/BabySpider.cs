@@ -31,7 +31,7 @@ public class BabySpider : MonoBehaviour
         maxX = transform.position.x + localMaxX;
         moveSpot = new GameObject("SpiderMoveSpot").transform;
         moveSpot.position = new Vector2(Random.Range(minX, maxX), transform.position.y);
-        this.enemyAI.target = GameObject.FindGameObjectWithTag("Player").transform;
+        //this.enemyAI.target = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     // Update is called once per frame
