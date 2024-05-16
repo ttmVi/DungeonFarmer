@@ -137,7 +137,6 @@ public class InventoryManager : MonoBehaviour
         player.GetComponent<PlayerInteract>().enabled = true;
         player.GetComponent<PlayerMovement>().enabled = true;
         player.GetComponent<PlayerJump>().enabled = true;
-        player.GetComponent<PlayerAttack>().enabled = true;
         
         inventoryCanvas.SetActive(false);
         isOpening = false;

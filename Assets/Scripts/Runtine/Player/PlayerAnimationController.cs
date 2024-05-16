@@ -32,8 +32,16 @@ public class PlayerAnimationController : MonoBehaviour
     public void TriggerWaterAnimation() { animator.SetTrigger("waterTree"); }
     public void TriggerInteractingAnimation() { animator.SetTrigger("interact"); }
 
-    public void TriggerJumpingAnimation() { animator.SetTrigger("jumping"); }
-    public void TriggerLandingAnimation() { animator.SetTrigger("landing"); }
+    public void TriggerJumpingAnimation() 
+    { 
+        animator.SetTrigger("jumping");
+        animator.ResetTrigger("landing");
+    }
+    public void TriggerLandingAnimation() 
+    { 
+        animator.SetTrigger("landing");
+        animator.ResetTrigger("jumping");
+    }
 
     public void SetClimbingState(bool state) { animator.SetBool("isClimbing", state); }
 
@@ -48,5 +56,13 @@ public class PlayerAnimationController : MonoBehaviour
         Collider2D ground = Physics2D.OverlapBox((Vector2)transform.position + coll.offset + new Vector2(0f, lookAheadDistance), new Vector2(coll.size.x, 0.1f), 0f, LayerMask.GetMask("Ground"));
         nearGround = Physics2D.Raycast((Vector2)transform.position + coll.offset, Vector2.down, coll.size.y / 2 + lookAheadDistance, LayerMask.GetMask("Ground"));
         return ground != null;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.layer == LayerMask.GetMask("Ground"))
+        {
+            animator.ResetTrigger("jumping");
+        }
     }
 }
