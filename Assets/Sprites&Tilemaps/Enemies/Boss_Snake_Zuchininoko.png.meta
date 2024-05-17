@@ -1,0 +1,1716 @@
+fileFormatVersion: 2
+guid: b8013f2d0460f334b936bb5db2d05349
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Boss_Snake_Zuchininoko_20
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 448
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.25, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87176de7ddd441545a2958d7290c94ea
+      internalID: -1172638650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_Snake_Zuchininoko_22
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 448
+        width: 31
+        height: 30
+      alignment: 9
+      pivot: {x: 0.2580645, y: 0.26666668}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0c50e65a6ce458439e0321323817b9b
+      internalID: 1571480790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_Snake_Zuchininoko_24
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 448
+        width: 31
+        height: 30
+      alignment: 9
+      pivot: {x: 0.2580645, y: 0.26666668}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c261098585161d24e94a7e1d776a8259
+      internalID: 1698439797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_Snake_Zuchininoko_26
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 448
+        width: 31
+        height: 30
+      alignment: 9
+      pivot: {x: 0.2580645, y: 0.26666668}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5d63dc3c4a58bd4380aa0d3675f86b4
+      internalID: -808841178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_Snake_Zuchininoko_28
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 448
+        width: 32
+        height: 30
+      alignment: 9
+      pivot: {x: 0.28125, y: 0.26666668}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b9cc43e7da62b54991aba04eac664ff
+      internalID: 1613733733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_Snake_Zuchininoko_30
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 448
+        width: 31
+        height: 30
+      alignment: 9
+      pivot: {x: 0.2580645, y: 0.26666668}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bcf0b8108f2c12c408b3ce6a05ac6c7e
+      internalID: 1756240799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_Snake_Zuchininoko_32
+      rect:
+        serializedVersion: 2
+        x: 351
+        y: 448
+        width: 32
+        height: 30
+      alignment: 9
+      pivot: {x: 0.28125, y: 0.26666668}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 445217d4d0461b849b8fc1d934971ed7
+      internalID: 1823832367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_Snake_Zuchininoko_34
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 448
+        width: 31
+        height: 30
+      alignment: 9
+      pivot: {x: 0.2580645, y: 0.26666668}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38f6307d741a067479098b4769b441ce
+      internalID: -1142925283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_Snake_Zuchininoko_51
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 400
+        width: 31
+        height: 30
+      alignment: 9
+      pivot: {x: 0.2580645, y: 0.26666668}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20fdbe4da33590b40a5b2b4860a609a9
+      internalID: -2082868986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_Snake_Zuchininoko_53
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 400
+        width: 31
+        height: 32
+      alignment: 9
+      pivot: {x: 0.2580645, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f32cda59fc3c7b9438fe9994975fc85d
+      internalID: -1685784198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_Snake_Zuchininoko_55
+      rect:
+        serializedVersion: 2
+        x: 186
+        y: 400
+        width: 37
+        height: 31
+      alignment: 9
+      pivot: {x: 0.3783784, y: 0.2580645}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35c46a9a04c01484b807aeddeef1c427
+      internalID: -2047072658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_Snake_Zuchininoko_58
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 400
+        width: 44
+        height: 25
+      alignment: 9
+      pivot: {x: 0.47727272, y: 0.32}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 415946310d68a034092e06deb2b7380a
+      internalID: -1552880273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_Snake_Zuchininoko_61
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 400
+        width: 47
+        height: 19
+      alignment: 9
+      pivot: {x: 0.5106383, y: 0.42105263}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c424583fc7592794d91e6c6c8608e911
+      internalID: -1156017039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_Snake_Zuchininoko_64
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 400
+        width: 47
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5106383, y: 0.3809524}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 934ddc01efe27a147ab7877d54d06883
+      internalID: -2030567203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_Snake_Zuchininoko_73
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 352
+        width: 47
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5106383, y: 0.3809524}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a45be6db7267d0049a9344dd9bec37d4
+      internalID: 35665233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_Snake_Zuchininoko_76
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 352
+        width: 47
+        height: 22
+      alignment: 9
+      pivot: {x: 0.5106383, y: 0.36363637}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7750eae3178622b4087f03eadf8f3d6f
+      internalID: 1264386167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_Snake_Zuchininoko_95
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 304
+        width: 47
+        height: 22
+      alignment: 9
+      pivot: {x: 0.5106383, y: 0.36363637}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a85d86638da11184dbc569e67cd7042c
+      internalID: 578791332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_Snake_Zuchininoko_98
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 304
+        width: 47
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5106383, y: 0.3809524}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b32a1d6ced37049408c3c9feb2782197
+      internalID: 1890526178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_Snake_Zuchininoko_101
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 304
+        width: 47
+        height: 19
+      alignment: 9
+      pivot: {x: 0.5106383, y: 0.42105263}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: abf0e58dabf75e647b393af56e86f5a5
+      internalID: -1007969419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_Snake_Zuchininoko_104
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 304
+        width: 47
+        height: 18
+      alignment: 9
+      pivot: {x: 0.5106383, y: 0.44444445}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 552c6c2b64b51cb43900d40c5259d541
+      internalID: 239689853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_Snake_Zuchininoko_107
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 304
+        width: 47
+        height: 18
+      alignment: 9
+      pivot: {x: 0.5106383, y: 0.44444445}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10f1d62849a33394a8984601ce4852f3
+      internalID: 635498351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_Snake_Zuchininoko_110
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 304
+        width: 47
+        height: 18
+      alignment: 9
+      pivot: {x: 0.5106383, y: 0.44444445}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62ea1d4a2f6cbad419828c55ad5aacce
+      internalID: -1599991677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_Snake_Zuchininoko_131
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 256
+        width: 47
+        height: 18
+      alignment: 9
+      pivot: {x: 0.5106383, y: 0.44444445}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4704b39296ad09a4c9156caad0c3df8e
+      internalID: 1497449532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_Snake_Zuchininoko_134
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 256
+        width: 47
+        height: 18
+      alignment: 9
+      pivot: {x: 0.5106383, y: 0.44444445}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac5437d77d3766240a966357fcfa3e4c
+      internalID: -1716245326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_Snake_Zuchininoko_137
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 256
+        width: 47
+        height: 20
+      alignment: 9
+      pivot: {x: 0.5106383, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6dcfcdceff43ab24283de0bdbdbb064b
+      internalID: 836870072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_Snake_Zuchininoko_140
+      rect:
+        serializedVersion: 2
+        x: 275
+        y: 256
+        width: 44
+        height: 25
+      alignment: 9
+      pivot: {x: 0.47727272, y: 0.32}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81b8e35d03320314da50ad00833ceb3b
+      internalID: 402487481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_Snake_Zuchininoko_142
+      rect:
+        serializedVersion: 2
+        x: 346
+        y: 256
+        width: 37
+        height: 31
+      alignment: 9
+      pivot: {x: 0.3783784, y: 0.2580645}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e519afab5a011a149812614cfc0d776f
+      internalID: -1325364359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_Snake_Zuchininoko_144
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 256
+        width: 31
+        height: 32
+      alignment: 9
+      pivot: {x: 0.2580645, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 609eb7471a4c33545a73a6719eef2e1f
+      internalID: -244212057
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_Snake_Zuchininoko_146
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 256
+        width: 31
+        height: 30
+      alignment: 9
+      pivot: {x: 0.2580645, y: 0.26666668}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b33ce2d311f3ba4bbaae23f72806347
+      internalID: -1549744829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_Snake_Zuchininoko_163
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 208
+        width: 47
+        height: 22
+      alignment: 9
+      pivot: {x: 0.5106383, y: 0.36363637}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7bf2e08b156e9fe4bbc99e61303f0bdb
+      internalID: 1059776470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_Snake_Zuchininoko_166
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 208
+        width: 47
+        height: 24
+      alignment: 9
+      pivot: {x: 0.5106383, y: 0.33333334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c9b5758ee90cac45a0c7bc78dc0ca50
+      internalID: -667459373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_Snake_Zuchininoko_169
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 208
+        width: 47
+        height: 25
+      alignment: 9
+      pivot: {x: 0.5106383, y: 0.32}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a4dbe0e67fd1794bba835bd6b81505b
+      internalID: -971347443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_Snake_Zuchininoko_173
+      rect:
+        serializedVersion: 2
+        x: 253
+        y: 208
+        width: 50
+        height: 18
+      alignment: 9
+      pivot: {x: 0.54, y: 0.44444445}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2bf1fb9e52aea864f9859cbe5c5aa5b3
+      internalID: 2101751945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_Snake_Zuchininoko_177
+      rect:
+        serializedVersion: 2
+        x: 333
+        y: 208
+        width: 50
+        height: 17
+      alignment: 9
+      pivot: {x: 0.54, y: 0.47058824}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e33c0de7e1fa30840bffb881f10e1b7b
+      internalID: 2032528983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_Snake_Zuchininoko_181
+      rect:
+        serializedVersion: 2
+        x: 415
+        y: 208
+        width: 48
+        height: 18
+      alignment: 9
+      pivot: {x: 0.5208333, y: 0.44444445}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20d9d992d0d0fab4fb17f0f9c75446a1
+      internalID: -558155400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_Snake_Zuchininoko_201
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 160
+        width: 48
+        height: 18
+      alignment: 9
+      pivot: {x: 0.5208333, y: 0.44444445}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e977e69530cde64fbaef47b6c6b1e1f
+      internalID: 564189898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_Snake_Zuchininoko_204
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 160
+        width: 47
+        height: 20
+      alignment: 9
+      pivot: {x: 0.5106383, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9853b06c96e0def4fb61b5cf2064ba6b
+      internalID: -1918646987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_Snake_Zuchininoko_207
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 160
+        width: 44
+        height: 25
+      alignment: 9
+      pivot: {x: 0.47727272, y: 0.32}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e63accaff385d43458859d666935b59a
+      internalID: -1527573050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_Snake_Zuchininoko_209
+      rect:
+        serializedVersion: 2
+        x: 282
+        y: 160
+        width: 37
+        height: 31
+      alignment: 9
+      pivot: {x: 0.3783784, y: 0.2580645}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3963ee116f859df4d828565b76d87a12
+      internalID: -1074931353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_Snake_Zuchininoko_211
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 160
+        width: 31
+        height: 32
+      alignment: 9
+      pivot: {x: 0.2580645, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42aad985e530a3c48b8c656c367333a7
+      internalID: -944769263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_Snake_Zuchininoko_213
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 160
+        width: 31
+        height: 30
+      alignment: 9
+      pivot: {x: 0.2580645, y: 0.26666668}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd729e9622b49d448b5edd16aefccf75
+      internalID: 968371921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_Snake_Zuchininoko_238
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 112
+        width: 31
+        height: 30
+      alignment: 9
+      pivot: {x: 0.2580645, y: 0.26666668}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eff63b29191a6d64180713e9d7bdf4a3
+      internalID: 724318207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_Snake_Zuchininoko_240
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 112
+        width: 29
+        height: 29
+      alignment: 9
+      pivot: {x: 0.27586207, y: 0.27586207}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 958dcf6b10e404a42850054790bcc194
+      internalID: 515055159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_Snake_Zuchininoko_242
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 112
+        width: 30
+        height: 29
+      alignment: 9
+      pivot: {x: 0.26666668, y: 0.27586207}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9554e9f18e30b9041b6641d3a8a4b557
+      internalID: 618469714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_Snake_Zuchininoko_244
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 112
+        width: 35
+        height: 29
+      alignment: 9
+      pivot: {x: 0.22857143, y: 0.27586207}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1343f4376eb5ed947a8f66585bf5fd2a
+      internalID: 1188574381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_Snake_Zuchininoko_247
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 112
+        width: 33
+        height: 29
+      alignment: 9
+      pivot: {x: 0.24242425, y: 0.27586207}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fcdbc2fa268887846bc7149ca378c620
+      internalID: -1836066651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_Snake_Zuchininoko_250
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 112
+        width: 34
+        height: 29
+      alignment: 9
+      pivot: {x: 0.23529412, y: 0.27586207}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 319b9619683f1c9428f227304630436c
+      internalID: -1492428329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_Snake_Zuchininoko_253
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 112
+        width: 45
+        height: 29
+      alignment: 9
+      pivot: {x: 0.17777778, y: 0.27586207}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7382f08cfa9cb89458381561be59a034
+      internalID: -771105354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_Snake_Zuchininoko_256
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 112
+        width: 39
+        height: 29
+      alignment: 9
+      pivot: {x: 0.20512821, y: 0.27586207}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 356953cc0b516184187cfe86be6c46bd
+      internalID: 332797817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_Snake_Zuchininoko_259
+      rect:
+        serializedVersion: 2
+        x: 464
+        y: 112
+        width: 30
+        height: 30
+      alignment: 9
+      pivot: {x: 0.26666668, y: 0.26666668}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e53e1b06a5804b4d84c3833fb5caac5
+      internalID: 525776146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_Snake_Zuchininoko_261
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 112
+        width: 31
+        height: 30
+      alignment: 9
+      pivot: {x: 0.2580645, y: 0.26666668}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 717cda8e404ba024f9b66ee2e541036e
+      internalID: 1248734354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_Snake_Zuchininoko_277
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 32
+        height: 35
+      alignment: 9
+      pivot: {x: 0.25, y: 0.22857143}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4cabc691336bbf54297ad254ee0dabb2
+      internalID: -417860325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_Snake_Zuchininoko_279
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 64
+        width: 32
+        height: 35
+      alignment: 9
+      pivot: {x: 0.25, y: 0.22857143}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e0fd5e62adfaf7469c925fdb887bff8
+      internalID: -1214345853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_Snake_Zuchininoko_281
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 64
+        width: 32
+        height: 35
+      alignment: 9
+      pivot: {x: 0.25, y: 0.22857143}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f515000e3b84ad4eb8d5745ed7b7642
+      internalID: 2009615539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_Snake_Zuchininoko_298
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 16
+        width: 32
+        height: 39
+      alignment: 9
+      pivot: {x: 0.25, y: 0.20512821}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5fe475add0b5b7841b8eb784a7c904f0
+      internalID: -1279550045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_Snake_Zuchininoko_300
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 16
+        width: 32
+        height: 39
+      alignment: 9
+      pivot: {x: 0.25, y: 0.20512821}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e22b182e73b89934986dfc04286664fa
+      internalID: -870080234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_Snake_Zuchininoko_302
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 16
+        width: 32
+        height: 39
+      alignment: 9
+      pivot: {x: 0.25, y: 0.20512821}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ded5ffd2116227e45b3d07a3108c9af7
+      internalID: -1190160856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_Snake_Zuchininoko_304
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: acad48c4359254742900307df1c69a22
+      internalID: 1869883676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_Snake_Zuchininoko_305
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12a57e513824bbb418c5959703445ba7
+      internalID: -1204916517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_Snake_Zuchininoko_306
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bfd6a670636f43e47b4f096f2b97f472
+      internalID: -1542325528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_Snake_Zuchininoko_307
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c162b71052964e42963d442b60c63b6
+      internalID: -1226582469
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Boss_Snake_Zuchininoko_0: -106106828
+      Boss_Snake_Zuchininoko_1: 1801211054
+      Boss_Snake_Zuchininoko_10: 418877190
+      Boss_Snake_Zuchininoko_100: -459324302
+      Boss_Snake_Zuchininoko_101: -1007969419
+      Boss_Snake_Zuchininoko_102: -846980851
+      Boss_Snake_Zuchininoko_103: -1231190370
+      Boss_Snake_Zuchininoko_104: 239689853
+      Boss_Snake_Zuchininoko_105: 1893939675
+      Boss_Snake_Zuchininoko_106: -1814105840
+      Boss_Snake_Zuchininoko_107: 635498351
+      Boss_Snake_Zuchininoko_108: 1370249749
+      Boss_Snake_Zuchininoko_109: 1614834581
+      Boss_Snake_Zuchininoko_11: 1125994310
+      Boss_Snake_Zuchininoko_110: -1599991677
+      Boss_Snake_Zuchininoko_111: -730921231
+      Boss_Snake_Zuchininoko_112: 211818364
+      Boss_Snake_Zuchininoko_113: 1455148625
+      Boss_Snake_Zuchininoko_114: 632185992
+      Boss_Snake_Zuchininoko_115: -903830577
+      Boss_Snake_Zuchininoko_116: 1356015561
+      Boss_Snake_Zuchininoko_117: -264712216
+      Boss_Snake_Zuchininoko_118: 1092559260
+      Boss_Snake_Zuchininoko_119: -97532325
+      Boss_Snake_Zuchininoko_12: 1491008445
+      Boss_Snake_Zuchininoko_120: 1061481171
+      Boss_Snake_Zuchininoko_121: 716943166
+      Boss_Snake_Zuchininoko_122: -1441611659
+      Boss_Snake_Zuchininoko_123: 1799959357
+      Boss_Snake_Zuchininoko_124: 305389336
+      Boss_Snake_Zuchininoko_125: 1177760645
+      Boss_Snake_Zuchininoko_126: -1372898964
+      Boss_Snake_Zuchininoko_127: 850360977
+      Boss_Snake_Zuchininoko_128: -2073347412
+      Boss_Snake_Zuchininoko_129: 1659335221
+      Boss_Snake_Zuchininoko_13: 1126070212
+      Boss_Snake_Zuchininoko_130: -293941328
+      Boss_Snake_Zuchininoko_131: 1497449532
+      Boss_Snake_Zuchininoko_132: -1558611581
+      Boss_Snake_Zuchininoko_133: -1981213463
+      Boss_Snake_Zuchininoko_134: -1716245326
+      Boss_Snake_Zuchininoko_135: -983205888
+      Boss_Snake_Zuchininoko_136: 767113880
+      Boss_Snake_Zuchininoko_137: 836870072
+      Boss_Snake_Zuchininoko_138: -851569723
+      Boss_Snake_Zuchininoko_139: 38187181
+      Boss_Snake_Zuchininoko_14: -1530322688
+      Boss_Snake_Zuchininoko_140: 402487481
+      Boss_Snake_Zuchininoko_141: 102683646
+      Boss_Snake_Zuchininoko_142: -1325364359
+      Boss_Snake_Zuchininoko_143: -37793927
+      Boss_Snake_Zuchininoko_144: -244212057
+      Boss_Snake_Zuchininoko_145: -103551537
+      Boss_Snake_Zuchininoko_146: -1549744829
+      Boss_Snake_Zuchininoko_147: 1700721127
+      Boss_Snake_Zuchininoko_148: 588352905
+      Boss_Snake_Zuchininoko_149: 1308719866
+      Boss_Snake_Zuchininoko_15: -431255347
+      Boss_Snake_Zuchininoko_150: -710555131
+      Boss_Snake_Zuchininoko_151: -1755037305
+      Boss_Snake_Zuchininoko_152: -2123208029
+      Boss_Snake_Zuchininoko_153: -1941773317
+      Boss_Snake_Zuchininoko_154: 729802003
+      Boss_Snake_Zuchininoko_155: 1747356552
+      Boss_Snake_Zuchininoko_156: -1572861531
+      Boss_Snake_Zuchininoko_157: 572897049
+      Boss_Snake_Zuchininoko_158: 1163263975
+      Boss_Snake_Zuchininoko_159: 737109139
+      Boss_Snake_Zuchininoko_16: -652802868
+      Boss_Snake_Zuchininoko_160: 1908568981
+      Boss_Snake_Zuchininoko_161: -1348744352
+      Boss_Snake_Zuchininoko_162: -1783181622
+      Boss_Snake_Zuchininoko_163: 1059776470
+      Boss_Snake_Zuchininoko_164: 453602204
+      Boss_Snake_Zuchininoko_165: -627915364
+      Boss_Snake_Zuchininoko_166: -667459373
+      Boss_Snake_Zuchininoko_167: -1300534062
+      Boss_Snake_Zuchininoko_168: 680952576
+      Boss_Snake_Zuchininoko_169: -971347443
+      Boss_Snake_Zuchininoko_17: 789183661
+      Boss_Snake_Zuchininoko_170: -842015709
+      Boss_Snake_Zuchininoko_171: -331067784
+      Boss_Snake_Zuchininoko_172: 225146006
+      Boss_Snake_Zuchininoko_173: 2101751945
+      Boss_Snake_Zuchininoko_174: -1779766577
+      Boss_Snake_Zuchininoko_175: -1157221907
+      Boss_Snake_Zuchininoko_176: 1975415442
+      Boss_Snake_Zuchininoko_177: 2032528983
+      Boss_Snake_Zuchininoko_178: 1239267629
+      Boss_Snake_Zuchininoko_179: 477378317
+      Boss_Snake_Zuchininoko_18: 354787604
+      Boss_Snake_Zuchininoko_180: -439195491
+      Boss_Snake_Zuchininoko_181: -558155400
+      Boss_Snake_Zuchininoko_182: 551663081
+      Boss_Snake_Zuchininoko_183: 924229192
+      Boss_Snake_Zuchininoko_184: -1059018613
+      Boss_Snake_Zuchininoko_185: -1196546609
+      Boss_Snake_Zuchininoko_186: -145769339
+      Boss_Snake_Zuchininoko_187: 1351299970
+      Boss_Snake_Zuchininoko_188: -197940561
+      Boss_Snake_Zuchininoko_189: 222932277
+      Boss_Snake_Zuchininoko_19: 1500454982
+      Boss_Snake_Zuchininoko_190: 2082301175
+      Boss_Snake_Zuchininoko_191: 1410383365
+      Boss_Snake_Zuchininoko_192: -546185074
+      Boss_Snake_Zuchininoko_193: -457748533
+      Boss_Snake_Zuchininoko_194: -423614653
+      Boss_Snake_Zuchininoko_195: 710723386
+      Boss_Snake_Zuchininoko_196: -1177304972
+      Boss_Snake_Zuchininoko_197: -1577549981
+      Boss_Snake_Zuchininoko_198: 1341558449
+      Boss_Snake_Zuchininoko_199: 2140451026
+      Boss_Snake_Zuchininoko_2: -303536017
+      Boss_Snake_Zuchininoko_20: -1172638650
+      Boss_Snake_Zuchininoko_200: 1593010789
+      Boss_Snake_Zuchininoko_201: 564189898
+      Boss_Snake_Zuchininoko_202: -167132733
+      Boss_Snake_Zuchininoko_203: 575863270
+      Boss_Snake_Zuchininoko_204: -1918646987
+      Boss_Snake_Zuchininoko_205: -2009639344
+      Boss_Snake_Zuchininoko_206: 402180331
+      Boss_Snake_Zuchininoko_207: -1527573050
+      Boss_Snake_Zuchininoko_208: 850977191
+      Boss_Snake_Zuchininoko_209: -1074931353
+      Boss_Snake_Zuchininoko_21: 587551964
+      Boss_Snake_Zuchininoko_210: -871088665
+      Boss_Snake_Zuchininoko_211: -944769263
+      Boss_Snake_Zuchininoko_212: 1260054123
+      Boss_Snake_Zuchininoko_213: 968371921
+      Boss_Snake_Zuchininoko_214: 1068927860
+      Boss_Snake_Zuchininoko_215: 1947277898
+      Boss_Snake_Zuchininoko_216: 305762744
+      Boss_Snake_Zuchininoko_217: 37833015
+      Boss_Snake_Zuchininoko_218: -1349048870
+      Boss_Snake_Zuchininoko_219: -380662155
+      Boss_Snake_Zuchininoko_22: 1571480790
+      Boss_Snake_Zuchininoko_220: -418875842
+      Boss_Snake_Zuchininoko_221: 1675475446
+      Boss_Snake_Zuchininoko_222: -1878910608
+      Boss_Snake_Zuchininoko_223: 563837002
+      Boss_Snake_Zuchininoko_224: -871963535
+      Boss_Snake_Zuchininoko_225: -228085270
+      Boss_Snake_Zuchininoko_226: -699654829
+      Boss_Snake_Zuchininoko_227: -2145876907
+      Boss_Snake_Zuchininoko_228: -1473555476
+      Boss_Snake_Zuchininoko_229: -1778586721
+      Boss_Snake_Zuchininoko_23: 901961363
+      Boss_Snake_Zuchininoko_230: 387440990
+      Boss_Snake_Zuchininoko_231: -195703094
+      Boss_Snake_Zuchininoko_232: -1404748438
+      Boss_Snake_Zuchininoko_233: -1380712956
+      Boss_Snake_Zuchininoko_234: 2139720261
+      Boss_Snake_Zuchininoko_235: 1475980012
+      Boss_Snake_Zuchininoko_236: 1543132426
+      Boss_Snake_Zuchininoko_237: 493176081
+      Boss_Snake_Zuchininoko_238: 724318207
+      Boss_Snake_Zuchininoko_239: -2128507357
+      Boss_Snake_Zuchininoko_24: 1698439797
+      Boss_Snake_Zuchininoko_240: 515055159
+      Boss_Snake_Zuchininoko_241: -896934749
+      Boss_Snake_Zuchininoko_242: 618469714
+      Boss_Snake_Zuchininoko_243: 2098161351
+      Boss_Snake_Zuchininoko_244: 1188574381
+      Boss_Snake_Zuchininoko_245: 1459204520
+      Boss_Snake_Zuchininoko_246: 879456248
+      Boss_Snake_Zuchininoko_247: -1836066651
+      Boss_Snake_Zuchininoko_248: 649282093
+      Boss_Snake_Zuchininoko_249: -1746218306
+      Boss_Snake_Zuchininoko_25: 1397261774
+      Boss_Snake_Zuchininoko_250: -1492428329
+      Boss_Snake_Zuchininoko_251: -1375867413
+      Boss_Snake_Zuchininoko_252: 334648031
+      Boss_Snake_Zuchininoko_253: -771105354
+      Boss_Snake_Zuchininoko_254: -1041230466
+      Boss_Snake_Zuchininoko_255: -528789399
+      Boss_Snake_Zuchininoko_256: 332797817
+      Boss_Snake_Zuchininoko_257: -2056800563
+      Boss_Snake_Zuchininoko_258: -1137681684
+      Boss_Snake_Zuchininoko_259: 525776146
+      Boss_Snake_Zuchininoko_26: -808841178
+      Boss_Snake_Zuchininoko_260: -61523604
+      Boss_Snake_Zuchininoko_261: 1248734354
+      Boss_Snake_Zuchininoko_262: -1796627458
+      Boss_Snake_Zuchininoko_263: -912006495
+      Boss_Snake_Zuchininoko_264: 1933398696
+      Boss_Snake_Zuchininoko_265: 400635470
+      Boss_Snake_Zuchininoko_266: -1997121656
+      Boss_Snake_Zuchininoko_267: 2133158876
+      Boss_Snake_Zuchininoko_268: 524546758
+      Boss_Snake_Zuchininoko_269: 1014333553
+      Boss_Snake_Zuchininoko_27: -694540994
+      Boss_Snake_Zuchininoko_270: 205397898
+      Boss_Snake_Zuchininoko_271: -349425416
+      Boss_Snake_Zuchininoko_272: -883394788
+      Boss_Snake_Zuchininoko_273: -1080798230
+      Boss_Snake_Zuchininoko_274: 729954529
+      Boss_Snake_Zuchininoko_275: -2016578439
+      Boss_Snake_Zuchininoko_276: 182195564
+      Boss_Snake_Zuchininoko_277: -417860325
+      Boss_Snake_Zuchininoko_278: 461631656
+      Boss_Snake_Zuchininoko_279: -1214345853
+      Boss_Snake_Zuchininoko_28: 1613733733
+      Boss_Snake_Zuchininoko_280: 413258573
+      Boss_Snake_Zuchininoko_281: 2009615539
+      Boss_Snake_Zuchininoko_282: 434475784
+      Boss_Snake_Zuchininoko_283: -1967186825
+      Boss_Snake_Zuchininoko_284: 52650677
+      Boss_Snake_Zuchininoko_285: -1102195608
+      Boss_Snake_Zuchininoko_286: 835053222
+      Boss_Snake_Zuchininoko_287: 193183734
+      Boss_Snake_Zuchininoko_288: -284722271
+      Boss_Snake_Zuchininoko_289: 1302598302
+      Boss_Snake_Zuchininoko_29: -995102436
+      Boss_Snake_Zuchininoko_290: -516475241
+      Boss_Snake_Zuchininoko_291: 1457439218
+      Boss_Snake_Zuchininoko_292: -2097154403
+      Boss_Snake_Zuchininoko_293: 1899887281
+      Boss_Snake_Zuchininoko_294: -1444378078
+      Boss_Snake_Zuchininoko_295: -409479034
+      Boss_Snake_Zuchininoko_296: -1421190111
+      Boss_Snake_Zuchininoko_297: 89402553
+      Boss_Snake_Zuchininoko_298: -1279550045
+      Boss_Snake_Zuchininoko_299: 594884546
+      Boss_Snake_Zuchininoko_3: 495977556
+      Boss_Snake_Zuchininoko_30: 1756240799
+      Boss_Snake_Zuchininoko_300: -870080234
+      Boss_Snake_Zuchininoko_301: -1522841436
+      Boss_Snake_Zuchininoko_302: -1190160856
+      Boss_Snake_Zuchininoko_303: -1759223201
+      Boss_Snake_Zuchininoko_304: 1869883676
+      Boss_Snake_Zuchininoko_305: -1204916517
+      Boss_Snake_Zuchininoko_306: -1542325528
+      Boss_Snake_Zuchininoko_307: -1226582469
+      Boss_Snake_Zuchininoko_31: 1680911325
+      Boss_Snake_Zuchininoko_32: 1823832367
+      Boss_Snake_Zuchininoko_33: 1844115009
+      Boss_Snake_Zuchininoko_34: -1142925283
+      Boss_Snake_Zuchininoko_35: -311615023
+      Boss_Snake_Zuchininoko_36: -1504372341
+      Boss_Snake_Zuchininoko_37: 1526886047
+      Boss_Snake_Zuchininoko_38: -1107833574
+      Boss_Snake_Zuchininoko_39: -1484554023
+      Boss_Snake_Zuchininoko_4: 1849658821
+      Boss_Snake_Zuchininoko_40: -458711760
+      Boss_Snake_Zuchininoko_41: 1896063337
+      Boss_Snake_Zuchininoko_42: 695175712
+      Boss_Snake_Zuchininoko_43: -317795266
+      Boss_Snake_Zuchininoko_44: 1308171895
+      Boss_Snake_Zuchininoko_45: -3143281
+      Boss_Snake_Zuchininoko_46: -1695955986
+      Boss_Snake_Zuchininoko_47: -586939167
+      Boss_Snake_Zuchininoko_48: 1576268943
+      Boss_Snake_Zuchininoko_49: 1332482291
+      Boss_Snake_Zuchininoko_5: -1466168356
+      Boss_Snake_Zuchininoko_50: 1943334063
+      Boss_Snake_Zuchininoko_51: -2082868986
+      Boss_Snake_Zuchininoko_52: -1156675553
+      Boss_Snake_Zuchininoko_53: -1685784198
+      Boss_Snake_Zuchininoko_54: -679674709
+      Boss_Snake_Zuchininoko_55: -2047072658
+      Boss_Snake_Zuchininoko_56: -1825830180
+      Boss_Snake_Zuchininoko_57: -1177897472
+      Boss_Snake_Zuchininoko_58: -1552880273
+      Boss_Snake_Zuchininoko_59: 2078112030
+      Boss_Snake_Zuchininoko_6: -8332894
+      Boss_Snake_Zuchininoko_60: -705523770
+      Boss_Snake_Zuchininoko_61: -1156017039
+      Boss_Snake_Zuchininoko_62: 964035980
+      Boss_Snake_Zuchininoko_63: 114567637
+      Boss_Snake_Zuchininoko_64: -2030567203
+      Boss_Snake_Zuchininoko_65: -1817270487
+      Boss_Snake_Zuchininoko_66: 604816056
+      Boss_Snake_Zuchininoko_67: 116783083
+      Boss_Snake_Zuchininoko_68: -1308239523
+      Boss_Snake_Zuchininoko_69: -625253049
+      Boss_Snake_Zuchininoko_7: 1367687802
+      Boss_Snake_Zuchininoko_70: -610278678
+      Boss_Snake_Zuchininoko_71: -1059860070
+      Boss_Snake_Zuchininoko_72: -1450407874
+      Boss_Snake_Zuchininoko_73: 35665233
+      Boss_Snake_Zuchininoko_74: -221720163
+      Boss_Snake_Zuchininoko_75: -327793102
+      Boss_Snake_Zuchininoko_76: 1264386167
+      Boss_Snake_Zuchininoko_77: -1750783412
+      Boss_Snake_Zuchininoko_78: 1975771897
+      Boss_Snake_Zuchininoko_79: 1317387224
+      Boss_Snake_Zuchininoko_8: -90289025
+      Boss_Snake_Zuchininoko_80: 1053540273
+      Boss_Snake_Zuchininoko_81: -1247637035
+      Boss_Snake_Zuchininoko_82: -181318651
+      Boss_Snake_Zuchininoko_83: -569242522
+      Boss_Snake_Zuchininoko_84: -730083232
+      Boss_Snake_Zuchininoko_85: -2109691746
+      Boss_Snake_Zuchininoko_86: 654948128
+      Boss_Snake_Zuchininoko_87: 934575927
+      Boss_Snake_Zuchininoko_88: 454254019
+      Boss_Snake_Zuchininoko_89: 1790638211
+      Boss_Snake_Zuchininoko_9: -1506386414
+      Boss_Snake_Zuchininoko_90: -907078106
+      Boss_Snake_Zuchininoko_91: -785741321
+      Boss_Snake_Zuchininoko_92: -110306291
+      Boss_Snake_Zuchininoko_93: -2126823782
+      Boss_Snake_Zuchininoko_94: 701456023
+      Boss_Snake_Zuchininoko_95: 578791332
+      Boss_Snake_Zuchininoko_96: 4124017
+      Boss_Snake_Zuchininoko_97: 983145676
+      Boss_Snake_Zuchininoko_98: 1890526178
+      Boss_Snake_Zuchininoko_99: -151905084
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
