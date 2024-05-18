@@ -13,6 +13,7 @@ public class PlayerDash : MonoBehaviour
     private bool canDash = true;
     private bool isDashing = false;
     private Vector2 dashDirection;
+    private float dashCounter = 0f;
     [Header("Dashing Stats")]
     [SerializeField] private float dashVelocity = 14f;
     [SerializeField] private float dashTime = 0.2f;
@@ -30,28 +31,27 @@ public class PlayerDash : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!canDash)
-        {
-            dashCooldown -= Time.deltaTime;
-            if(dashCooldown <= 0 && ground.isGrounded())
-            {
-                canDash = true;
-                dashCooldown = 0.6f;
-            }
-        }
+        dashCounter += Time.deltaTime;
     }
     void FixedUpdate()
     {
         if (isDashing)
         {
             rb.velocity = dashDirection.normalized * dashVelocity;
-            return;
         }
-
-        if (ground.isGrounded() && dashCooldown==0.6f)
+        if (!canDash)
         {
-            canDash = true;
+            if (dashCounter >= dashCooldown && ground.isGrounded())
+            {
+                canDash = true;
+                dashCounter = 0f;
+            }
+            else if(dashCounter >= dashCooldown && !ground.isGrounded())
+            {
+                canDash = false;
+            }
         }
+        
     }
     public void OnDash(InputAction.CallbackContext context)
     {

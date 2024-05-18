@@ -50,6 +50,8 @@ public class Mosquito : MonoBehaviour
     }
     public void Start()
     {
+        target = GameObject.FindGameObjectWithTag("Player").transform;
+        explosion = Resources.Load<GameObject>("MosquitoExplode");
         waitTime = startWaitTime;
         minX = transform.position.x - localMinX;
         maxX = transform.position.x + localMaxX;
@@ -95,6 +97,11 @@ public class Mosquito : MonoBehaviour
         {
             //Blow up mosquito
             BlowUp();
+        }
+        else if(health.currentHealth <= 0)
+        {
+            //play death animation
+            Destroy(gameObject);
         }
 
     }

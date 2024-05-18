@@ -178,7 +178,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &121654339
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2513,7 +2513,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1022971861
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2719,7 +2719,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 1489116252, guid: 801dcc44f70847940b9bd7a41c515217, type: 3}
+  m_Sprite: {fileID: 63982756, guid: 104cc4095e6314341b68e16f872bdad7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -14869,7 +14869,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 675325230, guid: 6dabbc9788a39a448a8be6cd2e338808, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -14907,7 +14907,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f14a9d747b73b064096e94745ef05fd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 1875860433}
   activateDistance: 10
   pathUpdateSeconds: 0.5
   distanceToTarget: 0
@@ -14928,7 +14927,6 @@ MonoBehaviour:
   successfulAttacks: 0
   attacksToFull: 3
   isFull: 0
-  explosion: {fileID: 4413927932798035282, guid: c9881bd229513a54687dee1001de4388, type: 3}
 --- !u!1 &1969417049
 GameObject:
   m_ObjectHideFlags: 0
