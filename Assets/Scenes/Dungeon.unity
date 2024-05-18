@@ -3346,6 +3346,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackCounter: 0
   rock: {fileID: 6509244857968155755, guid: 64ea5f6d12ed3014bbe48b8e12a71dcd, type: 3}
+  projectile: {fileID: 8718810341358338956, guid: 9fcf4224eb4149d4db894c477908833b, type: 3}
+  projectileSpeed: 5
 --- !u!1 &1426126090
 GameObject:
   m_ObjectHideFlags: 0

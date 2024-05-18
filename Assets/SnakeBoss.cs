@@ -11,6 +11,8 @@ public class SnakeBoss : MonoBehaviour
     private float idleTime = 2.0f;
     public int attackCounter = 0;
     public GameObject rock;
+    public GameObject projectile;
+    public float projectileSpeed = 5f;
     // Start is called before the first frame update
     private enum State
     {
@@ -64,6 +66,12 @@ public class SnakeBoss : MonoBehaviour
         else
         {
             currentState = State.Idle;
+        }
+
+        if(health.currentHealth <= 0)
+        {
+            anim.SetTrigger("Death");
+            Destroy(this.gameObject);
         }
         
     }
@@ -211,9 +219,15 @@ public class SnakeBoss : MonoBehaviour
         Debug.Log("Sucking...");
         anim.SetTrigger("Suck");
         // Spawn projectiles
-        
+        for(int i = 0; i < 6; i++)
+        {
+            Vector2 direction = (enemyAI.target.transform.position - transform.position).normalized;
+            GameObject enemyProjectile = Instantiate(projectile, transform.position, Quaternion.identity);
+            enemyProjectile.GetComponent<EnemyProjectile>().Initialize(direction, projectileSpeed);
+            yield return new WaitForSeconds(1f);
+        }
         // Wait for the animation to end
-        yield return new WaitForSecondsRealtime(5.0f);
+        yield return new WaitForSecondsRealtime(1.0f);
         anim.SetTrigger("Tired");
         yield return new WaitForSecondsRealtime(1.0f);
         yield return new WaitUntil(() => anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 1);
