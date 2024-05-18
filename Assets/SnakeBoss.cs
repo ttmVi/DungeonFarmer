@@ -219,12 +219,13 @@ public class SnakeBoss : MonoBehaviour
         Debug.Log("Sucking...");
         anim.SetTrigger("Suck");
         // Spawn projectiles
-        for(int i = 0; i < 6; i++)
+        yield return new WaitForSecondsRealtime(1f);
+        for (int i = 0; i < 6; i++)
         {
             Vector2 direction = (enemyAI.target.transform.position - transform.position).normalized;
             GameObject enemyProjectile = Instantiate(projectile, transform.position, Quaternion.identity);
             enemyProjectile.GetComponent<EnemyProjectile>().Initialize(direction, projectileSpeed);
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSecondsRealtime(1f);
         }
         // Wait for the animation to end
         yield return new WaitForSecondsRealtime(1.0f);

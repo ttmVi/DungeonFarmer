@@ -192,7 +192,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageable: 1
-  healthAmount: 20
+  healthAmount: 10
   invulnerabilityTime: 0
   giveUpwardForce: 1
+  hit: 0
   currentHealth: 0
