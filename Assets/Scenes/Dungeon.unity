@@ -178,7 +178,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &121654339
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -393,12 +393,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startPosition: {x: 0, y: 0}
-  points:
-  - {fileID: 1781096167}
-  - {fileID: 1969417050}
   distanceFromStart: 0
-  pointIndex: 0
   patrolSpeed: 5
+  minX: 5
+  maxX: 5
 --- !u!114 &121654348
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26726,6 +26724,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 1663224717}
     m_Modifications:
     - target: {fileID: 810547067737142102, guid: 0a3352a14912c01449653334a3a48d66, type: 3}
+      propertyPath: m_Size.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 810547067737142102, guid: 0a3352a14912c01449653334a3a48d66, type: 3}
+      propertyPath: m_Size.y
+      value: 1.4375
+      objectReference: {fileID: 0}
+    - target: {fileID: 810547067737142102, guid: 0a3352a14912c01449653334a3a48d66, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 0}
@@ -26875,15 +26881,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7613270270057211047, guid: 0a3352a14912c01449653334a3a48d66, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.39
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7613270270057211047, guid: 0a3352a14912c01449653334a3a48d66, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.39
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7613270270057211047, guid: 0a3352a14912c01449653334a3a48d66, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.39
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7613270270057211047, guid: 0a3352a14912c01449653334a3a48d66, type: 3}
       propertyPath: m_ConstrainProportionsScale

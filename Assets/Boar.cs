@@ -1,25 +1,38 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Boar : MonoBehaviour
 {
     public Vector2 startPosition;
-    public Transform[] points;
+    private Transform[] points;
     public float distanceFromStart;
-    public int pointIndex;
+    private int pointIndex;
     private EnemyAI enemyAI;
     private WallCheck wallCheck;
     private EnemyHealth health;
     //private Rigidbody2D rb;
     public float patrolSpeed = 5f;
-    private void Awake()
+    public float minX = 5f, maxX = 5f;
+    private void Start()
     {
-        //rb = GetComponent<Rigidbody2D>();
+        points = new Transform[2];
         startPosition = transform.position;
         health = GetComponent<EnemyHealth>();
         enemyAI = GetComponent<EnemyAI>();
         wallCheck = GetComponent<WallCheck>();
+
+        GameObject point1 = new GameObject();
+        GameObject point2 = new GameObject();
+        Transform point1Transform = point1.transform;
+        Transform point2Transform = point2.transform;
+
+        point1Transform.position = new Vector2(startPosition.x - minX, startPosition.y);
+        point2Transform.position = new Vector2(startPosition.x + maxX, startPosition.y);
+
+        points[0] = point1Transform;
+        points[1] = point2Transform;
     }
     private void Update()
     {

@@ -33,7 +33,7 @@ public class PlayerDash : MonoBehaviour
         if(!canDash)
         {
             dashCooldown -= Time.deltaTime;
-            if(dashCooldown <= 0 && ground.isGrounded()) //old version doesnt check for isGrounded, feels better but can dash in air after falling for 0.6 seconds
+            if(dashCooldown <= 0 && ground.isGrounded())
             {
                 canDash = true;
                 dashCooldown = 0.6f;
@@ -48,7 +48,7 @@ public class PlayerDash : MonoBehaviour
             return;
         }
 
-        if (ground.isGrounded())
+        if (ground.isGrounded() && dashCooldown==0.6f)
         {
             canDash = true;
         }
