@@ -27,6 +27,7 @@ public class PlayerAnimationController : MonoBehaviour
         SetClimbingState(GetComponent<PlayerLadderClimb>().isInLadder);
 
         if (NearlyLanding()) { TriggerLandingAnimation(); }
+        if (GetComponent<Rigidbody2D>().velocity.y == 0) { animator.ResetTrigger("jumping"); }
     }
 
     public void TriggerWaterAnimation() { animator.SetTrigger("waterTree"); }
@@ -35,7 +36,7 @@ public class PlayerAnimationController : MonoBehaviour
     public void TriggerJumpingAnimation() 
     { 
         animator.SetTrigger("jumping");
-        animator.ResetTrigger("landing");
+        //animator.ResetTrigger("landing");
     }
     public void TriggerLandingAnimation() 
     { 
