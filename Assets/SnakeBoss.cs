@@ -1,0 +1,263 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class SnakeBoss : MonoBehaviour
+{
+    private EnemyHealth health;
+    private EnemyAI enemyAI;
+    private Rigidbody2D rb;
+    private Animator anim;
+    private float idleTime = 2.0f;
+    public int attackCounter = 0;
+    // Start is called before the first frame update
+    private enum State
+    {
+        Attacking,
+        Idle,
+        Hurt,
+        Slamming,
+        Sucking
+    }
+
+    private State currentState;
+    private bool canSlam = true;
+    private bool canSuck = true;
+    private bool canBite = true;
+    private bool canIdle = true;
+    private bool canHurt = true;
+
+    void Start()
+    {
+        anim = GetComponent<Animator>();
+        health = GetComponent<EnemyHealth>();
+        enemyAI = GetComponent<EnemyAI>();
+        rb = GetComponent<Rigidbody2D>();
+        currentState = State.Idle;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if(enemyAI.TargetInDistance())
+        {
+            switch (currentState)
+            {
+                case State.Attacking:
+                    HandleAttacking();
+                    break;
+                case State.Idle:
+                    HandleIdle();
+                    break;
+                case State.Hurt:
+                    HandleHurt();
+                    break;
+                case State.Slamming:
+                    HandleSlamming();
+                    break;
+                case State.Sucking:
+                    HandleSuck();
+                    break;
+            }
+        }
+        else
+        {
+            currentState = State.Idle;
+        }
+        
+    }
+
+    void HandleAttacking()
+    {
+        anim.ResetTrigger("Idle");
+        if (canBite)
+        {
+            StartCoroutine(Bite());
+        }
+        /*
+        if (attackCounter < 4)
+        {
+            // Trigger attack animation
+            if (anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 1)
+            {
+                Debug.Log("Attacking...");
+                anim.SetTrigger("Bite");
+                attackCounter++;
+            }
+            
+        }
+        else
+        {
+            if (anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 1)
+            {
+                // After 4 attacks, reset counter and switch to Idle
+                attackCounter = 0;
+                currentState = State.Idle;
+            }
+            
+        }*/
+
+    }
+
+    void HandleIdle()
+    {
+        if (canIdle)
+        {
+            StartCoroutine(Idle());
+        }
+        
+        /*
+        // Wait for 5 seconds in Idle state
+        if (anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 1)
+        {
+            anim.SetTrigger("Idle");
+            idleTime -= Time.deltaTime;
+            if (idleTime <= 0)
+            {
+                // Randomly choose next state
+                int randomState = Random.Range(0, 1);
+                    currentState = State.Slamming;
+                idleTime = 2.0f;  // Reset idle time
+            }
+
+            // Check if hit by player
+            if (health.hit)
+            {
+                currentState = State.Hurt;
+            }
+        }*/
+    }
+
+    void HandleHurt()
+    {
+        // Trigger hurt animation
+        Debug.Log("Hurt...");
+        if (anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 1)
+        {
+            anim.SetTrigger("Hurt");
+            currentState = State.Idle;
+        }
+          // Return to Idle after being hurt
+    }
+    void HandleSlamming()
+    {
+        anim.ResetTrigger("Idle");
+        Debug.Log("enter Slamming...");
+        if (canSlam)
+        {
+            StartCoroutine(Slam());
+        }
+        /*// Trigger slam animation
+        if (anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 1)
+        {
+            Debug.Log("Slamming...");
+            anim.SetTrigger("Slam");
+            if (anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 1)
+            {
+                currentState = State.Idle;
+            }
+        }
+          // Return to Idle after slamming*/
+    }
+    void HandleSuck()
+    {
+        anim.ResetTrigger("Idle");
+        Debug.Log("enter Sucking...");
+        if (canSuck)
+        {
+            StartCoroutine(Suck());
+        }
+        /*Debug.Log("Sucking...");
+        // Trigger attack animation
+        if (anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 1)
+        {
+            anim.SetTrigger("Suck");
+            currentState = State.Idle;
+        }*/
+    }
+
+    IEnumerator Slam()
+    {
+        canSlam = false;
+        // Wait for the transition to end
+        yield return new WaitUntil(() => anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 1);
+
+        // Do some action
+        Debug.Log("Slamming...");
+        anim.SetTrigger("Slam");
+
+        // Wait for the animation to end
+        yield return new WaitWhile(() => anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 1);
+
+        // Do some action
+        currentState = State.Idle;
+        canSlam = true;
+    }
+    IEnumerator Suck()
+    {
+        canSuck = false;
+        // Wait for the transition to end
+        yield return new WaitUntil(() => anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 1);
+
+        // Do some action
+        Debug.Log("Sucking...");
+        anim.SetTrigger("Suck");
+        // Spawn projectiles
+        // Wait for the animation to end
+        yield return new WaitForSecondsRealtime(5.0f);
+        anim.SetTrigger("Tired");
+        yield return new WaitForSecondsRealtime(1.0f);
+        yield return new WaitUntil(() => anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 1);
+
+        // Do some action
+        currentState = State.Idle;
+        canSuck = true;
+    }
+    IEnumerator Bite()
+    {
+        canBite = false;
+        // Wait for the transition to end
+        yield return new WaitUntil(() => anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 1);
+
+        // Do some action
+        Debug.Log("Biting...");
+        anim.SetTrigger("Bite");
+
+        // Wait for the animation to end
+        yield return new WaitWhile(() => anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 1);
+
+        currentState = State.Idle;
+        canBite = true;
+    }
+
+    IEnumerator Idle()
+    {
+        canIdle = false;
+        // Wait for the transition to end
+        yield return new WaitUntil(() => anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 1);
+
+        // Do some action
+        Debug.Log("Idling...");
+        anim.SetTrigger("Idle");
+
+        // Wait for the animation to end
+        //yield return new WaitWhile(() => anim.GetCurrentAnimatorStateInfo(0).IsName("SnakeBossIdle"));
+
+        Debug.Log("Switching State");
+        //select a random state
+        int randomState = Random.Range(0, 3);
+        if (randomState == 0)
+        {
+            currentState = State.Attacking;
+        }
+        else if (randomState == 1)
+        {
+            currentState = State.Slamming;
+        }
+        else
+        {
+            currentState = State.Sucking;
+        }
+        canIdle = true;
+    }
+}

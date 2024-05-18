@@ -81,7 +81,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 1489116252, guid: 801dcc44f70847940b9bd7a41c515217, type: 3}
+  m_Sprite: {fileID: 1242297427, guid: 425998ac30b58b64899fd5911dd54517, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -105,7 +105,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageable: 1
-  healthAmount: 40
+  healthAmount: 10
   invulnerabilityTime: 0.2
   giveUpwardForce: 1
   currentHealth: 0

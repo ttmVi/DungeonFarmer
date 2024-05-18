@@ -16,7 +16,7 @@ public class EnemyHealth : MonoBehaviour
     //Allows the player to be forced up when performing a downward strike above the enemy
     public bool giveUpwardForce = true;
     //Bool that manages if the enemy can receive more damage
-    private bool hit;
+    public bool hit;
     //The current amount after receiving damage the enemy has
     public int currentHealth;
 
