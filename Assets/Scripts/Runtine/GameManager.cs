@@ -116,6 +116,8 @@ public class GameManager : MonoBehaviour
         inFarm = true;
         player.transform.position = farmStartPos;
         farmDoor.GetComponent<SpriteRenderer>().sprite = openedDoor;
+        player.GetComponent<PlayerAnimationController>().ResetPlayerAnimation();
+
         if (player.GetComponent<PlayerHealth>().IsDying())
         {
             player.GetComponent<PlayerHealth>().StopDying();

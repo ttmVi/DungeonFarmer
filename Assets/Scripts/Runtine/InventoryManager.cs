@@ -134,6 +134,7 @@ public class InventoryManager : MonoBehaviour
     {
         yield return new WaitForFixedUpdate();
 
+        player.GetComponent<PlayerAnimationController>().ResetTriggerInteractingAnimation();
         player.GetComponent<PlayerInteract>().enabled = true;
         player.GetComponent<PlayerMovement>().enabled = true;
         player.GetComponent<PlayerJump>().enabled = true;

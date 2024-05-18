@@ -8,7 +8,9 @@ public class PlayerHealth : MonoBehaviour
     public float currentHealth;
     private Knockback knockback;
     private PlayerMovement playerMovement;
+    [Space]
     private bool isDying;
+    [SerializeField] private AnimationClip dyingAnimation;
 
     private void Start()
     {
@@ -58,6 +60,8 @@ public class PlayerHealth : MonoBehaviour
         GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+        GetComponent<PlayerAnimationController>().TriggerDyingAnimation();
+        yield return new WaitForSeconds(dyingAnimation.length);
 
         FindObjectOfType<GameManager>().ToFarm(null);
         currentHealth = maxHealth;

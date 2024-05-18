@@ -26,12 +26,13 @@ public class PlayerAnimationController : MonoBehaviour
         SetGroundingState(GetComponent<GroundCheck>().isGrounded());
         SetClimbingState(GetComponent<PlayerLadderClimb>().isInLadder);
 
-        if (NearlyLanding()) { TriggerLandingAnimation(); }
         if (GetComponent<Rigidbody2D>().velocity.y == 0) { animator.ResetTrigger("jumping"); }
     }
 
     public void TriggerWaterAnimation() { animator.SetTrigger("waterTree"); }
     public void TriggerInteractingAnimation() { animator.SetTrigger("interact"); }
+
+    public void ResetTriggerInteractingAnimation() { animator.ResetTrigger("interact"); }
 
     public void TriggerJumpingAnimation() 
     { 
@@ -43,6 +44,8 @@ public class PlayerAnimationController : MonoBehaviour
         animator.SetTrigger("landing");
         animator.ResetTrigger("jumping");
     }
+
+    public void TriggerDyingAnimation() { animator.SetTrigger("die"); }
 
     public void SetClimbingState(bool state) { animator.SetBool("isClimbing", state); }
 
@@ -57,6 +60,12 @@ public class PlayerAnimationController : MonoBehaviour
         Collider2D ground = Physics2D.OverlapBox((Vector2)transform.position + coll.offset + new Vector2(0f, lookAheadDistance), new Vector2(coll.size.x, 0.1f), 0f, LayerMask.GetMask("Ground"));
         nearGround = Physics2D.Raycast((Vector2)transform.position + coll.offset, Vector2.down, coll.size.y / 2 + lookAheadDistance, LayerMask.GetMask("Ground"));
         return ground != null;
+    }
+
+    public void ResetPlayerAnimation()
+    {
+        animator.Rebind();
+        animator.Update(0f);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

@@ -58,10 +58,11 @@ public class CraftTableManager : MonoBehaviour
             craftingCanvas.SetActive(false);
             isCrafting = false;
 
+            player.GetComponent<PlayerAnimationController>().ResetTriggerInteractingAnimation();
             player.GetComponent<PlayerInteract>().enabled = true;
             player.GetComponent<PlayerMovement>().enabled = true;
             player.GetComponent<PlayerJump>().enabled = true;
-            player.GetComponent<PlayerAttack>().enabled = true;
+            //player.GetComponent<PlayerAttack>().enabled = true;
         }
     }
 
@@ -72,10 +73,11 @@ public class CraftTableManager : MonoBehaviour
             craftingCanvas.SetActive(false);
             isCrafting = false;
 
+            player.GetComponent<PlayerAnimationController>().ResetTriggerInteractingAnimation();
             player.GetComponent<PlayerInteract>().enabled = true;
             player.GetComponent<PlayerMovement>().enabled = true;
             player.GetComponent<PlayerJump>().enabled = true;
-            player.GetComponent<PlayerAttack>().enabled = true;
+            //player.GetComponent<PlayerAttack>().enabled = true;
         }
     }
 
