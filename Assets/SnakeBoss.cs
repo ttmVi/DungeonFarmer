@@ -10,6 +10,7 @@ public class SnakeBoss : MonoBehaviour
     private Animator anim;
     private float idleTime = 2.0f;
     public int attackCounter = 0;
+    public GameObject rock;
     // Start is called before the first frame update
     private enum State
     {
@@ -185,11 +186,18 @@ public class SnakeBoss : MonoBehaviour
         // Do some action
         Debug.Log("Slamming...");
         anim.SetTrigger("Slam");
-
+        
         // Wait for the animation to end
         yield return new WaitWhile(() => anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 1);
 
         // Do some action
+        int numRocks = Random.Range(12, 18);
+        for (int i = 0; i < numRocks; i++)
+        {
+            StartCoroutine(SpawnRock());
+            yield return new WaitForSecondsRealtime(0.2f);
+            //DropRocks();
+        }
         currentState = State.Idle;
         canSlam = true;
     }
@@ -203,6 +211,7 @@ public class SnakeBoss : MonoBehaviour
         Debug.Log("Sucking...");
         anim.SetTrigger("Suck");
         // Spawn projectiles
+        
         // Wait for the animation to end
         yield return new WaitForSecondsRealtime(5.0f);
         anim.SetTrigger("Tired");
@@ -212,6 +221,14 @@ public class SnakeBoss : MonoBehaviour
         // Do some action
         currentState = State.Idle;
         canSuck = true;
+    }
+    IEnumerator SpawnRock()
+    {
+        yield return new WaitForSecondsRealtime(1.0f);
+        float randomNumX = Random.Range(-3, 3);
+        float randomNumY = Random.Range(4, 7);
+        Vector2 rockSpawn = new Vector2(enemyAI.target.transform.position.x+randomNumX, enemyAI.target.transform.position.y+randomNumY);
+        Instantiate(rock, rockSpawn, Quaternion.identity);
     }
     IEnumerator Bite()
     {
