@@ -20,8 +20,9 @@ public class Spider : MonoBehaviour
     private bool isOnCoolDown = false;
     private GroundCheck groundCheck;
     public float checkInterval = 0.05f;  // Time interval between ground checks
-    public float maxFallDistance = 10f;  // Maximum distance to fall before giving 
-
+    public float maxFallDistance = 10f;  // Maximum distance to fall before giving
+    private Animator anim;
+    private bool inAir;
     void Start()
     {
         startPosition = transform.position;
@@ -34,6 +35,7 @@ public class Spider : MonoBehaviour
         maxX = transform.position.x + localMaxX;
         moveSpot = new GameObject("SpiderMoveSpot").transform;
         moveSpot.position = new Vector2(Random.Range(minX, maxX), transform.position.y);
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -41,16 +43,24 @@ public class Spider : MonoBehaviour
     {
         if (!enemyAI.TargetInDistance())
         {
+            anim.SetTrigger("Idle");
             RandomMovement();
         }
         else if(enemyAI.TargetInDistance())
         {
+            anim.SetTrigger("Idle");
             Jump();
         }
 
         if(health.currentHealth <= 0)
         {
             Death();
+        }
+
+        if (groundCheck.isGrounded())
+        {
+            anim.ResetTrigger("Jump");
+            anim.SetTrigger("Land");
         }
 
     }
@@ -79,7 +89,9 @@ public class Spider : MonoBehaviour
     {
         //play death animation
         //Instantiate baby spiders
+        anim.SetTrigger("Death");
         StartCoroutine(InstantiateAndPlaceOnGround(babySpiderPrefab, transform.position));
+        
         Destroy(gameObject);
     }
     void RandomMovement()
@@ -105,8 +117,10 @@ public class Spider : MonoBehaviour
         {
             if (enemyAI.isInAir) return;
             enemyAI.isJumping = true;
+            anim.SetTrigger("Jump");
             rb.velocity = new Vector2(rb.velocity.x, enemyAI.jumpForce);
             StartCoroutine(JumpCoolDown());
+            //StartCoroutine(Grounded());
         }
     }
 

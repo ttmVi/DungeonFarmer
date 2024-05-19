@@ -11,8 +11,10 @@ public class Pangolin : MonoBehaviour
     private bool shooting = false;
     public float projectileSpeed = 5f;
     private EnemyHealth health;
+    private Animator anim;
     private void Start()
     {
+        anim = GetComponent<Animator>();
         enemyAI = GetComponent<EnemyAI>();
         health = GetComponent<EnemyHealth>();
     }
@@ -20,6 +22,8 @@ public class Pangolin : MonoBehaviour
     {
         if (!enemyAI.TargetInDistance()&&!lookingOut)
         {
+            anim.ResetTrigger("Shoot");
+            anim.SetTrigger("Idle");
             StartCoroutine(LookOut());
         }
 
@@ -72,6 +76,9 @@ public class Pangolin : MonoBehaviour
     IEnumerator Attack() 
     { 
         shooting = true;
+        yield return new WaitUntil(() => anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 1);
+        anim.SetTrigger("Shoot");
+        yield return new WaitWhile(() => anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 1);
         Vector2 direction = (enemyAI.target.transform.position - transform.position).normalized;
         GameObject enemyProjectile = Instantiate(projectile, transform.position, Quaternion.identity);
         enemyProjectile.GetComponent<EnemyProjectile>().Initialize(direction,projectileSpeed);

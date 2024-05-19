@@ -1,36 +1,56 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Boar : MonoBehaviour
 {
     public Vector2 startPosition;
-    public Transform[] points;
+    private Transform[] points;
     public float distanceFromStart;
-    public int pointIndex;
+    private int pointIndex;
     private EnemyAI enemyAI;
     private WallCheck wallCheck;
     private EnemyHealth health;
     //private Rigidbody2D rb;
     public float patrolSpeed = 5f;
-    private void Awake()
+    public float minX = 5f, maxX = 5f;
+    Animator anim;
+    private void Start()
     {
-        //rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
+        points = new Transform[2];
         startPosition = transform.position;
         health = GetComponent<EnemyHealth>();
         enemyAI = GetComponent<EnemyAI>();
         wallCheck = GetComponent<WallCheck>();
+
+        GameObject point1 = new GameObject();
+        GameObject point2 = new GameObject();
+        Transform point1Transform = point1.transform;
+        Transform point2Transform = point2.transform;
+
+        point1Transform.position = new Vector2(startPosition.x - minX, startPosition.y);
+        point2Transform.position = new Vector2(startPosition.x + maxX, startPosition.y);
+
+        points[0] = point1Transform;
+        points[1] = point2Transform;
     }
     private void Update()
     {
         distanceFromStart = Vector2.Distance(transform.position, startPosition);
         if (!enemyAI.TargetInDistance())
         {
-            if(distanceFromStart > 10f)
+            anim.SetBool("PlayerNear", false);
+            if (distanceFromStart > 10f)
             {
                 transform.position = startPosition;
             }
             Patrol();
+        }
+        else
+        {
+            anim.SetBool("PlayerNear", true);
         }
 
         if (wallCheck.isWall())
@@ -81,8 +101,15 @@ public class Boar : MonoBehaviour
     IEnumerator Stun()
     {
         //play stun animation
+        anim.SetTrigger("Crash");
         enemyAI.followEnabled = false;
         yield return new WaitForSeconds(2f);
+        anim.SetTrigger("Recover");
+        yield return new WaitWhile(() => anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 1);
+        //yield return new WaitUntil(() => anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 1);
+        //yield return new WaitForSeconds(0.5f);
+        anim.ResetTrigger("Crash");
+        anim.ResetTrigger("Recover");
         enemyAI.followEnabled = true;
     }
 }

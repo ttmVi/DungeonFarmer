@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 7556011179067484756}
   - component: {fileID: 7589404986082344910}
   - component: {fileID: -6453581043361886000}
+  - component: {fileID: -8454446610397505566}
   m_Layer: 9
   m_Name: EnemyProjectile
   m_TagString: Untagged
@@ -192,7 +193,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageable: 1
-  healthAmount: 20
+  healthAmount: 5
   invulnerabilityTime: 0
   giveUpwardForce: 1
+  hit: 0
   currentHealth: 0
+--- !u!114 &-8454446610397505566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8718810341358338956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f0f361451482b14a9669b074660767b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashMaterial: {fileID: 2100000, guid: 49c28ff31978f7642b731cf03b6619da, type: 2}
+  duration: 0.25
