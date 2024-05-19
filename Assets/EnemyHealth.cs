@@ -19,11 +19,12 @@ public class EnemyHealth : MonoBehaviour
     public bool hit;
     //The current amount after receiving damage the enemy has
     public int currentHealth;
-
+    private SimpleFlash flash;
     private void Start()
     {
         //Sets the enemy to the max amount of health when the scene loads
         currentHealth = healthAmount;
+        flash = GetComponent<SimpleFlash>();
     }
 
     public void Damage(int amount)
@@ -35,6 +36,7 @@ public class EnemyHealth : MonoBehaviour
             hit = true;
             //Reduces currentHealthPoints by the amount value that was set by whatever script called this method, for this tutorial in the OnTriggerEnter2D() method
             currentHealth -= amount;
+            flash.Flash();
             //If currentHealthPoints is below zero, player is dead, and then we handle all the logic to manage the dead state
             if (currentHealth <= 0)
             {

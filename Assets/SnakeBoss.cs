@@ -68,6 +68,11 @@ public class SnakeBoss : MonoBehaviour
             currentState = State.Idle;
         }
 
+        if(health.currentHealth <=50)
+        {
+            enemyAI.speed = 1.0f;
+        }
+
         if(health.currentHealth <= 0)
         {
             anim.SetTrigger("Death");
@@ -78,6 +83,7 @@ public class SnakeBoss : MonoBehaviour
 
     void HandleAttacking()
     {
+        enemyAI.speed = 0f;
         anim.ResetTrigger("Idle");
         if (canBite)
         {
@@ -150,6 +156,7 @@ public class SnakeBoss : MonoBehaviour
     }
     void HandleSlamming()
     {
+        enemyAI.speed = 0f;
         anim.ResetTrigger("Idle");
         Debug.Log("enter Slamming...");
         if (canSlam)
@@ -170,6 +177,7 @@ public class SnakeBoss : MonoBehaviour
     }
     void HandleSuck()
     {
+        enemyAI.speed = 0f;
         anim.ResetTrigger("Idle");
         Debug.Log("enter Sucking...");
         if (canSuck)
