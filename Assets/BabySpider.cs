@@ -17,10 +17,11 @@ public class BabySpider : MonoBehaviour
     public float patrolSpeed = 5f;
     private bool isOnCoolDown = false;
     private GroundCheck groundCheck;
+    private Animator anim;
     void Start()
     {
         groundCheck = GetComponent<GroundCheck>();
-        
+        anim = GetComponent<Animator>();
         startPosition = transform.position;
         
         health = GetComponent<EnemyHealth>();
@@ -39,6 +40,7 @@ public class BabySpider : MonoBehaviour
     {
         if (!enemyAI.TargetInDistance())
         {
+            anim.SetTrigger("Idle");
             RandomMovement();
         }
         else if (enemyAI.TargetInDistance())
@@ -51,10 +53,15 @@ public class BabySpider : MonoBehaviour
             Death();
         }
 
+        if (groundCheck.isGrounded())
+        {
+            anim.SetTrigger("Land");
+        }
     }
     void Death()
     {
         //play death animation
+        anim.SetTrigger("Death");
         Destroy(gameObject);
     }
     void RandomMovement()
@@ -79,6 +86,7 @@ public class BabySpider : MonoBehaviour
         if (enemyAI.jumpEnabled && groundCheck.isGrounded() && !enemyAI.isInAir && !isOnCoolDown)
         {
             if (enemyAI.isInAir) return;
+            anim.SetTrigger("Jump");
             enemyAI.isJumping = true;
             rb.velocity = new Vector2(rb.velocity.x, enemyAI.jumpForce);
             StartCoroutine(JumpCoolDown());

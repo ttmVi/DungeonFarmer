@@ -41,15 +41,25 @@ public class Mosquito : MonoBehaviour
     private int currentWaypoint = 0;
     Seeker seeker;
     Rigidbody2D rb;
+    Animator anim;
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.collider.CompareTag("Player"))
         {
-            successfulAttacks++;
+            anim.SetTrigger("Suck");
+            //successfulAttacks++;
+            StartCoroutine(Suck());
         }
+    }
+    IEnumerator Suck()
+    {
+        //anim.SetTrigger("Suck");
+        yield return new WaitWhile(() => anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 1);
+        successfulAttacks++;
     }
     public void Start()
     {
+        anim = GetComponent<Animator>();
         target = GameObject.FindGameObjectWithTag("Player").transform;
         explosion = Resources.Load<GameObject>("MosquitoExplode");
         waitTime = startWaitTime;
@@ -81,6 +91,17 @@ public class Mosquito : MonoBehaviour
         }
         
     }
+    void LookAtPlayer()
+    {
+        if (transform.position.x > target.position.x)
+        {
+            transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+        }
+        else if (transform.position.x < target.position.x)
+        {
+            transform.localScale = new Vector3(-1f * Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+        }
+    }
     private void Update()
     {
         if (!coroutineRunning && !TargetInDistance())
@@ -103,11 +124,19 @@ public class Mosquito : MonoBehaviour
             //play death animation
             Destroy(gameObject);
         }
+        if (isFull)
+        {
+            anim.SetBool("isFull", true);
+            anim.ResetTrigger("Suck");
+        }
+
+        LookAtPlayer();
 
     }
     void BlowUp()
     {
         Instantiate(explosion, transform.position, Quaternion.identity);
+        anim.SetTrigger("Death");
         Destroy(gameObject);
     }
     

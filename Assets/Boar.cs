@@ -15,8 +15,10 @@ public class Boar : MonoBehaviour
     //private Rigidbody2D rb;
     public float patrolSpeed = 5f;
     public float minX = 5f, maxX = 5f;
+    Animator anim;
     private void Start()
     {
+        anim = GetComponent<Animator>();
         points = new Transform[2];
         startPosition = transform.position;
         health = GetComponent<EnemyHealth>();
@@ -39,11 +41,16 @@ public class Boar : MonoBehaviour
         distanceFromStart = Vector2.Distance(transform.position, startPosition);
         if (!enemyAI.TargetInDistance())
         {
-            if(distanceFromStart > 10f)
+            anim.SetBool("PlayerNear", false);
+            if (distanceFromStart > 10f)
             {
                 transform.position = startPosition;
             }
             Patrol();
+        }
+        else
+        {
+            anim.SetBool("PlayerNear", true);
         }
 
         if (wallCheck.isWall())
@@ -94,8 +101,15 @@ public class Boar : MonoBehaviour
     IEnumerator Stun()
     {
         //play stun animation
+        anim.SetTrigger("Crash");
         enemyAI.followEnabled = false;
         yield return new WaitForSeconds(2f);
+        anim.SetTrigger("Recover");
+        yield return new WaitWhile(() => anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 1);
+        //yield return new WaitUntil(() => anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 1);
+        //yield return new WaitForSeconds(0.5f);
+        anim.ResetTrigger("Crash");
+        anim.ResetTrigger("Recover");
         enemyAI.followEnabled = true;
     }
 }

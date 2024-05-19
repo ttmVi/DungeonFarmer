@@ -89,28 +89,6 @@ public class SnakeBoss : MonoBehaviour
         {
             StartCoroutine(Bite());
         }
-        /*
-        if (attackCounter < 4)
-        {
-            // Trigger attack animation
-            if (anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 1)
-            {
-                Debug.Log("Attacking...");
-                anim.SetTrigger("Bite");
-                attackCounter++;
-            }
-            
-        }
-        else
-        {
-            if (anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 1)
-            {
-                // After 4 attacks, reset counter and switch to Idle
-                attackCounter = 0;
-                currentState = State.Idle;
-            }
-            
-        }*/
 
     }
 
@@ -120,27 +98,6 @@ public class SnakeBoss : MonoBehaviour
         {
             StartCoroutine(Idle());
         }
-        
-        /*
-        // Wait for 5 seconds in Idle state
-        if (anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 1)
-        {
-            anim.SetTrigger("Idle");
-            idleTime -= Time.deltaTime;
-            if (idleTime <= 0)
-            {
-                // Randomly choose next state
-                int randomState = Random.Range(0, 1);
-                    currentState = State.Slamming;
-                idleTime = 2.0f;  // Reset idle time
-            }
-
-            // Check if hit by player
-            if (health.hit)
-            {
-                currentState = State.Hurt;
-            }
-        }*/
     }
 
     void HandleHurt()
@@ -163,17 +120,6 @@ public class SnakeBoss : MonoBehaviour
         {
             StartCoroutine(Slam());
         }
-        /*// Trigger slam animation
-        if (anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 1)
-        {
-            Debug.Log("Slamming...");
-            anim.SetTrigger("Slam");
-            if (anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 1)
-            {
-                currentState = State.Idle;
-            }
-        }
-          // Return to Idle after slamming*/
     }
     void HandleSuck()
     {
@@ -184,13 +130,6 @@ public class SnakeBoss : MonoBehaviour
         {
             StartCoroutine(Suck());
         }
-        /*Debug.Log("Sucking...");
-        // Trigger attack animation
-        if (anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 1)
-        {
-            anim.SetTrigger("Suck");
-            currentState = State.Idle;
-        }*/
     }
 
     IEnumerator Slam()
