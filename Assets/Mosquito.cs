@@ -42,6 +42,7 @@ public class Mosquito : MonoBehaviour
     Seeker seeker;
     Rigidbody2D rb;
     Animator anim;
+    public GameObject deathPoof;
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.collider.CompareTag("Player"))
@@ -59,6 +60,7 @@ public class Mosquito : MonoBehaviour
     }
     public void Start()
     {
+        deathPoof = Resources.Load<GameObject>("RedDeathPoof");
         anim = GetComponent<Animator>();
         target = GameObject.FindGameObjectWithTag("Player").transform;
         explosion = Resources.Load<GameObject>("MosquitoExplode");
@@ -137,6 +139,7 @@ public class Mosquito : MonoBehaviour
     {
         Instantiate(explosion, transform.position, Quaternion.identity);
         anim.SetTrigger("Death");
+        Instantiate(deathPoof, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
     

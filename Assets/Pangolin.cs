@@ -12,8 +12,10 @@ public class Pangolin : MonoBehaviour
     public float projectileSpeed = 5f;
     private EnemyHealth health;
     private Animator anim;
+    public GameObject deathPoof;
     private void Start()
     {
+        deathPoof = Resources.Load<GameObject>("DeathPoof");
         anim = GetComponent<Animator>();
         enemyAI = GetComponent<EnemyAI>();
         health = GetComponent<EnemyHealth>();
@@ -40,6 +42,7 @@ public class Pangolin : MonoBehaviour
     }
     void Die()
     {
+        Instantiate(deathPoof, transform.position, Quaternion.identity);
         Destroy(this.gameObject);
     }
     void LookAtPlayer()

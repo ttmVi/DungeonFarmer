@@ -13,6 +13,7 @@ public class SnakeBoss : MonoBehaviour
     public GameObject rock;
     public GameObject projectile;
     public float projectileSpeed = 5f;
+    public GameObject deathPoof;
     // Start is called before the first frame update
     private enum State
     {
@@ -32,6 +33,7 @@ public class SnakeBoss : MonoBehaviour
 
     void Start()
     {
+        deathPoof = Resources.Load<GameObject>("DeathPoof");
         anim = GetComponent<Animator>();
         health = GetComponent<EnemyHealth>();
         enemyAI = GetComponent<EnemyAI>();
@@ -68,7 +70,7 @@ public class SnakeBoss : MonoBehaviour
             currentState = State.Idle;
         }
 
-        if(health.currentHealth <=50)
+        if(health.currentHealth <=100)
         {
             enemyAI.speed = 1.0f;
         }
@@ -76,6 +78,7 @@ public class SnakeBoss : MonoBehaviour
         if(health.currentHealth <= 0)
         {
             anim.SetTrigger("Death");
+            Instantiate(deathPoof, transform.position, Quaternion.identity);
             Destroy(this.gameObject);
         }
         
