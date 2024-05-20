@@ -27,7 +27,8 @@ public class Knockback : MonoBehaviour
         constantForce = constantForceDirection * constForce;
 
         float elapsedTime = 0;
-        while(elapsedTime< knockbackTime)
+
+        while (elapsedTime< knockbackTime)
         {
             elapsedTime += Time.fixedDeltaTime; time+= Time.fixedDeltaTime;
             //hitForce = hitDirection * hitDirectionForce * knockbackForceCurve.Evaluate(time);

@@ -15,11 +15,13 @@ public class KnockbackTrigger : MonoBehaviour
         {
             if(transform.localScale.x > 0)
             {
+                collision.gameObject.GetComponent<PlayerAnimationController>().TriggerHurtingAnimation();
                 collision.gameObject.GetComponent<TimeStop>().StopTime(changeTime, restoreSpeed, delay);
                 collision.gameObject.GetComponent<PlayerHealth>().TakeDamage(damage, -transform.right);
             }
             else
             {
+                collision.gameObject.GetComponent<PlayerAnimationController>().TriggerHurtingAnimation();
                 collision.gameObject.GetComponent<TimeStop>().StopTime(changeTime, restoreSpeed, delay);
                 collision.gameObject.GetComponent<PlayerHealth>().TakeDamage(damage, transform.right);
             }
@@ -32,11 +34,13 @@ public class KnockbackTrigger : MonoBehaviour
         {
             if (transform.localScale.x > 0)
             {
+                collision.gameObject.GetComponent<PlayerAnimationController>().TriggerHurtingAnimation();
                 collision.gameObject.GetComponent<TimeStop>().StopTime(changeTime, restoreSpeed, delay);
                 collision.gameObject.GetComponent<PlayerHealth>().TakeDamage(damage, -transform.right);
             }
             else
             {
+                collision.gameObject.GetComponent<PlayerAnimationController>().TriggerHurtingAnimation();
                 collision.gameObject.GetComponent<TimeStop>().StopTime(changeTime, restoreSpeed, delay);
                 collision.gameObject.GetComponent<PlayerHealth>().TakeDamage(damage, transform.right);
             }
