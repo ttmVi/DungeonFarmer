@@ -18,8 +18,10 @@ public class BabySpider : MonoBehaviour
     private bool isOnCoolDown = false;
     private GroundCheck groundCheck;
     private Animator anim;
+    private GameObject deathPoof;
     void Start()
     {
+        deathPoof = Resources.Load<GameObject>("DeathPoof");
         groundCheck = GetComponent<GroundCheck>();
         anim = GetComponent<Animator>();
         startPosition = transform.position;
@@ -62,6 +64,7 @@ public class BabySpider : MonoBehaviour
     {
         //play death animation
         anim.SetTrigger("Death");
+        Instantiate(deathPoof, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
     void RandomMovement()

@@ -16,8 +16,10 @@ public class Boar : MonoBehaviour
     public float patrolSpeed = 5f;
     public float minX = 5f, maxX = 5f;
     Animator anim;
+    public GameObject deathPoof;
     private void Start()
     {
+        deathPoof = Resources.Load<GameObject>("DeathPoof");
         anim = GetComponent<Animator>();
         points = new Transform[2];
         startPosition = transform.position;
@@ -61,6 +63,9 @@ public class Boar : MonoBehaviour
         if(health.currentHealth <= 0)
         {
             //play death animation
+            Instantiate(deathPoof, transform.position, Quaternion.identity);
+            Destroy(points[0].gameObject);
+            Destroy(points[1].gameObject);
             Destroy(gameObject);
         }
     }
@@ -107,9 +112,9 @@ public class Boar : MonoBehaviour
         anim.SetTrigger("Recover");
         yield return new WaitWhile(() => anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 1);
         //yield return new WaitUntil(() => anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 1);
-        //yield return new WaitForSeconds(0.5f);
-        anim.ResetTrigger("Crash");
-        anim.ResetTrigger("Recover");
+        yield return new WaitForSeconds(0.5f);
+        //anim.ResetTrigger("Crash");
+        //anim.ResetTrigger("Recover");
         enemyAI.followEnabled = true;
     }
 }

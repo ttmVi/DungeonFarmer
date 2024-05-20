@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7870537281165821911}
   - component: {fileID: 1600919362536580561}
-  - component: {fileID: 4435196324419643095}
   - component: {fileID: 6369956627144155197}
+  - component: {fileID: 4435196324419643095}
   - component: {fileID: 5879566179966615216}
   - component: {fileID: 8884156745589918049}
   - component: {fileID: 8583849521439096580}
@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: 7111080301794693653}
   - component: {fileID: 3157728368080475796}
   - component: {fileID: 8332367006595512190}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SnakeBoss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,6 +93,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &6369956627144155197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1680484117342784048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec5d63fb7181d674691b252634813118, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageable: 1
+  healthAmount: 600
+  invulnerabilityTime: 0.2
+  giveUpwardForce: 1
+  hit: 0
+  currentHealth: 0
 --- !u!61 &4435196324419643095
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -138,24 +156,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2, y: 2}
   m_EdgeRadius: 0
---- !u!114 &6369956627144155197
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1680484117342784048}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec5d63fb7181d674691b252634813118, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damageable: 1
-  healthAmount: 400
-  invulnerabilityTime: 0.2
-  giveUpwardForce: 1
-  hit: 0
-  currentHealth: 0
 --- !u!50 &5879566179966615216
 Rigidbody2D:
   serializedVersion: 4

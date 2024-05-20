@@ -23,8 +23,10 @@ public class Spider : MonoBehaviour
     public float maxFallDistance = 10f;  // Maximum distance to fall before giving
     private Animator anim;
     private bool inAir;
+    public GameObject deathPoof;
     void Start()
     {
+        deathPoof = Resources.Load<GameObject>("DeathPoof");
         startPosition = transform.position;
         groundCheck = GetComponent<GroundCheck>();
         health = GetComponent<EnemyHealth>();
@@ -90,6 +92,7 @@ public class Spider : MonoBehaviour
         //play death animation
         //Instantiate baby spiders
         anim.SetTrigger("Death");
+        Instantiate(deathPoof, transform.position, Quaternion.identity);
         StartCoroutine(InstantiateAndPlaceOnGround(babySpiderPrefab, transform.position));
         
         Destroy(gameObject);
