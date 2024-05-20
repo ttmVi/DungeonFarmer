@@ -45,6 +45,8 @@ public class PlayerAnimationController : MonoBehaviour
         animator.ResetTrigger("jumping");
     }
 
+    public void TriggerHurtingAnimation() { animator.SetTrigger("hurt"); }
+
     public void TriggerDyingAnimation() { animator.SetTrigger("die"); }
 
     public void SetClimbingState(bool state) { animator.SetBool("isClimbing", state); }

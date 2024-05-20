@@ -22,6 +22,7 @@ public class PlayerHealth : MonoBehaviour
     public void TakeDamage(float damage, Vector2 hitDirection)
     {
         currentHealth -= damage;
+        GetComponent<PlayerAnimationController>().TriggerHurtingAnimation();
         //spawn damage particles
         //Instantiate(damageParticles, transform.position, Quaternion.identity);
         //knockback
@@ -37,6 +38,7 @@ public class PlayerHealth : MonoBehaviour
     public void TakeDamage(float damage)
     {
         currentHealth -= damage;
+        GetComponent<PlayerAnimationController>().TriggerHurtingAnimation();
         //spawn damage particles
         //Instantiate(damageParticles, transform.position, Quaternion.identity);
         //knockback
@@ -47,7 +49,7 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
-    private void Die()
+    public void Die()
     {
         if (!isDying)
         {

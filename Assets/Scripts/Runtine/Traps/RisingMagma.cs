@@ -11,11 +11,30 @@ public class RisingMagma : MonoBehaviour
     [SerializeField] private AnimatedTile sampleTile;
 
     private bool isRising;
+    private Vector2 tileStartPosition;
+    private Vector2 collStartPosition;
+    private bool isNotReset = false;
 
-    // Update is called once per frame
+    private void Start()
+    {
+        tileStartPosition = animatedTiles.transform.position;
+        collStartPosition = transform.position;
+        isNotReset = true;
+    }
+
     void Update()
     {
         RiseUpMySauce();
+    }
+
+    public void ResetPosition()
+    {
+        if (isNotReset)
+        {
+            isRising = false;
+            animatedTiles.transform.position = tileStartPosition;
+            transform.position = collStartPosition;
+        }
     }
 
     private void RiseUpMySauce()
@@ -38,5 +57,13 @@ public class RisingMagma : MonoBehaviour
     private float GetAnimationTime()
     {
         return sampleTile.m_AnimatedSprites.Length / sampleTile.m_MinSpeed;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            collision.GetComponent<PlayerHealth>().Die();
+        }
     }
 }

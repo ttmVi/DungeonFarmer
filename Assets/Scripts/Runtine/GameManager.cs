@@ -34,6 +34,12 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Sprite openedDoor;
     [SerializeField] private Sprite closedDoor;
 
+    [Space]
+    [Header("Dungeon Variables")]
+    [SerializeField] private Transform startMagmaTrigger;
+    [SerializeField] private Transform stopMagmaTrigger;
+    [SerializeField] private GameObject magma;
+
     private void Start()
     {
         player.transform.position = firstEverStartingPos;
@@ -46,9 +52,22 @@ public class GameManager : MonoBehaviour
         inDungeon = false;
     }
 
-    public void OnQuitLevel(InputAction.CallbackContext context)
+    private void Update()
     {
+        if (inDungeon && player.transform.position.y >= startMagmaTrigger.position.y)
+        {
+            if (magma.transform.position.y >= stopMagmaTrigger.position.y)
+            {
+                magma.GetComponent<RisingMagma>().enabled = false;
+            }
+            else { magma.GetComponent<RisingMagma>().enabled = true; }
+        }
+    }
 
+    private void ResetDungeon()
+    {
+        magma.GetComponent<RisingMagma>().ResetPosition();
+        magma.GetComponent<RisingMagma>().enabled = false;
     }
 
     private IEnumerator ShiftToDungeon(GameObject openingDoor)
@@ -75,6 +94,7 @@ public class GameManager : MonoBehaviour
         inDungeon = true;
         player.transform.position = dungeonStartPos;
         dungeonDoor.GetComponent<SpriteRenderer>().sprite = openedDoor;
+        ResetDungeon();
         yield return new WaitForSeconds(2f);
 
         StartCoroutine(WhiteIn());
