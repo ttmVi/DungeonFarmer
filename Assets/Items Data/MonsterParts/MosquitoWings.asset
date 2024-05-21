@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemID: 16
   itemName: Mosquito Wings
-  itemInventoryIcon: {fileID: 0}
-  overworldSprite: {fileID: 0}
+  itemInventoryIcon: {fileID: -1041602728, guid: a45056e9c7319954e85fe588424af5f3, type: 3}
+  overworldSprite: {fileID: -2125585856, guid: a45056e9c7319954e85fe588424af5f3, type: 3}
   itemDescription: Delicate and gossamer-thin, these wings shimmer with an iridescent
     hue like tomatoes. Powdered finely, they are perfect for potions that require
     lightness and a quick dispersal upon application.
@@ -28,8 +28,11 @@ MonoBehaviour:
   treeAnimator: {fileID: 0}
   note: 
   fertilizableSeed: {fileID: 0}
-  fertilizerCraftingRecipe: []
   potionEffect: 
-  potionCraftingRecipe: []
+  potionEffectDuration: 0
+  potionEffectValue: 0
+  potionEffectEvent:
+    m_PersistentCalls:
+      m_Calls: []
   canBeCrafted: 0
   craftingRecipe: []

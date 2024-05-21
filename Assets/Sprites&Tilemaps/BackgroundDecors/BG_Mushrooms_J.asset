@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: BG_Mushrooms_J
   m_EditorClassIdentifier: 
   m_AnimatedSprites:
-  - {fileID: 1606725346, guid: 99ed53179d7fe514aa63dcd7cb951159, type: 3}
-  - {fileID: -1771961311, guid: 99ed53179d7fe514aa63dcd7cb951159, type: 3}
+  - {fileID: 874316874, guid: 99ed53179d7fe514aa63dcd7cb951159, type: 3}
+  - {fileID: 219016413, guid: 99ed53179d7fe514aa63dcd7cb951159, type: 3}
+  - {fileID: 874316874, guid: 99ed53179d7fe514aa63dcd7cb951159, type: 3}
+  - {fileID: 874316874, guid: 99ed53179d7fe514aa63dcd7cb951159, type: 3}
   m_MinSpeed: 1
   m_MaxSpeed: 2
   m_AnimationStartTime: 0

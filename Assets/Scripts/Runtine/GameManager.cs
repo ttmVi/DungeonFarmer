@@ -54,7 +54,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (inDungeon && player.transform.position.y >= startMagmaTrigger.position.y)
+        if (inDungeon && player.transform.position.y >= startMagmaTrigger.position.y && Mathf.Abs(player.transform.position.x - startMagmaTrigger.position.x) <= 7)
         {
             if (magma.transform.position.y >= stopMagmaTrigger.position.y)
             {
@@ -204,6 +204,7 @@ public class GameManager : MonoBehaviour
         player.GetComponent<PlayerInteract>().enabled = false;
         player.GetComponent<PlayerMovement>().enabled = false;
         player.GetComponent<PlayerJump>().enabled = false;
+        player.GetComponent<PlayerDash>().enabled = false;
         player.GetComponent<PlayerAttack>().enabled = false;
         player.transform.GetChild(0).GetComponent<Melee>().enabled = false;
         player.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
@@ -214,6 +215,7 @@ public class GameManager : MonoBehaviour
         player.GetComponent<PlayerInteract>().enabled = true;
         player.GetComponent<PlayerMovement>().enabled = true;
         player.GetComponent<PlayerJump>().enabled = true;
+        player.GetComponent<PlayerDash>().enabled = true;
         player.GetComponent<PlayerAttack>().enabled = true;
         player.transform.GetChild(0).GetComponent<Melee>().enabled = true;
         player.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;

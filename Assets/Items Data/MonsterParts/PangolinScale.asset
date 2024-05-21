@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemID: 17
   itemName: Pangolin Scale
-  itemInventoryIcon: {fileID: 0}
-  overworldSprite: {fileID: 0}
+  itemInventoryIcon: {fileID: 1781788426, guid: a45056e9c7319954e85fe588424af5f3, type: 3}
+  overworldSprite: {fileID: 1069494298, guid: a45056e9c7319954e85fe588424af5f3, type: 3}
   itemDescription: These tough, armor-like scales glitter with a metallic sheen.
     Infused in brews, they fortify potions meant to boost physical resilience against
     blows.
@@ -28,8 +28,11 @@ MonoBehaviour:
   treeAnimator: {fileID: 0}
   note: 
   fertilizableSeed: {fileID: 0}
-  fertilizerCraftingRecipe: []
   potionEffect: 
-  potionCraftingRecipe: []
+  potionEffectDuration: 0
+  potionEffectValue: 0
+  potionEffectEvent:
+    m_PersistentCalls:
+      m_Calls: []
   canBeCrafted: 0
   craftingRecipe: []

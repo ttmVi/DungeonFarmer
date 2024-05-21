@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemID: 15
   itemName: Mosquito Proboscis
-  itemInventoryIcon: {fileID: 0}
-  overworldSprite: {fileID: 0}
+  itemInventoryIcon: {fileID: 1611169636, guid: a45056e9c7319954e85fe588424af5f3, type: 3}
+  overworldSprite: {fileID: -1197896660, guid: a45056e9c7319954e85fe588424af5f3, type: 3}
   itemDescription: With its compound eyes and needle-like proboscis, this head is
     crucial in the distillation of potions that enhance sturdyness and physical strength.
   itemType: 4
@@ -27,8 +27,11 @@ MonoBehaviour:
   treeAnimator: {fileID: 0}
   note: 
   fertilizableSeed: {fileID: 0}
-  fertilizerCraftingRecipe: []
   potionEffect: 
-  potionCraftingRecipe: []
+  potionEffectDuration: 0
+  potionEffectValue: 0
+  potionEffectEvent:
+    m_PersistentCalls:
+      m_Calls: []
   canBeCrafted: 0
   craftingRecipe: []

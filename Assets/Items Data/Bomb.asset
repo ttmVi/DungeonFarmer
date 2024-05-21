@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemID: 24
   itemName: Bomb
-  itemInventoryIcon: {fileID: 0}
-  overworldSprite: {fileID: 0}
+  itemInventoryIcon: {fileID: -1794911686, guid: 40365ef601215c741b664dd181e92bde, type: 3}
+  overworldSprite: {fileID: 2049279573, guid: 40365ef601215c741b664dd181e92bde, type: 3}
   itemDescription: Formed from the acidic juice of ripe tomatoes, this explosive
     concoction bursts on impact, releasing a corrosive fiery acid to damage foes.
   itemType: 5
@@ -27,11 +27,12 @@ MonoBehaviour:
   treeAnimator: {fileID: 0}
   note: 
   fertilizableSeed: {fileID: 0}
-  fertilizerCraftingRecipe: []
   potionEffect: 
-  potionCraftingRecipe:
-  - {fileID: 11400000, guid: f661864a73c5b0f4c9985bf42082fc9e, type: 2}
-  - {fileID: 11400000, guid: ba27b47e49945994897c070dee1c3d2f, type: 2}
+  potionEffectDuration: 0
+  potionEffectValue: 0
+  potionEffectEvent:
+    m_PersistentCalls:
+      m_Calls: []
   canBeCrafted: 1
   craftingRecipe:
   - {fileID: 11400000, guid: f661864a73c5b0f4c9985bf42082fc9e, type: 2}

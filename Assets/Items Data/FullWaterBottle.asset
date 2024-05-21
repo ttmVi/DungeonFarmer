@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemID: 26
   itemName: Water Bottle
-  itemInventoryIcon: {fileID: 0}
-  overworldSprite: {fileID: 0}
+  itemInventoryIcon: {fileID: -1268078292, guid: fdc3128ece997c54ba2d715820df9af3, type: 3}
+  overworldSprite: {fileID: -1185507539, guid: fdc3128ece997c54ba2d715820df9af3, type: 3}
   itemDescription: A full watercan is ready to nourish your dungeon garden.
   itemType: 0
   maxGrowthIndex: 0
@@ -26,8 +26,11 @@ MonoBehaviour:
   treeAnimator: {fileID: 0}
   note: 
   fertilizableSeed: {fileID: 0}
-  fertilizerCraftingRecipe: []
   potionEffect: 
-  potionCraftingRecipe: []
+  potionEffectDuration: 0
+  potionEffectValue: 0
+  potionEffectEvent:
+    m_PersistentCalls:
+      m_Calls: []
   canBeCrafted: 0
   craftingRecipe: []

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8912622840001728204}
   - component: {fileID: 5278460750675448820}
+  - component: {fileID: 1909740463270766982}
   - component: {fileID: 1192253032077784931}
   - component: {fileID: 1481438490654590115}
   - component: {fileID: 2096038915219756903}
@@ -67,6 +68,24 @@ MonoBehaviour:
   doorClose: {fileID: 7400000, guid: 4e605fadb026dd34fa28ba406b0dd34b, type: 2}
   openedDoor: {fileID: 860150475, guid: 0b147ec480de9354d9e2c10900d71a45, type: 3}
   closedDoor: {fileID: -1768820635, guid: 0b147ec480de9354d9e2c10900d71a45, type: 3}
+  startMagmaTrigger: {fileID: 0}
+  stopMagmaTrigger: {fileID: 0}
+  magma: {fileID: 0}
+--- !u!114 &1909740463270766982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5165260750117755339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cca52b5d799661241a25f18a98c377d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  statsUI: {fileID: 0}
+  healthBar: {fileID: 0}
 --- !u!114 &1192253032077784931
 MonoBehaviour:
   m_ObjectHideFlags: 0

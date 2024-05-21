@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemID: 21
   itemName: HP Potion
-  itemInventoryIcon: {fileID: 0}
-  overworldSprite: {fileID: 0}
+  itemInventoryIcon: {fileID: -2082685871, guid: 40365ef601215c741b664dd181e92bde, type: 3}
+  overworldSprite: {fileID: 1950813497, guid: 40365ef601215c741b664dd181e92bde, type: 3}
   itemDescription: 'This robust potion is brewed from the essence of enchanted pumpkins,
     known for their vigorous life force. '
   itemType: 5

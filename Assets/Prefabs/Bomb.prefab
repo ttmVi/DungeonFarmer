@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -1486228002, guid: 80893b8746912dd40a152c13b3e10f56, type: 3}
+  m_Sprite: {fileID: -1144149515, guid: 40365ef601215c741b664dd181e92bde, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -165,3 +165,4 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 776
+  damageAmount: 40

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: BG_Flowers_C
   m_EditorClassIdentifier: 
   m_AnimatedSprites:
+  - {fileID: -609873214, guid: 99ed53179d7fe514aa63dcd7cb951159, type: 3}
   - {fileID: -1335166398, guid: 99ed53179d7fe514aa63dcd7cb951159, type: 3}
   - {fileID: -609873214, guid: 99ed53179d7fe514aa63dcd7cb951159, type: 3}
   m_MinSpeed: 1

@@ -155,8 +155,8 @@ TextureImporter:
       name: Sky_Tiles_2
       rect:
         serializedVersion: 2
-        x: 16
-        y: 160
+        x: 80
+        y: 176
         width: 16
         height: 16
       alignment: 0
@@ -176,8 +176,8 @@ TextureImporter:
       name: Sky_Tiles_3
       rect:
         serializedVersion: 2
-        x: 48
-        y: 160
+        x: 112
+        y: 176
         width: 16
         height: 16
       alignment: 0
@@ -197,8 +197,8 @@ TextureImporter:
       name: Sky_Tiles_4
       rect:
         serializedVersion: 2
-        x: 16
-        y: 144
+        x: 144
+        y: 176
         width: 16
         height: 16
       alignment: 0
@@ -219,7 +219,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 16
-        y: 128
+        y: 160
         width: 16
         height: 16
       alignment: 0
@@ -240,7 +240,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 48
-        y: 128
+        y: 160
         width: 16
         height: 16
       alignment: 0
@@ -260,8 +260,8 @@ TextureImporter:
       name: Sky_Tiles_7
       rect:
         serializedVersion: 2
-        x: 16
-        y: 112
+        x: 80
+        y: 160
         width: 16
         height: 16
       alignment: 0
@@ -281,8 +281,8 @@ TextureImporter:
       name: Sky_Tiles_8
       rect:
         serializedVersion: 2
-        x: 48
-        y: 112
+        x: 112
+        y: 160
         width: 16
         height: 16
       alignment: 0
@@ -302,8 +302,8 @@ TextureImporter:
       name: Sky_Tiles_9
       rect:
         serializedVersion: 2
-        x: 16
-        y: 96
+        x: 144
+        y: 160
         width: 16
         height: 16
       alignment: 0
@@ -323,8 +323,8 @@ TextureImporter:
       name: Sky_Tiles_10
       rect:
         serializedVersion: 2
-        x: 48
-        y: 80
+        x: 16
+        y: 144
         width: 16
         height: 16
       alignment: 0
@@ -344,8 +344,8 @@ TextureImporter:
       name: Sky_Tiles_11
       rect:
         serializedVersion: 2
-        x: 48
-        y: 64
+        x: 80
+        y: 144
         width: 16
         height: 16
       alignment: 0
@@ -365,8 +365,8 @@ TextureImporter:
       name: Sky_Tiles_12
       rect:
         serializedVersion: 2
-        x: 48
-        y: 32
+        x: 144
+        y: 144
         width: 16
         height: 16
       alignment: 0
@@ -386,8 +386,8 @@ TextureImporter:
       name: Sky_Tiles_13
       rect:
         serializedVersion: 2
-        x: 48
-        y: 16
+        x: 16
+        y: 128
         width: 16
         height: 16
       alignment: 0
@@ -399,6 +399,426 @@ TextureImporter:
       bones: []
       spriteID: 9dd193f1ee219864b9b0c41965066492
       internalID: -327231822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sky_Tiles_14
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 128
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47cf9683631251f459a581d2adb5aaec
+      internalID: -358111895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sky_Tiles_15
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 128
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a39dfb41ced7134faf4ea890bb25f39
+      internalID: -876589473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sky_Tiles_16
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 128
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 242c1c4d34dd4be4eb6a764cb6795414
+      internalID: -1857375020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sky_Tiles_17
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 128
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7fd7146212ff2a04f95d317f6dcce682
+      internalID: -1474382129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sky_Tiles_18
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 112
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e706f65f7f9db3e4caa122a5a63cf0e0
+      internalID: -1566059433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sky_Tiles_19
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 112
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51b92714d137f1b459c8f6393a9aeb2e
+      internalID: 1516196054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sky_Tiles_20
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 112
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5bdd7e4feb10d5f4db4d93d516f3d16a
+      internalID: 1239605127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sky_Tiles_21
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 112
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87c73c6e5dd901143bce2dd3895cf3b9
+      internalID: 196279818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sky_Tiles_22
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 112
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67281c01165b0d541975685787810637
+      internalID: -1402447006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sky_Tiles_23
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 96
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0e76155f7136b84889860c9493f8ee0
+      internalID: -578468215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sky_Tiles_24
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 96
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c7f271f841bd0449a8aaf52e850b1b1
+      internalID: -320131252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sky_Tiles_25
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 96
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c63d71927e39ed4888d8389a0936de4
+      internalID: -1501615665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sky_Tiles_26
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 80
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 725ba4445c8f2cc438461ec980231067
+      internalID: 815678057
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sky_Tiles_27
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 80
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8036b8e3039caee48ad6ee8f0fc6b4ba
+      internalID: 1609212256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sky_Tiles_28
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 64
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4de506be2dff074e9414555fdb4d779
+      internalID: -1726369499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sky_Tiles_29
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 64
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f6f3639365c01f4cb4e9ed24931c9e9
+      internalID: 349092501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sky_Tiles_30
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbc61b445d9650f4fb981bdf1b114a49
+      internalID: -472891704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sky_Tiles_31
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 895f9f481705fde47b9ef10dc164b80b
+      internalID: -906480890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sky_Tiles_32
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9e380265eb44bb4ea42b7198caf1c35
+      internalID: -343035683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sky_Tiles_33
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ea3a99ecc1ad3c45a62921ae3936440
+      internalID: -253782943
       vertices: []
       indices: 
       edges: []
@@ -420,8 +840,28 @@ TextureImporter:
       Sky_Tiles_11: 1160791329
       Sky_Tiles_12: 1644906302
       Sky_Tiles_13: -327231822
+      Sky_Tiles_14: -358111895
+      Sky_Tiles_15: -876589473
+      Sky_Tiles_16: -1857375020
+      Sky_Tiles_17: -1474382129
+      Sky_Tiles_18: -1566059433
+      Sky_Tiles_19: 1516196054
       Sky_Tiles_2: -958561556
+      Sky_Tiles_20: 1239605127
+      Sky_Tiles_21: 196279818
+      Sky_Tiles_22: -1402447006
+      Sky_Tiles_23: -578468215
+      Sky_Tiles_24: -320131252
+      Sky_Tiles_25: -1501615665
+      Sky_Tiles_26: 815678057
+      Sky_Tiles_27: 1609212256
+      Sky_Tiles_28: -1726369499
+      Sky_Tiles_29: 349092501
       Sky_Tiles_3: -1447294603
+      Sky_Tiles_30: -472891704
+      Sky_Tiles_31: -906480890
+      Sky_Tiles_32: -343035683
+      Sky_Tiles_33: -253782943
       Sky_Tiles_4: 1335299648
       Sky_Tiles_5: 1527638139
       Sky_Tiles_6: -1401002836
