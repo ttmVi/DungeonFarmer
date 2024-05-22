@@ -16,6 +16,7 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] private GameObject selectButton;
     [SerializeField] private TextMeshProUGUI itemName;
     [SerializeField] private TextMeshProUGUI itemDescription;
+    [SerializeField] private TextMeshProUGUI hints;
     [SerializeField] private GameObject player;
     [SerializeField] private PlayerInventory playerInventory;
 
@@ -48,6 +49,16 @@ public class InventoryManager : MonoBehaviour
 
     private void Update()
     {
+        if (isOpening)
+        {
+            player.GetComponent<PlayerInteract>().enabled = false;
+            player.GetComponent<PlayerMovement>().enabled = false;
+            player.GetComponent<PlayerJump>().enabled = false;
+            player.GetComponent<PlayerAttack>().enabled = false;
+            player.GetComponent<PlayerDash>().enabled = false;
+            player.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        }
+
         if (isOpening && displayingInventory != null)
         {
             DisplayInventory(displayingInventory);
@@ -121,6 +132,23 @@ public class InventoryManager : MonoBehaviour
             displayingInventory = inventory;
             inventoryCanvas.SetActive(true);
             isOpening = true;
+
+            if (displayingInventory == playerInventory.playerInventoryList)
+            {
+                hints.text = "Do you not remember what's in your bag?\r\nAnd btw, press ctrl to control your inventory.";
+            }
+            else if (displayingInventory == playerInventory.seedsInventory)
+            {
+                hints.text = "I heard that you want to plant some trees.\r\npress x to use the seeds, if you have any.";
+            }
+            else if (displayingInventory == playerInventory.fertilizersInventory)
+            {
+                hints.text = "Ooh, you do want to take care of your trees?\njk, press x to fertilize your chosen tree.";
+            }
+            else
+            {
+                hints.text = "";
+            }
 
             player.GetComponent<PlayerInteract>().enabled = false;
             player.GetComponent<PlayerMovement>().enabled = false;
@@ -255,7 +283,8 @@ public class InventoryManager : MonoBehaviour
         else
         {
             selectingIndex--;
-            selectButton.GetComponent<RectTransform>().anchoredPosition += new Vector2(distanceBetweenSlots * (numberOfColumns - 1), -distanceBetweenSlots);
+            selectButton.GetComponent<RectTransform>().anchoredPosition += new Vector2(distanceBetweenSlots * (numberOfColumns - 1), 0);
+            selectButton.GetComponent<RectTransform>().anchoredPosition += new Vector2(0, distanceBetweenSlots);
         }
     }
 

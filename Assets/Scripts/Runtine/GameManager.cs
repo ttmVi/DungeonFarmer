@@ -204,6 +204,11 @@ public class GameManager : MonoBehaviour
 
         blackImage.color = clear;
         EnablePlayer();
+        if (inFarm)
+        {
+            player.GetComponent<PlayerAttack>().enabled = false;
+            player.transform.GetChild(0).GetComponent<Melee>().enabled = false;
+        }
         yield return null;
     }
 

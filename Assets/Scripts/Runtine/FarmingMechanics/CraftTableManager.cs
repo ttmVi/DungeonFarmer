@@ -45,6 +45,7 @@ public class CraftTableManager : MonoBehaviour
             player.GetComponent<PlayerMovement>().enabled = false;
             player.GetComponent<PlayerJump>().enabled = false;
             player.GetComponent<PlayerAttack>().enabled = false;
+            player.transform.GetChild(0).GetComponent<Melee>().enabled = false;
             player.GetComponent<PlayerDash>().enabled = false;
             player.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         }
@@ -59,6 +60,7 @@ public class CraftTableManager : MonoBehaviour
         player.GetComponent<PlayerMovement>().enabled = false;
         player.GetComponent<PlayerJump>().enabled = false;
         player.GetComponent<PlayerAttack>().enabled = false;
+        player.transform.GetChild(0).GetComponent<Melee>().enabled = false;
         player.GetComponent<PlayerDash>().enabled = false;
         player.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
     }
