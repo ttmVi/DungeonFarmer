@@ -74,6 +74,7 @@ public class Mosquito : MonoBehaviour
         minY = transform.position.y - localMinY;
         maxY = transform.position.y + localMaxY;
         moveSpot = new GameObject("MosquitoMoveSpot").transform;
+        moveSpot.tag = "Enemies";
         //moveSpot = transform;
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();

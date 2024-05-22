@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerInventory : MonoBehaviour
 {
     public Inventory playerInventory;
+    public Inventory dungeonTempInventory;
+
     [Header("Inventory Settings")]
     [SerializeField] private int inventorySize = 10;
 
@@ -14,6 +16,8 @@ public class PlayerInventory : MonoBehaviour
     public List<(Items, int)> seedsInventory;
     public List<(Items, int)> fertilizersInventory;
 
+    [SerializeField] private List<Items> dungeonInventoryList;
+
     [Space]
     [Header("Testing Assets")]
     [SerializeField] private Items[] draftAssets;
@@ -21,6 +25,7 @@ public class PlayerInventory : MonoBehaviour
     private void Start()
     {
         playerInventory = new Inventory(inventorySize);
+        dungeonTempInventory = new Inventory(inventorySize);
         foreach (var item in draftAssets)
         {
             PickUpItems(item, 1);
@@ -33,6 +38,7 @@ public class PlayerInventory : MonoBehaviour
         seedsInventory = GetItemsListOfType(Items.ItemType.Seed, playerInventory);
         fertilizersInventory = GetItemsListOfType(Items.ItemType.Fertilizer, playerInventory);
         editorInventoryList = SimplifiedList(playerInventoryList);
+        dungeonInventoryList = SimplifiedList(InventoryToList(dungeonTempInventory));
     }
 
     public void LoadInventory(Inventory inventory)
@@ -51,6 +57,49 @@ public class PlayerInventory : MonoBehaviour
         {
             playerInventory.AddItem(item, quantity);
         }
+    }
+
+    public void PickUpItemsInDungeon(Items item, int quantity)
+    {
+        if (dungeonTempInventory.IsFull())
+        {
+            Debug.Log("Inventory is full");
+            return;
+        }
+        else
+        {
+            dungeonTempInventory.AddItem(item, quantity);
+        }
+    }
+
+    public void RemoveRandomDungeonItems()
+    {
+        for (int i = 0; i < dungeonTempInventory.ItemsToList().Count; i++)
+        {
+            int dropOrKeep = Random.Range(0, 2);
+            if (dropOrKeep == 0)
+            {
+                dungeonTempInventory.RemoveItem(dungeonTempInventory.ItemsToList()[i].Item1, dungeonTempInventory.ItemsToList()[i].Item2);
+            }
+            else { continue; }
+        }
+    }
+
+    public void StoreItemsFromDungeon()
+    {
+        StartCoroutine(StartStoring());
+    }
+
+    private IEnumerator StartStoring()
+    {
+        for (int i = 0; i < dungeonTempInventory.ItemsToList().Count; i++)
+        {
+            PickUpItems(dungeonTempInventory.ItemsToList()[i].Item1, dungeonTempInventory.ItemsToList()[i].Item2);
+            yield return new WaitForEndOfFrame();
+        }
+
+        dungeonTempInventory = null;
+        yield return null;
     }
 
     public void RemoveItems(Items item, int quantity)

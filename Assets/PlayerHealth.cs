@@ -61,12 +61,15 @@ public class PlayerHealth : MonoBehaviour
         GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+        GetComponent<BoxCollider2D>().enabled = false;
         GetComponent<PlayerAnimationController>().TriggerDyingAnimation();
         yield return new WaitForSeconds(dyingAnimation.length);
 
+        GetComponent<PlayerInventory>().RemoveRandomDungeonItems();
         FindObjectOfType<GameManager>().ToFarm(null);
         currentHealth = maxHealth;
-        isDying = false;
+        //GetComponent<BoxCollider2D>().enabled = true;
+        //isDying = false;
         yield return null;
     }
 
@@ -75,4 +78,6 @@ public class PlayerHealth : MonoBehaviour
     public bool IsDying() { return isDying; }
 
     public void Heal(float hpPoint) { currentHealth += hpPoint; }
+
+    public void HealToMax() { currentHealth = maxHealth; }
 }

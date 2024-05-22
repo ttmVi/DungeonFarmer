@@ -31,6 +31,8 @@ public class Boar : MonoBehaviour
 
         GameObject point1 = new GameObject();
         GameObject point2 = new GameObject();
+        point1.tag = "Enemies";
+        point2.tag = "Enemies";
         Transform point1Transform = point1.transform;
         Transform point2Transform = point2.transform;
 
