@@ -18,6 +18,13 @@ public class FarmManager : MonoBehaviour
         StartCoroutine(GoToSleep());
     }
 
+    public void ForcedEndFarmDay()
+    {
+        // This method will be called after player coming back from the dungeon
+        // It will not call the black out and white in effect
+        CheckFarmPlots();
+    }
+
     private IEnumerator GoToSleep()
     {
         GameManager manager = GetComponent<GameManager>();
@@ -25,6 +32,15 @@ public class FarmManager : MonoBehaviour
         StartCoroutine(manager.BlackOut());
         yield return new WaitUntil(() => manager.ScreenIsBlack());
 
+        CheckFarmPlots();
+        yield return new WaitForSeconds(1f);
+
+        StartCoroutine(manager.WhiteIn());
+        yield return null;
+    }
+
+    private void CheckFarmPlots()
+    {
         PlotFarming[] plots = FindObjectsOfType<PlotFarming>();
         foreach (PlotFarming plot in plots)
         {
@@ -35,10 +51,6 @@ public class FarmManager : MonoBehaviour
                 plot.EndDayCheck();
             }
         }
-        yield return new WaitForSeconds(1f);
-
-        StartCoroutine(manager.WhiteIn());
-        yield return null;
     }
 
     public void FetchWater()

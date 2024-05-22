@@ -165,11 +165,12 @@ public class GameManager : MonoBehaviour
         player.GetComponent<PlayerAnimationController>().ResetPlayerAnimation();
         player.GetComponent<BoxCollider2D>().enabled = true;
         //player.GetComponent<PlayerInventory>().StoreItemsFromDungeon();
-
         if (player.GetComponent<PlayerHealth>().IsDying())
         {
             player.GetComponent<PlayerHealth>().StopDying();
         }
+
+        GetComponent<FarmManager>().ForcedEndFarmDay();
         yield return new WaitForSeconds(2f);
 
         StartCoroutine(WhiteIn());
