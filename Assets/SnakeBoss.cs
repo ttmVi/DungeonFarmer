@@ -149,7 +149,7 @@ public class SnakeBoss : MonoBehaviour
         yield return new WaitWhile(() => anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 1);
 
         // Do some action
-        int numRocks = Random.Range(12, 18);
+        int numRocks = Random.Range(6, 10);
         for (int i = 0; i < numRocks; i++)
         {
             StartCoroutine(SpawnRock());

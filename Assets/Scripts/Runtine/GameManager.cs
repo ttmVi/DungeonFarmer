@@ -20,8 +20,8 @@ public class GameManager : MonoBehaviour
     [Header("Scene Changing Variables")]
     [SerializeField] private Vector2 firstEverStartingPos;
     [Space]
-    [SerializeField] private GameObject farm;
-    [SerializeField] private GameObject dungeon;
+    [SerializeField] public GameObject farm;
+    [SerializeField] public GameObject dungeon;
     [SerializeField] public bool inFarm = true;
     [SerializeField] public bool inDungeon = false;
     [SerializeField] private Vector2 farmStartPos;
@@ -50,6 +50,7 @@ public class GameManager : MonoBehaviour
         player.GetComponent<PlayerAttack>().enabled = false;
         player.transform.GetChild(0).GetComponent<Melee>().enabled = false;
 
+        currentEnemies = GameObject.Find("Enemies");
         dungeon.SetActive(false);
         inDungeon = false;
     }
@@ -73,11 +74,23 @@ public class GameManager : MonoBehaviour
         if (currentEnemies != null)
         {
             Destroy(currentEnemies);
+            currentEnemies = Instantiate(enemies);
+            currentEnemies.transform.parent = dungeon.transform;
+            Debug.Log(currentEnemies.gameObject.name);
         }
+
         if (currentEnemies == null)
         {
             currentEnemies = Instantiate(enemies);
+            currentEnemies.transform.parent = dungeon.transform;
+            Debug.Log(currentEnemies.gameObject.name);
         }
+    }
+
+    private void DestroyEnemies()
+    {
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemies");
+        foreach (GameObject enemy in enemies) { Destroy(enemy); }
     }
 
     private IEnumerator ShiftToDungeon(GameObject openingDoor)
@@ -136,9 +149,12 @@ public class GameManager : MonoBehaviour
         {
             openingDoor.GetComponent<SpriteRenderer>().sprite = openedDoor;
         }
+        player.GetComponent<PlayerInventory>().StoreItemsFromDungeon();
+
         StartCoroutine(BlackOut());
         yield return new WaitUntil(() => ScreenIsBlack());
 
+        DestroyEnemies();
         dungeon.SetActive(false);
         inDungeon = false;
 
@@ -147,6 +163,8 @@ public class GameManager : MonoBehaviour
         player.transform.position = farmStartPos;
         farmDoor.GetComponent<SpriteRenderer>().sprite = openedDoor;
         player.GetComponent<PlayerAnimationController>().ResetPlayerAnimation();
+        player.GetComponent<BoxCollider2D>().enabled = true;
+        //player.GetComponent<PlayerInventory>().StoreItemsFromDungeon();
 
         if (player.GetComponent<PlayerHealth>().IsDying())
         {

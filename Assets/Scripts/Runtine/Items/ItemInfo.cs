@@ -32,8 +32,17 @@ public class ItemInfo : MonoBehaviour
     {
         if (picker.TryGetComponent(out PlayerInventory playerInventory))
         {
-            playerInventory.PickUpItems(gameObject.GetComponent<ItemInfo>().GetItemData(), 1);
-            Destroy(gameObject);
+            GameManager manager = FindObjectOfType<GameManager>();
+            if (manager.inFarm)
+            {
+                playerInventory.PickUpItems(gameObject.GetComponent<ItemInfo>().GetItemData(), 1);
+                Destroy(gameObject);
+            }
+            else if (manager.inDungeon)
+            {
+                playerInventory.PickUpItemsInDungeon(gameObject.GetComponent<ItemInfo>().GetItemData(), 1);
+                Destroy(gameObject);
+            }
         }
     }
 }

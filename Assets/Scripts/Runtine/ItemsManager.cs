@@ -46,6 +46,15 @@ public class ItemsManager : MonoBehaviour
         item.GetComponent<ItemInfo>().SetPicker(player);
         item.AddComponent<BoxCollider2D>();
         item.GetComponent<BoxCollider2D>().isTrigger = true;
+        GameManager manager = FindObjectOfType<GameManager>();
+        if (manager.inDungeon)
+        {
+            item.transform.parent = manager.dungeon.transform;
+        }
+        else if (manager.inFarm)
+        {
+            item.transform.parent = manager.farm.transform;
+        }
     }
 
     public void InstantiateItemInRange(GameObject placeholder, Items itemData, Vector2 instantiateCenter, float minInstantiateRadius, float maxInstantiateRadius, Quaternion rotation)

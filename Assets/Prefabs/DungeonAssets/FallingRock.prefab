@@ -15,9 +15,9 @@ GameObject:
   - component: {fileID: 4762757498080741507}
   - component: {fileID: 4101244462982347267}
   - component: {fileID: 7908492135363944740}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FallingRock
-  m_TagString: Untagged
+  m_TagString: Enemies
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
