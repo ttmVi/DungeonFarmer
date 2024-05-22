@@ -14,6 +14,7 @@ public class SnakeBoss : MonoBehaviour
     public GameObject projectile;
     public float projectileSpeed = 5f;
     public GameObject deathPoof;
+    private bool death = false;
     // Start is called before the first frame update
     private enum State
     {
@@ -33,7 +34,7 @@ public class SnakeBoss : MonoBehaviour
 
     void Start()
     {
-        deathPoof = Resources.Load<GameObject>("DeathPoof");
+        deathPoof = Resources.Load<GameObject>("BossExplosion");
         anim = GetComponent<Animator>();
         health = GetComponent<EnemyHealth>();
         enemyAI = GetComponent<EnemyAI>();
@@ -77,13 +78,36 @@ public class SnakeBoss : MonoBehaviour
 
         if(health.currentHealth <= 0)
         {
-            anim.SetTrigger("Death");
-            Instantiate(deathPoof, transform.position, Quaternion.identity);
-            Destroy(this.gameObject);
+            if(!death)
+            {
+                death = true;
+                StartCoroutine(DeathAnimation());
+            }
+            
         }
         
     }
-
+    IEnumerator DeathAnimation()
+    {
+        //Instantiate(deathPoof, transform.position, Quaternion.identity);
+        //StartCoroutine(DeathAnimation());
+        GetComponent<Collider2D>().enabled = false;
+        //make rigidbody static
+        GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+        anim.SetTrigger("Death");
+        //yield return new WaitForSeconds(GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length-1.2f);
+        //Instantiate multiple death poofs around the boss
+        for (int i = 0; i < 12; i++)
+        {
+            float randomNumX = Random.Range(-0.5f, 1.5f);
+            float randomNumY = Random.Range(-0.5f, 1.5f);
+            Vector2 deathPoofSpawn = new Vector2(transform.position.x + randomNumX, transform.position.y + randomNumY);
+            Instantiate(deathPoof, deathPoofSpawn, Quaternion.identity);
+            yield return new WaitForSeconds(0.2f);
+        }
+        Destroy(gameObject);
+        //Instantiate(deathPoof, transform.position, Quaternion.identity);
+    }
     void HandleAttacking()
     {
         enemyAI.speed = 0f;
