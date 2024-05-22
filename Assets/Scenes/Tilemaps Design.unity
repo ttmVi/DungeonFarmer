@@ -260,7 +260,7 @@ Transform:
   m_GameObject: {fileID: 153927572}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -23.615547, y: 5.69, z: -10}
+  m_LocalPosition: {x: -23.115557, y: 9.5, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2568,6 +2568,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 810757325005405166, guid: 23df27b060efe2c43b07828e9006360c, type: 3}
+      propertyPath: m_ColliderPaths.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2567142289060854489, guid: 23df27b060efe2c43b07828e9006360c, type: 3}
       propertyPath: interactEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -2632,6 +2636,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Farm
       objectReference: {fileID: 0}
+    - target: {fileID: 7823475207468341329, guid: 23df27b060efe2c43b07828e9006360c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8268607983466166844, guid: 23df27b060efe2c43b07828e9006360c, type: 3}
+      propertyPath: m_ColliderPaths.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8586985697772079502, guid: 23df27b060efe2c43b07828e9006360c, type: 3}
+      propertyPath: m_ColliderPaths.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8896440718148440845, guid: 23df27b060efe2c43b07828e9006360c, type: 3}
       propertyPath: m_Follow
       value: 
@@ -2640,6 +2656,10 @@ PrefabInstance:
       propertyPath: m_LookAt
       value: 
       objectReference: {fileID: 420072959}
+    - target: {fileID: 9213931984660378683, guid: 23df27b060efe2c43b07828e9006360c, type: 3}
+      propertyPath: m_ColliderPaths.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2655,7 +2675,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 381911637539297415, guid: 7b41914291bc11f4495922f71b41a67a, type: 3}
       propertyPath: m_ColliderPaths.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 657783140939610088, guid: 7b41914291bc11f4495922f71b41a67a, type: 3}
       propertyPath: movingSpeed
@@ -36045,6 +36065,10 @@ PrefabInstance:
       propertyPath: m_Tiles.Array.data[1635].second.m_TileSpriteIndex
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2150512728179829643, guid: 7b41914291bc11f4495922f71b41a67a, type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 2815523482326995756, guid: 7b41914291bc11f4495922f71b41a67a, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -37025,13 +37049,25 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5382765698014404266, guid: 7b41914291bc11f4495922f71b41a67a, type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7179889898237271117, guid: 7b41914291bc11f4495922f71b41a67a, type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 7256325968381645322, guid: 7b41914291bc11f4495922f71b41a67a, type: 3}
       propertyPath: m_Name
       value: Dungeon
       objectReference: {fileID: 0}
     - target: {fileID: 7256325968381645322, guid: 7b41914291bc11f4495922f71b41a67a, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7796879032993510547, guid: 7b41914291bc11f4495922f71b41a67a, type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 7934386809386061022, guid: 7b41914291bc11f4495922f71b41a67a, type: 3}
       propertyPath: m_Follow
@@ -37045,6 +37081,10 @@ PrefabInstance:
       propertyPath: interactEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 849710995}
+    - target: {fileID: 8317447852038067510, guid: 7b41914291bc11f4495922f71b41a67a, type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 8692722738339271420, guid: 7b41914291bc11f4495922f71b41a67a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -37084,6 +37124,14 @@ PrefabInstance:
     - target: {fileID: 8692722738339271420, guid: 7b41914291bc11f4495922f71b41a67a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8913228335338858103, guid: 7b41914291bc11f4495922f71b41a67a, type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8997374033033931148, guid: 7b41914291bc11f4495922f71b41a67a, type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
