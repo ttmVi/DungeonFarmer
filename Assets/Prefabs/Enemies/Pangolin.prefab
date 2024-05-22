@@ -258,6 +258,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 8718810341358338956, guid: 00542727981f55b408d9adaec10a4a1f, type: 3}
   projectileSpeed: 5
+  deathPoof: {fileID: 0}
+  droppingItems:
+  - {fileID: 11400000, guid: ba27b47e49945994897c070dee1c3d2f, type: 2}
+  - {fileID: 11400000, guid: ba27b47e49945994897c070dee1c3d2f, type: 2}
+  - {fileID: 11400000, guid: 8653f503de997af42a22775508cdac43, type: 2}
+  - {fileID: 11400000, guid: ba27b47e49945994897c070dee1c3d2f, type: 2}
 --- !u!114 &6796619662047896866
 MonoBehaviour:
   m_ObjectHideFlags: 0

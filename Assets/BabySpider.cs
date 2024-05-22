@@ -19,6 +19,7 @@ public class BabySpider : MonoBehaviour
     private GroundCheck groundCheck;
     private Animator anim;
     private GameObject deathPoof;
+    [SerializeField] private Items[] droppingItems;
     void Start()
     {
         deathPoof = Resources.Load<GameObject>("DeathPoof");
@@ -62,6 +63,8 @@ public class BabySpider : MonoBehaviour
     }
     void Death()
     {
+        FindObjectOfType<ItemsManager>().GetComponent<ItemsManager>().InstantiateRandomItems(null, droppingItems, transform.position, Quaternion.identity);
+
         //play death animation
         anim.SetTrigger("Death");
         Instantiate(deathPoof, transform.position, Quaternion.identity);

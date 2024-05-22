@@ -289,6 +289,9 @@ MonoBehaviour:
   localMinX: 2
   localMaxX: 2
   patrolSpeed: 5
+  droppingItems:
+  - {fileID: 11400000, guid: a48814476f457ff4ab9621d191291ecc, type: 2}
+  - {fileID: 11400000, guid: fe4ad8df8c2fd3f4f9ab9a15d222930f, type: 2}
 --- !u!114 &8007805586636004273
 MonoBehaviour:
   m_ObjectHideFlags: 0

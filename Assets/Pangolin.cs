@@ -13,6 +13,7 @@ public class Pangolin : MonoBehaviour
     private EnemyHealth health;
     private Animator anim;
     public GameObject deathPoof;
+    [SerializeField] private Items[] droppingItems;
     private void Start()
     {
         deathPoof = Resources.Load<GameObject>("DeathPoof");
@@ -37,6 +38,7 @@ public class Pangolin : MonoBehaviour
 
         if (health.currentHealth <= 0)
         {
+            FindObjectOfType<ItemsManager>().GetComponent<ItemsManager>().InstantiateRandomItems(null, droppingItems, transform.position, Quaternion.identity);
             Die();
         }
     }

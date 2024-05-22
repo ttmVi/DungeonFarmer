@@ -218,7 +218,7 @@ MonoBehaviour:
   activateDistance: 5
   pathUpdateSeconds: 0.5
   speed: 5
-  jumpForce: 12
+  jumpForce: 8
   nextWaypointDistance: 3
   jumpNodeHeightRequirement: 0.8
   jumpModifier: 0.3
@@ -265,6 +265,11 @@ MonoBehaviour:
   patrolSpeed: 5
   checkInterval: 0.05
   maxFallDistance: 10
+  deathPoof: {fileID: 0}
+  droppingItems:
+  - {fileID: 11400000, guid: a48814476f457ff4ab9621d191291ecc, type: 2}
+  - {fileID: 11400000, guid: fe4ad8df8c2fd3f4f9ab9a15d222930f, type: 2}
+  - {fileID: 11400000, guid: fe4ad8df8c2fd3f4f9ab9a15d222930f, type: 2}
 --- !u!114 &343400472176287687
 MonoBehaviour:
   m_ObjectHideFlags: 0

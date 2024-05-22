@@ -116,6 +116,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
+  itemPlaceholder: {fileID: 7433910746993536279, guid: b9d85e10af5c25245b70235e562ffeab, type: 3}
 --- !u!114 &2096038915219756903
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -7,10 +7,36 @@ public class ItemsManager : MonoBehaviour
 {
     public static ItemsManager itemsManager;
     [SerializeField] private GameObject player;
+    [SerializeField] private GameObject itemPlaceholder;
 
     private void Awake()
     {
         itemsManager = this;
+    }
+
+    public void InstantiateRandomItems(GameObject placeholder, Items[] itemsList, Vector2 instantiatePosition, Quaternion rotation)
+    {
+        int numberOfItems = 0;
+        //restart:
+        foreach (var item in itemsList)
+        {
+            //int random = Random.Range(0, 1);
+            //if (random == 0) { continue; }
+            //else if (random == 1)
+            //{
+                if (placeholder != null)
+                {
+                    InstantiateItemInSemiRange(placeholder, item, instantiatePosition, 0.1f, 1.5f, rotation);
+                }
+                else
+                {
+                    InstantiateItemInSemiRange(itemPlaceholder, item, instantiatePosition, 0.1f, 1.5f, rotation);
+                }
+                numberOfItems++;
+            //}
+        }
+
+        //if (numberOfItems == 0) { goto restart; }
     }
 
     public void InstantiateItem(GameObject placeholder, Items itemData, Vector2 instantiatePosition, Quaternion rotation)

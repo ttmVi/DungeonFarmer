@@ -17,6 +17,8 @@ public class Boar : MonoBehaviour
     public float minX = 5f, maxX = 5f;
     Animator anim;
     public GameObject deathPoof;
+    [SerializeField] private Items[] droppingItems;
+
     private void Start()
     {
         deathPoof = Resources.Load<GameObject>("DeathPoof");
@@ -66,6 +68,7 @@ public class Boar : MonoBehaviour
             Instantiate(deathPoof, transform.position, Quaternion.identity);
             Destroy(points[0].gameObject);
             Destroy(points[1].gameObject);
+            FindObjectOfType<ItemsManager>().GetComponent<ItemsManager>().InstantiateRandomItems(null, droppingItems, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
     }

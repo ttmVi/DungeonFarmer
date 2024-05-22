@@ -39,6 +39,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Transform startMagmaTrigger;
     [SerializeField] private Transform stopMagmaTrigger;
     [SerializeField] private GameObject magma;
+    [SerializeField] private GameObject enemies;
+    private GameObject currentEnemies;
 
     private void Start()
     {
@@ -68,6 +70,14 @@ public class GameManager : MonoBehaviour
     {
         magma.GetComponent<RisingMagma>().ResetPosition();
         magma.GetComponent<RisingMagma>().enabled = false;
+        if (currentEnemies != null)
+        {
+            Destroy(currentEnemies);
+        }
+        if (currentEnemies == null)
+        {
+            currentEnemies = Instantiate(enemies);
+        }
     }
 
     private IEnumerator ShiftToDungeon(GameObject openingDoor)

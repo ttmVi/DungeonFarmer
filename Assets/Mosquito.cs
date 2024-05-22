@@ -43,6 +43,10 @@ public class Mosquito : MonoBehaviour
     Rigidbody2D rb;
     Animator anim;
     public GameObject deathPoof;
+
+    [Header("Items")]
+    [SerializeField] private Items[] droppingItems;
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.collider.CompareTag("Player"))
@@ -119,11 +123,13 @@ public class Mosquito : MonoBehaviour
         if(health.currentHealth <= 0 && isFull)
         {
             //Blow up mosquito
+            FindObjectOfType<ItemsManager>().GetComponent<ItemsManager>().InstantiateRandomItems(null, droppingItems, transform.position, Quaternion.identity);
             BlowUp();
         }
         else if(health.currentHealth <= 0)
         {
             //play death animation
+            FindObjectOfType<ItemsManager>().GetComponent<ItemsManager>().InstantiateRandomItems(null, droppingItems, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
         if (isFull)

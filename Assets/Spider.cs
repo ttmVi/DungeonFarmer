@@ -24,6 +24,7 @@ public class Spider : MonoBehaviour
     private Animator anim;
     private bool inAir;
     public GameObject deathPoof;
+    [SerializeField] private Items[] droppingItems;
     void Start()
     {
         deathPoof = Resources.Load<GameObject>("DeathPoof");
@@ -56,6 +57,7 @@ public class Spider : MonoBehaviour
 
         if(health.currentHealth <= 0)
         {
+            FindObjectOfType<ItemsManager>().GetComponent<ItemsManager>().InstantiateRandomItems(null, droppingItems, transform.position, Quaternion.identity);
             Death();
         }
 

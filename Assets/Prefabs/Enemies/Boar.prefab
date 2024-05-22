@@ -35,7 +35,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8595711150294189386}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 11.06, y: -0.492, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -244,8 +244,13 @@ MonoBehaviour:
   startPosition: {x: 0, y: 0}
   distanceFromStart: 0
   patrolSpeed: 5
-  minX: 7
-  maxX: 7
+  minX: 3
+  maxX: 3
+  deathPoof: {fileID: 0}
+  droppingItems:
+  - {fileID: 11400000, guid: ac977b05c1b5c1c44a2790ee57d448ea, type: 2}
+  - {fileID: 11400000, guid: e977fe0c336e3b9438c6eb6a0c322982, type: 2}
+  - {fileID: 11400000, guid: ac977b05c1b5c1c44a2790ee57d448ea, type: 2}
 --- !u!114 &9094995659989755257
 MonoBehaviour:
   m_ObjectHideFlags: 0

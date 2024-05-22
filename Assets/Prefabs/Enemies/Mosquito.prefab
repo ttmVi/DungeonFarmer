@@ -241,15 +241,19 @@ MonoBehaviour:
   coroutineRunning: 0
   waitTime: 0
   startWaitTime: 0.5
-  localMinX: 2
-  localMinY: 2
-  localMaxX: 2
+  localMinX: 1
+  localMinY: 1
+  localMaxX: 1
   localMaxY: 1
   flitterSpeed: 10
   successfulAttacks: 0
   attacksToFull: 1
   isFull: 0
   explosion: {fileID: 0}
+  deathPoof: {fileID: 0}
+  droppingItems:
+  - {fileID: 11400000, guid: e7c1dd226ca7a4f468433916893ae061, type: 2}
+  - {fileID: 11400000, guid: ba225fe612f59ce468b2a3221ac69d64, type: 2}
 --- !u!114 &6725730213048666190
 MonoBehaviour:
   m_ObjectHideFlags: 0
