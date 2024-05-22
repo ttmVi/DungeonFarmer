@@ -47,6 +47,8 @@ public class PlayerAnimationController : MonoBehaviour
 
     public void TriggerHurtingAnimation() { animator.SetTrigger("hurt"); }
 
+    public void TriggerHealingAnimation() { animator.SetTrigger("heal"); }
+
     public void TriggerDyingAnimation() { animator.SetTrigger("die"); }
 
     public void SetClimbingState(bool state) { animator.SetBool("isClimbing", state); }
@@ -54,6 +56,8 @@ public class PlayerAnimationController : MonoBehaviour
     public void SetGroundingState(bool state) { animator.SetBool("onGround", state); }
 
     public void SetMovingState(bool state) { animator.SetBool("isMoving", state); }
+
+    public void SetDashingState(bool state) { animator.SetBool("isDashing", state); }
 
     private bool NearlyLanding()
     {

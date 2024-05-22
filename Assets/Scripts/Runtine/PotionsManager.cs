@@ -9,7 +9,7 @@ public class PotionsManager : MonoBehaviour
     public void ActivateHealthPotion(Items potion)
     {
         Potion potionData = potion.GetPotionData();
-        player.GetComponent<PlayerHealth>().Heal(potionData.GetPotionEffectValue());
+        player.GetComponent<PlayerHealth>().HealToMax();
     }
 
     public void ActivateRagePotion(Items potion)

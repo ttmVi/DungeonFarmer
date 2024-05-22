@@ -44,8 +44,8 @@ public class ItemsManager : MonoBehaviour
         GameObject item = Instantiate(placeholder, instantiatePosition, rotation);
         item.GetComponent<ItemInfo>().SetItemData(itemData);
         item.GetComponent<ItemInfo>().SetPicker(player);
-        item.AddComponent<BoxCollider2D>();
-        item.GetComponent<BoxCollider2D>().isTrigger = true;
+        //item.AddComponent<BoxCollider2D>();
+        //item.GetComponent<BoxCollider2D>().isTrigger = true;
         GameManager manager = FindObjectOfType<GameManager>();
         if (manager.inDungeon)
         {
@@ -64,8 +64,8 @@ public class ItemsManager : MonoBehaviour
         GameObject item = Instantiate(placeholder, randomPosition, rotation);
         item.GetComponent<ItemInfo>().SetItemData(itemData);
         item.GetComponent<ItemInfo>().SetPicker(player);
-        item.AddComponent<BoxCollider2D>();
-        item.GetComponent<BoxCollider2D>().isTrigger = true;
+        //item.AddComponent<BoxCollider2D>();
+        //item.GetComponent<BoxCollider2D>().isTrigger = true;
     }
 
     public void InstantiateItemInLine(GameObject placeholder, Items itemData, Vector2 instantiateCenter, float minInstantiateRadius, float maxInstantiateRadius, Quaternion rotation)
@@ -76,8 +76,8 @@ public class ItemsManager : MonoBehaviour
         GameObject item = Instantiate(placeholder, randomPosition, rotation);
         item.GetComponent<ItemInfo>().SetItemData(itemData);
         item.GetComponent<ItemInfo>().SetPicker(player);
-        item.AddComponent<BoxCollider2D>();
-        item.GetComponent<BoxCollider2D>().isTrigger = true;
+        //item.AddComponent<BoxCollider2D>();
+        //item.GetComponent<BoxCollider2D>().isTrigger = true;
     }
 
     public void InstantiateItemInSemiRange(GameObject placeholder, Items itemData, Vector2 instantiateCenter, float minInstantiateRadius, float maxInstantiateRadius, Quaternion rotation)
@@ -92,8 +92,8 @@ public class ItemsManager : MonoBehaviour
         GameObject item = Instantiate(placeholder, randomPosition, rotation);
         item.GetComponent<ItemInfo>().SetItemData(itemData);
         item.GetComponent<ItemInfo>().SetPicker(player);
-        item.AddComponent<BoxCollider2D>();
-        item.GetComponent<BoxCollider2D>().isTrigger = true;
+        //item.AddComponent<BoxCollider2D>();
+        //item.GetComponent<BoxCollider2D>().isTrigger = true;
     }
 
     private Vector2 GetRandomPositionWithinRange(Vector2 center, float minRadius, float maxRadius)
@@ -110,7 +110,16 @@ public class ItemsManager : MonoBehaviour
 
     public void UsePotion(InputAction.CallbackContext context, Items potion)
     {
-        if (context.started && potion.GetPotionData().GetPotionEffectEvent() != null)
+        if (context.started && potion.GetPotionData().GetPotionEffectEvent() != null && GetComponent<InventoryManager>().CheckForItems(potion))
+        {
+            potion.GetPotionData().GetPotionEffectEvent().Invoke();
+            GetComponent<InventoryManager>().UseUpPotion(potion);
+        }
+    }
+
+    public void UsePotion(Items potion)
+    {
+        if (potion.GetPotionData().GetPotionEffectEvent() != null && GetComponent<InventoryManager>().CheckForItems(potion))
         {
             potion.GetPotionData().GetPotionEffectEvent().Invoke();
             GetComponent<InventoryManager>().UseUpPotion(potion);

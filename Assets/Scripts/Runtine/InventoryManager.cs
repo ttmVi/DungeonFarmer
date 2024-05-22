@@ -126,6 +126,7 @@ public class InventoryManager : MonoBehaviour
             player.GetComponent<PlayerMovement>().enabled = false;
             player.GetComponent<PlayerJump>().enabled = false;
             player.GetComponent<PlayerAttack>().enabled = false;
+            player.GetComponent<PlayerDash>().enabled = false;
             player.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         }
     }
@@ -137,6 +138,7 @@ public class InventoryManager : MonoBehaviour
         player.GetComponent<PlayerAnimationController>().ResetTriggerInteractingAnimation();
         player.GetComponent<PlayerInteract>().enabled = true;
         player.GetComponent<PlayerMovement>().enabled = true;
+        player.GetComponent<PlayerDash>().enabled = true;
         player.GetComponent<PlayerJump>().enabled = true;
         
         inventoryCanvas.SetActive(false);
@@ -167,7 +169,6 @@ public class InventoryManager : MonoBehaviour
                 case 1: AboveItem(); break;
                 default: break;
             }
-
         }
         else { Debug.Log("Inventory not opened / Inventory empty"); }
     }
@@ -207,7 +208,12 @@ public class InventoryManager : MonoBehaviour
 
     public void UseUpPotion(Items potion)
     {
-        playerInventory.gameObject.GetComponent<PlayerInventory>().RemoveItems(potion, 1);
+        playerInventory.RemoveItems(potion, 1);
+    }
+
+    public bool CheckForItems(Items items)
+    {
+        return playerInventory.CheckForItem(items);
     }
 
     private void NextItem()

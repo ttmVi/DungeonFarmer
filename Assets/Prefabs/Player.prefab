@@ -438,12 +438,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventorySize: 30
   editorInventoryList: []
+  dungeonInventoryList: []
   draftAssets:
-  - {fileID: 11400000, guid: 30bd317bd4e120e4ea721232e9fd4c5b, type: 2}
-  - {fileID: 11400000, guid: 29e289f7c0f0dfd45b0ae3420f903fd6, type: 2}
-  - {fileID: 11400000, guid: ac977b05c1b5c1c44a2790ee57d448ea, type: 2}
-  - {fileID: 11400000, guid: ba225fe612f59ce468b2a3221ac69d64, type: 2}
-  - {fileID: 11400000, guid: 817b12d110ab6f647808043791db4d36, type: 2}
+  - {fileID: 11400000, guid: d1987abba4b7fb9488b6798a0fa0843a, type: 2}
+  - {fileID: 11400000, guid: c6c35ed7f1a7b0248a93535170094ad5, type: 2}
 --- !u!114 &4711208724564517510
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -540,7 +538,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 10
   currentHealth: 0
-  dyingAnimation: {fileID: 0}
+  dyingAnimation: {fileID: 7400000, guid: a11d7357b13e5f449853b00996cf5fe3, type: 2}
+  healthPotion: {fileID: 11400000, guid: d1987abba4b7fb9488b6798a0fa0843a, type: 2}
 --- !u!114 &5688708960301804664
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -569,7 +568,7 @@ MonoBehaviour:
   enemyLayer:
     serializedVersion: 2
     m_Bits: 512
-  invincibilityTime: 0.5
+  invincibilityTime: 1
 --- !u!114 &4347326150170073652
 MonoBehaviour:
   m_ObjectHideFlags: 0

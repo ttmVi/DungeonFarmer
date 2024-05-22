@@ -7,6 +7,12 @@ public class ItemInfo : MonoBehaviour
     [SerializeField] private Items itemsData;
     [SerializeField] private GameObject picker;
 
+    private void Start()
+    {
+        if (itemsData != null) { SetItemData(itemsData); }
+        SetPicker(GameObject.Find("Player"));
+    }
+
     public void SetItemData(Items item)
     {
         itemsData = item;

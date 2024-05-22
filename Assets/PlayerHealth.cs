@@ -11,12 +11,25 @@ public class PlayerHealth : MonoBehaviour
     [Space]
     private bool isDying;
     [SerializeField] private AnimationClip dyingAnimation;
+    [SerializeField] private Items healthPotion;
 
     private void Start()
     {
         playerMovement = GetComponent<PlayerMovement>();
         knockback = GetComponent<Knockback>();
         currentHealth = maxHealth;
+    }
+
+    private void Update()
+    {
+        if (currentHealth <= 1.1f && currentHealth > 0)
+        {
+            if (GetComponent<PlayerInventory>().CheckForItem(healthPotion))
+            {
+                HealToMax();
+                GetComponent<PlayerInventory>().RemoveItems(healthPotion, 1);
+            }
+        }
     }
 
     public void TakeDamage(float damage, Vector2 hitDirection)
@@ -77,7 +90,19 @@ public class PlayerHealth : MonoBehaviour
 
     public bool IsDying() { return isDying; }
 
-    public void Heal(float hpPoint) { currentHealth += hpPoint; }
+    public void Heal(float hpPoint) 
+    { 
+        GetComponent<PlayerAnimationController>().TriggerHealingAnimation();
+        currentHealth += hpPoint; 
+        if (currentHealth > maxHealth)
+        {
+            currentHealth = maxHealth;
+        }
+    }
 
-    public void HealToMax() { currentHealth = maxHealth; }
+    public void HealToMax() 
+    { 
+        currentHealth = maxHealth;
+        GetComponent<PlayerAnimationController>().TriggerHealingAnimation();
+    }
 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class ParallaxBackground : MonoBehaviour
 {
@@ -13,7 +14,7 @@ public class ParallaxBackground : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        length = GetComponent<SpriteRenderer>().bounds.size.x;
+        length = GetComponent<TilemapRenderer>().bounds.size.x;
         startPos = transform.position;
     }
 

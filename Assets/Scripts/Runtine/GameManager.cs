@@ -113,9 +113,9 @@ public class GameManager : MonoBehaviour
         farm.SetActive(false);
         inFarm = false;
 
+        player.transform.position = dungeonStartPos;
         dungeon.SetActive(true);
         inDungeon = true;
-        player.transform.position = dungeonStartPos;
         dungeonDoor.GetComponent<SpriteRenderer>().sprite = openedDoor;
         ResetDungeon();
         yield return new WaitForSeconds(2f);
@@ -158,9 +158,9 @@ public class GameManager : MonoBehaviour
         dungeon.SetActive(false);
         inDungeon = false;
 
+        player.transform.position = farmStartPos;
         farm.SetActive(true);
         inFarm = true;
-        player.transform.position = farmStartPos;
         farmDoor.GetComponent<SpriteRenderer>().sprite = openedDoor;
         player.GetComponent<PlayerAnimationController>().ResetPlayerAnimation();
         player.GetComponent<BoxCollider2D>().enabled = true;
@@ -182,6 +182,7 @@ public class GameManager : MonoBehaviour
         EnablePlayer();
         player.GetComponent<PlayerAttack>().enabled = false;
         player.transform.GetChild(0).GetComponent<Melee>().enabled = false;
+        //player.GetComponent<PlayerDash>().enabled = false;
     }
 
     public void ToFarm(GameObject openingDoor) 

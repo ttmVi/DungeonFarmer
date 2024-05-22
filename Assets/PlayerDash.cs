@@ -60,9 +60,11 @@ public class PlayerDash : MonoBehaviour
             if (context.started && canDash)
             {
                 isDashing = true;
+                GetComponent<PlayerAnimationController>().SetDashingState(true);
                 canDash = false;
                 trail.emitting = true;
-                dashDirection = new Vector2(movement.directionX, 0f);  
+                dashDirection = new Vector2(movement.directionX, 0f);
+                Physics2D.IgnoreLayerCollision(gameObject.layer, LayerMask.NameToLayer("Enemy"), true);
                 if(dashDirection == Vector2.zero)
                 {
                     dashDirection = new Vector2(transform.localScale.x,0f);
@@ -75,6 +77,8 @@ public class PlayerDash : MonoBehaviour
     private IEnumerator StopDash()
     {
         yield return new WaitForSeconds(dashTime);
+        Physics2D.IgnoreLayerCollision(gameObject.layer, LayerMask.NameToLayer("Enemy"), false);
+        GetComponent<PlayerAnimationController>().SetDashingState(false);
         isDashing = false;
         trail.emitting = false;
     }

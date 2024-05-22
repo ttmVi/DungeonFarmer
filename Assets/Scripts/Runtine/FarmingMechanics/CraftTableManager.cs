@@ -29,13 +29,24 @@ public class CraftTableManager : MonoBehaviour
     public bool isCrafting;
     private Items[] currentDisplayingRecipes;
 
-    private void Start() { currentDisplayingRecipes = fertilizers; }
+    private void Start() 
+    { 
+        currentDisplayingRecipes = fertilizers;
+        player = GameObject.Find("Player");
+    }
 
     private void Update()
     {
         if (isCrafting)
         {
             DisplayRecipes(currentDisplayingRecipes);
+            DisplayCraftButton();
+            player.GetComponent<PlayerInteract>().enabled = false;
+            player.GetComponent<PlayerMovement>().enabled = false;
+            player.GetComponent<PlayerJump>().enabled = false;
+            player.GetComponent<PlayerAttack>().enabled = false;
+            player.GetComponent<PlayerDash>().enabled = false;
+            player.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         }
     }
 
@@ -124,8 +135,8 @@ public class CraftTableManager : MonoBehaviour
         if (context.started)
         {
             currentDisplayingRecipes = potions;
-            recipeTabs.transform.GetChild(0).GetComponent<TextMeshProUGUI>().color = new Color(0f, 0f, 0f, 0.35f);
-            recipeTabs.transform.GetChild(1).GetComponent<TextMeshProUGUI>().color = new Color(0f, 0f, 0f, 1f);
+            recipeTabs.transform.GetChild(0).GetComponent<TextMeshProUGUI>().color = new Color(1f, 1f, 1f, 0.35f);
+            recipeTabs.transform.GetChild(1).GetComponent<TextMeshProUGUI>().color = new Color(1f, 1f, 1f, 1f);
         }
     }
 
@@ -134,8 +145,8 @@ public class CraftTableManager : MonoBehaviour
         if (context.started)
         {
             currentDisplayingRecipes = fertilizers;
-            recipeTabs.transform.GetChild(1).GetComponent<TextMeshProUGUI>().color = new Color(0f, 0f, 0f, 0.35f);
-            recipeTabs.transform.GetChild(0).GetComponent<TextMeshProUGUI>().color = new Color(0f, 0f, 0f, 1f);
+            recipeTabs.transform.GetChild(1).GetComponent<TextMeshProUGUI>().color = new Color(1f, 1f, 1f, 0.35f);
+            recipeTabs.transform.GetChild(0).GetComponent<TextMeshProUGUI>().color = new Color(1f, 1f, 1f, 1f);
         }
     }
 
@@ -183,6 +194,63 @@ public class CraftTableManager : MonoBehaviour
         }
     }
 
+    private void DisplayCraftButton()
+    {
+        if (isCrafting)
+        {
+            if (isLeftmost)
+            {
+                if (isUpmost)
+                {
+                    if (HasEnoughIngredients(currentDisplayingRecipes[0]))
+                    {
+                        selectButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().color = Color.white;
+                    }
+                    else
+                    {
+                        selectButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().color = Color.gray;
+                    }
+                }
+                else if (isDownmost)
+                {
+                    if (HasEnoughIngredients(currentDisplayingRecipes[2]))
+                    {
+                        selectButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().color = Color.white;
+                    }
+                    else
+                    {
+                        selectButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().color = Color.gray;
+                    }
+                }
+            }
+            else if (isRightmost)
+            {
+                if (isUpmost)
+                {
+                    if (HasEnoughIngredients(currentDisplayingRecipes[1]))
+                    {
+                        selectButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().color = Color.white;
+                    }
+                    else
+                    {
+                        selectButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().color = Color.gray;
+                    }
+                }
+                else if (isDownmost)
+                {
+                    if (HasEnoughIngredients(currentDisplayingRecipes[3]))
+                    {
+                        selectButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().color = Color.white;
+                    }
+                    else
+                    {
+                        selectButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().color = Color.gray;
+                    }
+                }
+            }
+        }
+    }
+
     private Items[] GetItemCraftingRecipe(Items item)
     {
         if (item.GetItemType() == Items.ItemType.Fertilizer)
@@ -217,11 +285,11 @@ public class CraftTableManager : MonoBehaviour
 
             if (HasEnoughIngredients(categorizedItems[i]))
             {
-                craftButton.GetComponent<Image>().color = Color.white;
+                craftButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().color = Color.white;
             }
             else
             {
-                craftButton.GetComponent<Image>().color = Color.gray;
+                craftButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().color = Color.gray;
             }
         }
     }

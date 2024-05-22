@@ -61,15 +61,7 @@ public class PlayerInventory : MonoBehaviour
 
     public void PickUpItemsInDungeon(Items item, int quantity)
     {
-        if (dungeonTempInventory.IsFull())
-        {
-            Debug.Log("Inventory is full");
-            return;
-        }
-        else
-        {
-            dungeonTempInventory.AddItem(item, quantity);
-        }
+        dungeonTempInventory.AddItem(item, quantity);
     }
 
     public void RemoveRandomDungeonItems()
@@ -98,7 +90,7 @@ public class PlayerInventory : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
 
-        dungeonTempInventory = null;
+        dungeonTempInventory = new Inventory(inventorySize);
         yield return null;
     }
 
