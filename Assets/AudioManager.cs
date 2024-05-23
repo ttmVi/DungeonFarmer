@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
+    public static AudioManager instance;
     public AudioSource BGM;
     private GameManager gameManager;
     public AudioClip FarmMusic;
@@ -13,6 +14,13 @@ public class AudioManager : MonoBehaviour
     public AudioClip BossMusic;
     public AudioClip VictoryMusic;
     // Start is called before the first frame update
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+    }
     void Start()
     {
        gameManager=GetComponent<GameManager>();
@@ -31,11 +39,16 @@ public class AudioManager : MonoBehaviour
 
     public void SwitchBGM(AudioClip music)
     {
-        StartCoroutine(FadeOut(BGM,2f));
+        StartCoroutine(FadeOut(BGM,2f,music));
+        
+    }
+    public void PlayBGM(AudioClip music)
+    {
+        BGM.Stop();
         BGM.clip = music;
         BGM.Play();
     }
-    public static IEnumerator FadeOut(AudioSource audioSource, float FadeTime)
+    public static IEnumerator FadeOut(AudioSource audioSource, float FadeTime,AudioClip music)
     {
         float startVolume = audioSource.volume;
 
@@ -48,5 +61,7 @@ public class AudioManager : MonoBehaviour
 
         audioSource.Stop();
         audioSource.volume = startVolume;
+        audioSource.clip = music;
+        audioSource.Play();
     }
 }
