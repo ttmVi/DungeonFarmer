@@ -232,6 +232,7 @@ MonoBehaviour:
     a lot of monsters but also lots of rewards and items that you can pick up from
     them. However, if you die in the dungeon, you will lose some of your collected
     items.
+  - That is all for now. Good luck!
   currentTutorial: 0
 --- !u!1 &115743791
 GameObject:
