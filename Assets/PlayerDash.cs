@@ -61,6 +61,7 @@ public class PlayerDash : MonoBehaviour
             {
                 isDashing = true;
                 GetComponent<PlayerAnimationController>().SetDashingState(true);
+                AudioManager.instance.DashSound.Play();
                 canDash = false;
                 trail.emitting = true;
                 dashDirection = new Vector2(movement.directionX, 0f);

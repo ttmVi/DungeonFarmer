@@ -95,6 +95,7 @@ public class SnakeBoss : MonoBehaviour
         //make rigidbody static
         GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
         anim.SetTrigger("Death");
+        AudioManager.instance.PlayBGM(AudioManager.instance.VictoryMusic);
         //yield return new WaitForSeconds(GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length-1.2f);
         //Instantiate multiple death poofs around the boss
         for (int i = 0; i < 12; i++)

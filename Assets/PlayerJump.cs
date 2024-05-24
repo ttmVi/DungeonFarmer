@@ -210,6 +210,7 @@ public class PlayerJump : MonoBehaviour
 
     private void DoAJump()
     {
+        AudioManager.instance.JumpSound.Play();
         //Create the jump, provided we are on the ground, in coyote time, or have a double jump available
         if (onLadder || onGround || (coyoteTimeCounter > 0.03f && coyoteTimeCounter < coyoteTime) || canJumpAgain)
         {
