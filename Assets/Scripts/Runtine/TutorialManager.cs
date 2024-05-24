@@ -10,6 +10,7 @@ public class TutorialManager : MonoBehaviour
 
     [Header("Tutorial Canvas Elements Assigning")]
     [SerializeField] private GameObject tutorialCanvas;
+    [SerializeField] private TextMeshProUGUI tutorialTitle;
     [SerializeField] private TextMeshProUGUI tutorialText;
     [SerializeField] private bool isTutoring;
 
@@ -26,9 +27,10 @@ public class TutorialManager : MonoBehaviour
         }
     }
 
-    public void OpenTutorial(string tutorialContent)
+    public void OpenTutorial(string title, string tutorialContent)
     {
         tutorialCanvas.SetActive(true);
+        tutorialTitle.text = title;
         tutorialText.text = tutorialContent;
         isTutoring = true;
 
@@ -43,14 +45,18 @@ public class TutorialManager : MonoBehaviour
     public void CloseTutorial()
     {
         tutorialCanvas.SetActive(false);
+        tutorialTitle.text = " ";
         tutorialText.text = " ";
         isTutoring = false;
 
-        player.GetComponent<PlayerAnimationController>().ResetTriggerInteractingAnimation();
-        player.GetComponent<PlayerInteract>().enabled = true;
-        player.GetComponent<PlayerMovement>().enabled = true;
-        player.GetComponent<PlayerDash>().enabled = true;
-        player.GetComponent<PlayerJump>().enabled = true;
+        if (!GetComponent<InventoryManager>().CheckGeneralItemsUIOpeningState())
+        {
+            player.GetComponent<PlayerAnimationController>().ResetTriggerInteractingAnimation();
+            player.GetComponent<PlayerInteract>().enabled = true;
+            player.GetComponent<PlayerMovement>().enabled = true;
+            player.GetComponent<PlayerDash>().enabled = true;
+            player.GetComponent<PlayerJump>().enabled = true;
+        }
     }
 
     public void CloseTutorial(InputAction.CallbackContext context)

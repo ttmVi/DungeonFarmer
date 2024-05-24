@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1481438490654590115}
   - component: {fileID: 2096038915219756903}
   - component: {fileID: 3202212957626661193}
+  - component: {fileID: 8794574226465587279}
   - component: {fileID: 6251682547704121202}
   - component: {fileID: 1574391688582814502}
   - component: {fileID: 869247626858252963}
@@ -186,6 +187,23 @@ MonoBehaviour:
   isUpmost: 1
   isDownmost: 0
   isCrafting: 0
+--- !u!114 &8794574226465587279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5165260750117755339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fe7e72b17d92884e90766e0b09a09ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  tutorialCanvas: {fileID: 0}
+  tutorialTitle: {fileID: 0}
+  tutorialText: {fileID: 0}
+  isTutoring: 0
 --- !u!114 &6251682547704121202
 MonoBehaviour:
   m_ObjectHideFlags: 0

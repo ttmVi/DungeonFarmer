@@ -68,7 +68,7 @@ public class InventoryManager : MonoBehaviour
         UIOpened = CheckGeneralItemsUIOpeningState();
     }
 
-    private bool CheckGeneralItemsUIOpeningState()
+    public bool CheckGeneralItemsUIOpeningState()
     {
         for (int i = 0; i < generalItemsUI.transform.childCount; i++)
         {
@@ -135,15 +135,15 @@ public class InventoryManager : MonoBehaviour
 
             if (displayingInventory == playerInventory.playerInventoryList)
             {
-                hints.text = "Do you not remember what's in your bag?\r\nAnd btw, press ctrl to control your inventory.";
+                hints.text = "These are all the items you have right now in your inventory";
             }
             else if (displayingInventory == playerInventory.seedsInventory)
             {
-                hints.text = "I heard that you want to plant some trees.\r\npress x to use the seeds, if you have any.";
+                hints.text = "You're looking at all the seeds you have, press x to plant your plant";
             }
             else if (displayingInventory == playerInventory.fertilizersInventory)
             {
-                hints.text = "Ooh, you do want to take care of your trees?\njk, press x to fertilize your chosen tree.";
+                hints.text = "Looks like your water can is empty\n But it's okay, you can fertilize your plant instead";
             }
             else
             {
@@ -163,17 +163,20 @@ public class InventoryManager : MonoBehaviour
     {
         yield return new WaitForFixedUpdate();
 
-        player.GetComponent<PlayerAnimationController>().ResetTriggerInteractingAnimation();
-        player.GetComponent<PlayerInteract>().enabled = true;
-        player.GetComponent<PlayerMovement>().enabled = true;
-        player.GetComponent<PlayerDash>().enabled = true;
-        player.GetComponent<PlayerJump>().enabled = true;
-        
         inventoryCanvas.SetActive(false);
         isOpening = false;
         isPlantingTree = false;
         isFertilizingTree = false;
         plantingPlot = null;
+
+        if (!CheckGeneralItemsUIOpeningState())
+        {
+            player.GetComponent<PlayerAnimationController>().ResetTriggerInteractingAnimation();
+            player.GetComponent<PlayerInteract>().enabled = true;
+            player.GetComponent<PlayerMovement>().enabled = true;
+            player.GetComponent<PlayerDash>().enabled = true;
+            player.GetComponent<PlayerJump>().enabled = true;
+        }
     }
 
     public void CloseInventory()

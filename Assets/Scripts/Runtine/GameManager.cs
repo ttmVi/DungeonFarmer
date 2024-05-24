@@ -44,15 +44,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        player.transform.position = firstEverStartingPos;
-        farm.SetActive(true);
-        inFarm = true;
-        player.GetComponent<PlayerAttack>().enabled = false;
-        player.transform.GetChild(0).GetComponent<Melee>().enabled = false;
-
-        currentEnemies = GameObject.Find("Enemies");
-        dungeon.SetActive(false);
-        inDungeon = false;
+        StartCoroutine(StartGame());
     }
 
     private void Update()
@@ -65,6 +57,23 @@ public class GameManager : MonoBehaviour
             }
             else { magma.GetComponent<RisingMagma>().enabled = true; }
         }
+    }
+
+    private IEnumerator StartGame()
+    {
+        farm.SetActive(true);
+        inFarm = true;
+
+        currentEnemies = GameObject.Find("Enemies");
+        dungeon.SetActive(false);
+        inDungeon = false;
+
+        StartCoroutine(WhiteIn());
+        yield return new WaitUntil(() => ScreenIsClear());
+        player.transform.position = firstEverStartingPos;
+        player.GetComponent<PlayerAttack>().enabled = false;
+        player.transform.GetChild(0).GetComponent<Melee>().enabled = false;
+        yield return null;
     }
 
     private void ResetDungeon()

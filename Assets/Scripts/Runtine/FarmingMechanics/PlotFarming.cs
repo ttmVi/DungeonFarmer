@@ -77,7 +77,7 @@ public class PlotFarming : MonoBehaviour
             {
                 if (FindObjectOfType<FarmManager>().GetComponent<FarmManager>().WaterBottleFilled())
                 {
-                    WaterPlant(0.5f);
+                    WaterPlant(1f);
                     GameObject.Find("Player").GetComponent<PlayerAnimationController>().TriggerWaterAnimation();
                 }
                 else

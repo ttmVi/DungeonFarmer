@@ -6,6 +6,8 @@ public class TutorialTrigger : MonoBehaviour
 {
     [SerializeField] private TutorialManager manager;
 
+    [Space]
+    [SerializeField] private string tutorialTitle;
     [TextArea(5,10)]
     [SerializeField] private string tutorialContent;
 
@@ -16,6 +18,6 @@ public class TutorialTrigger : MonoBehaviour
 
     public void TriggerTutorial()
     {
-        manager.OpenTutorial(tutorialContent);
+        manager.OpenTutorial(tutorialTitle, tutorialContent);
     }
 }
