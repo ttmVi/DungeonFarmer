@@ -35,6 +35,7 @@ public class PlayerHealth : MonoBehaviour
     public void TakeDamage(float damage, Vector2 hitDirection)
     {
         currentHealth -= damage;
+        AudioManager.instance.HurtSound.Play();
         //spawn damage particles
         //Instantiate(damageParticles, transform.position, Quaternion.identity);
         //knockback

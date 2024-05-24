@@ -13,6 +13,14 @@ public class AudioManager : MonoBehaviour
     public AudioClip RestMusic;
     public AudioClip BossMusic;
     public AudioClip VictoryMusic;
+    public AudioSource JumpSound;
+    public AudioSource AttackSound;
+    public AudioSource DashSound;
+    public AudioSource HurtSound;
+    public AudioClip Jump;
+    public AudioClip Attack;
+    public AudioClip Dash;
+    public AudioClip Hurt;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -25,16 +33,16 @@ public class AudioManager : MonoBehaviour
     {
        gameManager=GetComponent<GameManager>();
        BGM = GetComponent<AudioSource>();
+        JumpSound.clip=Jump;
+        AttackSound.clip=Attack;
+        DashSound.clip=Dash;
+        HurtSound.clip=Hurt;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(gameManager.inFarm && BGM.clip != FarmMusic)
-        {
-            BGM.clip = FarmMusic;
-            BGM.Play();
-        }
+
     }
 
     public void SwitchBGM(AudioClip music)

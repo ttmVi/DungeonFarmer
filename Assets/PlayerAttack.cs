@@ -77,6 +77,7 @@ public class PlayerAttack : MonoBehaviour
             //anim.SetTrigger("UpwardMelee");
             //Turns on the animation on the melee weapon to show the swipe area for the melee attack upwards
             meleeAnimator.SetTrigger("UpwardMeleeSwipe");
+            AudioManager.instance.AttackSound.Play();
         }
         //Checks to see if meleeAttack is true and pressing down while also not grounded
         if (movement.directionY < 0 && !character.isGrounded())
@@ -85,6 +86,7 @@ public class PlayerAttack : MonoBehaviour
             //anim.SetTrigger("DownwardMelee");
             //Turns on the animation on the melee weapon to show the swipe area for the melee attack downwards
             meleeAnimator.SetTrigger("DownwardMeleeSwipe");
+            AudioManager.instance.AttackSound.Play();
         }
         //Checks to see if meleeAttack is true and not pressing any direction OR if melee attack is true and pressing down while grounded
         if (( movement.directionY == 0) || (movement.directionY < 0 && character.isGrounded()))
@@ -93,6 +95,7 @@ public class PlayerAttack : MonoBehaviour
             //anim.SetTrigger("ForwardMelee");
             //Turns on the animation on the melee weapon to show the swipe area for the melee attack forwards
             meleeAnimator.SetTrigger("ForwardMeleeSwipe");
+            AudioManager.instance.AttackSound.Play();
         }
     }
 
