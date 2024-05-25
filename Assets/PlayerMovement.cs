@@ -84,7 +84,7 @@ public class PlayerMovement : MonoBehaviour
     private bool CheckUI()
     {
         GameObject manager = GameObject.Find("Manager");
-        return manager.GetComponent<InventoryManager>().CheckGeneralItemsUIOpeningState();
+        return manager.GetComponent<InventoryManager>().CheckGeneralItemsUIOpeningState() || manager.GetComponent<GameManager>().isPausing;
     }
 
     private void FixedUpdate()

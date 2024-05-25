@@ -125,7 +125,7 @@ public class InventoryManager : MonoBehaviour
 
     private void OpenInventory(List<(Items, int)> inventory)
     {
-        if (!isOpening && !UIOpened && GetComponent<GameManager>().inFarm)
+        if (!isOpening && !UIOpened && GetComponent<GameManager>().inFarm && !GetComponent<GameManager>().isPausing)
         {
             lastButtonReleased = false;
 

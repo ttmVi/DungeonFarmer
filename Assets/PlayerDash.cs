@@ -57,7 +57,7 @@ public class PlayerDash : MonoBehaviour
     private bool CheckUI()
     {
         GameObject manager = GameObject.Find("Manager");
-        return manager.GetComponent<InventoryManager>().CheckGeneralItemsUIOpeningState();
+        return manager.GetComponent<InventoryManager>().CheckGeneralItemsUIOpeningState() || manager.GetComponent<GameManager>().isPausing;
     }
 
     public void OnDash(InputAction.CallbackContext context)

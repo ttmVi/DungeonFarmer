@@ -642,6 +642,15 @@ public partial class @DefaultPlayerActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Quit"",
+                    ""type"": ""Button"",
+                    ""id"": ""b4dedad5-351f-4c56-87eb-509b071e996a"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -1128,6 +1137,17 @@ public partial class @DefaultPlayerActions: IInputActionCollection2, IDisposable
                     ""action"": ""PreviousTab"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4ac449b2-bce4-4350-a519-446e742f44c3"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Quit"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -1225,6 +1245,7 @@ public partial class @DefaultPlayerActions: IInputActionCollection2, IDisposable
         m_UI_UseItem = m_UI.FindAction("UseItem", throwIfNotFound: true);
         m_UI_NextTab = m_UI.FindAction("NextTab", throwIfNotFound: true);
         m_UI_PreviousTab = m_UI.FindAction("PreviousTab", throwIfNotFound: true);
+        m_UI_Quit = m_UI.FindAction("Quit", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -1434,6 +1455,7 @@ public partial class @DefaultPlayerActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_UI_UseItem;
     private readonly InputAction m_UI_NextTab;
     private readonly InputAction m_UI_PreviousTab;
+    private readonly InputAction m_UI_Quit;
     public struct UIActions
     {
         private @DefaultPlayerActions m_Wrapper;
@@ -1452,6 +1474,7 @@ public partial class @DefaultPlayerActions: IInputActionCollection2, IDisposable
         public InputAction @UseItem => m_Wrapper.m_UI_UseItem;
         public InputAction @NextTab => m_Wrapper.m_UI_NextTab;
         public InputAction @PreviousTab => m_Wrapper.m_UI_PreviousTab;
+        public InputAction @Quit => m_Wrapper.m_UI_Quit;
         public InputActionMap Get() { return m_Wrapper.m_UI; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1503,6 +1526,9 @@ public partial class @DefaultPlayerActions: IInputActionCollection2, IDisposable
             @PreviousTab.started += instance.OnPreviousTab;
             @PreviousTab.performed += instance.OnPreviousTab;
             @PreviousTab.canceled += instance.OnPreviousTab;
+            @Quit.started += instance.OnQuit;
+            @Quit.performed += instance.OnQuit;
+            @Quit.canceled += instance.OnQuit;
         }
 
         private void UnregisterCallbacks(IUIActions instance)
@@ -1549,6 +1575,9 @@ public partial class @DefaultPlayerActions: IInputActionCollection2, IDisposable
             @PreviousTab.started -= instance.OnPreviousTab;
             @PreviousTab.performed -= instance.OnPreviousTab;
             @PreviousTab.canceled -= instance.OnPreviousTab;
+            @Quit.started -= instance.OnQuit;
+            @Quit.performed -= instance.OnQuit;
+            @Quit.canceled -= instance.OnQuit;
         }
 
         public void RemoveCallbacks(IUIActions instance)
@@ -1642,5 +1671,6 @@ public partial class @DefaultPlayerActions: IInputActionCollection2, IDisposable
         void OnUseItem(InputAction.CallbackContext context);
         void OnNextTab(InputAction.CallbackContext context);
         void OnPreviousTab(InputAction.CallbackContext context);
+        void OnQuit(InputAction.CallbackContext context);
     }
 }

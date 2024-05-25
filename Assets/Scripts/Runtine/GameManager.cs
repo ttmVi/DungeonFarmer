@@ -43,6 +43,11 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject enemies;
     private GameObject currentEnemies;
 
+    [Space]
+    [Header("Pause Menu")]
+    [SerializeField] private GameObject pauseCanvas;
+    public bool isPausing;
+
     private void Start()
     {
         StartCoroutine(StartGame());
@@ -58,6 +63,48 @@ public class GameManager : MonoBehaviour
             }
             else { magma.GetComponent<RisingMagma>().enabled = true; }
         }
+
+        if (isPausing) { DisablePlayer(); }
+    }
+
+    public void OnPauseGame(InputAction.CallbackContext context)
+    {
+        if (context.started && currentCoroutine == null)
+        {
+            if (!isPausing)
+            {
+                PauseGame();
+            }
+            else if (isPausing)
+            {
+                ResumeGame();
+            }
+        }
+    }
+
+    public void PauseGame()
+    {
+        if (currentCoroutine == null)
+        {
+            isPausing = true;
+            pauseCanvas.SetActive(true);
+            GetComponent<InventoryManager>().CloseInventory();
+            GetComponent<CraftTableManager>().CloseCraftingUI();
+            GetComponent<TutorialManager>().CloseTutorial();
+            DisablePlayer();
+        }
+    }
+
+    public void ResumeGame()
+    {
+        isPausing = false;
+        pauseCanvas.SetActive(false);
+        EnablePlayer();
+    }
+
+    public void QuitGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
     }
 
     private IEnumerator StartGame()
@@ -271,8 +318,11 @@ public class GameManager : MonoBehaviour
         player.GetComponent<PlayerMovement>().enabled = true;
         player.GetComponent<PlayerJump>().enabled = true;
         player.GetComponent<PlayerDash>().enabled = true;
-        player.GetComponent<PlayerAttack>().enabled = true;
-        player.transform.GetChild(0).GetComponent<Melee>().enabled = true;
+        if (inDungeon)
+        {
+            player.GetComponent<PlayerAttack>().enabled = true;
+            player.transform.GetChild(0).GetComponent<Melee>().enabled = true;
+        }
         player.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
     }
 }

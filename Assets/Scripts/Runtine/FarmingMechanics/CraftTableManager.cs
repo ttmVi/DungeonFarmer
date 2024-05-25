@@ -53,16 +53,19 @@ public class CraftTableManager : MonoBehaviour
 
     public void OpenCraftingUI()
     {
-        craftingCanvas.SetActive(true);
-        isCrafting = true;
+        if (!GetComponent<GameManager>().isPausing)
+        {
+            craftingCanvas.SetActive(true);
+            isCrafting = true;
 
-        player.GetComponent<PlayerInteract>().enabled = false;
-        player.GetComponent<PlayerMovement>().enabled = false;
-        player.GetComponent<PlayerJump>().enabled = false;
-        player.GetComponent<PlayerAttack>().enabled = false;
-        player.transform.GetChild(0).GetComponent<Melee>().enabled = false;
-        player.GetComponent<PlayerDash>().enabled = false;
-        player.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            player.GetComponent<PlayerInteract>().enabled = false;
+            player.GetComponent<PlayerMovement>().enabled = false;
+            player.GetComponent<PlayerJump>().enabled = false;
+            player.GetComponent<PlayerAttack>().enabled = false;
+            player.transform.GetChild(0).GetComponent<Melee>().enabled = false;
+            player.GetComponent<PlayerDash>().enabled = false;
+            player.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        }
     }
 
     public void CloseCraftingUI(InputAction.CallbackContext context)

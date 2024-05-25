@@ -29,6 +29,11 @@ public class TutorialManager : MonoBehaviour
 
     public void OpenTutorial(string title, string tutorialContent)
     {
+        if (GetComponent<GameManager>().isPausing)
+        {
+            return;
+        }
+
         tutorialCanvas.SetActive(true);
         tutorialTitle.text = title;
         tutorialText.text = tutorialContent;
