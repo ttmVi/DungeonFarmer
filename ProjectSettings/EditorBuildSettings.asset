@@ -8,7 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/StartMenu.unity
     guid: cc252cc00f6cecd46b203708197e0ec6
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/TutorialMenu.unity
     guid: 4ad97cef4ce70b94eb9bd4bbb43b4400
   - enabled: 1

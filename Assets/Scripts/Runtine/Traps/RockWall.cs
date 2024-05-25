@@ -14,6 +14,7 @@ public class RockWall : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             transform.GetChild(0).gameObject.SetActive(true);
+            GetComponent<BoxCollider2D>().enabled = false;
         }
     }
 }

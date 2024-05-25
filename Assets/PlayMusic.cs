@@ -27,24 +27,28 @@ public class PlayMusic : MonoBehaviour
             else if(musicName == "DungeonMusic")
             {
                 AudioManager.instance.SwitchBGM(AudioManager.instance.DungeonMusic);
+                GetComponent<BoxCollider2D>().enabled = false;
             }
             else if(musicName == "LavaMusic")
             {
                 AudioManager.instance.SwitchBGM(AudioManager.instance.LavaMusic);
+                GetComponent<BoxCollider2D>().enabled = false;
             }
             else if(musicName == "RestMusic")
             {
                 AudioManager.instance.SwitchBGM(AudioManager.instance.RestMusic);
+                GetComponent<BoxCollider2D>().enabled = false;
             }
             else if(musicName == "BossMusic")
             {
                 AudioManager.instance.SwitchBGM(AudioManager.instance.BossMusic);
+                GetComponent<BoxCollider2D>().enabled = false;
             }
             else if(musicName == "VictoryMusic")
             {
                 AudioManager.instance.SwitchBGM(AudioManager.instance.VictoryMusic);
+                GetComponent<BoxCollider2D>().enabled = false;
             }
-            
         }
     }
 }

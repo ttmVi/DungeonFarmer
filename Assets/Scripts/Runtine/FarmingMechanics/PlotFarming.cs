@@ -236,7 +236,9 @@ public class PlotFarming : MonoBehaviour
 
     private void GrowPlant()
     {
-        treeGrowthIndex += stackedWater + stackedFertilizer;
+        treeGrowthIndex += stackedWater;
+        treeGrowthIndex += stackedFertilizer;
+
         if (treeGrowthIndex >= maxGrowthIndex)
         {
             treeGrowthIndex = maxGrowthIndex;

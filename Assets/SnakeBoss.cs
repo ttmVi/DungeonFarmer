@@ -15,6 +15,7 @@ public class SnakeBoss : MonoBehaviour
     public float projectileSpeed = 5f;
     public GameObject deathPoof;
     private bool death = false;
+    [SerializeField] private Items[] droppingItems;
     // Start is called before the first frame update
     private enum State
     {
@@ -106,6 +107,7 @@ public class SnakeBoss : MonoBehaviour
             Instantiate(deathPoof, deathPoofSpawn, Quaternion.identity);
             yield return new WaitForSeconds(0.2f);
         }
+        FindObjectOfType<ItemsManager>().GetComponent<ItemsManager>().InstantiateRealRandomItems(null, droppingItems, transform.position, Quaternion.identity);
         Destroy(gameObject);
         //Instantiate(deathPoof, transform.position, Quaternion.identity);
     }

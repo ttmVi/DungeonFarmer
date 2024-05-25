@@ -33,6 +33,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private AnimationClip doorClose;
     [SerializeField] private Sprite openedDoor;
     [SerializeField] private Sprite closedDoor;
+    private Coroutine currentCoroutine;
 
     [Space]
     [Header("Dungeon Variables")]
@@ -137,11 +138,16 @@ public class GameManager : MonoBehaviour
 
         dungeonDoor.GetComponent<SpriteRenderer>().sprite = closedDoor;
         EnablePlayer();
+
+        currentCoroutine = null;
     }
 
     public void ToDungeon(GameObject openingDoor) 
     {
-        StartCoroutine(ShiftToDungeon(openingDoor)); 
+        if (currentCoroutine == null)
+        {
+            currentCoroutine = StartCoroutine(ShiftToDungeon(openingDoor));
+        }
     }
 
     private IEnumerator ShiftToFarm(GameObject openingDoor)
@@ -193,11 +199,16 @@ public class GameManager : MonoBehaviour
         player.GetComponent<PlayerAttack>().enabled = false;
         player.transform.GetChild(0).GetComponent<Melee>().enabled = false;
         //player.GetComponent<PlayerDash>().enabled = false;
+
+        currentCoroutine = null;
     }
 
     public void ToFarm(GameObject openingDoor) 
     {
-        StartCoroutine(ShiftToFarm(openingDoor)); 
+        if (currentCoroutine == null)
+        {
+            currentCoroutine = StartCoroutine(ShiftToFarm(openingDoor));
+        }
     }
 
     public IEnumerator WhiteIn()

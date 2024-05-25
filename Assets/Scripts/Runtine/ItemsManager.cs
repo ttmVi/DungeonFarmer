@@ -14,6 +14,43 @@ public class ItemsManager : MonoBehaviour
         itemsManager = this;
     }
 
+    public void InstantiateRealRandomItems(GameObject placeholder, Items[] itemsList, Vector2 instantiatePosition, Quaternion rotation)
+    {
+        StartCoroutine(RandomItems(placeholder, itemsList, instantiatePosition, rotation));
+    }
+
+    private IEnumerator RandomItems(GameObject placeholder, Items[] itemsList, Vector2 instantiatePosition, Quaternion rotation)
+    {
+        int numberOfInstantiateItems = Random.Range(0, itemsList.Length);
+        int itemsLeft = itemsList.Length;
+        if (placeholder == null)
+        {
+            placeholder = itemPlaceholder;
+        }
+
+        foreach (var item in itemsList)
+        {
+            if (itemsLeft > numberOfInstantiateItems)
+            {
+                int random = Random.Range(0, 2);
+                if (random == 0) { continue; }
+                else if (random == 1)
+                {
+                    InstantiateItem(placeholder, item, instantiatePosition, rotation);
+                    numberOfInstantiateItems--;
+                    itemsLeft--;
+                }
+            }
+            else
+            {
+                InstantiateItem(placeholder, item, instantiatePosition, rotation);
+                numberOfInstantiateItems--;
+                itemsLeft--;
+            }
+            yield return new WaitForEndOfFrame();
+        }
+    }
+
     public void InstantiateRandomItems(GameObject placeholder, Items[] itemsList, Vector2 instantiatePosition, Quaternion rotation)
     {
         int numberOfItems = 0;
