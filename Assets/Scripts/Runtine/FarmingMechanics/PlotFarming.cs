@@ -130,7 +130,7 @@ public class PlotFarming : MonoBehaviour
         
         if (!manager.WaterBottleFilled())
         {
-            Debug.Log("No water in the bottle");
+            //Debug.Log("No water in the bottle");
             return;
         }
         else
@@ -167,14 +167,14 @@ public class PlotFarming : MonoBehaviour
     {
         StopAllCoroutines();
         treePlot.GetComponent<SpriteRenderer>().color = Color.white;
-        Debug.Log("Soil dried");
+        //Debug.Log("Soil dried");
     }
 
     public void FertilizePlant(Items fertilizer, float fertilizingAmount)
     {
         if (fertilizer.fertilizableSeed.GetItemName() != currentTree)
         {
-            Debug.Log("Wrong type of fertilizer");
+            //Debug.Log("Wrong type of fertilizer");
             FindObjectOfType<InventoryManager>().GetComponent<InventoryManager>().OpenFertilizersInventory(gameObject);
             return;
         }
@@ -267,6 +267,7 @@ public class PlotFarming : MonoBehaviour
 
     private void CheckTreeGrowth()
     {
+        Debug.Log("Start checking tree");
         int lastTreePhase = currentTreePhase;
 
         // Changing tree sprite based on growth index
@@ -286,14 +287,15 @@ public class PlotFarming : MonoBehaviour
                     currentTreePhase = i;
                     break;
                 }
-                else 
+                else
                 {
-                    continue; 
+                    continue;
                 }
             }
-
-            if (currentTreePhase > lastTreePhase) { animator.SetTrigger("NextPhase"); }
+            Debug.Log($"Current tree phase: {currentTreePhase}");
         }
+
+        animator.SetFloat("growthIndex", treeGrowthIndex);
     }
 
     public Tree GetTreeData() { return treeData; }

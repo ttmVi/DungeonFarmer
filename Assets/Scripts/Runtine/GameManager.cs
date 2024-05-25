@@ -133,14 +133,14 @@ public class GameManager : MonoBehaviour
             Destroy(currentEnemies);
             currentEnemies = Instantiate(enemies);
             currentEnemies.transform.parent = dungeon.transform;
-            Debug.Log(currentEnemies.gameObject.name);
+            //Debug.Log(currentEnemies.gameObject.name);
         }
 
         if (currentEnemies == null)
         {
             currentEnemies = Instantiate(enemies);
             currentEnemies.transform.parent = dungeon.transform;
-            Debug.Log(currentEnemies.gameObject.name);
+            //Debug.Log(currentEnemies.gameObject.name);
         }
     }
 

@@ -201,7 +201,7 @@ public class InventoryManager : MonoBehaviour
                 default: break;
             }
         }
-        else { Debug.Log("Inventory not opened / Inventory empty"); }
+        else { }//Debug.Log("Inventory not opened / Inventory empty"); }
     }
 
     private bool IsEmptySlot(int rowIndex, int columnIndex, List<(Items, int)> currentInventory)
@@ -360,7 +360,7 @@ public class InventoryManager : MonoBehaviour
                         DisplayItemSlot(slot, false);
                         if (selectingIndex == slotIndex)
                         {
-                            Debug.Log("Selecting empty slot");
+                            //Debug.Log("Selecting empty slot");
                             ForcePreviousItem();
                             goto restart;
                         }

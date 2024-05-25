@@ -8,9 +8,9 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 1
-    m_ConditionEvent: NextPhase
-    m_EventTreshold: 0
+  - m_ConditionMode: 3
+    m_ConditionEvent: growthIndex
+    m_EventTreshold: 4.99
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 2115663958359281346}
   m_Solo: 0
@@ -33,9 +33,9 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 1
-    m_ConditionEvent: NextPhase
-    m_EventTreshold: 0
+  - m_ConditionMode: 3
+    m_ConditionEvent: growthIndex
+    m_EventTreshold: 1.99
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 6796499678518545909}
   m_Solo: 0
@@ -58,9 +58,9 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 1
-    m_ConditionEvent: NextPhase
-    m_EventTreshold: 0
+  - m_ConditionMode: 3
+    m_ConditionEvent: growthIndex
+    m_EventTreshold: 5.99
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1447144259373810984}
   m_Solo: 0
@@ -110,9 +110,9 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 1
-    m_ConditionEvent: NextPhase
-    m_EventTreshold: 0
+  - m_ConditionMode: 3
+    m_ConditionEvent: growthIndex
+    m_EventTreshold: 3.99
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 6811043978352912391}
   m_Solo: 0
@@ -162,9 +162,9 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 1
-    m_ConditionEvent: NextPhase
-    m_EventTreshold: 0
+  - m_ConditionMode: 3
+    m_ConditionEvent: growthIndex
+    m_EventTreshold: 0.99
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -5165948214053876360}
   m_Solo: 0
@@ -256,9 +256,9 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 1
-    m_ConditionEvent: NextPhase
-    m_EventTreshold: 0
+  - m_ConditionMode: 3
+    m_ConditionEvent: growthIndex
+    m_EventTreshold: 6.99
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -1981014066647174944}
   m_Solo: 0
@@ -284,6 +284,12 @@ AnimatorController:
   m_AnimatorParameters:
   - m_Name: NextPhase
     m_Type: 9
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 0}
+  - m_Name: growthIndex
+    m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
@@ -390,9 +396,9 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 1
-    m_ConditionEvent: NextPhase
-    m_EventTreshold: 0
+  - m_ConditionMode: 3
+    m_ConditionEvent: growthIndex
+    m_EventTreshold: 2.99
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -4737636480610952158}
   m_Solo: 0

@@ -335,6 +335,6 @@ public class CraftTableManager : MonoBehaviour
             playerInventory.PickUpItems(item, 1);
             CloseCraftingUI();
         }
-        else { Debug.Log("Not enough materials"); }
+        else { }//Debug.Log("Not enough materials"); }
     }
 }

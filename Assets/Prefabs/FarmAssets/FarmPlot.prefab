@@ -175,7 +175,7 @@ MonoBehaviour:
   treeGrowthIndex: 0
   maximumStackedWater: 1
   stackedWater: 0
-  maximumStackedFertilizer: 2.5
+  maximumStackedFertilizer: 1
   stackedFertilizer: 0
   itemPlaceholder: {fileID: 7433910746993536279, guid: b9d85e10af5c25245b70235e562ffeab, type: 3}
 --- !u!95 &1017952063125537467

@@ -11,12 +11,17 @@ public class FarmManager : MonoBehaviour
     [SerializeField] private int waterBottleCapacity = 5;
     [SerializeField] private int currentWaterAmount;
     [SerializeField] private AudioClip waterFetchingSound;
+    private Coroutine sleepCoroutine;
 
     public void EndFarmDay()
     {
         // This method will be called when the player ends the day
         // It will update the growth of all the trees in the farm
-        StartCoroutine(GoToSleep());
+        if (sleepCoroutine != null) { return; }
+        else
+        {
+            sleepCoroutine = StartCoroutine(GoToSleep());
+        }
     }
 
     public void ForcedEndFarmDay()
@@ -37,6 +42,9 @@ public class FarmManager : MonoBehaviour
         yield return new WaitForSeconds(1f);
 
         StartCoroutine(manager.WhiteIn());
+        yield return new WaitUntil(() => manager.ScreenIsClear());
+
+        sleepCoroutine = null;
         yield return null;
     }
 
