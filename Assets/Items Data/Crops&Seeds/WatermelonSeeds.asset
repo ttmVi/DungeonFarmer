@@ -16,8 +16,8 @@ MonoBehaviour:
   itemName: Watermelon Seed
   itemInventoryIcon: {fileID: 960785258, guid: 00718107ee314fc4ca68a4ae5e59ede6, type: 3}
   overworldSprite: {fileID: 1309345898, guid: 00718107ee314fc4ca68a4ae5e59ede6, type: 3}
-  itemDescription: When planted, these seeds grow into robust vines known for their
-    mystical, night-cooling properties.
+  itemDescription: Seeds of the watermelon. In some cultures, people judge eachother
+    by watching if the other person spits out the seeds or swallow them whole.
   itemType: 1
   maxGrowthIndex: 7
   phasesGrowthIndex:
@@ -57,8 +57,11 @@ MonoBehaviour:
   treeAnimator: {fileID: 9100000, guid: 3bdcab4357230ee46b648c0237db08be, type: 2}
   note: 
   fertilizableSeed: {fileID: 0}
-  fertilizerCraftingRecipe: []
   potionEffect: 
-  potionCraftingRecipe: []
+  potionEffectDuration: 0
+  potionEffectValue: 0
+  potionEffectEvent:
+    m_PersistentCalls:
+      m_Calls: []
   canBeCrafted: 0
   craftingRecipe: []

@@ -16,8 +16,8 @@ MonoBehaviour:
   itemName: Tomato Crop
   itemInventoryIcon: {fileID: -1810213678, guid: e398c810baf4f624fa9373c914e0ab7d, type: 3}
   overworldSprite: {fileID: -735734324, guid: e398c810baf4f624fa9373c914e0ab7d, type: 3}
-  itemDescription: Bright red and bursting with acidic juice, tomatoes are a staple
-    for potion-making that requires dissolving tough ingredients for explosion.
+  itemDescription: Bright red and bursting with acidic juice, tomatoes are crucial
+    in making either explosive recovery or explosive outcomes.
   itemType: 2
   maxGrowthIndex: 0
   phasesGrowthIndex: []
@@ -27,8 +27,11 @@ MonoBehaviour:
   treeAnimator: {fileID: 0}
   note: 
   fertilizableSeed: {fileID: 0}
-  fertilizerCraftingRecipe: []
   potionEffect: 
-  potionCraftingRecipe: []
+  potionEffectDuration: 0
+  potionEffectValue: 0
+  potionEffectEvent:
+    m_PersistentCalls:
+      m_Calls: []
   canBeCrafted: 0
   craftingRecipe: []

@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: EmptyWaterBottle
   m_EditorClassIdentifier: 
   itemID: 25
-  itemName: Water Bottle
+  itemName: Watering Can
   itemInventoryIcon: {fileID: -393255707, guid: fdc3128ece997c54ba2d715820df9af3, type: 3}
   overworldSprite: {fileID: -1185507539, guid: fdc3128ece997c54ba2d715820df9af3, type: 3}
-  itemDescription: An empty watercan awaits replenishment.
+  itemDescription: An empty watering can with no water in it.
   itemType: 0
   maxGrowthIndex: 0
   phasesGrowthIndex: []

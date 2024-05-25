@@ -17,7 +17,7 @@ MonoBehaviour:
   itemInventoryIcon: {fileID: -1691596952, guid: 40365ef601215c741b664dd181e92bde, type: 3}
   overworldSprite: {fileID: -1626002122, guid: 40365ef601215c741b664dd181e92bde, type: 3}
   itemDescription: Distilled from mystical eggplants, this potion grants temporary
-    brute strength by channeling the vegetable's deep, earthy energies.
+    brute strength when consumed.
   itemType: 5
   maxGrowthIndex: 0
   phasesGrowthIndex: []

@@ -16,8 +16,8 @@ MonoBehaviour:
   itemName: Tomato Seed
   itemInventoryIcon: {fileID: 556836258, guid: 00718107ee314fc4ca68a4ae5e59ede6, type: 3}
   overworldSprite: {fileID: 1916916551, guid: 00718107ee314fc4ca68a4ae5e59ede6, type: 3}
-  itemDescription: These seeds produce fast-growing plants known for big IMPACT when
-    crafted.
+  itemDescription: Seeds of the tomato. Flowering tomato plants are often mistaken
+    for dandelions when seen afar as they tend to clump together.
   itemType: 1
   maxGrowthIndex: 4
   phasesGrowthIndex:
@@ -48,8 +48,11 @@ MonoBehaviour:
   treeAnimator: {fileID: 9100000, guid: 45775502b46c80e4380a6f9c769f5245, type: 2}
   note: 
   fertilizableSeed: {fileID: 0}
-  fertilizerCraftingRecipe: []
   potionEffect: 
-  potionCraftingRecipe: []
+  potionEffectDuration: 0
+  potionEffectValue: 0
+  potionEffectEvent:
+    m_PersistentCalls:
+      m_Calls: []
   canBeCrafted: 0
   craftingRecipe: []

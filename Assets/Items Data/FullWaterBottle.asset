@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: FullWaterBottle
   m_EditorClassIdentifier: 
   itemID: 26
-  itemName: Water Bottle
+  itemName: Watering Can
   itemInventoryIcon: {fileID: -1268078292, guid: fdc3128ece997c54ba2d715820df9af3, type: 3}
   overworldSprite: {fileID: -1185507539, guid: fdc3128ece997c54ba2d715820df9af3, type: 3}
-  itemDescription: A full watercan is ready to nourish your dungeon garden.
+  itemDescription: A full watering can for your watering needs. Remember to stay
+    hydrated!
   itemType: 0
   maxGrowthIndex: 0
   phasesGrowthIndex: []

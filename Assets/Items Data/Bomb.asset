@@ -16,8 +16,8 @@ MonoBehaviour:
   itemName: Bomb
   itemInventoryIcon: {fileID: -1794911686, guid: 40365ef601215c741b664dd181e92bde, type: 3}
   overworldSprite: {fileID: 2049279573, guid: 40365ef601215c741b664dd181e92bde, type: 3}
-  itemDescription: Formed from the acidic juice of ripe tomatoes, this explosive
-    concoction bursts on impact, releasing a corrosive fiery acid to damage foes.
+  itemDescription: Formed from the acidic juice of ripe tomatoes, this ball of energy
+    will burst on impact, releasing a corrosive acid blast to damage foes.
   itemType: 5
   maxGrowthIndex: 0
   phasesGrowthIndex: []

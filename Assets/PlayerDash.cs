@@ -35,11 +35,11 @@ public class PlayerDash : MonoBehaviour
     }
     void FixedUpdate()
     {
-        if (isDashing)
+        if (isDashing && !CheckUI())
         {
             rb.velocity = dashDirection.normalized * dashVelocity;
         }
-        if (!canDash)
+        if (!canDash && !CheckUI())
         {
             if (dashCounter >= dashCooldown && ground.isGrounded())
             {
@@ -53,6 +53,13 @@ public class PlayerDash : MonoBehaviour
         }
         
     }
+
+    private bool CheckUI()
+    {
+        GameObject manager = GameObject.Find("Manager");
+        return manager.GetComponent<InventoryManager>().CheckGeneralItemsUIOpeningState();
+    }
+
     public void OnDash(InputAction.CallbackContext context)
     {
         if (!knockback.isBeingKnockedBack)

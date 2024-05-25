@@ -239,17 +239,16 @@ MonoBehaviour:
   - 'Use the arrow buttons to navigate your character.
 
     Press Z to jump, X to
-    interact and attack, and C to dash, and V to throw bomb.
+    interact or attack, C to dash, and V to throw bomb.
 
     To check your inventory
     and items, press Ctrl.'
   - When you start, you will find yourself in the farm area. Explore around to find
     more tutorials regarding this area of the game.
   - You will also find a door to the dungeon in this area. Remember, there will be
-    a lot of monsters but also lots of rewards and items that you can pick up from
-    them. However, if you die in the dungeon, you will lose some of your collected
-    items.
-  - That is all for now. Good luck!
+    a lot of monsters but also a lot of rewards that you can pick up from them. However,
+    if you die in the dungeon, you will lose some of your collected items.
+  - That is all for now. Good luck, and happy farming!
   currentTutorial: 0
 --- !u!1 &115743791
 GameObject:

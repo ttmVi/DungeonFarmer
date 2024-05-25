@@ -16,8 +16,8 @@ MonoBehaviour:
   itemName: HP Potion
   itemInventoryIcon: {fileID: -2082685871, guid: 40365ef601215c741b664dd181e92bde, type: 3}
   overworldSprite: {fileID: 1950813497, guid: 40365ef601215c741b664dd181e92bde, type: 3}
-  itemDescription: 'This robust potion is brewed from the essence of enchanted pumpkins,
-    known for their vigorous life force. '
+  itemDescription: Brewed from hardy pumpkins, this robust potion restore vitality
+    when consumed.
   itemType: 5
   maxGrowthIndex: 0
   phasesGrowthIndex: []

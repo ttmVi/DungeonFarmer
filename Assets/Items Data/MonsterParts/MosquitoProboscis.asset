@@ -16,8 +16,8 @@ MonoBehaviour:
   itemName: Mosquito Proboscis
   itemInventoryIcon: {fileID: 1611169636, guid: a45056e9c7319954e85fe588424af5f3, type: 3}
   overworldSprite: {fileID: -1197896660, guid: a45056e9c7319954e85fe588424af5f3, type: 3}
-  itemDescription: With its compound eyes and needle-like proboscis, this head is
-    crucial in the distillation of potions that enhance sturdyness and physical strength.
+  itemDescription: This sharp yet flexible needle structure is a key ingredient in
+    making Rage Potions, as it contains a chemical compound similar to bloodlust.
   itemType: 4
   maxGrowthIndex: 0
   phasesGrowthIndex: []

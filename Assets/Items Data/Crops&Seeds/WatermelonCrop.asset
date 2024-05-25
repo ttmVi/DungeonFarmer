@@ -16,8 +16,9 @@ MonoBehaviour:
   itemName: Watermelon Slice
   itemInventoryIcon: {fileID: 1053357552, guid: e398c810baf4f624fa9373c914e0ab7d, type: 3}
   overworldSprite: {fileID: 847955141, guid: e398c810baf4f624fa9373c914e0ab7d, type: 3}
-  itemDescription: Juicy and refreshing, these vibrant slices are rich in mystical
-    hydrating properties.
+  itemDescription: Beneath the viridiant skin lies the blood red flesh. This odd
+    vegetable has a tendency to absorb as much water around it as it can until it
+    burst itself from the inside out, forming natural watermelon slices.
   itemType: 2
   maxGrowthIndex: 0
   phasesGrowthIndex: []
@@ -27,8 +28,11 @@ MonoBehaviour:
   treeAnimator: {fileID: 0}
   note: 
   fertilizableSeed: {fileID: 0}
-  fertilizerCraftingRecipe: []
   potionEffect: 
-  potionCraftingRecipe: []
+  potionEffectDuration: 0
+  potionEffectValue: 0
+  potionEffectEvent:
+    m_PersistentCalls:
+      m_Calls: []
   canBeCrafted: 0
   craftingRecipe: []

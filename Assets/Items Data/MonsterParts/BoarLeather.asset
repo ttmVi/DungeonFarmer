@@ -16,9 +16,8 @@ MonoBehaviour:
   itemName: Boar Leather
   itemInventoryIcon: {fileID: -818859664, guid: a45056e9c7319954e85fe588424af5f3, type: 3}
   overworldSprite: {fileID: 1648304339, guid: a45056e9c7319954e85fe588424af5f3, type: 3}
-  itemDescription: Tough and supple, this leather is imbued with the wild essence
-    of the forest boars. It's used primarily to reinforce containers and apparatus
-    used in potion making, ensuring durability of stamina.
+  itemDescription: Tough and supple, this cured leather is imbued with the wild essence
+    of boars. Its durability can be used to reinforce the container for Stamina Potions.
   itemType: 4
   maxGrowthIndex: 0
   phasesGrowthIndex: []

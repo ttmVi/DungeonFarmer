@@ -16,9 +16,9 @@ MonoBehaviour:
   itemName: Pangolin Tail
   itemInventoryIcon: {fileID: 961148097, guid: a45056e9c7319954e85fe588424af5f3, type: 3}
   overworldSprite: {fileID: -1156874832, guid: a45056e9c7319954e85fe588424af5f3, type: 3}
-  itemDescription: Thick and prehensile, this tail contains unique compounds that,
-    when stewed, create binding agents essential for thickening and stabilizing alchemical
-    concoctions for pumpkin.
+  itemDescription: Within the inner structure of this tail lies a row of regenerative
+    quills that the pangolins use for defending themselves. Alchemists have made
+    use of this porperty to create a fertilizer that promotes leaf growth in pumpkins.
   itemType: 4
   maxGrowthIndex: 0
   phasesGrowthIndex: []

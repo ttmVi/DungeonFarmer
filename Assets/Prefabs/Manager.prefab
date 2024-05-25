@@ -107,6 +107,7 @@ MonoBehaviour:
   emptyWaterBottle: {fileID: 11400000, guid: 30bd317bd4e120e4ea721232e9fd4c5b, type: 2}
   waterBottleCapacity: 5
   currentWaterAmount: 0
+  waterFetchingSound: {fileID: 8300000, guid: 8242a9bc0f52cd7409cb91f63d15aef9, type: 3}
 --- !u!114 &1481438490654590115
 MonoBehaviour:
   m_ObjectHideFlags: 0

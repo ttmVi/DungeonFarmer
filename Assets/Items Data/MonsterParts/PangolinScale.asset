@@ -16,9 +16,8 @@ MonoBehaviour:
   itemName: Pangolin Scale
   itemInventoryIcon: {fileID: 1781788426, guid: a45056e9c7319954e85fe588424af5f3, type: 3}
   overworldSprite: {fileID: 1069494298, guid: a45056e9c7319954e85fe588424af5f3, type: 3}
-  itemDescription: These tough, armor-like scales glitter with a metallic sheen.
-    Infused in brews, they fortify potions meant to boost physical resilience against
-    blows.
+  itemDescription: These tough and rough scales glimmer with a metallic sheen. Infused
+    in brews, they fortify potions meant to boost physical resilience against blows.
   itemType: 4
   maxGrowthIndex: 0
   phasesGrowthIndex: []

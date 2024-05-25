@@ -10,6 +10,7 @@ public class FarmManager : MonoBehaviour
     [SerializeField] private Items emptyWaterBottle;
     [SerializeField] private int waterBottleCapacity = 5;
     [SerializeField] private int currentWaterAmount;
+    [SerializeField] private AudioClip waterFetchingSound;
 
     public void EndFarmDay()
     {
@@ -55,8 +56,18 @@ public class FarmManager : MonoBehaviour
 
     public void FetchWater()
     {
-        playerInventory.FetchWater(emptyWaterBottle, fullWaterBottle);
-        currentWaterAmount = waterBottleCapacity;
+        if (playerInventory.CheckForItem(emptyWaterBottle))
+        {
+            playerInventory.FetchWater(emptyWaterBottle, fullWaterBottle);
+            currentWaterAmount = waterBottleCapacity;
+            AudioSource.PlayClipAtPoint(waterFetchingSound, playerInventory.gameObject.transform.position);
+        }
+        else if (playerInventory.CheckForItem(fullWaterBottle) && currentWaterAmount < waterBottleCapacity)
+        {
+            //playerInventory.FetchWater(emptyWaterBottle, fullWaterBottle);
+            currentWaterAmount = waterBottleCapacity;
+            AudioSource.PlayClipAtPoint(waterFetchingSound, playerInventory.gameObject.transform.position);
+        }
     }
 
     public void EmptyWater()
