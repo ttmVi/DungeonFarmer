@@ -26,7 +26,7 @@ public class PlayerLadderClimb : MonoBehaviour
         {
             transform.Translate(climbingDirection * climbingSpeed * Time.deltaTime);
         }
-        else if (!LadderCheck()) { ExitLadder(); }
+        else if (!LadderCheck() && GameObject.Find("Manager").GetComponent<GameManager>().inDungeon) { ExitLadder(); }
     }
 
     public void EnterLadder(InputAction.CallbackContext context)

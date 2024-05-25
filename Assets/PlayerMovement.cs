@@ -81,6 +81,12 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    private bool CheckUI()
+    {
+        GameObject manager = GameObject.Find("Manager");
+        return manager.GetComponent<InventoryManager>().CheckGeneralItemsUIOpeningState();
+    }
+
     private void FixedUpdate()
     {
         //Fixed update runs in sync with Unity's physics engine
@@ -89,21 +95,29 @@ public class PlayerMovement : MonoBehaviour
         onGround = ground.isGrounded();
 
         //Get the Rigidbody's current velocity
-        velocity = body.velocity;
-        //Calculate movement, depending on whether "Instant Movement" has been checked
-        if (useAcceleration)
+        if (!CheckUI())
         {
-            runWithAcceleration();
+            velocity = body.velocity;
         }
-        else
+        else { velocity = Vector2.zero; }
+        
+        if (!CheckUI())
         {
-            if (onGround)
+            //Calculate movement, depending on whether "Instant Movement" has been checked
+            if (useAcceleration)
             {
-                runWithoutAcceleration();
+                runWithAcceleration();
             }
             else
             {
-                runWithAcceleration();
+                if (onGround)
+                {
+                    runWithoutAcceleration();
+                }
+                else
+                {
+                    runWithAcceleration();
+                }
             }
         }
     }

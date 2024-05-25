@@ -126,7 +126,7 @@ public class PlayerJump : MonoBehaviour
         //Get velocity from Kit's Rigidbody 
         velocity = body.velocity;
         //Keep trying to do a jump, for as long as desiredJump is true
-        if (desiredJump)
+        if (desiredJump && !CheckUI())
         {
             DoAJump();
             body.velocity = velocity;
@@ -206,6 +206,12 @@ public class PlayerJump : MonoBehaviour
         //Set the character's Rigidbody's velocity
         //But clamp the Y variable within the bounds of the speed limit, for the terminal velocity assist option
         body.velocity = new Vector3(velocity.x, Mathf.Clamp(velocity.y, -speedLimit, 100));
+    }
+
+    private bool CheckUI()
+    {
+        GameObject manager = GameObject.Find("Manager");
+        return manager.GetComponent<InventoryManager>().CheckGeneralItemsUIOpeningState();
     }
 
     private void DoAJump()
